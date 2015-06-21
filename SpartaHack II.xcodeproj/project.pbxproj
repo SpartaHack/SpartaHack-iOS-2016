@@ -31,6 +31,8 @@
 		F5373BC61B327604007F508C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC51B327604007F508C /* SystemConfiguration.framework */; };
 		F5373BC81B32760C007F508C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC71B32760C007F508C /* libz.dylib */; };
 		F5373BCA1B327614007F508C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC91B327614007F508C /* libsqlite3.dylib */; };
+		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
+		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		F5373BC51B327604007F508C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5373BC71B32760C007F508C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F5373BC91B327614007F508C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				F5373B871B327566007F508C /* AppDelegate.swift */,
-				F5373B891B327566007F508C /* FirstViewController.swift */,
-				F5373B8B1B327566007F508C /* SecondViewController.swift */,
+				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B921B327566007F508C /* LaunchScreen.xib */,
@@ -189,6 +192,17 @@
 				F5373BAE1B32758C007F508C /* ParseUI.framework */,
 			);
 			name = Parse;
+			sourceTree = "<group>";
+		};
+		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
+				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
+				F5373B891B327566007F508C /* FirstViewController.swift */,
+				F5373B8B1B327566007F508C /* SecondViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,7 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
 				F5373B8C1B327566007F508C /* SecondViewController.swift in Sources */,
+				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
 				F5373B8A1B327566007F508C /* FirstViewController.swift in Sources */,
 			);

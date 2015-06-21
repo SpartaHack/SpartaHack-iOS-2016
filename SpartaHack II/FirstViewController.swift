@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import Parse
 
 class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        var currentUser = PFUser.currentUser()
+        
+        // Check to see if a user is logged in, if not, show login view
+        
+        if currentUser == nil {
+            self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
+        } else {
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
