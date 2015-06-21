@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var EmailAddressLabel: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var PasswordConfirmTextField: UITextField!
+    @IBOutlet weak var BirthdayTextField: UITextField!
     @IBOutlet weak var NumberOfHackathonsTextField: UITextField!
     @IBOutlet weak var SchoolTextField: UITextField!
     
@@ -30,7 +31,64 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBAction func SubmitButtonTapped(sender: AnyObject) {
         // perform field validations
         println("Valdate the shit out of the form")
+        var test = checkThatFieldsAreFilled()
+        var passwordTest = checkPasswordMatch()
+
+        if test != true {
+            let alert = UIAlertView(title: "Error", message: "Fields are missing", delegate: self, cancelButtonTitle: "Oh, okay")
+            alert.show()
+        }
+        
+        if passwordTest != true {
+            let alert = UIAlertView(title: "Error", message: "Passwords don't match", delegate: self, cancelButtonTitle: "Oh, okay")
+            alert.show()
+            PasswordTextField.text = ""
+            PasswordConfirmTextField.text = ""
+        }
+        
+        if test && passwordTest != false {
+            // give parse information
+            var user = PFUser()
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "mm-dd-yyyy"
+            
+            user.username = EmailAddressLabel.text
+            user.password = PasswordTextField.text
+            user.email = EmailAddressLabel.text
+            user["firstName"] = FirstNameTextField.text
+            user["lastName"] = LastNameTextField.text
+            user["birthday"] = dateFormatter.dateFromString(BirthdayTextField.text)
+            user["numberOfHackathon"] = NumberOfHackathonsTextField.text
+            user["school"] = SchoolTextField.text
+            
+            
+            user.signUpInBackgroundWithBlock {(succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo?["error"] as? NSString
+                    // Show the errorString somewhere and let the user try again.
+                    println("error")
+                } else {
+                    // Hooray! Let them use the app now.
+                    println("great success!")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            }
+            
+        }
     
+    }
+    
+    func checkThatFieldsAreFilled () -> Bool{
+        let arrayOfFields = [FirstNameTextField,LastNameTextField,EmailAddressLabel,PasswordTextField,PasswordConfirmTextField,BirthdayTextField,NumberOfHackathonsTextField,SchoolTextField]
+        for thing in arrayOfFields {
+            if thing.text.isEmpty == true{
+                // error
+                println("error")
+                return false
+            }
+        }
+        println("success")
+        return true
     }
     
     func checkPasswordMatch () -> Bool {
