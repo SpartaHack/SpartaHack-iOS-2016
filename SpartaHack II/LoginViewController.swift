@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Parse
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -18,17 +18,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func SignupButtonTapped(sender: AnyObject) {
         // load the sign up view with the navigation controller segue
-        self.performSegueWithIdentifier("signupSegue", sender: nil)
-//        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-//            println("segue god dammit")
-//            self.navigationController?.performSegueWithIdentifier("signupSegue", sender: nil)
-//        })
-    
+        self.performSegueWithIdentifier("signupSegue", sender: nil)   
     }
     
     @IBAction func LoginButtonTapped(sender: AnyObject) {
-    
-    
+        PFUser.logInWithUsernameInBackground(emailTextField.text, password:passwordTextField.text) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Do stuff after successful login.
+                self.dismissViewControllerAnimated(true, completion: nil)
+            } else {
+                // The login failed. Check error to see why.
+            }
+        }
     }
     
     @IBAction func ForgotPasswordButtonTapped(sender: AnyObject) {

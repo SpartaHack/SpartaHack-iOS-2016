@@ -33,6 +33,7 @@
 		F5373BCA1B327614007F508C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC91B327614007F508C /* libsqlite3.dylib */; };
 		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
+		F53D9FD91B40AA7B002BCA28 /* ParseUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53D9FD81B40AA7B002BCA28 /* ParseUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		F5373BC91B327614007F508C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F53D9FD81B40AA7B002BCA28 /* ParseUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		F5373B841B327566007F508C /* SpartaHack II */ = {
 			isa = PBXGroup;
 			children = (
+				F53D9FD81B40AA7B002BCA28 /* ParseUserModel.swift */,
 				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
@@ -249,6 +252,7 @@
 		F5373B7A1B327566007F508C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Chris McGrath";
 				TargetAttributes = {
@@ -305,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F53D9FD91B40AA7B002BCA28 /* ParseUserModel.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
 				F5373B8C1B327566007F508C /* SecondViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,

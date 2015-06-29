@@ -18,7 +18,6 @@ class FirstViewController: UIViewController {
         var currentUser = PFUser.currentUser()
         
         // Check to see if a user is logged in, if not, show login view
-        
         if currentUser == nil {
             self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
         } else {

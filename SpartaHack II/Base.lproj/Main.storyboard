@@ -4,6 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Helvetica.ttc">
+            <string>Helvetica</string>
+            <string>Helvetica</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
@@ -43,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="-232"/>
+            <point key="canvasLocation" x="1562" y="-321"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -83,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="360"/>
+            <point key="canvasLocation" x="1562" y="320"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AFK-GJ-gz5">
@@ -100,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1j-ju-hBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="0.0"/>
+            <point key="canvasLocation" x="-25" y="0.0"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="dph-vo-Tjp">
@@ -141,7 +147,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Typer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYH-Ep-MUO">
-                                                <rect key="frame" x="8" y="103" width="584" height="30"/>
+                                                <rect key="frame" x="8" y="102" width="584" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -149,13 +155,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="940-fW-7Bz">
-                                                <rect key="frame" x="8" y="141" width="108" height="21"/>
+                                                <rect key="frame" x="8" y="140" width="108" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hello@spartahack.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y0g-2n-UqH">
-                                                <rect key="frame" x="8" y="170" width="584" height="30"/>
+                                                <rect key="frame" x="8" y="169" width="584" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress"/>
                                                 <connections>
@@ -163,13 +169,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RC-kR-Bww">
-                                                <rect key="frame" x="8" y="208" width="76" height="21"/>
+                                                <rect key="frame" x="8" y="207" width="76" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password123 " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-5s-i9s">
-                                                <rect key="frame" x="8" y="236" width="584" height="30"/>
+                                                <rect key="frame" x="8" y="234" width="584" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
@@ -177,19 +183,19 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-JF-iq3">
-                                                <rect key="frame" x="8" y="274" width="142" height="21"/>
+                                                <rect key="frame" x="8" y="272" width="142" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday mm/dd/yyyy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnL-vQ-oSC">
-                                                <rect key="frame" x="8" y="341" width="165" height="21"/>
+                                                <rect key="frame" x="8" y="339" width="165" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password123 " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pty-aM-mM1">
-                                                <rect key="frame" x="8" y="303" width="584" height="30"/>
+                                                <rect key="frame" x="8" y="301" width="584" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
@@ -197,7 +203,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="01-01-1994" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e23-RX-fSf">
-                                                <rect key="frame" x="8" y="370" width="584" height="30"/>
+                                                <rect key="frame" x="8" y="367" width="584" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -205,13 +211,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of hackathons attended" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQO-mi-5N5">
-                                                <rect key="frame" x="8" y="408" width="248" height="21"/>
+                                                <rect key="frame" x="8" y="405" width="248" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="9,001" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e7z-aO-njG">
-                                                <rect key="frame" x="8" y="436" width="584" height="30"/>
+                                                <rect key="frame" x="8" y="433" width="584" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
@@ -219,19 +225,19 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5v-Fz-Iat">
-                                                <rect key="frame" x="8" y="469" width="54" height="21"/>
+                                                <rect key="frame" x="8" y="466" width="54" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-Shrit size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BU-rH-rg7">
-                                                <rect key="frame" x="8" y="536" width="85" height="21"/>
+                                                <rect key="frame" x="8" y="532" width="85" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Michgan State University" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44Z-eT-r1H">
-                                                <rect key="frame" x="8" y="498" width="584" height="30"/>
+                                                <rect key="frame" x="8" y="494" width="584" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -239,7 +245,7 @@
                                                 </connections>
                                             </textField>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DHI-gj-zdq">
-                                                <rect key="frame" x="8" y="564" width="584" height="29"/>
+                                                <rect key="frame" x="8" y="560" width="584" height="29"/>
                                                 <segments>
                                                     <segment title="S"/>
                                                     <segment title="M"/>
@@ -249,26 +255,26 @@
                                                 </segments>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43L-1q-18s">
-                                                <rect key="frame" x="8" y="600" width="57" height="21"/>
+                                                <rect key="frame" x="8" y="596" width="57" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EOW-Uy-x2Q">
-                                                <rect key="frame" x="8" y="630" width="584" height="29"/>
+                                                <rect key="frame" x="8" y="625" width="584" height="29"/>
                                                 <segments>
                                                     <segment title="Male"/>
                                                     <segment title="Female"/>
                                                 </segments>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Prefs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWW-o1-dLZ">
-                                                <rect key="frame" x="8" y="666" width="84" height="21"/>
+                                                <rect key="frame" x="8" y="661" width="84" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qYK-dP-ueI">
-                                                <rect key="frame" x="8" y="696" width="584" height="29"/>
+                                                <rect key="frame" x="8" y="691" width="584" height="29"/>
                                                 <segments>
                                                     <segment title="None"/>
                                                     <segment title="Vegatarian"/>
@@ -278,7 +284,7 @@
                                                 </segments>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1w-qc-ro2">
-                                                <rect key="frame" x="276" y="732" width="49" height="30"/>
+                                                <rect key="frame" x="276" y="727" width="49" height="30"/>
                                                 <state key="normal" title="Submit">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -384,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2a6-ib-i3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="-1093"/>
+            <point key="canvasLocation" x="1562" y="-976"/>
         </scene>
         <!--Login-->
         <scene sceneID="v8K-oQ-zN0">
@@ -399,7 +405,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpartaHack II" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yI7-fB-h7X">
-                                <rect key="frame" x="197" y="28" width="208" height="42"/>
+                                <rect key="frame" x="198" y="28" width="208" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -417,13 +423,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alX-Ot-8Cn">
-                                <rect key="frame" x="16" y="164" width="76" height="21"/>
+                                <rect key="frame" x="16" y="163" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="sparta@spartahack.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQS-Su-YLy">
-                                <rect key="frame" x="16" y="126" width="568" height="30"/>
+                                <rect key="frame" x="16" y="125" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
@@ -431,7 +437,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password123" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fq-m1-yif">
-                                <rect key="frame" x="16" y="193" width="568" height="30"/>
+                                <rect key="frame" x="16" y="192" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
@@ -439,7 +445,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQV-bU-mKg">
-                                <rect key="frame" x="16" y="237" width="568" height="30"/>
+                                <rect key="frame" x="16" y="236" width="568" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Signup">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -449,7 +455,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVA-Xj-zaH">
-                                <rect key="frame" x="16" y="275" width="568" height="30"/>
+                                <rect key="frame" x="16" y="274" width="568" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -459,7 +465,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kg-ex-nud">
-                                <rect key="frame" x="16" y="315" width="568" height="30"/>
+                                <rect key="frame" x="16" y="314" width="568" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Forgot Password">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -511,7 +517,10 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Jwh-6F-9O8"/>
+                    <navigationItem key="navigationItem" id="Jwh-6F-9O8">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="n7x-13-POd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="GMp-MU-T3l"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>

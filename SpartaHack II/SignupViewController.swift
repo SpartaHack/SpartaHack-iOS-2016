@@ -48,31 +48,46 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         if test && passwordTest != false {
             // give parse information
-            var user = PFUser()
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "mm-dd-yyyy"
+            // build dictionary
             
-            user.username = EmailAddressLabel.text
-            user.password = PasswordTextField.text
-            user.email = EmailAddressLabel.text
-            user["firstName"] = FirstNameTextField.text
-            user["lastName"] = LastNameTextField.text
-            user["birthday"] = dateFormatter.dateFromString(BirthdayTextField.text)
-            user["numberOfHackathon"] = NumberOfHackathonsTextField.text
-            user["school"] = SchoolTextField.text
+            var userDict = NSDictionary()
+            
+            userDict.setValue(EmailAddressLabel.text, forKey: "email")
+            userDict.setValue(PasswordTextField.text, forKey: "email")
+            userDict.setValue(FirstNameTextField.text, forKey: "email")
+            userDict.setValue(LastNameTextField.text, forKey: "email")
+            userDict.setValue(BirthdayTextField.text, forKey: "email")
+            userDict.setValue(NumberOfHackathonsTextField.text, forKey: "email")
+            userDict.setValue(SchoolTextField.text, forKey: "email")
             
             
-            user.signUpInBackgroundWithBlock {(succeeded: Bool, error: NSError?) -> Void in
-                if let error = error {
-                    let errorString = error.userInfo?["error"] as? NSString
-                    // Show the errorString somewhere and let the user try again.
-                    println("error")
-                } else {
-                    // Hooray! Let them use the app now.
-                    println("great success!")
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
-            }
+            var registerUser = ParseUserModel().registerUserWithDict(userDict)
+            
+//            var user = PFUser()
+//            let dateFormatter = NSDateFormatter()
+//            dateFormatter.dateFormat = "mm-dd-yyyy"
+//            
+//            user.username = EmailAddressLabel.text
+//            user.password = PasswordTextField.text
+//            user.email = EmailAddressLabel.text
+//            user["firstName"] = FirstNameTextField.text
+//            user["lastName"] = LastNameTextField.text
+//            user["birthday"] = dateFormatter.dateFromString(BirthdayTextField.text)
+//            user["numberOfHackathon"] = NumberOfHackathonsTextField.text
+//            user["school"] = SchoolTextField.text
+//            
+//            
+//            user.signUpInBackgroundWithBlock {(succeeded: Bool, error: NSError?) -> Void in
+//                if let error = error {
+//                    let errorString = error.userInfo?["error"] as? NSString
+//                    // Show the errorString somewhere and let the user try again.
+//                    println("error")
+//                } else {
+//                    // Hooray! Let them use the app now.
+//                    println("great success!")
+//                    self.dismissViewControllerAnimated(true, completion: nil)
+//                }
+//            }
             
         }
     
