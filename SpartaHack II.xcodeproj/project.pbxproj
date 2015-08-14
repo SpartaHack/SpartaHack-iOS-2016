@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
-		F5373B8A1B327566007F508C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* FirstViewController.swift */; };
+		F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* NewsTableViewController.swift */; };
 		F5373B8C1B327566007F508C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B8B1B327566007F508C /* SecondViewController.swift */; };
 		F5373B8F1B327566007F508C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5373B8D1B327566007F508C /* Main.storyboard */; };
 		F5373B911B327566007F508C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5373B901B327566007F508C /* Images.xcassets */; };
@@ -33,7 +33,7 @@
 		F5373BCA1B327614007F508C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC91B327614007F508C /* libsqlite3.dylib */; };
 		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
-		F53D9FD91B40AA7B002BCA28 /* ParseUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53D9FD81B40AA7B002BCA28 /* ParseUserModel.swift */; };
+		F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */; };
 		F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A60A971B40FD5600709528 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 		F5373B821B327566007F508C /* SpartaHack II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5373B871B327566007F508C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5373B891B327566007F508C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		F5373B891B327566007F508C /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		F5373B8B1B327566007F508C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F5373B8E1B327566007F508C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5373B901B327566007F508C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		F5373BC91B327614007F508C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		F53D9FD81B40AA7B002BCA28 /* ParseUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUserModel.swift; sourceTree = "<group>"; };
+		F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseModel.swift; sourceTree = "<group>"; };
 		F5A60A971B40FD5600709528 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +138,7 @@
 		F5373B841B327566007F508C /* SpartaHack II */ = {
 			isa = PBXGroup;
 			children = (
-				F53D9FD81B40AA7B002BCA28 /* ParseUserModel.swift */,
+				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
 				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
@@ -205,7 +205,7 @@
 				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
-				F5373B891B327566007F508C /* FirstViewController.swift */,
+				F5373B891B327566007F508C /* NewsTableViewController.swift */,
 				F5373B8B1B327566007F508C /* SecondViewController.swift */,
 			);
 			name = ViewControllers;
@@ -312,13 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F53D9FD91B40AA7B002BCA28 /* ParseUserModel.swift in Sources */,
+				F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
 				F5373B8C1B327566007F508C /* SecondViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
-				F5373B8A1B327566007F508C /* FirstViewController.swift in Sources */,
+				F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

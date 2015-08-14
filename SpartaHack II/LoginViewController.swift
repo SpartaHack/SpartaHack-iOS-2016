@@ -14,7 +14,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
 
     @IBAction func SignupButtonTapped(sender: AnyObject) {
         // load the sign up view with the navigation controller segue

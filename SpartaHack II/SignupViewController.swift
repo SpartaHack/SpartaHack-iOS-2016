@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Parse
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate, ParseModelDelegate {
     
     // all the labels and buttons here.... there's a lot
     @IBOutlet weak var FirstNameTextField: UITextField!
@@ -50,51 +50,39 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             // give parse information
             // build dictionary
             
-            var userDict = NSDictionary()
             
-            userDict.setValue(EmailAddressLabel.text, forKey: "email")
-            userDict.setValue(PasswordTextField.text, forKey: "email")
-            userDict.setValue(FirstNameTextField.text, forKey: "email")
-            userDict.setValue(LastNameTextField.text, forKey: "email")
-            userDict.setValue(BirthdayTextField.text, forKey: "email")
-            userDict.setValue(NumberOfHackathonsTextField.text, forKey: "email")
-            userDict.setValue(SchoolTextField.text, forKey: "email")
+            ParseModel.sharedInstance.userDict.updateValue(EmailAddressLabel.text, forKey: kemailName)
+            ParseModel.sharedInstance.userDict.updateValue(PasswordTextField.text, forKey: kpassword)
+            ParseModel.sharedInstance.userDict.updateValue(FirstNameTextField.text, forKey: kfirstName)
+            ParseModel.sharedInstance.userDict.updateValue(LastNameTextField.text, forKey: klastName)
+            ParseModel.sharedInstance.userDict.updateValue(BirthdayTextField.text, forKey: kbirthday)
+            ParseModel.sharedInstance.userDict.updateValue(NumberOfHackathonsTextField.text, forKey: knumberOfHackathons)
+            ParseModel.sharedInstance.userDict.updateValue(SchoolTextField.text, forKey: kschool)
             
-            
-            var registerUser = ParseUserModel().registerUserWithDict(userDict)
-            
-//            var user = PFUser()
-//            let dateFormatter = NSDateFormatter()
-//            dateFormatter.dateFormat = "mm-dd-yyyy"
-//            
-//            user.username = EmailAddressLabel.text
-//            user.password = PasswordTextField.text
-//            user.email = EmailAddressLabel.text
-//            user["firstName"] = FirstNameTextField.text
-//            user["lastName"] = LastNameTextField.text
-//            user["birthday"] = dateFormatter.dateFromString(BirthdayTextField.text)
-//            user["numberOfHackathon"] = NumberOfHackathonsTextField.text
-//            user["school"] = SchoolTextField.text
-//            
-//            
-//            user.signUpInBackgroundWithBlock {(succeeded: Bool, error: NSError?) -> Void in
-//                if let error = error {
-//                    let errorString = error.userInfo?["error"] as? NSString
-//                    // Show the errorString somewhere and let the user try again.
-//                    println("error")
-//                } else {
-//                    // Hooray! Let them use the app now.
-//                    println("great success!")
-//                    self.dismissViewControllerAnimated(true, completion: nil)
-//                }
-//            }
-            
+            ParseModel.sharedInstance.registerUserWithDict()
         }
-    
     }
     
-    func checkThatFieldsAreFilled () -> Bool{
-        let arrayOfFields = [FirstNameTextField,LastNameTextField,EmailAddressLabel,PasswordTextField,PasswordConfirmTextField,BirthdayTextField,NumberOfHackathonsTextField,SchoolTextField]
+    func didRegisterUser(success: Bool) {
+        if success {
+            println("AWAY WITH YOU")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            println("ERR")
+        }
+    }
+    
+    func checkThatFieldsAreFilled () -> Bool {
+        let arrayOfFields = [
+        FirstNameTextField,
+        LastNameTextField,
+        EmailAddressLabel,
+        PasswordTextField,
+        PasswordConfirmTextField,
+        BirthdayTextField,
+        NumberOfHackathonsTextField,
+        SchoolTextField
+        ]
         for thing in arrayOfFields {
             if thing.text.isEmpty == true{
                 // error
@@ -119,15 +107,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // view code here
         registerForKeyboardNotifications()
+        ParseModel.sharedInstance.delegate = self
         
     }
-    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
     
     // MARK: Keyboard Delegates 
     func registerForKeyboardNotifications() {
