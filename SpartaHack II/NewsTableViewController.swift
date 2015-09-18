@@ -35,7 +35,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         
         // Check to see if a user is logged in, if not, show login view
         if currentUser == nil {
@@ -61,7 +61,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
         cell.titleLabel?.text = dataAry[indexPath.row]["Title"] as? String
         cell.detailLabel?.text = dataAry[indexPath.row]["Description"] as? String
         

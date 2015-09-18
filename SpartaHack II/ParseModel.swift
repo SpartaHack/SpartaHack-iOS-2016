@@ -35,7 +35,7 @@ class ParseModel: NSObject {
     
     // Register user with our Parse database
     func registerUserWithDict() {
-        var newUser = PFUser()
+        let newUser = PFUser()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "mm-dd-yyyy"
         
@@ -50,32 +50,32 @@ class ParseModel: NSObject {
         
         newUser.signUpInBackgroundWithBlock {(succeeded: Bool, error: NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo?["error"] as? NSString
+                let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
                 self.delegate?.didRegisterUser!(false)
-                println("Why must the success codes always be gone? \(errorString)")
+                print("Why must the success codes always be gone? \(errorString)")
             } else {
                 // Hooray! Let them use the app now.
                 self.delegate?.didRegisterUser!(true)
-                println("great success!")
+                print("great success!")
             }
         }
     }
     
     // Get updated news
     func getNews() {
-        var query = PFQuery(className: "Announcements")
+        let query = PFQuery(className: "Announcements")
         query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo?["error"] as? NSString
+                let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
-                println("Why must the success codes always be gone? \(errorString)")
+                print("Why must the success codes always be gone? \(errorString)")
             } else {
                 // Hooray! Let them use the app now.
                 if let objects = objects as? [PFObject] {
                     self.delegate?.didGetNewsUpdate!(objects)
                 }
-                println("great success!")
+                print("great success!")
             }
         }
     }

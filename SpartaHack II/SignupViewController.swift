@@ -30,9 +30,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, ParseModelDel
     
     @IBAction func SubmitButtonTapped(sender: AnyObject) {
         // perform field validations
-        println("Valdate the shit out of the form")
-        var test = checkThatFieldsAreFilled()
-        var passwordTest = checkPasswordMatch()
+        print("Valdate the shit out of the form")
+        let test = checkThatFieldsAreFilled()
+        let passwordTest = checkPasswordMatch()
 
         if test != true {
             let alert = UIAlertView(title: "Error", message: "Fields are missing", delegate: self, cancelButtonTitle: "Oh, okay")
@@ -51,13 +51,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, ParseModelDel
             // build dictionary
             
             
-            ParseModel.sharedInstance.userDict.updateValue(EmailAddressLabel.text, forKey: kemailName)
-            ParseModel.sharedInstance.userDict.updateValue(PasswordTextField.text, forKey: kpassword)
-            ParseModel.sharedInstance.userDict.updateValue(FirstNameTextField.text, forKey: kfirstName)
-            ParseModel.sharedInstance.userDict.updateValue(LastNameTextField.text, forKey: klastName)
-            ParseModel.sharedInstance.userDict.updateValue(BirthdayTextField.text, forKey: kbirthday)
-            ParseModel.sharedInstance.userDict.updateValue(NumberOfHackathonsTextField.text, forKey: knumberOfHackathons)
-            ParseModel.sharedInstance.userDict.updateValue(SchoolTextField.text, forKey: kschool)
+            ParseModel.sharedInstance.userDict.updateValue(EmailAddressLabel.text!, forKey: kemailName)
+            ParseModel.sharedInstance.userDict.updateValue(PasswordTextField.text!, forKey: kpassword)
+            ParseModel.sharedInstance.userDict.updateValue(FirstNameTextField.text!, forKey: kfirstName)
+            ParseModel.sharedInstance.userDict.updateValue(LastNameTextField.text!, forKey: klastName)
+            ParseModel.sharedInstance.userDict.updateValue(BirthdayTextField.text!, forKey: kbirthday)
+            ParseModel.sharedInstance.userDict.updateValue(NumberOfHackathonsTextField.text!, forKey: knumberOfHackathons)
+            ParseModel.sharedInstance.userDict.updateValue(SchoolTextField.text!, forKey: kschool)
             
             ParseModel.sharedInstance.registerUserWithDict()
         }
@@ -65,10 +65,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, ParseModelDel
     
     func didRegisterUser(success: Bool) {
         if success {
-            println("AWAY WITH YOU")
+            print("AWAY WITH YOU")
             self.dismissViewControllerAnimated(true, completion: nil)
         } else {
-            println("ERR")
+            print("ERR")
         }
     }
     
@@ -84,13 +84,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, ParseModelDel
         SchoolTextField
         ]
         for thing in arrayOfFields {
-            if thing.text.isEmpty == true{
+            if thing.text!.isEmpty == true{
                 // error
-                println("error")
+                print("error")
                 return false
             }
         }
-        println("success")
+        print("success")
         return true
     }
     
