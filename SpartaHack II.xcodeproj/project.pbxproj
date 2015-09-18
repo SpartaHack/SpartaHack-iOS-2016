@@ -35,6 +35,15 @@
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
 		F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */; };
 		F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A60A971B40FD5600709528 /* ProfileViewController.swift */; };
+		F5F792AF1BAC7B18008C1D51 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F792AD1BAC7B18008C1D51 /* Interface.storyboard */; };
+		F5F792B11BAC7B18008C1D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F792B01BAC7B18008C1D51 /* Assets.xcassets */; };
+		F5F792B81BAC7B18008C1D51 /* SpartaWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F5F792B71BAC7B18008C1D51 /* SpartaWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5F792BD1BAC7B18008C1D51 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F792BC1BAC7B18008C1D51 /* InterfaceController.swift */; };
+		F5F792BF1BAC7B18008C1D51 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F792BE1BAC7B18008C1D51 /* ExtensionDelegate.swift */; };
+		F5F792C11BAC7B18008C1D51 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F792C01BAC7B18008C1D51 /* GlanceController.swift */; };
+		F5F792C31BAC7B18008C1D51 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F792C21BAC7B18008C1D51 /* ComplicationController.swift */; };
+		F5F792C51BAC7B18008C1D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F792C41BAC7B18008C1D51 /* Assets.xcassets */; };
+		F5F792C91BAC7B18008C1D51 /* SpartaWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F5F792AB1BAC7B18008C1D51 /* SpartaWatch.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +54,46 @@
 			remoteGlobalIDString = F5373B811B327566007F508C;
 			remoteInfo = "SpartaHack II";
 		};
+		F5F792B91BAC7B18008C1D51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5373B7A1B327566007F508C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5F792B61BAC7B18008C1D51;
+			remoteInfo = "SpartaWatch Extension";
+		};
+		F5F792C71BAC7B18008C1D51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5373B7A1B327566007F508C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5F792AA1BAC7B18008C1D51;
+			remoteInfo = SpartaWatch;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5F792CF1BAC7B18008C1D51 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F5F792B81BAC7B18008C1D51 /* SpartaWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5F792D11BAC7B18008C1D51 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F5F792C91BAC7B18008C1D51 /* SpartaWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F5373B821B327566007F508C /* SpartaHack II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +128,17 @@
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseModel.swift; sourceTree = "<group>"; };
 		F5A60A971B40FD5600709528 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F5F792AB1BAC7B18008C1D51 /* SpartaWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F792AE1BAC7B18008C1D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		F5F792B01BAC7B18008C1D51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5F792B21BAC7B18008C1D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5F792B71BAC7B18008C1D51 /* SpartaWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SpartaWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F792BC1BAC7B18008C1D51 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		F5F792BE1BAC7B18008C1D51 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		F5F792C01BAC7B18008C1D51 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		F5F792C21BAC7B18008C1D51 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		F5F792C41BAC7B18008C1D51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5F792C61BAC7B18008C1D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +173,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F5F792B41BAC7B18008C1D51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,6 +188,8 @@
 			children = (
 				F5373B841B327566007F508C /* SpartaHack II */,
 				F5373B9C1B327566007F508C /* SpartaHack IITests */,
+				F5F792AC1BAC7B18008C1D51 /* SpartaWatch */,
+				F5F792BB1BAC7B18008C1D51 /* SpartaWatch Extension */,
 				F5373B831B327566007F508C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +199,8 @@
 			children = (
 				F5373B821B327566007F508C /* SpartaHack II.app */,
 				F5373B991B327566007F508C /* SpartaHack IITests.xctest */,
+				F5F792AB1BAC7B18008C1D51 /* SpartaWatch.app */,
+				F5F792B71BAC7B18008C1D51 /* SpartaWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +281,29 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F5F792AC1BAC7B18008C1D51 /* SpartaWatch */ = {
+			isa = PBXGroup;
+			children = (
+				F5F792AD1BAC7B18008C1D51 /* Interface.storyboard */,
+				F5F792B01BAC7B18008C1D51 /* Assets.xcassets */,
+				F5F792B21BAC7B18008C1D51 /* Info.plist */,
+			);
+			path = SpartaWatch;
+			sourceTree = "<group>";
+		};
+		F5F792BB1BAC7B18008C1D51 /* SpartaWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F5F792BC1BAC7B18008C1D51 /* InterfaceController.swift */,
+				F5F792BE1BAC7B18008C1D51 /* ExtensionDelegate.swift */,
+				F5F792C01BAC7B18008C1D51 /* GlanceController.swift */,
+				F5F792C21BAC7B18008C1D51 /* ComplicationController.swift */,
+				F5F792C41BAC7B18008C1D51 /* Assets.xcassets */,
+				F5F792C61BAC7B18008C1D51 /* Info.plist */,
+			);
+			path = "SpartaWatch Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,10 +314,12 @@
 				F5373B7E1B327566007F508C /* Sources */,
 				F5373B7F1B327566007F508C /* Frameworks */,
 				F5373B801B327566007F508C /* Resources */,
+				F5F792D11BAC7B18008C1D51 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F5F792C81BAC7B18008C1D51 /* PBXTargetDependency */,
 			);
 			name = "SpartaHack II";
 			productName = "SpartaHack II";
@@ -249,6 +344,40 @@
 			productReference = F5373B991B327566007F508C /* SpartaHack IITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F5F792AA1BAC7B18008C1D51 /* SpartaWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5F792D01BAC7B18008C1D51 /* Build configuration list for PBXNativeTarget "SpartaWatch" */;
+			buildPhases = (
+				F5F792A91BAC7B18008C1D51 /* Resources */,
+				F5F792CF1BAC7B18008C1D51 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5F792BA1BAC7B18008C1D51 /* PBXTargetDependency */,
+			);
+			name = SpartaWatch;
+			productName = SpartaWatch;
+			productReference = F5F792AB1BAC7B18008C1D51 /* SpartaWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		F5F792B61BAC7B18008C1D51 /* SpartaWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5F792CE1BAC7B18008C1D51 /* Build configuration list for PBXNativeTarget "SpartaWatch Extension" */;
+			buildPhases = (
+				F5F792B31BAC7B18008C1D51 /* Sources */,
+				F5F792B41BAC7B18008C1D51 /* Frameworks */,
+				F5F792B51BAC7B18008C1D51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpartaWatch Extension";
+			productName = "SpartaWatch Extension";
+			productReference = F5F792B71BAC7B18008C1D51 /* SpartaWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -265,6 +394,12 @@
 					F5373B981B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
 						TestTargetID = F5373B811B327566007F508C;
+					};
+					F5F792AA1BAC7B18008C1D51 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					F5F792B61BAC7B18008C1D51 = {
+						CreatedOnToolsVersion = 7.0;
 					};
 				};
 			};
@@ -283,6 +418,8 @@
 			targets = (
 				F5373B811B327566007F508C /* SpartaHack II */,
 				F5373B981B327566007F508C /* SpartaHack IITests */,
+				F5F792AA1BAC7B18008C1D51 /* SpartaWatch */,
+				F5F792B61BAC7B18008C1D51 /* SpartaWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -302,6 +439,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5F792A91BAC7B18008C1D51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5F792B11BAC7B18008C1D51 /* Assets.xcassets in Resources */,
+				F5F792AF1BAC7B18008C1D51 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5F792B51BAC7B18008C1D51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5F792C51BAC7B18008C1D51 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +484,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F5F792B31BAC7B18008C1D51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5F792BF1BAC7B18008C1D51 /* ExtensionDelegate.swift in Sources */,
+				F5F792C31BAC7B18008C1D51 /* ComplicationController.swift in Sources */,
+				F5F792BD1BAC7B18008C1D51 /* InterfaceController.swift in Sources */,
+				F5F792C11BAC7B18008C1D51 /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -337,6 +502,16 @@
 			isa = PBXTargetDependency;
 			target = F5373B811B327566007F508C /* SpartaHack II */;
 			targetProxy = F5373B9A1B327566007F508C /* PBXContainerItemProxy */;
+		};
+		F5F792BA1BAC7B18008C1D51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5F792B61BAC7B18008C1D51 /* SpartaWatch Extension */;
+			targetProxy = F5F792B91BAC7B18008C1D51 /* PBXContainerItemProxy */;
+		};
+		F5F792C81BAC7B18008C1D51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5F792AA1BAC7B18008C1D51 /* SpartaWatch */;
+			targetProxy = F5F792C71BAC7B18008C1D51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -355,6 +530,14 @@
 				F5373B931B327566007F508C /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		F5F792AD1BAC7B18008C1D51 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5F792AE1BAC7B18008C1D51 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -510,6 +693,70 @@
 			};
 			name = Release;
 		};
+		F5F792CA1BAC7B18008C1D51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = SpartaWatch_Extension;
+				INFOPLIST_FILE = SpartaWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.SpartaHack-II.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		F5F792CB1BAC7B18008C1D51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = SpartaWatch_Extension;
+				INFOPLIST_FILE = SpartaWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.SpartaHack-II.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		F5F792CC1BAC7B18008C1D51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "SpartaWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.SpartaHack-II.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		F5F792CD1BAC7B18008C1D51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "SpartaWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.SpartaHack-II.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -539,6 +786,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F5F792CE1BAC7B18008C1D51 /* Build configuration list for PBXNativeTarget "SpartaWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5F792CC1BAC7B18008C1D51 /* Debug */,
+				F5F792CD1BAC7B18008C1D51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F5F792D01BAC7B18008C1D51 /* Build configuration list for PBXNativeTarget "SpartaWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5F792CA1BAC7B18008C1D51 /* Debug */,
+				F5F792CB1BAC7B18008C1D51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
