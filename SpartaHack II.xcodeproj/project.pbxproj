@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
 		F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* NewsTableViewController.swift */; };
-		F5373B8C1B327566007F508C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B8B1B327566007F508C /* SecondViewController.swift */; };
+		F5373B8C1B327566007F508C /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B8B1B327566007F508C /* PrizesViewController.swift */; };
 		F5373B8F1B327566007F508C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5373B8D1B327566007F508C /* Main.storyboard */; };
 		F5373B911B327566007F508C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5373B901B327566007F508C /* Images.xcassets */; };
 		F5373B941B327566007F508C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5373B921B327566007F508C /* LaunchScreen.xib */; };
@@ -52,7 +52,7 @@
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5373B871B327566007F508C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5373B891B327566007F508C /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
-		F5373B8B1B327566007F508C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		F5373B8B1B327566007F508C /* PrizesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
 		F5373B8E1B327566007F508C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5373B901B327566007F508C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F5373B931B327566007F508C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
 				F5373B891B327566007F508C /* NewsTableViewController.swift */,
-				F5373B8B1B327566007F508C /* SecondViewController.swift */,
+				F5373B8B1B327566007F508C /* PrizesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 			files = (
 				F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
-				F5373B8C1B327566007F508C /* SecondViewController.swift in Sources */,
+				F5373B8C1B327566007F508C /* PrizesViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,

@@ -12,7 +12,7 @@ import Parse
 /* 
     Declaring more than one class in a file is sometimes considered unorthodox
     
-    However, the NewsCell is so closeley related to the NewsCellTableViewController it's worth it.
+    However, the NewsCell is so closeley related to the NewsCellTableViewController it's worth it. 
 */
 class NewsCell: UITableViewCell {
     static let cellIdentifier = "cell"
