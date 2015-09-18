@@ -32,7 +32,7 @@ class PrizesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        fatalError("")
+        fatalError("Chris.... Fix this")
     }
 
 }
