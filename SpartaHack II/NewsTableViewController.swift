@@ -36,8 +36,8 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
     
     override func viewDidAppear(animated: Bool) {
         let currentUser = PFUser.currentUser()
-        
         // Check to see if a user is logged in, if not, show login view
+    
         if currentUser == nil {
             self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
         } else {
