@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
 		F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* NewsTableViewController.swift */; };
-		F5373B8C1B327566007F508C /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B8B1B327566007F508C /* PrizesViewController.swift */; };
 		F5373B8F1B327566007F508C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5373B8D1B327566007F508C /* Main.storyboard */; };
 		F5373B911B327566007F508C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5373B901B327566007F508C /* Images.xcassets */; };
 		F5373B941B327566007F508C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5373B921B327566007F508C /* LaunchScreen.xib */; };
@@ -34,6 +33,8 @@
 		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
 		F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */; };
+		F54F438E1BB630F20037EA44 /* ConciergeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438D1BB630F20037EA44 /* ConciergeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A60A971B40FD5600709528 /* ProfileViewController.swift */; };
 		F5F792AF1BAC7B18008C1D51 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F792AD1BAC7B18008C1D51 /* Interface.storyboard */; };
 		F5F792B11BAC7B18008C1D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F792B01BAC7B18008C1D51 /* Assets.xcassets */; };
@@ -100,7 +101,6 @@
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5373B871B327566007F508C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5373B891B327566007F508C /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
-		F5373B8B1B327566007F508C /* PrizesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
 		F5373B8E1B327566007F508C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5373B901B327566007F508C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F5373B931B327566007F508C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -127,6 +127,8 @@
 		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseModel.swift; sourceTree = "<group>"; };
+		F54F438D1BB630F20037EA44 /* ConciergeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConciergeViewController.swift; sourceTree = "<group>"; };
+		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
 		F5A60A971B40FD5600709528 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F5F792AB1BAC7B18008C1D51 /* SpartaWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F792AE1BAC7B18008C1D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -273,10 +275,11 @@
 			isa = PBXGroup;
 			children = (
 				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
+				F5373B891B327566007F508C /* NewsTableViewController.swift */,
+				F54F438D1BB630F20037EA44 /* ConciergeViewController.swift */,
+				F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */,
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
-				F5373B891B327566007F508C /* NewsTableViewController.swift */,
-				F5373B8B1B327566007F508C /* PrizesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -468,10 +471,11 @@
 			files = (
 				F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
-				F5373B8C1B327566007F508C /* PrizesViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
+				F54F438E1BB630F20037EA44 /* ConciergeViewController.swift in Sources */,
+				F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */,
 				F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,6 +798,7 @@
 				F5F792CD1BAC7B18008C1D51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5F792D01BAC7B18008C1D51 /* Build configuration list for PBXNativeTarget "SpartaWatch" */ = {
 			isa = XCConfigurationList;
@@ -802,6 +807,7 @@
 				F5F792CB1BAC7B18008C1D51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

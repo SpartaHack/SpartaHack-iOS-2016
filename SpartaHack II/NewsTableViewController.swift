@@ -33,17 +33,6 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        let currentUser = PFUser.currentUser()
-        // Check to see if a user is logged in, if not, show login view
-    
-        if currentUser == nil {
-            self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
-        } else {
-            
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
