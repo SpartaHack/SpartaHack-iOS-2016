@@ -21,8 +21,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.enableLocalDatastore()
         
+        var keyDict: NSDictionary?
+        if let path = NSBundle.mainBundle().pathForResource("keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+            print("AppKeyId: ",keyDict!.objectForKey("ParseAppId"))
+            print("Client: ",keyDict!.objectForKey("ParseClient"))
+            
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+        
+        Parse.enableLocalDatastore()
+        
         // Initialize Parse.
-        Parse.setApplicationId("7okaLUJ5QNfpGcnVtD3WU6A3GXPX9Ar6QIFH7cfj", clientKey: "dvK3MkWYysaEdSSuJWeoiB0lg7nfNqApsqktAXFn")
+        Parse.setApplicationId((keyDict!.objectForKey("ParseAppId")) as! String, clientKey: (keyDict!.objectForKey("ParseClient")) as! String)
+        
+        
+//        // Initialize Parse.
+//        Parse.setApplicationId("7okaLUJ5QNfpGcnVtD3WU6A3GXPX9Ar6QIFH7cfj", clientKey: "dvK3MkWYysaEdSSuJWeoiB0lg7nfNqApsqktAXFn")
         
         return true
     }
