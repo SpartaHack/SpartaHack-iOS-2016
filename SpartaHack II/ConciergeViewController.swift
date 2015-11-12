@@ -17,7 +17,7 @@ class ConciergeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    @IBAction func loginButtonTapped(sender: AnyObject) {
         if let currentUser = PFUser.currentUser() {
             // Check to see if a user is logged in, if not, show login view
             print(currentUser)
@@ -25,7 +25,6 @@ class ConciergeViewController: UIViewController {
             self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

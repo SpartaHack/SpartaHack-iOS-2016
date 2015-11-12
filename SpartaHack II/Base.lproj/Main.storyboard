@@ -127,19 +127,29 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="193" y="329" width="215" height="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You must be logged in to use Concierge View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
+                                <rect key="frame" x="154" y="329" width="292" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iz6-yg-mwY">
+                                <rect key="frame" x="283" y="354" width="34" height="30"/>
+                                <animations/>
+                                <state key="normal" title="login"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="0bs-xh-1L1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
+                            <constraint firstItem="iz6-yg-mwY" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="8" id="Iaf-q4-cjJ"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
+                            <constraint firstItem="iz6-yg-mwY" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="d2v-pV-fr6"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
@@ -640,7 +650,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7D-sK-yR1">
-                                <rect key="frame" x="17" y="97" width="41" height="21"/>
+                                <rect key="frame" x="20" y="97" width="41" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -704,29 +714,44 @@
                                     <action selector="ForgotPasswordButtonTapped:" destination="VoL-Qz-Epd" eventType="touchUpInside" id="pYd-CN-nQB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2d-FI-iqz">
+                                <rect key="frame" x="20" y="353" width="560" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Skip login, I don't like being cool anyway">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ForgotPasswordButtonTapped:" destination="VoL-Qz-Epd" eventType="touchUpInside" id="hES-Jr-XH2"/>
+                                    <action selector="skipLoginButtonTapped:" destination="VoL-Qz-Epd" eventType="touchUpInside" id="dR7-oF-xKh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hDM-Uf-VT4" firstAttribute="top" secondItem="yI7-fB-h7X" secondAttribute="bottom" constant="8" id="0Tv-NO-HYo"/>
                             <constraint firstItem="ZQS-Su-YLy" firstAttribute="leading" secondItem="JTh-FF-7Gs" secondAttribute="leadingMargin" id="31P-QL-96V"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="I7D-sK-yR1" secondAttribute="leading" id="3aG-QN-3bq"/>
                             <constraint firstAttribute="centerX" secondItem="yI7-fB-h7X" secondAttribute="centerX" constant="-1" id="8AI-O0-vl6"/>
                             <constraint firstItem="DVA-Xj-zaH" firstAttribute="trailing" secondItem="6kg-ex-nud" secondAttribute="trailing" id="Buh-6u-ilK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s2d-FI-iqz" secondAttribute="trailing" id="ChE-fA-nwb"/>
                             <constraint firstItem="ZQS-Su-YLy" firstAttribute="top" secondItem="I7D-sK-yR1" secondAttribute="bottom" constant="8" id="Cm1-LH-VmG"/>
                             <constraint firstItem="DVA-Xj-zaH" firstAttribute="leading" secondItem="6kg-ex-nud" secondAttribute="leading" id="KtR-Zc-c95"/>
                             <constraint firstItem="ZQS-Su-YLy" firstAttribute="trailing" secondItem="JTh-FF-7Gs" secondAttribute="trailingMargin" id="MlQ-oj-VQc"/>
                             <constraint firstItem="DVA-Xj-zaH" firstAttribute="trailing" secondItem="FQV-bU-mKg" secondAttribute="trailing" id="Ohd-c3-Wla"/>
                             <constraint firstItem="alX-Ot-8Cn" firstAttribute="leading" secondItem="JTh-FF-7Gs" secondAttribute="leadingMargin" id="Ovd-kF-eQ7"/>
                             <constraint firstItem="I7D-sK-yR1" firstAttribute="top" secondItem="hDM-Uf-VT4" secondAttribute="bottom" constant="-2" id="YXB-yk-tre"/>
-                            <constraint firstItem="I7D-sK-yR1" firstAttribute="leading" secondItem="hDM-Uf-VT4" secondAttribute="leading" constant="-220" id="cSa-fm-GE9"/>
                             <constraint firstItem="yI7-fB-h7X" firstAttribute="top" secondItem="tYc-UR-I0v" secondAttribute="bottom" constant="8" id="fyJ-lT-vXe"/>
                             <constraint firstItem="7fq-m1-yif" firstAttribute="trailing" secondItem="JTh-FF-7Gs" secondAttribute="trailingMargin" id="g3C-Yk-Wkn"/>
                             <constraint firstItem="FQV-bU-mKg" firstAttribute="leading" secondItem="7fq-m1-yif" secondAttribute="leading" id="g7R-dl-zmH"/>
                             <constraint firstAttribute="centerX" secondItem="hDM-Uf-VT4" secondAttribute="centerX" constant="-1.5" id="hCu-lF-K5w"/>
                             <constraint firstItem="FQV-bU-mKg" firstAttribute="trailing" secondItem="7fq-m1-yif" secondAttribute="trailing" id="hvP-tM-Spz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="s2d-FI-iqz" secondAttribute="leading" id="jFC-w0-NnI"/>
                             <constraint firstItem="7fq-m1-yif" firstAttribute="leading" secondItem="JTh-FF-7Gs" secondAttribute="leadingMargin" id="ln1-D9-hhj"/>
                             <constraint firstItem="DVA-Xj-zaH" firstAttribute="leading" secondItem="FQV-bU-mKg" secondAttribute="leading" id="nQI-7S-d0j"/>
                             <constraint firstItem="FQV-bU-mKg" firstAttribute="top" secondItem="7fq-m1-yif" secondAttribute="bottom" constant="14" id="pKI-vG-jlT"/>
+                            <constraint firstItem="s2d-FI-iqz" firstAttribute="top" secondItem="6kg-ex-nud" secondAttribute="bottom" constant="8" id="sdX-ik-ou8"/>
                             <constraint firstItem="alX-Ot-8Cn" firstAttribute="top" secondItem="ZQS-Su-YLy" secondAttribute="bottom" constant="8" id="tuh-bx-Wh5"/>
                             <constraint firstItem="6kg-ex-nud" firstAttribute="top" secondItem="DVA-Xj-zaH" secondAttribute="bottom" constant="10" id="wSK-ga-aIg"/>
                             <constraint firstItem="7fq-m1-yif" firstAttribute="top" secondItem="alX-Ot-8Cn" secondAttribute="bottom" constant="8" id="ySG-lz-vBS"/>

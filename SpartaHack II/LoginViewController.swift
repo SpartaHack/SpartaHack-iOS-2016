@@ -37,6 +37,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     }
     
+    @IBAction func skipLoginButtonTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
