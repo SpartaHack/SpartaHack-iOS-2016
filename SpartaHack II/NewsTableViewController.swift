@@ -51,6 +51,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
+        // TODO: make a constants file
         cell.titleLabel?.text = dataAry[indexPath.row]["Title"] as? String
         cell.detailLabel?.text = dataAry[indexPath.row]["Description"] as? String
         

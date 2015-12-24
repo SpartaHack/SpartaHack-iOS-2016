@@ -22,6 +22,7 @@ class ConciergeViewController: UIViewController {
             // Check to see if a user is logged in, if not, show login view
             print(currentUser)
         } else {
+            // TODO: make a constants file
             self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
         }
     }

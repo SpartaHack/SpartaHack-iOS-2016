@@ -17,7 +17,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func SignupButtonTapped(sender: AnyObject) {
         // load the sign up view with the navigation controller segue
-        self.performSegueWithIdentifier("signupSegue", sender: nil)   
+        // TODO: make a constants file
+        self.performSegueWithIdentifier("signupSegue", sender: nil)
     }
     
     @IBAction func LoginButtonTapped(sender: AnyObject) {
