@@ -41,8 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
-        
+                
         return true
     }
     
@@ -50,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.setDeviceTokenFromData(deviceToken)
         currentInstallation.saveInBackgroundWithBlock { (succeeded, e) -> Void in
-            //code
             if succeeded {
                 print("lets goooooooo")
             }

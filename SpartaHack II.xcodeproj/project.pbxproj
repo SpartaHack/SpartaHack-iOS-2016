@@ -36,6 +36,9 @@
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
 		F57BA33E1C288BB6000E0381 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */; };
 		F57BA3401C288BCC000E0381 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33F1C288BCC000E0381 /* libz.tbd */; };
+		F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2341C2DE25F00F1512D /* MapViewController.swift */; };
+		F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2361C2DE27100F1512D /* ScheduleViewController.swift */; };
+		F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2391C2DE2B800F1512D /* GuideViewController.swift */; };
 		F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A60A971B40FD5600709528 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,9 @@
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
 		F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F57BA33F1C288BCC000E0381 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F591B2341C2DE25F00F1512D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F591B2361C2DE27100F1512D /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		F591B2391C2DE2B800F1512D /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		F5A60A971B40FD5600709528 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,14 +226,25 @@
 		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
 				F5373B891B327566007F508C /* NewsTableViewController.swift */,
 				F54F438D1BB630F20037EA44 /* ConciergeViewController.swift */,
+				F591B2381C2DE27600F1512D /* Guide View Controllers */,
 				F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */,
+				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F591B2381C2DE27600F1512D /* Guide View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F591B2391C2DE2B800F1512D /* GuideViewController.swift */,
+				F591B2341C2DE25F00F1512D /* MapViewController.swift */,
+				F591B2361C2DE27100F1512D /* ScheduleViewController.swift */,
+			);
+			name = "Guide View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +355,9 @@
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
+				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
+				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
+				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
 				F54F438E1BB630F20037EA44 /* ConciergeViewController.swift in Sources */,
 				F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */,
@@ -505,10 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -525,10 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "SpartaHack IITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.$(PRODUCT_NAME:rfc1034identifier)";

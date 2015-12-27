@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="1544" y="-1057"/>
         </scene>
-        <!--Concierge-->
+        <!--Help Desk-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="ConciergeViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,8 +112,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Concierge View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="174" y="279" width="252" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Help Desk View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                <rect key="frame" x="173" y="279" width="254" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,7 +143,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Concierge" image="first" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Help Desk" image="first" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,7 +152,7 @@
         <!--Guide-->
         <scene sceneID="zAk-fx-Mfq">
             <objects>
-                <viewController id="sFp-8g-gvs" sceneMemberID="viewController">
+                <viewController id="sFp-8g-gvs" customClass="GuideViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5TQ-a6-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="i9G-4L-0cl"/>
@@ -167,43 +167,71 @@
                                     <segment title="Schedule"/>
                                     <segment title="Map"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didSwitchViewTapped:" destination="sFp-8g-gvs" eventType="valueChanged" id="OhR-80-2fU"/>
+                                </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-Y2-BnG">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5a-1z-B56" userLabel="Map Container View">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <connections>
-                                    <segue destination="QMg-3i-qNg" kind="embed" id="qsH-Xs-TQ0"/>
+                                    <segue destination="P4x-1f-8VB" kind="embed" identifier="mapSegue" id="GJj-9K-dyg"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-Y2-BnG" userLabel="Schedule Container View">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <connections>
+                                    <segue destination="xyD-JV-93V" kind="embed" identifier="scheduleSegue" id="uDL-Fp-vEo"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ebx-Y2-BnG" secondAttribute="trailing" id="4Jw-16-C5x"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="B5a-1z-B56" secondAttribute="bottom" constant="49" id="6B4-oI-wmQ"/>
+                            <constraint firstItem="B5a-1z-B56" firstAttribute="top" secondItem="W6m-EL-7jd" secondAttribute="topMargin" constant="108" id="7oI-27-7qd"/>
+                            <constraint firstItem="ebx-Y2-BnG" firstAttribute="top" secondItem="W6m-EL-7jd" secondAttribute="topMargin" constant="108" id="ABv-vq-qPz"/>
+                            <constraint firstItem="B5a-1z-B56" firstAttribute="leading" secondItem="W6m-EL-7jd" secondAttribute="leading" id="Cij-z1-SFg"/>
                             <constraint firstItem="P7c-RT-Nnc" firstAttribute="top" secondItem="5TQ-a6-SnQ" secondAttribute="bottom" constant="8" id="Fzp-mf-1N6"/>
+                            <constraint firstItem="ebx-Y2-BnG" firstAttribute="leading" secondItem="W6m-EL-7jd" secondAttribute="leading" id="L51-0x-tWD"/>
                             <constraint firstAttribute="leadingMargin" secondItem="P7c-RT-Nnc" secondAttribute="leading" id="MJf-3k-kJF"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ebx-Y2-BnG" secondAttribute="bottom" constant="49" id="kkA-S4-See"/>
+                            <constraint firstAttribute="trailing" secondItem="B5a-1z-B56" secondAttribute="trailing" id="sJn-YI-JoE"/>
                             <constraint firstItem="P7c-RT-Nnc" firstAttribute="centerX" secondItem="W6m-EL-7jd" secondAttribute="centerX" id="wIX-on-AZD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Guide" image="first" id="bzu-J0-uvq"/>
+                    <connections>
+                        <outlet property="guideSegmentButton" destination="P7c-RT-Nnc" id="5RY-kF-JQM"/>
+                        <outlet property="mapViewControllerContainer" destination="B5a-1z-B56" id="KR3-ya-Fz5"/>
+                        <outlet property="scheduleViewController" destination="ebx-Y2-BnG" id="rxw-p2-dp8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckZ-fn-esy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1550" y="355"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="Z2j-Ej-nb3">
+        <!--Map View Controller-->
+        <scene sceneID="gRv-u0-guq">
             <objects>
-                <pageViewController transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QMg-3i-qNg" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="xyD-JV-93V" kind="show" identifier="scheduleSegue" id="liJ-uY-PQT"/>
-                    </connections>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="86E-70-wFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="P4x-1f-8VB" customClass="MapViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lWA-Sf-wQ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vni-yt-Jew"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vQ6-Yh-hul">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.06126987382782223" green="1" blue="0.036425480469219562" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nd-gY-Zes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="354.5"/>
+            <point key="canvasLocation" x="2290" y="61"/>
         </scene>
-        <!--View Controller-->
+        <!--Schedule View Controller-->
         <scene sceneID="uaM-PB-C33">
             <objects>
-                <viewController id="xyD-JV-93V" sceneMemberID="viewController">
+                <viewController id="xyD-JV-93V" customClass="ScheduleViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uo6-2h-UWB"/>
                         <viewControllerLayoutGuide type="bottom" id="cWv-Fa-mk4"/>
@@ -213,13 +241,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krV-0C-ojg">
-                                <rect key="frame" x="264.5" y="211.5" width="71.5" height="20.5"/>
+                                <rect key="frame" x="264" y="211" width="71.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.097861941179195264" blue="0.91619956493377686" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="krV-0C-ojg" firstAttribute="centerX" secondItem="oUR-ZX-QXg" secondAttribute="centerX" id="4vZ-ZC-glj"/>
                             <constraint firstItem="krV-0C-ojg" firstAttribute="centerY" secondItem="oUR-ZX-QXg" secondAttribute="centerY" id="Pa9-zD-gVj"/>
@@ -228,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hX-WA-2JF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="968.5"/>
+            <point key="canvasLocation" x="2272" y="660.5"/>
         </scene>
         <!--Prizes-->
         <scene sceneID="MxX-cE-Qd1">
@@ -252,18 +280,31 @@
                                     <action selector="segmentedButtonsTapped:" destination="7qc-xu-TC2" eventType="valueChanged" id="V3o-Lc-RYv"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-Ys-HXD">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5d-63-DMJ" userLabel="Sponsors Container View">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <connections>
+                                    <segue destination="syC-zl-SSq" kind="embed" id="8RS-rl-a04"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-Ys-HXD" userLabel="Prizes Container View">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <connections>
+                                    <segue destination="HxH-ti-BRF" kind="embed" id="90u-TI-eCl"/>
+                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KNH-d2-Nis" firstAttribute="top" secondItem="qvd-Ys-HXD" secondAttribute="bottom" id="Apf-ro-aqe"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="q5d-63-DMJ" secondAttribute="bottom" constant="49" id="GtV-tI-3pB"/>
+                            <constraint firstAttribute="trailing" secondItem="q5d-63-DMJ" secondAttribute="trailing" id="N7l-Xc-Yz5"/>
+                            <constraint firstItem="q5d-63-DMJ" firstAttribute="top" secondItem="HTs-1e-5tG" secondAttribute="topMargin" constant="108" id="cBx-Bd-WOT"/>
                             <constraint firstItem="5NC-or-6Wc" firstAttribute="centerX" secondItem="HTs-1e-5tG" secondAttribute="centerX" id="dTh-vj-1ds"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qvd-Ys-HXD" secondAttribute="trailing" constant="-20" id="eK1-5y-zfv"/>
                             <constraint firstItem="qvd-Ys-HXD" firstAttribute="top" secondItem="5NC-or-6Wc" secondAttribute="bottom" constant="8" id="fPF-TE-0oZ"/>
                             <constraint firstItem="5NC-or-6Wc" firstAttribute="top" secondItem="9jy-r5-3CB" secondAttribute="bottom" constant="8" id="gUQ-cw-3As"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5NC-or-6Wc" secondAttribute="leading" id="oUK-4E-lqX"/>
+                            <constraint firstItem="q5d-63-DMJ" firstAttribute="leading" secondItem="HTs-1e-5tG" secondAttribute="leading" id="tn8-u9-Usj"/>
                             <constraint firstItem="qvd-Ys-HXD" firstAttribute="leading" secondItem="HTs-1e-5tG" secondAttribute="leadingMargin" constant="-20" id="zws-y3-Smt"/>
                         </constraints>
                     </view>
@@ -285,11 +326,11 @@
                         <viewControllerLayoutGuide type="bottom" id="4EO-1s-dda"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fmn-Gx-sdc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="prizes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jg-eR-PPG">
-                                <rect key="frame" x="277" y="290" width="47" height="21"/>
+                                <rect key="frame" x="277" y="212" width="46.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -315,11 +356,11 @@
                         <viewControllerLayoutGuide type="bottom" id="k0J-2F-h9w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UTE-xI-5oS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sponsors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJh-Rk-Hlg">
-                                <rect key="frame" x="265" y="290" width="71" height="21"/>
+                                <rect key="frame" x="265" y="212" width="70.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
