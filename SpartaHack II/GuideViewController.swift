@@ -8,11 +8,11 @@
 
 import UIKit
 
+// Controls the guide view
 class GuideViewController: UIViewController {
 
     @IBOutlet weak var mapViewControllerContainer: UIView!
     @IBOutlet weak var scheduleViewController: UIView!
-    
     @IBOutlet weak var guideSegmentButton: UISegmentedControl!
     
     @IBAction func didSwitchViewTapped(sender: AnyObject) {
@@ -25,12 +25,11 @@ class GuideViewController: UIViewController {
             // Map View Controller
             mapViewControllerContainer.hidden = false
             scheduleViewController.hidden = true
-            
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -38,16 +37,4 @@ class GuideViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

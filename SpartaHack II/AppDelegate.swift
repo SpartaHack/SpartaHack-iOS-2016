@@ -37,8 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId((keyDict!.objectForKey("ParseAppId")) as! String, clientKey: (keyDict!.objectForKey("ParseClient")) as! String)
         
         
-        /// Enable push notifications 
-        
+        /// Enable push notifications
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
                 

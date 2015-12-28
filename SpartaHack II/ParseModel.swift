@@ -26,7 +26,6 @@ let kfoodPrefs = "foodPrefs"
     optional func didGetNewsUpdate(data: [PFObject])
 }
 
-
 class ParseModel: NSObject {
     
     static let sharedInstance = ParseModel()
@@ -79,6 +78,4 @@ class ParseModel: NSObject {
             }
         }
     }
-    
-    
 }

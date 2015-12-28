@@ -40,6 +40,8 @@
 		F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2361C2DE27100F1512D /* ScheduleViewController.swift */; };
 		F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2391C2DE2B800F1512D /* GuideViewController.swift */; };
 		F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A60A971B40FD5600709528 /* ProfileViewController.swift */; };
+		F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537B1C3092740030BCCA /* PrizesViewController.swift */; };
+		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		F591B2361C2DE27100F1512D /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		F591B2391C2DE2B800F1512D /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		F5A60A971B40FD5600709528 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F5AE537B1C3092740030BCCA /* PrizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
+		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +233,7 @@
 				F5373B891B327566007F508C /* NewsTableViewController.swift */,
 				F54F438D1BB630F20037EA44 /* ConciergeViewController.swift */,
 				F591B2381C2DE27600F1512D /* Guide View Controllers */,
-				F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */,
+				F5AE53801C30928F0030BCCA /* Award View Controller */,
 				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
@@ -245,6 +249,16 @@
 				F591B2361C2DE27100F1512D /* ScheduleViewController.swift */,
 			);
 			name = "Guide View Controllers";
+			sourceTree = "<group>";
+		};
+		F5AE53801C30928F0030BCCA /* Award View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */,
+				F5AE537B1C3092740030BCCA /* PrizesViewController.swift */,
+				F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */,
+			);
+			name = "Award View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,7 +365,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
 				F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */,
+				F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,

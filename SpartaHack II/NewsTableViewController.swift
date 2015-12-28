@@ -10,8 +10,7 @@ import UIKit
 import Parse
 
 /* 
-    Declaring more than one class in a file is sometimes considered unorthodox
-    
+    Declaring more than one class in a file is sometimes considered a bit unorthodox
     However, the NewsCell is so closeley related to the NewsCellTableViewController it's worth it. 
 */
 class NewsCell: UITableViewCell {
@@ -46,6 +45,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
             self.tableView.reloadData()
         } else {
             // we don't have data.... Y?
+            fatalError("what the fucking fuck....")
         }
     }
     
