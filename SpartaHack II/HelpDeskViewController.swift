@@ -11,6 +11,7 @@ import Parse
 
 class helpDeskCell: UITableViewCell {
     static let cellIdentifier = "helpCell"
+    let loginCell = true
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
 }
@@ -26,17 +27,17 @@ class HelpDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         ParseModel.sharedInstance.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
         if let currentUser = PFUser.currentUser() {
             // Check to see if a user is logged in, if not, show login view
             print(currentUser)
             ParseModel.sharedInstance.getHelpDeskOptions()
-        } else {
-            // TODO: make a constants file
-            self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if PFUser.currentUser() != nil {
+            ParseModel.sharedInstance.getHelpDeskOptions()
         }
     }
     
@@ -53,13 +54,53 @@ class HelpDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(helpDeskCell.cellIdentifier) as! helpDeskCell
-        cell.titleLabel?.text = dataAry[indexPath.row]["Title"] as? String
-        cell.descriptionLabel?.text = dataAry[indexPath.row]["Description"] as? String
+        
+        if indexPath.section == 0 {
+            if dataAry.count > 0 {
+                cell.titleLabel?.text = dataAry[indexPath.row]["Title"] as? String
+                cell.descriptionLabel?.text = dataAry[indexPath.row]["Description"] as? String
+            } else {
+                cell.titleLabel?.text = "Authentication Required"
+                cell.descriptionLabel?.text = "Please login to use help desk features"
+            }
+        } else {
+            cell.titleLabel?.text = "Sample Ticket"
+            cell.descriptionLabel?.text = "Sample Description"
+        }
+
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if PFUser.currentUser() == nil {
+            self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+            case 1:
+                return "Current tickets"
+            default:
+                return "Need help? Select a topic below to get started"
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 0
+    
+        if section == 0 {
+            if dataAry.count > 0 {
+                return dataAry.count
+            } else {
+                return 1
+            }
+        } else {
+            return 10
+        }
     }
     
     override func didReceiveMemoryWarning() {
