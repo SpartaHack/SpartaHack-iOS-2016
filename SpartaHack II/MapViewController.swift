@@ -10,10 +10,18 @@ import UIKit
 
 class MapViewController: UIViewController {
 
+	
+	@IBOutlet var webView: UIWebView!
+	
     override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
+		if let pdf = NSBundle.mainBundle().URLForResource("ios-map", withExtension: "pdf", subdirectory: nil, localization: nil)  {
+			let req = NSURLRequest(URL: pdf)
+			webView.loadRequest(req)
+		}
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

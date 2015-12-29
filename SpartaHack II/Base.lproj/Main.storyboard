@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Olp-Fx-k8f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A282a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Olp-Fx-k8f">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -57,7 +57,7 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5uE-aX-zhi" id="APq-Hl-Yy2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzj-rl-4lF" userLabel="title">
@@ -221,12 +221,51 @@
                     <view key="view" contentMode="scaleToFill" id="vQ6-Yh-hul">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bh-Iu-6hD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" red="0.06126987382782223" green="1" blue="0.036425480469219562" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="centerY" secondItem="vQ6-Yh-hul" secondAttribute="centerY" id="2xE-l9-v3X"/>
+                            <constraint firstItem="Vni-yt-Jew" firstAttribute="top" secondItem="3bh-Iu-6hD" secondAttribute="bottom" constant="20" id="75J-qt-jsp"/>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="top" secondItem="lWA-Sf-wQ2" secondAttribute="bottom" constant="20" id="AAn-qR-15J"/>
+                            <constraint firstItem="Vni-yt-Jew" firstAttribute="top" secondItem="3bh-Iu-6hD" secondAttribute="bottom" id="RFN-HE-3fv"/>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="top" secondItem="lWA-Sf-wQ2" secondAttribute="bottom" id="Rjd-6Q-cMM"/>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="centerX" secondItem="vQ6-Yh-hul" secondAttribute="centerX" id="TuO-pr-LNw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="3bh-Iu-6hD" secondAttribute="leading" id="Via-zS-5md"/>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="centerY" secondItem="vQ6-Yh-hul" secondAttribute="centerY" id="Yhl-T9-mnz"/>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="leading" secondItem="vQ6-Yh-hul" secondAttribute="leadingMargin" constant="-20" id="a96-aW-w7k"/>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="top" secondItem="lWA-Sf-wQ2" secondAttribute="bottom" constant="8" id="cY4-ks-SuE"/>
+                            <constraint firstItem="Vni-yt-Jew" firstAttribute="top" secondItem="3bh-Iu-6hD" secondAttribute="bottom" constant="20" id="dXd-On-CQI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3bh-Iu-6hD" secondAttribute="trailing" id="gN7-d0-SRm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3bh-Iu-6hD" secondAttribute="trailing" constant="-20" id="r0v-0W-VJn"/>
+                            <constraint firstItem="3bh-Iu-6hD" firstAttribute="top" secondItem="lWA-Sf-wQ2" secondAttribute="bottom" constant="20" id="rgx-rL-t1N"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2xE-l9-v3X"/>
+                                <exclude reference="AAn-qR-15J"/>
+                                <exclude reference="TuO-pr-LNw"/>
+                                <exclude reference="Via-zS-5md"/>
+                                <exclude reference="Yhl-T9-mnz"/>
+                                <exclude reference="cY4-ks-SuE"/>
+                                <exclude reference="gN7-d0-SRm"/>
+                                <exclude reference="rgx-rL-t1N"/>
+                                <exclude reference="75J-qt-jsp"/>
+                                <exclude reference="dXd-On-CQI"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="3bh-Iu-6hD" id="98a-FM-QXX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nd-gY-Zes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2290" y="61"/>
+            <point key="canvasLocation" x="2290" y="60.5"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="uaM-PB-C33">
@@ -311,7 +350,6 @@
                     <tabBarItem key="tabBarItem" title="Prizes" image="first" id="csv-2j-LnK"/>
                     <connections>
                         <outlet property="awardSegmentButton" destination="5NC-or-6Wc" id="ltv-pr-0xh"/>
-                        <outlet property="containerView" destination="qvd-Ys-HXD" id="DUu-XJ-hSx"/>
                         <outlet property="prizesContainerView" destination="qvd-Ys-HXD" id="O25-NH-oD3"/>
                         <outlet property="sponsorContainerView" destination="q5d-63-DMJ" id="bBR-zV-lYu"/>
                     </connections>

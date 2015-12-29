@@ -42,6 +42,8 @@
 		F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A60A971B40FD5600709528 /* ProfileViewController.swift */; };
 		F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537B1C3092740030BCCA /* PrizesViewController.swift */; };
 		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
+		F8ED36D21C31C3590049B8C0 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8ED36D11C31C3590049B8C0 /* keys.plist */; };
+		F8ED36D41C3211560049B8C0 /* ios-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F8ED36D31C3211560049B8C0 /* ios-map.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		F5A60A971B40FD5600709528 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F5AE537B1C3092740030BCCA /* PrizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
 		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
+		F8ED36D11C31C3590049B8C0 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		F8ED36D31C3211560049B8C0 /* ios-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "ios-map.pdf"; path = "../../ios-map.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 		F5373B791B327566007F508C = {
 			isa = PBXGroup;
 			children = (
+				F8ED36D11C31C3590049B8C0 /* keys.plist */,
 				F5373B841B327566007F508C /* SpartaHack II */,
 				F5373B9C1B327566007F508C /* SpartaHack IITests */,
 				F5373B831B327566007F508C /* Products */,
@@ -171,6 +176,7 @@
 				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B921B327566007F508C /* LaunchScreen.xib */,
+				F8ED36D31C3211560049B8C0 /* ios-map.pdf */,
 				F5373B851B327566007F508C /* Supporting Files */,
 			);
 			path = "SpartaHack II";
@@ -312,7 +318,7 @@
 				TargetAttributes = {
 					F5373B811B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = V6R9L68573;
+						DevelopmentTeam = 5QU3NT5U28;
 					};
 					F5373B981B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -345,8 +351,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52BC0EF1BF5360B0074870E /* keys.plist in Resources */,
+				F8ED36D41C3211560049B8C0 /* ios-map.pdf in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
+				F8ED36D21C31C3590049B8C0 /* keys.plist in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpartaHack\\ II/",
@@ -518,6 +527,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -526,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpartaHack\\ II/",
@@ -534,6 +545,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
