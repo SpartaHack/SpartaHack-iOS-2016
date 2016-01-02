@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         userNameLabel.text = user?.username
+//        PFUser.logOut()
+//        print("logged out")
     }
 
     override func didReceiveMemoryWarning() {

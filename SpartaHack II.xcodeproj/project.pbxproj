@@ -167,8 +167,8 @@
 		F5373B841B327566007F508C /* SpartaHack II */ = {
 			isa = PBXGroup;
 			children = (
-				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
 				F5373B871B327566007F508C /* AppDelegate.swift */,
+				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B901B327566007F508C /* Images.xcassets */,

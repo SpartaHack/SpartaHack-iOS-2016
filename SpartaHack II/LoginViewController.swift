@@ -10,11 +10,21 @@ import Foundation
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, ParseModelDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ParseModel.sharedInstance.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     @IBAction func SignupButtonTapped(sender: AnyObject) {
         // load the sign up view with the navigation controller segue
         // TODO: make a constants file
@@ -22,14 +32,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func LoginButtonTapped(sender: AnyObject) {
-        PFUser.logInWithUsernameInBackground(emailTextField.text!, password:passwordTextField.text!) {
-            (user: PFUser?, error: NSError?) -> Void in
-            if user != nil {
-                // Do stuff after successful login.
-                self.dismissViewControllerAnimated(true, completion: nil)
-            } else {
-                // The login failed. Check error to see why.
-            }
+        ParseModel.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!)
+    }
+    
+    func userDidLogin(login: Bool) {
+        if !login {
+            // there was a problem with logging the user in
+            print("ERROR")
+        } else {
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -42,15 +53,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.dismissViewControllerAnimated(true) { () -> Void in
             
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // view code here
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
     }
 }

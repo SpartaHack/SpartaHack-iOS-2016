@@ -34,10 +34,10 @@ class HelpDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        if PFUser.currentUser() != nil {
+    func userDidLogin(login: Bool) {
+        if login {
             ParseModel.sharedInstance.getHelpDeskOptions()
+            print("getting data")
         }
     }
     

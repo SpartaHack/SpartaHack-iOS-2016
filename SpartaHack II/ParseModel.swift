@@ -25,6 +25,7 @@ let kfoodPrefs = "foodPrefs"
     optional func didRegisterUser(success: Bool)
     optional func didGetNewsUpdate(data: [PFObject])
     optional func didGetHelpDeskOptions(data: [PFObject])
+    optional func userDidLogin(login: Bool)
 }
 
 class ParseModel: NSObject {
@@ -78,7 +79,7 @@ class ParseModel: NSObject {
                 if let objects = objects as? [PFObject] {
                     self.delegate?.didGetNewsUpdate!(objects)
                 }
-                print("great success!")
+                print("great news success!")
             }
         }
     }
@@ -96,6 +97,21 @@ class ParseModel: NSObject {
                     self.delegate?.didGetHelpDeskOptions!(objects)
                 }
                 print("great success!")
+            }
+        }
+    }
+    
+    func loginUser (username:String, password:String) {
+        PFUser.logInWithUsernameInBackground(username, password:password) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Do stuff after successful login.
+                print("User logged in")
+                self.delegate?.userDidLogin!(true)
+            } else {
+                // The login failed. Check error to see why.
+                print(error?.localizedDescription)
+                self.delegate?.userDidLogin!(false)
             }
         }
     }

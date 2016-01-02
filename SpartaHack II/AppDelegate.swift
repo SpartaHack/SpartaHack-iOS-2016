@@ -31,9 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
         }
         
-        Parse.enableLocalDatastore()
-        
         // Initialize Parse.
+        Parse.enableLocalDatastore()
         Parse.setApplicationId((keyDict!.objectForKey("ParseAppId")) as! String, clientKey: (keyDict!.objectForKey("ParseClient")) as! String)
         
         
