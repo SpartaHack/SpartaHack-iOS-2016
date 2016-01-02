@@ -95,81 +95,6 @@
             </objects>
             <point key="canvasLocation" x="1544" y="-1057"/>
         </scene>
-        <!--Help Desk-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController id="8rJ-Kc-sve" customClass="HelpDeskViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hyE-vf-zcu">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="60" id="PCa-2x-frf" customClass="helpDeskCell" customModule="SpartaHack_II" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="113.5" width="600" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PCa-2x-frf" id="CfB-Mg-tKI">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentor help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAi-ze-udJ">
-                                                    <rect key="frame" x="15" y="6" width="577" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Looking for help on your project? Ask us and we'll find an expert for you" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDl-PT-09I">
-                                                    <rect key="frame" x="15" y="26.5" width="577" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="BDl-PT-09I" firstAttribute="top" secondItem="VAi-ze-udJ" secondAttribute="bottom" id="4Dk-u1-CZb"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="BDl-PT-09I" secondAttribute="bottom" id="LwC-RX-fBg"/>
-                                                <constraint firstItem="VAi-ze-udJ" firstAttribute="leading" secondItem="CfB-Mg-tKI" secondAttribute="leadingMargin" constant="7" id="VDL-OI-jKS"/>
-                                                <constraint firstItem="BDl-PT-09I" firstAttribute="leading" secondItem="CfB-Mg-tKI" secondAttribute="leadingMargin" constant="7" id="oWm-0s-1wL"/>
-                                                <constraint firstAttribute="topMargin" secondItem="VAi-ze-udJ" secondAttribute="top" constant="2" id="puL-sC-ggP"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="BDl-PT-09I" secondAttribute="trailing" id="r4e-qh-nOb"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="VAi-ze-udJ" secondAttribute="trailing" id="suq-qo-Rm5"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="descriptionLabel" destination="BDl-PT-09I" id="byq-A4-BgQ"/>
-                                            <outlet property="titleLabel" destination="VAi-ze-udJ" id="ncH-LK-x20"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="Lnh-V2-bmP"/>
-                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="dkP-de-pnS"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="hyE-vf-zcu" secondAttribute="trailing" constant="-20" id="9Ri-de-xHP"/>
-                            <constraint firstItem="hyE-vf-zcu" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="juR-ya-xDh"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="hyE-vf-zcu" secondAttribute="bottom" constant="44" id="nJK-m3-0Xt"/>
-                            <constraint firstItem="hyE-vf-zcu" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="prO-Iu-PGn"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Help Desk" image="first" id="cPa-gy-q4n"/>
-                    <connections>
-                        <outlet property="tableView" destination="hyE-vf-zcu" id="Api-Aw-Djq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1550" y="-306"/>
-        </scene>
         <!--Guide-->
         <scene sceneID="zAk-fx-Mfq">
             <objects>
@@ -230,6 +155,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckZ-fn-esy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1550" y="355"/>
+        </scene>
+        <!--Help Desk-->
+        <scene sceneID="5Qg-cb-ja8">
+            <objects>
+                <tableViewController id="oeJ-kG-QIj" customClass="HelpDeskTableViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7Vt-x8-4ql">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="70" id="AbE-gG-DwA" userLabel="helpCell" customClass="helpDeskCell" customModule="SpartaHack_II" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AbE-gG-DwA" id="9Bc-GA-fYA">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-Py-41O" userLabel="title">
+                                            <rect key="frame" x="15" y="8" width="577" height="25.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="this is a test of text wrapping and it should be long as fuck" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB1-Tw-CwK" userLabel="description">
+                                            <rect key="frame" x="15" y="37.5" width="577" height="23.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mHd-Py-41O" firstAttribute="top" secondItem="9Bc-GA-fYA" secondAttribute="topMargin" id="Mv3-Ag-Rsg"/>
+                                        <constraint firstItem="FB1-Tw-CwK" firstAttribute="trailing" secondItem="9Bc-GA-fYA" secondAttribute="trailingMargin" id="dmY-k2-WpW"/>
+                                        <constraint firstItem="mHd-Py-41O" firstAttribute="leading" secondItem="9Bc-GA-fYA" secondAttribute="leadingMargin" constant="7" id="ggg-gS-ow8"/>
+                                        <constraint firstItem="FB1-Tw-CwK" firstAttribute="leading" secondItem="9Bc-GA-fYA" secondAttribute="leadingMargin" constant="7" id="imO-9B-hEG"/>
+                                        <constraint firstItem="FB1-Tw-CwK" firstAttribute="top" secondItem="mHd-Py-41O" secondAttribute="bottom" constant="4" id="wki-hC-xPh"/>
+                                        <constraint firstItem="mHd-Py-41O" firstAttribute="trailing" secondItem="9Bc-GA-fYA" secondAttribute="trailingMargin" id="y4a-jg-BUy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FB1-Tw-CwK" secondAttribute="bottom" id="zI4-P3-5h9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="FB1-Tw-CwK" id="Kfj-cE-oF2"/>
+                                    <outlet property="titleLabel" destination="mHd-Py-41O" id="piR-zL-yd8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oeJ-kG-QIj" id="KfM-OR-xwD"/>
+                            <outlet property="delegate" destination="oeJ-kG-QIj" id="qIg-ik-DhN"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Help Desk" image="first" id="9Lt-eb-gzB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pK3-wb-T1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544" y="-392"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="gRv-u0-guq">
@@ -895,7 +876,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="i4n-dE-K9o" kind="relationship" relationship="viewControllers" id="Vcn-rE-62F"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="oeJ-kG-QIj" kind="relationship" relationship="viewControllers" id="Cqy-Qn-Bml"/>
                         <segue destination="sFp-8g-gvs" kind="relationship" relationship="viewControllers" id="evV-Ug-KUo"/>
                         <segue destination="7qc-xu-TC2" kind="relationship" relationship="viewControllers" id="nDE-Kk-60j"/>
                     </connections>

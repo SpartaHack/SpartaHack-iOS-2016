@@ -26,6 +26,7 @@ let kfoodPrefs = "foodPrefs"
     optional func didGetNewsUpdate(data: [PFObject])
     optional func didGetHelpDeskOptions(data: [PFObject])
     optional func userDidLogin(login: Bool)
+    optional func didGetUserTickets(data: [PFObject])
 }
 
 class ParseModel: NSObject {
@@ -84,6 +85,7 @@ class ParseModel: NSObject {
         }
     }
     
+    // Get the options that a user has for the help desk
     func getHelpDeskOptions () {
         let query = PFQuery(className: "HelpDesk")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
@@ -101,6 +103,22 @@ class ParseModel: NSObject {
         }
     }
     
+    // Get the tickets (if any) that a user has created 
+    func getUserTickets () {
+        let query = PFQuery(className: "HelpDeskTickets")
+        query.whereKey("user", equalTo: (PFUser.currentUser())!)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                print (error.userInfo["error"])
+            } else {
+                if let objects = objects as? [PFObject] {
+                    self.delegate?.didGetUserTickets!(objects)
+                }
+            }
+        }
+    }
+    
+    // Login user and send a delegate that classes can subscribe too
     func loginUser (username:String, password:String) {
         PFUser.logInWithUsernameInBackground(username, password:password) {
             (user: PFUser?, error: NSError?) -> Void in

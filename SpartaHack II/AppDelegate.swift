@@ -23,10 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var keyDict: NSDictionary?
         if let path = NSBundle.mainBundle().pathForResource("keys", ofType: "plist") {
-            keyDict = NSDictionary(contentsOfFile: path)
-            print("AppKeyId: ",keyDict!.objectForKey("ParseAppId"))
-            print("Client: ",keyDict!.objectForKey("ParseClient"))
-            
+            keyDict = NSDictionary(contentsOfFile: path)            
         } else {
             fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
         }
