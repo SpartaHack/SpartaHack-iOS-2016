@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController {
+class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,14 @@ class ScheduleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell")! as UITableViewCell
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
     /*
     // MARK: - Navigation
 

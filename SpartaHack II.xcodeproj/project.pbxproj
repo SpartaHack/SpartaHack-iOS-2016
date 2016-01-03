@@ -43,6 +43,7 @@
 		F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537B1C3092740030BCCA /* PrizesViewController.swift */; };
 		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
 		F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53831C3234A30030BCCA /* ios-map.pdf */; };
+		F5D94D041C39C3BD001D6E84 /* ParseCahceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5D94D021C39C3BD001D6E84 /* ParseCahceModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		F5AE537B1C3092740030BCCA /* PrizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
 		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		F5AE53831C3234A30030BCCA /* ios-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ios-map.pdf"; sourceTree = "<group>"; };
+		F5D94D031C39C3BD001D6E84 /* ParseCahceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParseCahceModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +172,8 @@
 				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
-				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B901B327566007F508C /* Images.xcassets */,
+				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B921B327566007F508C /* LaunchScreen.xib */,
 				F5AE53831C3234A30030BCCA /* ios-map.pdf */,
 				F5373B851B327566007F508C /* Supporting Files */,
@@ -182,6 +184,7 @@
 		F5373B851B327566007F508C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5D94D021C39C3BD001D6E84 /* ParseCahceModel.xcdatamodeld */,
 				F52BC0EE1BF5360B0074870E /* keys.plist */,
 				F57BA33F1C288BCC000E0381 /* libz.tbd */,
 				F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */,
@@ -371,6 +374,7 @@
 			files = (
 				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
 				F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */,
+				F5D94D041C39C3BD001D6E84 /* ParseCahceModel.xcdatamodeld in Sources */,
 				F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
@@ -606,6 +610,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5D94D021C39C3BD001D6E84 /* ParseCahceModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5D94D031C39C3BD001D6E84 /* ParseCahceModel.xcdatamodel */,
+			);
+			currentVersion = F5D94D031C39C3BD001D6E84 /* ParseCahceModel.xcdatamodel */;
+			path = ParseCahceModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F5373B7A1B327566007F508C /* Project object */;
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrizesViewController: UIViewController {
+class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,15 @@ class PrizesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("prizeCell")! as UITableViewCell
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     /*
     // MARK: - Navigation
 

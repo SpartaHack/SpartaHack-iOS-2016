@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SponsorsViewController: UIViewController {
+class SponsorsViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,7 @@ class SponsorsViewController: UIViewController {
     }
     
 
+    
     /*
     // MARK: - Navigation
 
