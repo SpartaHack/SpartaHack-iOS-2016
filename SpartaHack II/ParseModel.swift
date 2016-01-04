@@ -25,9 +25,12 @@ let kfoodPrefs = "foodPrefs"
 @objc protocol ParseModelDelegate {
     optional func didRegisterUser(success: Bool)
     optional func didGetNewsUpdate()
-    optional func didGetHelpDeskOptions(data: [PFObject])
     optional func userDidLogin(login: Bool)
-    optional func didGetUserTickets(data: [PFObject])
+}
+
+protocol ParseHelpDeskDelegate {
+    func didGetHelpDeskOptions()
+    func didGetUserTickets(data: [PFObject])
 }
 
 class ParseModel: NSObject {
@@ -35,6 +38,7 @@ class ParseModel: NSObject {
     static let sharedInstance = ParseModel()
     var userDict = [String:String]()
     var delegate = ParseModelDelegate?()
+    var helpDeskDelegate = ParseHelpDeskDelegate?()
     
     // Register user with our Parse database
     /*
@@ -132,21 +136,17 @@ class ParseModel: NSObject {
             } else {
                 // Hooray! Let them use the app now.
                 if let objects = objects as? [PFObject] {
-                    for thing in objects {
-                        print(thing)
-                        dict.updateValue(thing["Title"] as! String, forKey: "title")
-                        dict.updateValue(thing["Description"] as! String, forKey: "newsDescription")
-                        dict.updateValue(thing["Pinned"]! , forKey: "pinned")
-                        dict.updateValue(thing.objectId!, forKey: "objectId")
+                    for news in objects {
+                        print(news)
+                        dict.updateValue(news["Title"] as! String, forKey: "title")
+                        dict.updateValue(news["Description"] as! String, forKey: "newsDescription")
+                        dict.updateValue(news["Pinned"]! , forKey: "pinned")
+                        dict.updateValue(news.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
                 }
                 self.save("News", dictAry: dictAry)
                 self.delegate?.didGetNewsUpdate!()
-                print("")
-                print("Bitch, Im done")
-                print("")
-                print("great news success!")
             }
         }
     }
@@ -154,6 +154,8 @@ class ParseModel: NSObject {
     // Get the options that a user has for the help desk
     func getHelpDeskOptions () {
         let query = PFQuery(className: "HelpDesk")
+        var dict = [String:AnyObject]()
+        var dictAry = [[String:AnyObject]]()
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
@@ -162,7 +164,15 @@ class ParseModel: NSObject {
             } else {
                 // Hooray! Let them use the app now.
                 if let objects = objects as? [PFObject] {
-                    self.delegate?.didGetHelpDeskOptions!(objects)
+                    for ticketSubject in objects {
+                        print(ticketSubject)
+                        dict.updateValue(ticketSubject["category"] as! String, forKey: "category")
+                        dict.updateValue(ticketSubject["Description"] as! String, forKey: "ticketSubjectDescription")
+                        dict.updateValue(ticketSubject.objectId!, forKey: "objectId")
+                        dictAry.append(dict)
+                    }
+                    self.save("TicketSubject", dictAry: dictAry)
+                    self.helpDeskDelegate?.didGetHelpDeskOptions()
                 }
                 print("great success!")
             }
@@ -178,7 +188,7 @@ class ParseModel: NSObject {
                 print (error.userInfo["error"])
             } else {
                 if let objects = objects as? [PFObject] {
-                    self.delegate?.didGetUserTickets!(objects)
+                    self.helpDeskDelegate?.didGetUserTickets(objects)
                 }
             }
         }

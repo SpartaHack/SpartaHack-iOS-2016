@@ -12,11 +12,15 @@
     <entity name="Prize" syncable="YES"/>
     <entity name="Sponsor" syncable="YES"/>
     <entity name="Ticket" syncable="YES"/>
-    <entity name="TicketSubject" syncable="YES"/>
+    <entity name="TicketSubject" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ticketSubjectDescription" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="News" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Ticket" positionX="-54" positionY="-9" width="128" height="45"/>
-        <element name="TicketSubject" positionX="-36" positionY="9" width="128" height="45"/>
+        <element name="TicketSubject" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="Prize" positionX="-18" positionY="27" width="128" height="45"/>
         <element name="Event" positionX="0" positionY="45" width="128" height="60"/>
         <element name="Sponsor" positionX="18" positionY="63" width="128" height="45"/>

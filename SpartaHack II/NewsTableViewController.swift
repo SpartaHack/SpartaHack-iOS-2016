@@ -39,6 +39,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
         self.loadData()
     }
     
+    func didGetNewsUpdate() {
+        // got more news from parse
+        self.loadData()
+    }
+    
     func loadData () {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -52,22 +57,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
         }
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func didGetNewsUpdate() {
-        // got more news from parse
-        self.loadData()
-    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
         // TODO: make a constants file
         let news = newsAry[indexPath.row]
-        print(news)
         cell.titleLabel?.text = news.valueForKey("title") as? String
         cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
         
@@ -76,6 +70,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsAry.count
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 

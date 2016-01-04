@@ -10,10 +10,17 @@ import Foundation
 import UIKit
 import Parse
 
+protocol LoginViewControllerDelegate {
+    func userSuccessfullyLoggedIn (result: Bool)
+}
+
 class LoginViewController: UIViewController, UITextFieldDelegate, ParseModelDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    var delegate: LoginViewControllerDelegate!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +47,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseModelDele
             // there was a problem with logging the user in
             print("ERROR")
         } else {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            print("dismissing login view")
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.delegate?.userSuccessfullyLoggedIn(true)
+                })
+            })
         }
     }
     
