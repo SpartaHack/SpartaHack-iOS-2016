@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import CoreData
 
 /* 
     Declaring more than one class in a file is sometimes considered a bit unorthodox
@@ -21,7 +22,7 @@ class NewsCell: UITableViewCell {
 
 class NewsTableViewController: UITableViewController, ParseModelDelegate {
     
-    var dataAry = [PFObject]()
+    var newsAry = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,33 +34,48 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
         tableView.estimatedRowHeight = 100.0
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadData()
+    }
+    
+    func loadData () {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "News")
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            newsAry = results as! [NSManagedObject]
+            self.tableView.reloadData()
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func didGetNewsUpdate(data: [PFObject]) {
-        if data.count != 0 {
-            // we have data
-            dataAry = data
-            self.tableView.reloadData()
-        } else {
-            // we don't have data.... Y?
-            fatalError("what the fucking fuck....")
-        }
+    func didGetNewsUpdate() {
+        // got more news from parse
+        self.loadData()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
         // TODO: make a constants file
-        cell.titleLabel?.text = dataAry[indexPath.row]["Title"] as? String
-        cell.detailLabel?.text = dataAry[indexPath.row]["Description"] as? String
+        let news = newsAry[indexPath.row]
+        print(news)
+        cell.titleLabel?.text = news.valueForKey("title") as? String
+        cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
         
         return cell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataAry.count
+        return newsAry.count
     }
 }
 

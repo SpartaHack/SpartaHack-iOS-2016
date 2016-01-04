@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import CoreData
 
 // declare some k constants because changing strings is hard 
 let kfirstName = "firstName"
@@ -23,7 +24,7 @@ let kfoodPrefs = "foodPrefs"
 
 @objc protocol ParseModelDelegate {
     optional func didRegisterUser(success: Bool)
-    optional func didGetNewsUpdate(data: [PFObject])
+    optional func didGetNewsUpdate()
     optional func didGetHelpDeskOptions(data: [PFObject])
     optional func userDidLogin(login: Bool)
     optional func didGetUserTickets(data: [PFObject])
@@ -67,9 +68,62 @@ class ParseModel: NSObject {
         }
     }
     
+    // save function that takes the entity name, and an array of dicts that match the string key for anyobject (make sure whatever type your passing in is what your core data model expects)
+    func save(entity: String, dictAry: [[String:AnyObject]]) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        // for all key value pairs, map to the entity in the Core Data Model
+        for keyValues in dictAry {
+            let parseKey = keyValues["objectId"] as? String
+            let fetchRequest = NSFetchRequest(entityName: entity)
+            fetchRequest.predicate = NSPredicate(format: "objectId == %@", parseKey!)
+            do {
+                let result = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+                if result.count > 0 {
+                    // update the object instead of adding more
+                    print("")
+                    print("Updating Existing Object!")
+                    print("")
+                    for (key,value) in keyValues {
+                        // grab the objectId of the parse object in question (it should be passed in within the dictAry)
+                        print("Save: ","\(key)","\(value)")
+                        result[0].setValue(value, forKey: key)
+                        do {
+                            try managedContext.save()
+                        } catch let error as NSError  {
+                            print("Could not save \(error), \(error.userInfo)")
+                        }
+                    }
+                } else {
+                    // add the new object
+                    let entityToSave =  NSEntityDescription.entityForName(entity, inManagedObjectContext:managedContext)
+                    let newManObj = NSManagedObject(entity: entityToSave!, insertIntoManagedObjectContext: managedContext)
+                    print("")
+                    print("Adding New Object!")
+                    print("")
+                    for (key,value) in keyValues {
+                        // grab the objectId of the parse object in question (it should be passed in within the dictAry)
+                        print("Save: ","\(key)","\(value)")
+                        newManObj.setValue(value, forKey: key)
+                        do {
+                            try managedContext.save()
+                        } catch let error as NSError  {
+                            print("Could not save \(error), \(error.userInfo)")
+                        }
+                    }
+                }
+            } catch let error as NSError {
+                print("Could not fetch \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
     // Get updated news
     func getNews() {
         let query = PFQuery(className: "Announcements")
+        var dict = [String:AnyObject]()
+        var dictAry = [[String:AnyObject]]()
         query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
@@ -78,8 +132,20 @@ class ParseModel: NSObject {
             } else {
                 // Hooray! Let them use the app now.
                 if let objects = objects as? [PFObject] {
-                    self.delegate?.didGetNewsUpdate!(objects)
+                    for thing in objects {
+                        print(thing)
+                        dict.updateValue(thing["Title"] as! String, forKey: "title")
+                        dict.updateValue(thing["Description"] as! String, forKey: "newsDescription")
+                        dict.updateValue(thing["Pinned"]! , forKey: "pinned")
+                        dict.updateValue(thing.objectId!, forKey: "objectId")
+                        dictAry.append(dict)
+                    }
                 }
+                self.save("News", dictAry: dictAry)
+                self.delegate?.didGetNewsUpdate!()
+                print("")
+                print("Bitch, Im done")
+                print("")
                 print("great news success!")
             }
         }

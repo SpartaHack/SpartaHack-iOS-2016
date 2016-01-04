@@ -2,18 +2,21 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
     <entity name="Event" syncable="YES"/>
     <entity name="News" syncable="YES">
-        <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="newsDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pinned" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Prize" syncable="YES"/>
     <entity name="Sponsor" syncable="YES"/>
     <entity name="Ticket" syncable="YES"/>
     <entity name="TicketSubject" syncable="YES"/>
     <elements>
-        <element name="News" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="TicketSubject" positionX="-54" positionY="9" width="128" height="45"/>
-        <element name="Ticket" positionX="-36" positionY="18" width="128" height="45"/>
         <element name="Event" positionX="-18" positionY="27" width="128" height="45"/>
+        <element name="News" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Prize" positionX="0" positionY="45" width="128" height="45"/>
         <element name="Sponsor" positionX="18" positionY="63" width="128" height="45"/>
+        <element name="Ticket" positionX="-36" positionY="18" width="128" height="45"/>
+        <element name="TicketSubject" positionX="-54" positionY="9" width="128" height="45"/>
     </elements>
 </model>
