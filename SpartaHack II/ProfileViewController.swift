@@ -9,19 +9,38 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, LoginViewControllerDelegate {
 
     
     @IBOutlet weak var userNameLabel: UILabel!
     
     var user = PFUser.currentUser()
+    var asked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         userNameLabel.text = user?.username
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if PFUser.currentUser() == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
+            vc.delegate = self
+            if !asked {
+                asked = true  
+                self.navigationController?.presentViewController(vc, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func userSuccessfullyLoggedIn(result: Bool) {
+        if !result {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
     }
 
     override func didReceiveMemoryWarning() {

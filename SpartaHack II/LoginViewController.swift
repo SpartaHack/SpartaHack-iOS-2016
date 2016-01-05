@@ -63,7 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseModelDele
     
     @IBAction func skipLoginButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true) { () -> Void in
-            
+            self.delegate?.userSuccessfullyLoggedIn(false)
         }
     }
 }

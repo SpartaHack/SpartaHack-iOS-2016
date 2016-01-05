@@ -30,7 +30,7 @@ let kfoodPrefs = "foodPrefs"
 
 protocol ParseHelpDeskDelegate {
     func didGetHelpDeskOptions()
-    func didGetUserTickets(data: [PFObject])
+    func didGetUserTickets()
 }
 
 class ParseModel: NSObject {
@@ -182,13 +182,25 @@ class ParseModel: NSObject {
     // Get the tickets (if any) that a user has created 
     func getUserTickets () {
         let query = PFQuery(className: "HelpDeskTickets")
+        var dict = [String:AnyObject]()
+        var dictAry = [[String:AnyObject]]()
+        query.includeKey("category")
         query.whereKey("user", equalTo: (PFUser.currentUser())!)
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
                 print (error.userInfo["error"])
             } else {
                 if let objects = objects as? [PFObject] {
-                    self.helpDeskDelegate?.didGetUserTickets(objects)
+                    for ticket in objects {
+                        print(ticket)
+                        let category = ticket["category"] as! PFObject
+                        dict.updateValue(category["category"] as! String, forKey: "category")
+                        dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
+                        dict.updateValue(ticket.objectId!, forKey: "objectId")
+                        dictAry.append(dict)
+                    }
+                    self.save("Ticket", dictAry: dictAry)
+                    self.helpDeskDelegate?.didGetUserTickets()
                 }
             }
         }

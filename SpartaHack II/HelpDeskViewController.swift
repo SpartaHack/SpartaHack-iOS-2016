@@ -19,12 +19,11 @@ class helpDeskCell: UITableViewCell {
 class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, ParseHelpDeskDelegate, LoginViewControllerDelegate {
     
     var ticketOptionsAry = [NSManagedObject]()
-    var ticketsArray = [PFObject]()
+    var ticketsArray = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        ParseModel.sharedInstance.delegate = self
         ParseModel.sharedInstance.helpDeskDelegate = self
         if let currentUser = PFUser.currentUser() {
             // Check to see if a user is logged in, if not, show login view
@@ -39,9 +38,11 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if PFUser.currentUser() != nil{
-            self.loadData()
+            self.loadData("TicketSubject", section: 0)
+            self.loadData("Ticket", section: 1)
         } else {
             ticketOptionsAry.removeAll()
+            ticketsArray.removeAll()
             self.tableView.reloadData()
         }
     }
@@ -51,32 +52,29 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
         ParseModel.sharedInstance.getUserTickets()
     }
     
-    func loadData () {
+    func loadData (entity: String, section: Int) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "TicketSubject")
+        let fetchRequest = NSFetchRequest(entityName: entity)
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            ticketOptionsAry = results as! [NSManagedObject]
-            self.tableView.reloadData()
+            if entity == "Ticket" {
+                ticketsArray  = results as! [NSManagedObject]
+            } else {
+                ticketOptionsAry = results as! [NSManagedObject]
+            }
+            self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: UITableViewRowAnimation.Fade)
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
     
     func didGetHelpDeskOptions() {
-        self.loadData()
+        self.loadData("TicketSubject", section: 0)
     }
     
-    func didGetUserTickets(data: [PFObject]) {
-        if data.count != 0 {
-            // we have data
-            ticketsArray = data
-            self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
-        } else {
-            // we don't have data.... Y?
-            fatalError("what the fucking fuck....")
-        }
+    func didGetUserTickets() {
+        self.loadData("Ticket", section: 1)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -93,8 +91,9 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
             }
         } else {
             if ticketsArray.count > 0 {
-                cell.titleLabel?.text = ticketsArray[indexPath.row]["Title"] as? String
-                cell.descriptionLabel?.text = ticketsArray[indexPath.row]["description"] as? String
+                let userTicket = ticketsArray[indexPath.row]
+                cell.titleLabel?.text = userTicket.valueForKey("category") as? String
+                cell.descriptionLabel?.text = userTicket.valueForKey("ticketDescrption") as? String
             } else {
                 cell.titleLabel?.text = "loading tickets..."
                 cell.descriptionLabel?.text = "Please login to use help desk features"
@@ -106,7 +105,6 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if PFUser.currentUser() == nil {
-        
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
             vc.delegate = self
@@ -136,12 +134,11 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
                 return 1
             }
         } else {
-            return 0
-//            if ticketsArray.count > 0 {
-//                return ticketsArray.count
-//            } else {
-//                return 0
-//            }
+            if ticketsArray.count > 0 {
+                return ticketsArray.count
+            } else {
+                return 0
+            }
         }
     }
     
