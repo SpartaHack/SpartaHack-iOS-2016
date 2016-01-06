@@ -113,15 +113,23 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        if PFUser.currentUser() != nil {
+            return 2
+        } else {
+            return 1
+        }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section{
-            case 1:
-                return "Current tickets"
-            default:
-                return "Need help? Select a topic below to get started"
+        if ticketsArray.count > 0 {
+            switch section{
+                case 1:
+                    return "Current tickets"
+                default:
+                    return "Need help? Select a topic below to get started"
+            }
+        } else {
+            return "Please Login"
         }
     }
     

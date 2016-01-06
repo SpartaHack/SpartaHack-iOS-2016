@@ -319,6 +319,11 @@
 					F5373B811B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = V6R9L68573;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					F5373B981B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;

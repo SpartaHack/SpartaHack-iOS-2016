@@ -7,36 +7,66 @@
 //
 
 import UIKit
+import CoreData
 
-class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ScheduleCell: UITableViewCell {
+    static let cellIdentifier = "eventCell"
+    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var eventDescriptionLabel: UILabel!
+    @IBOutlet weak var eventTimeLabel: UILabel!
+    @IBOutlet weak var eventLocationLabel: UILabel!
+}
 
+class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseScheduleDelegate {
+
+    var eventAry = [NSManagedObject]()
+
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        ParseModel.sharedInstance.scheduleDelegate = self
+        ParseModel.sharedInstance.getSchedule()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func didGetSchedule() {
+        self.loadData()
+    }
+    
+    func loadData () {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Event")
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            eventAry = results as! [NSManagedObject]
+            tableView.reloadData()
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell")! as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(ScheduleCell.cellIdentifier) as! ScheduleCell
+        let event = eventAry[indexPath.row]
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .ShortStyle
+        let dateString = formatter.stringFromDate(event.valueForKey("eventTime") as! NSDate)
+        
+        cell.eventTitleLabel.text = event.valueForKey("eventTitle") as? String
+        cell.eventDescriptionLabel.text = event.valueForKey("eventDescription") as? String
+        cell.eventLocationLabel.text = event.valueForKey("eventLocation") as? String
+        cell.eventTimeLabel.text = dateString
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return eventAry.count
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    */
-
 }

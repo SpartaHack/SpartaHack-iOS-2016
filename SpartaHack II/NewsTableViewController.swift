@@ -24,6 +24,9 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
     
     var newsAry = [NSManagedObject]()
     
+    var pinnedAry = [NSManagedObject]()
+    var unpinnedAry = [NSManagedObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -51,25 +54,73 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             newsAry = results as! [NSManagedObject]
+            pinnedAry.removeAll()
+            unpinnedAry.removeAll()
+            for obj in newsAry {
+                if ((obj.valueForKey("pinned") as? Bool) == false) {
+                    // not pinned
+                    unpinnedAry.append(obj)
+                } else {
+                    // pinned
+                    pinnedAry.append(obj)
+                }
+            }
             self.tableView.reloadData()
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
         // TODO: make a constants file
-        let news = newsAry[indexPath.row]
+        let news: NSManagedObject
+        
+        switch indexPath.section {
+        case 0:
+            news = pinnedAry[indexPath.row]
+        default:
+            news = unpinnedAry[indexPath.row]
+        }
+        
         cell.titleLabel?.text = news.valueForKey("title") as? String
         cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
         
         return cell
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if pinnedAry.count > 0 {
+            switch section{
+            case 1:
+                return "Announcements"
+            default:
+                return "Important Announcements"
+            }
+        } else {
+            return "Announcements"
+        }
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsAry.count
+        switch section {
+        case 0:
+            return pinnedAry.count
+        default:
+            return unpinnedAry.count
+        }
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if pinnedAry.count > 0 {
+            return 2
+        } else {
+            return 1
+        }
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

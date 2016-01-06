@@ -33,12 +33,16 @@ protocol ParseHelpDeskDelegate {
     func didGetUserTickets()
 }
 
+protocol ParseScheduleDelegate {
+    func didGetSchedule()
+}
 class ParseModel: NSObject {
     
     static let sharedInstance = ParseModel()
     var userDict = [String:String]()
     var delegate = ParseModelDelegate?()
     var helpDeskDelegate = ParseHelpDeskDelegate?()
+    var scheduleDelegate = ParseScheduleDelegate?()
     
     // Register user with our Parse database
     /*
@@ -202,6 +206,34 @@ class ParseModel: NSObject {
                     self.save("Ticket", dictAry: dictAry)
                     self.helpDeskDelegate?.didGetUserTickets()
                 }
+            }
+        }
+    }
+    
+    func getSchedule() {
+        let query = PFQuery(className: "Schedule")
+        var dict = [String:AnyObject]()
+        var dictAry = [[String:AnyObject]]()
+        query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+                print("Why must the success codes always be gone? \(errorString)")
+            } else {
+                // Hooray! Let them use the app now.
+                if let objects = objects as? [PFObject] {
+                    for news in objects {
+                        print(news)
+                        dict.updateValue(news["eventTitle"] as! String, forKey: "eventTitle")
+                        dict.updateValue(news["eventDescription"] as! String, forKey: "eventDescription")
+                        dict.updateValue(news["eventLocation"] as! String, forKey: "eventLocation")
+                        dict.updateValue(news["eventTime"] as! NSDate, forKey: "eventTime")
+                        dict.updateValue(news.objectId!, forKey: "objectId")
+                        dictAry.append(dict)
+                    }
+                }
+                self.save("Event", dictAry: dictAry)
+                self.scheduleDelegate?.didGetSchedule()
             }
         }
     }
