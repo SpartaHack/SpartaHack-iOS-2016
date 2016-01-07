@@ -25,7 +25,10 @@ let kfoodPrefs = "foodPrefs"
 @objc protocol ParseModelDelegate {
     optional func didRegisterUser(success: Bool)
     optional func didGetNewsUpdate()
-    optional func userDidLogin(login: Bool)
+}
+
+protocol ParseUserDelegate {
+    func userDidLogin(login: Bool)
 }
 
 protocol ParseHelpDeskDelegate {
@@ -40,9 +43,11 @@ class ParseModel: NSObject {
     
     static let sharedInstance = ParseModel()
     var userDict = [String:String]()
+    
     var delegate = ParseModelDelegate?()
     var helpDeskDelegate = ParseHelpDeskDelegate?()
     var scheduleDelegate = ParseScheduleDelegate?()
+    var userDelegate = ParseUserDelegate?()
     
     // Register user with our Parse database
     /*
@@ -245,11 +250,13 @@ class ParseModel: NSObject {
             if user != nil {
                 // Do stuff after successful login.
                 print("User logged in")
-                self.delegate?.userDidLogin!(true)
+                self.getUserTickets()
+                self.getHelpDeskOptions()
+                self.userDelegate?.userDidLogin(true)
             } else {
                 // The login failed. Check error to see why.
                 print(error?.localizedDescription)
-                self.delegate?.userDidLogin!(false)
+                self.userDelegate?.userDidLogin(false)
             }
         }
     }

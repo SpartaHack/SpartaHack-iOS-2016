@@ -16,40 +16,36 @@ class helpDeskCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
 }
 
-class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, ParseHelpDeskDelegate, LoginViewControllerDelegate {
+class HelpDeskTableViewController: UITableViewController, ParseModelDelegate {
     
     var ticketOptionsAry = [NSManagedObject]()
     var ticketsArray = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        ParseModel.sharedInstance.helpDeskDelegate = self
-        if let currentUser = PFUser.currentUser() {
-            // Check to see if a user is logged in, if not, show login view
-            print(currentUser)
-            ParseModel.sharedInstance.getHelpDeskOptions()
-            ParseModel.sharedInstance.getUserTickets()
-        }
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        print("")
+        print("Updating Data....")
+        print("")
         if PFUser.currentUser() != nil{
+            print("")
+            print("User is logged in")
+            print("")
             self.loadData("TicketSubject", section: 0)
             self.loadData("Ticket", section: 1)
         } else {
+            print("")
+            print("User is logged out")
+            print("")
             ticketOptionsAry.removeAll()
             ticketsArray.removeAll()
             self.tableView.reloadData()
         }
-    }
-    
-    func userSuccessfullyLoggedIn(result: Bool) {
-        ParseModel.sharedInstance.getHelpDeskOptions()
-        ParseModel.sharedInstance.getUserTickets()
     }
     
     func loadData (entity: String, section: Int) {
@@ -69,14 +65,6 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
         }
     }
     
-    func didGetHelpDeskOptions() {
-        self.loadData("TicketSubject", section: 0)
-    }
-    
-    func didGetUserTickets() {
-        self.loadData("Ticket", section: 1)
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(helpDeskCell.cellIdentifier) as! helpDeskCell
         
@@ -94,9 +82,6 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
                 let userTicket = ticketsArray[indexPath.row]
                 cell.titleLabel?.text = userTicket.valueForKey("category") as? String
                 cell.descriptionLabel?.text = userTicket.valueForKey("ticketDescrption") as? String
-            } else {
-                cell.titleLabel?.text = "loading tickets..."
-                cell.descriptionLabel?.text = "Please login to use help desk features"
             }
         }
 
@@ -107,17 +92,12 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
         if PFUser.currentUser() == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
-            vc.delegate = self
             self.navigationController?.presentViewController(vc, animated: true, completion: nil)
         }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if PFUser.currentUser() != nil {
-            return 2
-        } else {
-            return 1
-        }
+        return 2
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -129,7 +109,12 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
                     return "Need help? Select a topic below to get started"
             }
         } else {
-            return "Please Login"
+            switch section{
+            case 1:
+                return ""
+            default:
+                return "Please Login"
+            }
         }
     }
     

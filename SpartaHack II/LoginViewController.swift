@@ -14,17 +14,16 @@ protocol LoginViewControllerDelegate {
     func userSuccessfullyLoggedIn (result: Bool)
 }
 
-class LoginViewController: UIViewController, UITextFieldDelegate, ParseModelDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     var delegate: LoginViewControllerDelegate!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ParseModel.sharedInstance.delegate = self
+        ParseModel.sharedInstance.userDelegate = self
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
