@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
 		F52BC0EF1BF5360B0074870E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52BC0EE1BF5360B0074870E /* keys.plist */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
 		F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* NewsTableViewController.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		F52BC0EE1BF5360B0074870E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		F5373B821B327566007F508C /* SpartaHack II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
+				F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
@@ -384,6 +387,7 @@
 				F5F5A0F41C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
+				F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,

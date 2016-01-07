@@ -568,6 +568,7 @@
                     <connections>
                         <segue destination="49e-Tb-3d3" kind="relationship" relationship="rootViewController" id="Gns-At-LhW"/>
                         <segue destination="VoL-Qz-Epd" kind="presentation" identifier="loginSegue" id="cXN-Dm-TxF"/>
+                        <segue destination="Sw0-ET-v4s" kind="show" identifier="profileSegue" id="ARo-AV-sdt"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1j-ju-hBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,14 +981,14 @@
             </objects>
             <point key="canvasLocation" x="822" y="-1202"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="RootTabBarViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Jwh-6F-9O8">
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="n7x-13-POd">
                             <connections>
-                                <segue destination="Sw0-ET-v4s" kind="show" id="A1a-3j-kdg"/>
+                                <action selector="profileButtonTapped:" destination="49e-Tb-3d3" id="26r-Vf-bt9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="GMp-MU-T3l"/>
