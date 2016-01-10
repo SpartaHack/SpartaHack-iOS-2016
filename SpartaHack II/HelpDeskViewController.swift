@@ -16,7 +16,7 @@ class helpDeskCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
 }
 
-class HelpDeskTableViewController: UITableViewController, ParseModelDelegate {
+class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, ParseHelpDeskDelegate {
     
     var ticketOptionsAry = [NSManagedObject]()
     var ticketsArray = [NSManagedObject]()
@@ -25,6 +25,7 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        ParseModel.sharedInstance.helpDeskDelegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,6 +47,15 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate {
             ticketsArray.removeAll()
             self.tableView.reloadData()
         }
+    }
+    
+    func didGetHelpDeskOptions() {
+        print("update!")
+        self.loadData("TicketSubject", section: 0)
+    }
+    
+    func didGetUserTickets() {
+        self.loadData("Ticket", section: 1)
     }
     
     func loadData (entity: String, section: Int) {

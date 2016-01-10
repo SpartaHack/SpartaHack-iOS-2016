@@ -150,6 +150,7 @@ class ParseModel: NSObject {
                         dict.updateValue(news["Title"] as! String, forKey: "title")
                         dict.updateValue(news["Description"] as! String, forKey: "newsDescription")
                         dict.updateValue(news["Pinned"]! , forKey: "pinned")
+                        dict.updateValue(news.createdAt! as NSDate, forKey: "createdAt")
                         dict.updateValue(news.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
