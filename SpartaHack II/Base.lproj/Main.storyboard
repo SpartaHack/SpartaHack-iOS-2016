@@ -483,29 +483,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-dW-t6c">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="85" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-dW-t6c">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prizeCell" id="No0-2m-lad">
-                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prizeCell" rowHeight="85" id="No0-2m-lad" customClass="PrizeCell" customModule="SpartaHack_II" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="No0-2m-lad" id="35j-MO-1cx">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,000,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmP-uD-Y63">
-                                                    <rect key="frame" x="8" y="11" width="87" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best something something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUu-CN-R1p">
+                                                    <rect key="frame" x="8" y="8" width="584" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sponsored by: UR MOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBo-KR-Bza">
+                                                    <rect key="frame" x="8" y="58" width="584" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For best use of our API you get $3 for your team to split" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krf-35-SCy">
+                                                    <rect key="frame" x="8" y="32" width="584" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="leadingMargin" secondItem="WmP-uD-Y63" secondAttribute="leading" id="EIP-9f-NsN"/>
-                                                <constraint firstItem="WmP-uD-Y63" firstAttribute="centerY" secondItem="35j-MO-1cx" secondAttribute="centerY" id="Gpd-cV-btb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SBo-KR-Bza" secondAttribute="trailing" id="1h7-tK-sCb"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="DUu-CN-R1p" secondAttribute="leading" id="51s-5Q-5JZ"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="SBo-KR-Bza" secondAttribute="leading" id="5YG-oA-xN3"/>
+                                                <constraint firstItem="Krf-35-SCy" firstAttribute="top" secondItem="DUu-CN-R1p" secondAttribute="bottom" constant="4" id="82o-lW-tvg"/>
+                                                <constraint firstItem="SBo-KR-Bza" firstAttribute="top" secondItem="Krf-35-SCy" secondAttribute="bottom" constant="8" id="YfI-dJ-ZfF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="SBo-KR-Bza" secondAttribute="bottom" constant="3.5" id="ahc-QQ-mCO"/>
+                                                <constraint firstAttribute="topMargin" secondItem="DUu-CN-R1p" secondAttribute="top" id="l3l-9Q-2pO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DUu-CN-R1p" secondAttribute="trailing" id="oh0-5R-GC4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Krf-35-SCy" secondAttribute="trailing" id="pYO-J2-cv5"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Krf-35-SCy" secondAttribute="leading" id="twk-FE-QL4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="prizeDescriptionLabel" destination="Krf-35-SCy" id="56b-RA-wb9"/>
+                                            <outlet property="prizeNameLabel" destination="DUu-CN-R1p" id="7x7-yU-m0F"/>
+                                            <outlet property="prizesSponsorLabel" destination="SBo-KR-Bza" id="ho2-eH-Kbe"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -522,6 +547,9 @@
                             <constraint firstAttribute="bottomMargin" secondItem="rGL-dW-t6c" secondAttribute="bottom" id="zXP-yD-NNy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="rGL-dW-t6c" id="NpQ-g0-2tk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWO-Ww-Xgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

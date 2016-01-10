@@ -24,7 +24,10 @@ let kfoodPrefs = "foodPrefs"
 
 @objc protocol ParseModelDelegate {
     optional func didRegisterUser(success: Bool)
-    optional func didGetNewsUpdate()
+}
+
+protocol ParseNewsDelegate {
+    func didGetNewsUpdate()
 }
 
 protocol ParseUserDelegate {
@@ -39,6 +42,11 @@ protocol ParseHelpDeskDelegate {
 protocol ParseScheduleDelegate {
     func didGetSchedule()
 }
+
+protocol ParsePrizesDelegate {
+    func didGetPrizes()
+}
+
 class ParseModel: NSObject {
     
     static let sharedInstance = ParseModel()
@@ -48,6 +56,8 @@ class ParseModel: NSObject {
     var helpDeskDelegate = ParseHelpDeskDelegate?()
     var scheduleDelegate = ParseScheduleDelegate?()
     var userDelegate = ParseUserDelegate?()
+    var newsDelegate = ParseNewsDelegate?()
+    var prizeDelegate = ParsePrizesDelegate?()
     
     // Register user with our Parse database
     /*
@@ -156,7 +166,7 @@ class ParseModel: NSObject {
                     }
                 }
                 self.save("News", dictAry: dictAry)
-                self.delegate?.didGetNewsUpdate!()
+                self.newsDelegate?.didGetNewsUpdate()
             }
         }
     }
@@ -240,6 +250,36 @@ class ParseModel: NSObject {
                 }
                 self.save("Event", dictAry: dictAry)
                 self.scheduleDelegate?.didGetSchedule()
+            }
+        }
+    }
+    
+    func getPrizes() {
+        let query = PFQuery(className: "Prizes")
+        var dict = [String:AnyObject]()
+        var dictAry = [[String:AnyObject]]()
+        query.includeKey("sponsor")
+        query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+                print("Why must the success codes always be gone? \(errorString)")
+            } else {
+                // Hooray! Let them use the app now.
+                if let objects = objects as? [PFObject] {
+                    for prize in objects {
+                        print(prize)
+                        let sponsor:PFObject = prize["sponsor"] as! PFObject
+                        dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
+                        dict.updateValue(sponsor["level"] as! String, forKey: "tier")
+                        dict.updateValue(prize["name"] as! String, forKey: "name")
+                        dict.updateValue(prize["description"] as! String, forKey: "prizeDescription")
+                        dict.updateValue(prize.objectId!, forKey: "objectId")
+                        dictAry.append(dict)
+                    }
+                }
+                self.save("Prize", dictAry: dictAry)
+                self.prizeDelegate?.didGetPrizes()
             }
         }
     }

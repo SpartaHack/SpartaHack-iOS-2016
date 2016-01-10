@@ -20,7 +20,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
 }
 
-class NewsTableViewController: UITableViewController, ParseModelDelegate {
+class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseNewsDelegate {
     
     var newsAry = [NSManagedObject]()
     
@@ -30,7 +30,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        ParseModel.sharedInstance.delegate = self
+        ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
         
         tableView.rowHeight = UITableViewAutomaticDimension

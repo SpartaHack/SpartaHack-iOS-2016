@@ -14,7 +14,13 @@
         <attribute name="pinned" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Prize" syncable="YES"/>
+    <entity name="Prize" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prizeDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sponsor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tier" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Sponsor" syncable="YES"/>
     <entity name="Ticket" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,10 +34,10 @@
     </entity>
     <elements>
         <element name="Event" positionX="0" positionY="45" width="128" height="120"/>
-        <element name="News" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Prize" positionX="-18" positionY="27" width="128" height="45"/>
-        <element name="Sponsor" positionX="18" positionY="63" width="128" height="45"/>
-        <element name="Ticket" positionX="-54" positionY="-9" width="128" height="90"/>
-        <element name="TicketSubject" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="News" positionX="-207" positionY="-12" width="128" height="120"/>
+        <element name="Prize" positionX="306" positionY="-117" width="128" height="120"/>
+        <element name="Sponsor" positionX="88" positionY="-54" width="128" height="45"/>
+        <element name="Ticket" positionX="-11" positionY="-198" width="128" height="90"/>
+        <element name="TicketSubject" positionX="-200" positionY="-153" width="128" height="90"/>
     </elements>
 </model>
