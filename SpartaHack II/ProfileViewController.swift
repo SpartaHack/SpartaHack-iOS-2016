@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        userNameLabel.text = user?.username
+        userNameLabel.text = "Welcome: \(user!.username!)"
 
     }
     

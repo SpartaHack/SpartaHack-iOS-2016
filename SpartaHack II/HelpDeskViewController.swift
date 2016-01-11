@@ -99,11 +99,17 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if PFUser.currentUser() == nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
             self.navigationController?.presentViewController(vc, animated: true, completion: nil)
         }
+        
+        if indexPath.section == 0 {
+            self.performSegueWithIdentifier("createTicketSegue", sender: nil)
+        }
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
