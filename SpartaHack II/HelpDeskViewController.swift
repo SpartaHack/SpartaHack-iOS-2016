@@ -107,7 +107,11 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
         }
         
         if indexPath.section == 0 {
-            self.performSegueWithIdentifier("createTicketSegue", sender: nil)
+            let ticketSubject = ticketOptionsAry[indexPath.row]
+            let vc = storyboard.instantiateViewControllerWithIdentifier("newTicket") as! CreateTicketViewController
+            vc.topic = ticketSubject.valueForKey("category") as! String
+            vc.topicObjId = ticketSubject.valueForKey("objectId") as! String
+            self.navigationController?.presentViewController(vc, animated: true, completion: nil)
         }
         
     }

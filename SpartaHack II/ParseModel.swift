@@ -47,6 +47,10 @@ protocol ParsePrizesDelegate {
     func didGetPrizes()
 }
 
+protocol ParseTicketDelegate {
+    func didSubmitTicket(success: Bool)
+}
+
 class ParseModel: NSObject {
     
     static let sharedInstance = ParseModel()
@@ -58,6 +62,7 @@ class ParseModel: NSObject {
     var userDelegate = ParseUserDelegate?()
     var newsDelegate = ParseNewsDelegate?()
     var prizeDelegate = ParsePrizesDelegate?()
+    var ticketDelegate = ParseTicketDelegate?()
     
     // Register user with our Parse database
     /*
@@ -176,6 +181,7 @@ class ParseModel: NSObject {
         let query = PFQuery(className: "HelpDesk")
         var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
+        query.includeKey("category")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
@@ -280,6 +286,26 @@ class ParseModel: NSObject {
                 }
                 self.save("Prize", dictAry: dictAry)
                 self.prizeDelegate?.didGetPrizes()
+            }
+        }
+    }
+    
+    func submitUserTicket(category: String, subject: String, description: String) {
+        let ticket = PFObject(className: "HelpDeskTickets")
+        let ticketSbj = PFObject(withoutDataWithClassName: "HelpDesk", objectId: category)
+        ticket["category"] = ticketSbj
+        ticket["subject"] = subject
+        ticket["description"] = description
+        ticket["user"] = PFUser.currentUser()!
+        ticket.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if success {
+                // yay it worked!
+                print("ticket submitted...")
+                self.ticketDelegate?.didSubmitTicket(true)
+                self.getUserTickets()
+            } else {
+                // error
+                print(error)
             }
         }
     }
