@@ -74,14 +74,14 @@
 /* Begin PBXFileReference section */
 		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		F52BC0EE1BF5360B0074870E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
-		F5373B821B327566007F508C /* SpartaHack II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5373B821B327566007F508C /* SpartaHack 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5373B871B327566007F508C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5373B891B327566007F508C /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		F5373B8E1B327566007F508C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5373B901B327566007F508C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F5373B931B327566007F508C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F5373B991B327566007F508C /* SpartaHack IITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpartaHack IITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5373B991B327566007F508C /* SpartaHack 2016.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpartaHack 2016.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B9E1B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5373B9F1B327566007F508C /* SpartaHack_IITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaHack_IITests.swift; sourceTree = "<group>"; };
 		F5373BA91B32758C007F508C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 		F5373B831B327566007F508C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5373B821B327566007F508C /* SpartaHack II.app */,
-				F5373B991B327566007F508C /* SpartaHack IITests.xctest */,
+				F5373B821B327566007F508C /* SpartaHack 2016.app */,
+				F5373B991B327566007F508C /* SpartaHack 2016.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -276,9 +276,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F5373B811B327566007F508C /* SpartaHack II */ = {
+		F5373B811B327566007F508C /* SpartaHack 2016 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5373BA31B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack II" */;
+			buildConfigurationList = F5373BA31B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack 2016" */;
 			buildPhases = (
 				F5373B7E1B327566007F508C /* Sources */,
 				F5373B7F1B327566007F508C /* Frameworks */,
@@ -289,14 +289,14 @@
 			);
 			dependencies = (
 			);
-			name = "SpartaHack II";
+			name = "SpartaHack 2016";
 			productName = "SpartaHack II";
-			productReference = F5373B821B327566007F508C /* SpartaHack II.app */;
+			productReference = F5373B821B327566007F508C /* SpartaHack 2016.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F5373B981B327566007F508C /* SpartaHack IITests */ = {
+		F5373B981B327566007F508C /* SpartaHack 2016Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5373BA61B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack IITests" */;
+			buildConfigurationList = F5373BA61B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack 2016Tests" */;
 			buildPhases = (
 				F5373B951B327566007F508C /* Sources */,
 				F5373B961B327566007F508C /* Frameworks */,
@@ -307,9 +307,9 @@
 			dependencies = (
 				F5373B9B1B327566007F508C /* PBXTargetDependency */,
 			);
-			name = "SpartaHack IITests";
+			name = "SpartaHack 2016Tests";
 			productName = "SpartaHack IITests";
-			productReference = F5373B991B327566007F508C /* SpartaHack IITests.xctest */;
+			productReference = F5373B991B327566007F508C /* SpartaHack 2016.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -337,7 +337,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F5373B7D1B327566007F508C /* Build configuration list for PBXProject "SpartaHack II" */;
+			buildConfigurationList = F5373B7D1B327566007F508C /* Build configuration list for PBXProject "SpartaHack 2016" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -350,8 +350,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F5373B811B327566007F508C /* SpartaHack II */,
-				F5373B981B327566007F508C /* SpartaHack IITests */,
+				F5373B811B327566007F508C /* SpartaHack 2016 */,
+				F5373B981B327566007F508C /* SpartaHack 2016Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -415,7 +415,7 @@
 /* Begin PBXTargetDependency section */
 		F5373B9B1B327566007F508C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F5373B811B327566007F508C /* SpartaHack II */;
+			target = F5373B811B327566007F508C /* SpartaHack 2016 */;
 			targetProxy = F5373B9A1B327566007F508C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -539,7 +539,7 @@
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -557,7 +557,7 @@
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -574,8 +574,8 @@
 				INFOPLIST_FILE = "SpartaHack IITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaHack II.app/SpartaHack II";
+				PRODUCT_NAME = "SpartaHack 2016";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaHack 2016.app/SpartaHack 2016";
 			};
 			name = Debug;
 		};
@@ -587,15 +587,15 @@
 				INFOPLIST_FILE = "SpartaHack IITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaHack II.app/SpartaHack II";
+				PRODUCT_NAME = "SpartaHack 2016";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaHack 2016.app/SpartaHack 2016";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F5373B7D1B327566007F508C /* Build configuration list for PBXProject "SpartaHack II" */ = {
+		F5373B7D1B327566007F508C /* Build configuration list for PBXProject "SpartaHack 2016" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5373BA11B327566007F508C /* Debug */,
@@ -604,7 +604,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5373BA31B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack II" */ = {
+		F5373BA31B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack 2016" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5373BA41B327566007F508C /* Debug */,
@@ -613,7 +613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5373BA61B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack IITests" */ = {
+		F5373BA61B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack 2016Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5373BA71B327566007F508C /* Debug */,

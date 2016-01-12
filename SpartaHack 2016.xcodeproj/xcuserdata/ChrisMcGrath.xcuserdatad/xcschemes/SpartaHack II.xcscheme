@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5373B811B327566007F508C"
-               BuildableName = "SpartaHack II.app"
-               BlueprintName = "SpartaHack II"
-               ReferencedContainer = "container:SpartaHack II.xcodeproj">
+               BuildableName = "SpartaHack 2016.app"
+               BlueprintName = "SpartaHack 2016"
+               ReferencedContainer = "container:SpartaHack 2016.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5373B981B327566007F508C"
-               BuildableName = "SpartaHack IITests.xctest"
-               BlueprintName = "SpartaHack IITests"
-               ReferencedContainer = "container:SpartaHack II.xcodeproj">
+               BuildableName = "SpartaHack 2016.xctest"
+               BlueprintName = "SpartaHack 2016Tests"
+               ReferencedContainer = "container:SpartaHack 2016.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5373B981B327566007F508C"
-               BuildableName = "SpartaHack IITests.xctest"
-               BlueprintName = "SpartaHack IITests"
-               ReferencedContainer = "container:SpartaHack II.xcodeproj">
+               BuildableName = "SpartaHack 2016.xctest"
+               BlueprintName = "SpartaHack 2016Tests"
+               ReferencedContainer = "container:SpartaHack 2016.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5373B811B327566007F508C"
-            BuildableName = "SpartaHack II.app"
-            BlueprintName = "SpartaHack II"
-            ReferencedContainer = "container:SpartaHack II.xcodeproj">
+            BuildableName = "SpartaHack 2016.app"
+            BlueprintName = "SpartaHack 2016"
+            ReferencedContainer = "container:SpartaHack 2016.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5373B811B327566007F508C"
-            BuildableName = "SpartaHack II.app"
-            BlueprintName = "SpartaHack II"
-            ReferencedContainer = "container:SpartaHack II.xcodeproj">
+            BuildableName = "SpartaHack 2016.app"
+            BlueprintName = "SpartaHack 2016"
+            ReferencedContainer = "container:SpartaHack 2016.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5373B811B327566007F508C"
-            BuildableName = "SpartaHack II.app"
-            BlueprintName = "SpartaHack II"
-            ReferencedContainer = "container:SpartaHack II.xcodeproj">
+            BuildableName = "SpartaHack 2016.app"
+            BlueprintName = "SpartaHack 2016"
+            ReferencedContainer = "container:SpartaHack 2016.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

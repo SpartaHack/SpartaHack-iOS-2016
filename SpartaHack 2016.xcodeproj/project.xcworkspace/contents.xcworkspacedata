@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SpartaHack II.xcodeproj">
+      location = "self:/Users/ChrisMcGrath/SpartaHackII-iOS/SpartaHack 2016.xcodeproj">
    </FileRef>
 </Workspace>
