@@ -106,7 +106,8 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
             self.navigationController?.presentViewController(vc, animated: true, completion: nil)
         }
         
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && PFUser.currentUser() != nil {
+            print("load the options")
             let ticketSubject = ticketOptionsAry[indexPath.row]
             let vc = storyboard.instantiateViewControllerWithIdentifier("newTicket") as! CreateTicketViewController
             vc.topic = ticketSubject.valueForKey("category") as! String
@@ -129,7 +130,7 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
                     return "Need help? Select a topic below to get started"
             }
         } else {
-            switch section{
+            switch section {
             case 1:
                 return ""
             default:

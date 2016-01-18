@@ -181,7 +181,6 @@ class ParseModel: NSObject {
         let query = PFQuery(className: "HelpDesk")
         var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
-        query.includeKey("category")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString

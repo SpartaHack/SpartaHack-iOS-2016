@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Olp-Fx-k8f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Olp-Fx-k8f">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -10,7 +11,7 @@
         <!--Profile View Controller-->
         <scene sceneID="aP2-RX-G8m">
             <objects>
-                <viewController id="Sw0-ET-v4s" customClass="ProfileViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sw0-ET-v4s" customClass="ProfileViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZHC-it-hBu"/>
                         <viewControllerLayoutGuide type="bottom" id="2bQ-3D-DQs"/>
@@ -72,17 +73,17 @@
         <!--News-->
         <scene sceneID="ImC-4h-U3v">
             <objects>
-                <tableViewController id="i4n-dE-K9o" customClass="NewsTableViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="i4n-dE-K9o" customClass="NewsTableViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" id="dXU-d5-U33">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="5uE-aX-zhi" customClass="NewsCell" customModule="SpartaHack_II" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="70"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="5uE-aX-zhi" customClass="NewsCell" customModule="SpartaHack_2016" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5uE-aX-zhi" id="APq-Hl-Yy2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzj-rl-4lF" userLabel="title">
@@ -128,7 +129,7 @@
         <!--Create Ticket View Controller-->
         <scene sceneID="lc1-im-4TC">
             <objects>
-                <viewController storyboardIdentifier="newTicket" id="y0q-Kd-a5n" customClass="CreateTicketViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newTicket" id="y0q-Kd-a5n" customClass="CreateTicketViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cK1-Qa-GtR"/>
                         <viewControllerLayoutGuide type="bottom" id="0kc-xi-6rz"/>
@@ -214,7 +215,7 @@
         <!--Guide-->
         <scene sceneID="zAk-fx-Mfq">
             <objects>
-                <viewController id="sFp-8g-gvs" customClass="GuideViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sFp-8g-gvs" customClass="GuideViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5TQ-a6-SnQ"/>
                         <viewControllerLayoutGuide type="bottom" id="i9G-4L-0cl"/>
@@ -275,17 +276,17 @@
         <!--Help Desk-->
         <scene sceneID="5Qg-cb-ja8">
             <objects>
-                <tableViewController id="oeJ-kG-QIj" customClass="HelpDeskTableViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oeJ-kG-QIj" customClass="HelpDeskTableViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7Vt-x8-4ql">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="70" id="AbE-gG-DwA" userLabel="helpCell" customClass="helpDeskCell" customModule="SpartaHack_II" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="70"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="70" id="AbE-gG-DwA" userLabel="helpCell" customClass="helpDeskCell" customModule="SpartaHack_2016" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AbE-gG-DwA" id="9Bc-GA-fYA">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-Py-41O" userLabel="title">
@@ -334,7 +335,7 @@
         <!--Map View Controller-->
         <scene sceneID="gRv-u0-guq">
             <objects>
-                <viewController id="P4x-1f-8VB" customClass="MapViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="P4x-1f-8VB" customClass="MapViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lWA-Sf-wQ2"/>
                         <viewControllerLayoutGuide type="bottom" id="Vni-yt-Jew"/>
@@ -391,7 +392,7 @@
         <!--Schedule View Controller-->
         <scene sceneID="uaM-PB-C33">
             <objects>
-                <viewController id="xyD-JV-93V" customClass="ScheduleViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xyD-JV-93V" customClass="ScheduleViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uo6-2h-UWB"/>
                         <viewControllerLayoutGuide type="bottom" id="cWv-Fa-mk4"/>
@@ -404,11 +405,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" rowHeight="94" id="3e6-Xg-MOe" customClass="ScheduleCell" customModule="SpartaHack_II" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="94"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" rowHeight="94" id="3e6-Xg-MOe" customClass="ScheduleCell" customModule="SpartaHack_2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3e6-Xg-MOe" id="Fzd-Qq-e54">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="93.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Test Event!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLq-KH-QUj">
@@ -493,7 +494,7 @@
         <!--Prizes-->
         <scene sceneID="MxX-cE-Qd1">
             <objects>
-                <viewController id="7qc-xu-TC2" customClass="AwardsViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7qc-xu-TC2" customClass="AwardsViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9jy-r5-3CB"/>
                         <viewControllerLayoutGuide type="bottom" id="KNH-d2-Nis"/>
@@ -554,7 +555,7 @@
         <!--Prizes View Controller-->
         <scene sceneID="EeQ-jt-gez">
             <objects>
-                <viewController id="HxH-ti-BRF" customClass="PrizesViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HxH-ti-BRF" customClass="PrizesViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cJt-GW-Vdr"/>
                         <viewControllerLayoutGuide type="bottom" id="4EO-1s-dda"/>
@@ -567,11 +568,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prizeCell" rowHeight="85" id="No0-2m-lad" customClass="PrizeCell" customModule="SpartaHack_II" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prizeCell" rowHeight="85" id="No0-2m-lad" customClass="PrizeCell" customModule="SpartaHack_2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="No0-2m-lad" id="35j-MO-1cx">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best something something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUu-CN-R1p">
@@ -638,7 +639,7 @@
         <!--Sponsors View Controller-->
         <scene sceneID="2D5-7A-afW">
             <objects>
-                <viewController id="syC-zl-SSq" customClass="SponsorsViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="syC-zl-SSq" customClass="SponsorsViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u2b-jV-Z66"/>
                         <viewControllerLayoutGuide type="bottom" id="k0J-2F-h9w"/>
@@ -702,7 +703,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="dph-vo-Tjp">
             <objects>
-                <viewController id="wKA-rr-1qn" customClass="SignUpViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wKA-rr-1qn" customClass="SignUpViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0eN-5H-0HL"/>
                         <viewControllerLayoutGuide type="bottom" id="Hci-Ao-1CY"/>
@@ -986,7 +987,7 @@
         <!--Login-->
         <scene sceneID="v8K-oQ-zN0">
             <objects>
-                <viewController storyboardIdentifier="loginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VoL-Qz-Epd" customClass="LoginViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VoL-Qz-Epd" customClass="LoginViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tYc-UR-I0v"/>
                         <viewControllerLayoutGuide type="bottom" id="dsP-Dx-NQX"/>
@@ -996,7 +997,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpartaHack 2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yI7-fB-h7X">
-                                <rect key="frame" x="198" y="28" width="206" height="42"/>
+                                <rect key="frame" x="167" y="28" width="269" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1008,7 +1009,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7D-sK-yR1">
-                                <rect key="frame" x="20" y="97" width="41" height="20"/>
+                                <rect key="frame" x="20" y="96" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1028,7 +1029,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password123" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fq-m1-yif">
-                                <rect key="frame" x="20" y="192" width="560" height="30"/>
+                                <rect key="frame" x="20" y="191" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
@@ -1036,7 +1037,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVA-Xj-zaH">
-                                <rect key="frame" x="21" y="246" width="560" height="30"/>
+                                <rect key="frame" x="21" y="245" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1046,7 +1047,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kg-ex-nud">
-                                <rect key="frame" x="21" y="286" width="560" height="30"/>
+                                <rect key="frame" x="21" y="285" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Forgot Password">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1056,7 +1057,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2d-FI-iqz">
-                                <rect key="frame" x="20" y="324" width="560" height="30"/>
+                                <rect key="frame" x="20" y="323" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Skip login, I don't like being cool anyway">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1108,7 +1109,7 @@
         <!--Root Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="RootTabBarViewController" customModule="SpartaHack_II" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="RootTabBarViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Jwh-6F-9O8">
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="n7x-13-POd">
                             <connections>
@@ -1125,8 +1126,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="i4n-dE-K9o" kind="relationship" relationship="viewControllers" id="Vcn-rE-62F"/>
-                        <segue destination="oeJ-kG-QIj" kind="relationship" relationship="viewControllers" id="Cqy-Qn-Bml"/>
                         <segue destination="sFp-8g-gvs" kind="relationship" relationship="viewControllers" id="evV-Ug-KUo"/>
+                        <segue destination="oeJ-kG-QIj" kind="relationship" relationship="viewControllers" id="Cqy-Qn-Bml"/>
                         <segue destination="7qc-xu-TC2" kind="relationship" relationship="viewControllers" id="nDE-Kk-60j"/>
                     </connections>
                 </tabBarController>
