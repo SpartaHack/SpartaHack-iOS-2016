@@ -33,29 +33,37 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
     }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.loadData()
+    
+    func refresh(refreshControl: UIRefreshControl) {
+        // Do your job, when done:
+        print("make a spinny thing")
+        ParseModel.sharedInstance.getNews()
+        refreshControl.endRefreshing()
     }
     
     func didGetNewsUpdate() {
         // got more news from parse
+        print("\nLOADDING THINGGYS")
         self.loadData()
     }
     
     func loadData () {
+        print("\nLoading some data\n")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "News")
+        unpinnedAry.removeAll()
+        pinnedAry.removeAll()
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             newsAry = results as! [NSManagedObject]
-            pinnedAry.removeAll()
-            unpinnedAry.removeAll()
             for obj in newsAry {
                 if ((obj.valueForKey("pinned") as? Bool) == false) {
                     // not pinned
@@ -112,11 +120,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if pinnedAry.count > 0 {
-            return 2
-        } else {
-            return 1
-        }
+        return 2
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
