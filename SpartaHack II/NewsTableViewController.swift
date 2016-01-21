@@ -43,6 +43,8 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         // Do any additional setup after loading the view, typically from a nib.
         ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
+		
+		self.fetch()
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
