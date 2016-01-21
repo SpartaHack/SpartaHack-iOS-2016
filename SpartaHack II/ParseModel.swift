@@ -51,6 +51,10 @@ protocol ParseTicketDelegate {
     func didSubmitTicket(success: Bool)
 }
 
+protocol ParseSponsorDelegate {
+	func didGetSponsors()
+}
+
 class ParseModel: NSObject {
     
     static let sharedInstance = ParseModel()
@@ -63,6 +67,7 @@ class ParseModel: NSObject {
     var newsDelegate = ParseNewsDelegate?()
     var prizeDelegate = ParsePrizesDelegate?()
     var ticketDelegate = ParseTicketDelegate?()
+	var sponsorDelegate = ParseSponsorDelegate?()
     
     // Register user with our Parse database
     /*
@@ -326,4 +331,43 @@ class ParseModel: NSObject {
             }
         }
     }
+	
+	func getSponsors() {
+		let query = PFQuery(className: "Company")
+		var dict = [String:AnyObject]()
+		var dictAry = [[String:AnyObject]]()
+//		query.includeKey("sponsor")
+		query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
+			if let error = error {
+				let errorString = error.userInfo["error"] as? NSString
+				// Show the errorString somewhere and let the user try again.
+				print("Why must the success codes always be gone? \(errorString)")
+			} else {
+				// Hooray! Let them use the app now.
+				if let objects = objects as? [PFObject] {
+					for sponsor in objects {
+						print(sponsor)
+						dict.updateValue(sponsor.objectId!, forKey: "objectId")
+						dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
+						dict.updateValue(sponsor["level"] as! String, forKey: "tier")
+						let userImageFile = sponsor["png_img"] as! PFFile
+						userImageFile.getDataInBackgroundWithBlock {
+							(imageData: NSData?, error: NSError?) -> Void in
+							if error == nil {
+								if let imageData = imageData {
+									let image = UIImage(data:imageData)
+									dict.updateValue(UIImagePNGRepresentation(image!)!, forKey: "image")
+									dictAry.append(dict)
+								}
+							}
+						}
+					}
+				}
+				self.save("Sponsor", dictAry: dictAry)
+				self.sponsorDelegate?.didGetSponsors()
+			}
+		}
+	}
+	
+
 }
