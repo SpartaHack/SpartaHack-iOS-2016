@@ -20,12 +20,23 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
 }
 
-class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseNewsDelegate {
+class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseNewsDelegate, NSFetchedResultsControllerDelegate {
     
-    var newsAry = [NSManagedObject]()
+    var managedObjectContext: NSManagedObjectContext!
     
-    var pinnedAry = [NSManagedObject]()
-    var unpinnedAry = [NSManagedObject]()
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "News")
+        // Add Sort Descriptors
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        // Initialize Fetched Results Controller
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +52,15 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         tableView.estimatedRowHeight = 100.0
     }
     
+    func fetch (){
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            let fetchError = error as NSError
+            print("\(fetchError), \(fetchError.userInfo)")
+        }
+    }
+    
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
         print("make a spinny thing")
@@ -51,46 +71,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     func didGetNewsUpdate() {
         // got more news from parse
         print("\nLOADDING THINGGYS")
-        self.loadData()
-    }
-    
-    func loadData () {
-        print("\nLoading some data\n")
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "News")
-        unpinnedAry.removeAll()
-        pinnedAry.removeAll()
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            newsAry = results as! [NSManagedObject]
-            for obj in newsAry {
-                if ((obj.valueForKey("pinned") as? Bool) == false) {
-                    // not pinned
-                    unpinnedAry.append(obj)
-                } else {
-                    // pinned
-                    pinnedAry.append(obj)
-                }
-            }
-            self.tableView.reloadData()
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
+        self.fetch()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
-        // TODO: make a constants file
-        let news: NSManagedObject
-        
-        switch indexPath.section {
-        case 0:
-            news = pinnedAry[indexPath.row]
-        default:
-            news = unpinnedAry[indexPath.row]
-        }
-        
+        let news = fetchedResultsController.objectAtIndexPath(indexPath)
         cell.titleLabel?.text = news.valueForKey("title") as? String
         cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
         
@@ -98,33 +84,72 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if pinnedAry.count > 0 {
-            switch section{
-            case 1:
-                return "Announcements"
-            default:
-                return "Important Announcements"
-            }
-        } else {
-            return "Announcements"
-        }
+        return "Announcements"
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return pinnedAry.count
-        default:
-            return unpinnedAry.count
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
         }
+        
+        return 0
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        }
+        
+        return 0
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: -
+    // MARK: Fetched Results Controller Delegate Methods
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch (type) {
+        case .Insert:
+            if let indexPath = newIndexPath {
+                print("New things are better ")
+                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Delete:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Update:
+            print("work here bitch")
+            if let indexPath = indexPath {
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewsCell
+                let news = fetchedResultsController.objectAtIndexPath(indexPath)
+                cell.titleLabel?.text = news.valueForKey("title") as? String
+                cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
+            }
+            break;
+        case .Move:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+            }
+            break;
+        }
     }
     
     override func didReceiveMemoryWarning() {
