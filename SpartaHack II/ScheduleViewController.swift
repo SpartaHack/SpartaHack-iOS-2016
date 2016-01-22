@@ -17,56 +17,131 @@ class ScheduleCell: UITableViewCell {
     @IBOutlet weak var eventLocationLabel: UILabel!
 }
 
-class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseScheduleDelegate {
-
-    var eventAry = [NSManagedObject]()
-
+class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseScheduleDelegate, NSFetchedResultsControllerDelegate {    
+    var managedObjectContext: NSManagedObjectContext!
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Event")
+        // Add Sort Descriptors
+        let sortDescriptor = NSSortDescriptor(key: "eventTime", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        // Initialize Fetched Results Controller
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseModel.sharedInstance.scheduleDelegate = self
         ParseModel.sharedInstance.getSchedule()
+        self.fetch()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
+    }
+
+    func fetch (){
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            let fetchError = error as NSError
+            print("\(fetchError), \(fetchError.userInfo)")
+        }
+    }
+    
+    func refresh(refreshControl: UIRefreshControl) {
+        // Do your job, when done:
+        print("make a spinny thing")
+        ParseModel.sharedInstance.getSchedule()
+        refreshControl.endRefreshing()
     }
 
     func didGetSchedule() {
-        self.loadData()
-    }
-    
-    func loadData () {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Event")
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            eventAry = results as! [NSManagedObject]
-            tableView.reloadData()
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
+        self.fetch()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(ScheduleCell.cellIdentifier) as! ScheduleCell
-        let event = eventAry[indexPath.row]
-        
+        configureCell(cell, indexPath: indexPath)
+        return cell
+    }
+    
+    func configureCell (cell: ScheduleCell, indexPath:NSIndexPath) {
+        let event = fetchedResultsController.objectAtIndexPath(indexPath)
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .ShortStyle
         let dateString = formatter.stringFromDate(event.valueForKey("eventTime") as! NSDate)
-        
         cell.eventTitleLabel.text = event.valueForKey("eventTitle") as? String
         cell.eventDescriptionLabel.text = event.valueForKey("eventDescription") as? String
         cell.eventLocationLabel.text = event.valueForKey("eventLocation") as? String
         cell.eventTimeLabel.text = dateString
-        return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventAry.count
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        return 0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: -
+    // MARK: Fetched Results Controller Delegate Methods
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch (type) {
+        case .Insert:
+            if let indexPath = newIndexPath {
+                print("New things are better ")
+                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Delete:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Update:
+            print("work here bitch")
+            if let indexPath = indexPath {
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as! ScheduleCell
+                configureCell(cell, indexPath: indexPath)
+            }
+            break;
+        case .Move:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+            }
+            break;
+        }
     }
     
     override func didReceiveMemoryWarning() {

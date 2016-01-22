@@ -43,9 +43,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         // Do any additional setup after loading the view, typically from a nib.
         ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
-		
-		self.fetch()
-        
+        self.fetch()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
@@ -99,7 +97,6 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
             let sectionInfo = sections[section]
             return sectionInfo.numberOfObjects
         }
-        
         return 0
     }
     
@@ -107,7 +104,6 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         if let sections = fetchedResultsController.sections {
             return sections.count
         }
-        
         return 0
     }
 
@@ -130,12 +126,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         case .Insert:
             if let indexPath = newIndexPath {
                 print("New things are better ")
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
             }
             break;
         case .Delete:
             if let indexPath = indexPath {
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
             }
             break;
         case .Update:
@@ -149,11 +145,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
             break;
         case .Move:
             if let indexPath = indexPath {
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
             }
             
             if let newIndexPath = newIndexPath {
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Middle)
             }
             break;
         }

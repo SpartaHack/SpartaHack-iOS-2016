@@ -226,6 +226,7 @@ class ParseModel: NSObject {
                         let category = ticket["category"] as! PFObject
                         dict.updateValue(category["category"] as! String, forKey: "category")
                         dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
+                        dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")
                         dict.updateValue(ticket.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
@@ -279,9 +280,13 @@ class ParseModel: NSObject {
                 if let objects = objects as? [PFObject] {
                     for prize in objects {
                         print(prize)
-                        let sponsor:PFObject = prize["sponsor"] as! PFObject
-                        dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
-                        dict.updateValue(sponsor["level"] as! String, forKey: "tier")
+                        if let sponsor:PFObject = prize["sponsor"] as? PFObject {
+                            dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
+                            dict.updateValue(sponsor["level"] as! String, forKey: "tier")
+                        } else {
+                            dict.updateValue("Nan", forKey: "sponsor")
+                            dict.updateValue("Nan", forKey: "tier")
+                        }
                         dict.updateValue(prize["name"] as! String, forKey: "name")
                         dict.updateValue(prize["description"] as! String, forKey: "prizeDescription")
                         dict.updateValue(prize.objectId!, forKey: "objectId")

@@ -20,7 +20,7 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
     
     var ticketOptionsAry = [NSManagedObject]()
     var ticketsArray = [NSManagedObject]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension

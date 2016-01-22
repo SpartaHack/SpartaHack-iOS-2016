@@ -16,11 +16,26 @@ class PrizeCell: UITableViewCell {
     @IBOutlet weak var prizesSponsorLabel: UILabel!
 }
 
-class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ParsePrizesDelegate {
+class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ParsePrizesDelegate, NSFetchedResultsControllerDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!    
     
-    var prizesArray = [NSManagedObject]()
+    var managedObjectContext: NSManagedObjectContext!
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Prize")
+        // Add Sort Descriptors
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        // Initialize Fetched Results Controller
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,32 +43,33 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 100.0
         ParseModel.sharedInstance.prizeDelegate = self
         ParseModel.sharedInstance.getPrizes()
-        self.loadData()
+        self.fetch()
         // Do any additional setup after loading the view.
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     func didGetPrizes() {
-        self.loadData()
+        self.fetch()
     }
-
-    func loadData () {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Prize")
+    
+    func fetch (){
         do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            prizesArray = results as! [NSManagedObject]
-            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Left)
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            let fetchError = error as NSError
+            print("\(fetchError), \(fetchError.userInfo)")
         }
     }
-
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func refresh(refreshControl: UIRefreshControl) {
+        // Do your job, when done:
+        print("make a spinny thing")
+        ParseModel.sharedInstance.getSchedule()
+        refreshControl.endRefreshing()
     }
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -61,25 +77,76 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(PrizeCell.cellIdentifier) as! PrizeCell
-        let prize = prizesArray[indexPath.row]
-        cell.prizeNameLabel.text = prize.valueForKey("name") as? String
-        cell.prizeDescriptionLabel.text = prize.valueForKey("prizeDescription") as? String
-        cell.prizesSponsorLabel.text = "Sponsored by \(prize.valueForKey("sponsor") as! String)"
+        configureCell(cell, indexPath: indexPath)
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return prizesArray.count
+    func configureCell (cell: PrizeCell, indexPath: NSIndexPath) {
+        let prize = fetchedResultsController.objectAtIndexPath(indexPath)
+        cell.prizeNameLabel.text = prize.valueForKey("name") as? String
+        cell.prizeDescriptionLabel.text = prize.valueForKey("prizeDescription") as? String
+        cell.prizesSponsorLabel.text = "Sponsored by \(prize.valueForKey("sponsor") as! String)"
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        return 0
     }
-    */
-
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        }
+        return 0
+    }
+    
+    // MARK: -
+    // MARK: Fetched Results Controller Delegate Methods
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch (type) {
+        case .Insert:
+            if let indexPath = newIndexPath {
+                print("New things are better ")
+                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Delete:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Update:
+            print("work here bitch")
+            if let indexPath = indexPath {
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as! PrizeCell
+                configureCell(cell, indexPath: indexPath)
+            }
+            break;
+        case .Move:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+            }
+            break;
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
