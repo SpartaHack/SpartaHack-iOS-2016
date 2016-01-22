@@ -320,6 +320,9 @@ class ParseModel: NSObject {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
+                let currentInstallation = PFInstallation.currentInstallation()
+                currentInstallation["user"] = PFUser.currentUser()
+                currentInstallation.save()
                 print("User logged in")
                 self.getUserTickets()
                 self.getHelpDeskOptions()
@@ -336,7 +339,6 @@ class ParseModel: NSObject {
 		let query = PFQuery(className: "Company")
 		var dict = [String:AnyObject]()
 		var dictAry = [[String:AnyObject]]()
-//		query.includeKey("sponsor")
 		query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
 			if let error = error {
 				let errorString = error.userInfo["error"] as? NSString
@@ -347,15 +349,15 @@ class ParseModel: NSObject {
 				if let objects = objects as? [PFObject] {
 					for sponsor in objects {
 						print(sponsor)
-						dict.updateValue(sponsor.objectId!, forKey: "objectId")
-						dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
-						dict.updateValue(sponsor["level"] as! String, forKey: "tier")
 						let userImageFile = sponsor["png_img"] as! PFFile
 						userImageFile.getDataInBackgroundWithBlock {
 							(imageData: NSData?, error: NSError?) -> Void in
 							if error == nil {
 								if let imageData = imageData {
 									let image = UIImage(data:imageData)
+                                    dict.updateValue(sponsor.objectId!, forKey: "objectId")
+                                    dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
+                                    dict.updateValue(sponsor["level"] as! String, forKey: "tier")
 									dict.updateValue(UIImagePNGRepresentation(image!)!, forKey: "image")
 									dictAry.append(dict)
 								}

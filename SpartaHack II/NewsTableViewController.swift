@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 import CoreData
 
 /* 
@@ -29,10 +28,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         let fetchRequest = NSFetchRequest(entityName: "News")
         // Add Sort Descriptors
         let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let sectionDescriptior = NSSortDescriptor(key: "pinned", ascending: false)
+        fetchRequest.sortDescriptors = [sectionDescriptior,sortDescriptor]
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: "pinned", cacheName: nil)
         // Configure Fetched Results Controller
         fetchedResultsController.delegate = self
         return fetchedResultsController
@@ -86,7 +86,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Announcements"
+        switch section{
+        case 0:
+            return "Pinned Announcements"
+        default:
+            return "Announcements"
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

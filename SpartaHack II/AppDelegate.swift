@@ -59,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         print("didReceiveRemoteNotification")
+        print("Push contents \(userInfo)")
         PFPush.handlePush(userInfo)
     }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SponsorCell: UITableViewCell {
 	static let cellIdentifier = "sponsorCell"
@@ -15,27 +16,88 @@ class SponsorCell: UITableViewCell {
 }
 
 
-class SponsorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class SponsorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseModelDelegate, ParseSponsorDelegate, NSFetchedResultsControllerDelegate{
+
+    var managedObjectContext: NSManagedObjectContext!
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Sponsor")
+        // Add Sort Descriptors
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        // Initialize Fetched Results Controller
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
+
+
 
 	@IBOutlet var tableView: UITableView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.fetch()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
+        
+        ParseModel.sharedInstance.sponsorDelegate = self
+        ParseModel.sharedInstance.getSponsors()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100.0
         // Do any additional setup after loading the view.
+    }
+
+    func fetch (){
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            let fetchError = error as NSError
+            print("\(fetchError), \(fetchError.userInfo)")
+        }
+    }
+    
+    func didGetSponsors() {
+        self.fetch()
+    }
+    
+    func refresh(refreshControl: UIRefreshControl) {
+        // Do your job, when done:
+        print("make a spinny thing")
+        ParseModel.sharedInstance.getNews()
+        refreshControl.endRefreshing()
     }
 
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCellWithIdentifier(SponsorCell.cellIdentifier, forIndexPath: indexPath) as! SponsorCell
-		cell.sponsorTextLabel.text = "Hi!"
+        
+        configureCell(cell, indexPath: indexPath)
+        
 		return cell
 		
 	}
 	
+    func configureCell(cell: SponsorCell, indexPath: NSIndexPath) {
+        let sponsor = fetchedResultsController.objectAtIndexPath(indexPath)
+        cell.sponsorTextLabel.text = sponsor.valueForKey("name") as? String
+        cell.sponsorImageView.image = UIImage(data: sponsor.valueForKey("image") as! NSData)
+        
+    }
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        
+        return 0
 	}
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -48,7 +110,48 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 
+    // MARK: -
+    // MARK: Fetched Results Controller Delegate Methods
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
     
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch (type) {
+        case .Insert:
+            if let indexPath = newIndexPath {
+                print("New things are better ")
+                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Delete:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Update:
+            print("work here bitch")
+            if let indexPath = indexPath {
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as! SponsorCell
+                configureCell(cell, indexPath: indexPath)
+            }
+            break;
+        case .Move:
+            if let indexPath = indexPath {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+            }
+            break;
+        }
+    }
+
     /*
     // MARK: - Navigation
 

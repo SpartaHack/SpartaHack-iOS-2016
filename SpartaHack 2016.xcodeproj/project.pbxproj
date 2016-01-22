@@ -46,7 +46,6 @@
 		F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53831C3234A30030BCCA /* ios-map.pdf */; };
 		F5CD8FB41C430D500077E1F9 /* CreateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */; };
 		F5F5A0F41C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F5A0F21C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld */; };
-		F83DB2B21C503F5C00595A84 /* Namecheap.png in Resources */ = {isa = PBXBuildFile; fileRef = F83DB2B11C503F5C00595A84 /* Namecheap.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +115,6 @@
 		F5AE53831C3234A30030BCCA /* ios-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ios-map.pdf"; sourceTree = "<group>"; };
 		F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
 		F5F5A0F31C3A15A7003BA63D /* ParseCacheModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParseCacheModel.xcdatamodel; sourceTree = "<group>"; };
-		F83DB2B11C503F5C00595A84 /* Namecheap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Namecheap.png; path = ../../sponsorPNGs/Namecheap.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +179,6 @@
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
-				F83DB2B11C503F5C00595A84 /* Namecheap.png */,
 				F5373B921B327566007F508C /* LaunchScreen.xib */,
 				F5AE53831C3234A30030BCCA /* ios-map.pdf */,
 				F5373B851B327566007F508C /* Supporting Files */,
@@ -368,7 +365,6 @@
 				F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
-				F83DB2B21C503F5C00595A84 /* Namecheap.png in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
