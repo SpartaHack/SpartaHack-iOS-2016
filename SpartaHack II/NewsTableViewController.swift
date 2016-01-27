@@ -106,7 +106,6 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     }
 
     func configureCell (cell: NewsCell, indexPath: NSIndexPath) {
-        print("\n Creating Cells \n")
         let news = fetchedResultsController.objectAtIndexPath(indexPath)
         cell.titleLabel?.text = news.valueForKey("title") as? String
         cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
@@ -142,10 +141,8 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         case .Update:
             print("work here bitch")
             if let indexPath = indexPath {
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewsCell
-                let news = fetchedResultsController.objectAtIndexPath(indexPath)
-                cell.titleLabel?.text = news.valueForKey("title") as? String
-                cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
+                let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
+                configureCell(cell, indexPath: indexPath)
             }
             break;
         case .Move:

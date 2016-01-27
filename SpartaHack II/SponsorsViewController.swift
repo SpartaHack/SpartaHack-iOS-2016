@@ -83,8 +83,14 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         print("image ID \(sponsor.valueForKey("image"))")
         
-        if let image = sponsor.valueForKey("image") as? String {
-            cell.sponsorImageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: image)!)!)
+        if let imageLink = sponsor.valueForKey("image") as? String {
+//            cell.sponsorImageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: image)!)!)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+                let image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageLink)!)!)
+                dispatch_async(dispatch_get_main_queue()) {
+                    cell.sponsorImageView.image = image;
+                }
+            }
         }
         
     }
