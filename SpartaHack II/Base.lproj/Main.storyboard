@@ -80,10 +80,10 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="5uE-aX-zhi" customClass="NewsCell" customModule="SpartaHack_2016" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5uE-aX-zhi" id="APq-Hl-Yy2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzj-rl-4lF" userLabel="title">
@@ -283,10 +283,10 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="70" id="AbE-gG-DwA" userLabel="helpCell" customClass="helpDeskCell" customModule="SpartaHack_2016" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AbE-gG-DwA" id="9Bc-GA-fYA">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-Py-41O" userLabel="title">
@@ -406,10 +406,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" rowHeight="94" id="3e6-Xg-MOe" customClass="ScheduleCell" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="94"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3e6-Xg-MOe" id="Fzd-Qq-e54">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="93.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Test Event!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLq-KH-QUj">
@@ -569,10 +569,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prizeCell" rowHeight="85" id="No0-2m-lad" customClass="PrizeCell" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="85"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="No0-2m-lad" id="35j-MO-1cx">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best something something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUu-CN-R1p">
@@ -653,10 +653,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponsorCell" rowHeight="173" id="3NV-9L-ZI1" customClass="SponsorCell" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="173"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3NV-9L-ZI1" id="6Nj-1X-eBK">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="173"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="172.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MSUFCU" translatesAutoresizingMaskIntoConstraints="NO" id="ZCj-XM-HvV">
@@ -665,7 +665,7 @@
                                                         <constraint firstAttribute="height" constant="128" id="0gk-gl-IKj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cC-qG-rgU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hmmmmmmmm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cC-qG-rgU">
                                                     <rect key="frame" x="8" y="144" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1074,20 +1074,10 @@
                                     <action selector="LoginButtonTapped:" destination="VoL-Qz-Epd" eventType="touchUpInside" id="1Ou-Zw-AL2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kg-ex-nud">
-                                <rect key="frame" x="21" y="285" width="560" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Forgot Password">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="ForgotPasswordButtonTapped:" destination="VoL-Qz-Epd" eventType="touchUpInside" id="pYd-CN-nQB"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2d-FI-iqz">
-                                <rect key="frame" x="20" y="323" width="560" height="30"/>
+                                <rect key="frame" x="20" y="283" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Skip login, I don't like being cool anyway">
+                                <state key="normal" title="Nah">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1098,16 +1088,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="s2d-FI-iqz" firstAttribute="top" secondItem="DVA-Xj-zaH" secondAttribute="bottom" constant="8" id="032-iB-3qf"/>
                             <constraint firstItem="hDM-Uf-VT4" firstAttribute="top" secondItem="yI7-fB-h7X" secondAttribute="bottom" constant="8" id="0Tv-NO-HYo"/>
                             <constraint firstItem="ZQS-Su-YLy" firstAttribute="leading" secondItem="JTh-FF-7Gs" secondAttribute="leadingMargin" id="31P-QL-96V"/>
                             <constraint firstAttribute="leadingMargin" secondItem="I7D-sK-yR1" secondAttribute="leading" id="3aG-QN-3bq"/>
                             <constraint firstAttribute="centerX" secondItem="yI7-fB-h7X" secondAttribute="centerX" constant="-1" id="8AI-O0-vl6"/>
-                            <constraint firstItem="DVA-Xj-zaH" firstAttribute="trailing" secondItem="6kg-ex-nud" secondAttribute="trailing" id="Buh-6u-ilK"/>
                             <constraint firstItem="DVA-Xj-zaH" firstAttribute="leading" secondItem="JTh-FF-7Gs" secondAttribute="leadingMargin" constant="1" id="CFz-2t-4BP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="s2d-FI-iqz" secondAttribute="trailing" id="ChE-fA-nwb"/>
                             <constraint firstItem="ZQS-Su-YLy" firstAttribute="top" secondItem="I7D-sK-yR1" secondAttribute="bottom" constant="8" id="Cm1-LH-VmG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DVA-Xj-zaH" secondAttribute="trailing" constant="-1" id="IBf-oc-4zZ"/>
-                            <constraint firstItem="DVA-Xj-zaH" firstAttribute="leading" secondItem="6kg-ex-nud" secondAttribute="leading" id="KtR-Zc-c95"/>
                             <constraint firstItem="ZQS-Su-YLy" firstAttribute="trailing" secondItem="JTh-FF-7Gs" secondAttribute="trailingMargin" id="MlQ-oj-VQc"/>
                             <constraint firstItem="alX-Ot-8Cn" firstAttribute="leading" secondItem="JTh-FF-7Gs" secondAttribute="leadingMargin" id="Ovd-kF-eQ7"/>
                             <constraint firstItem="I7D-sK-yR1" firstAttribute="top" secondItem="hDM-Uf-VT4" secondAttribute="bottom" constant="-2" id="YXB-yk-tre"/>
@@ -1116,9 +1105,7 @@
                             <constraint firstAttribute="centerX" secondItem="hDM-Uf-VT4" secondAttribute="centerX" constant="-1.5" id="hCu-lF-K5w"/>
                             <constraint firstAttribute="leadingMargin" secondItem="s2d-FI-iqz" secondAttribute="leading" id="jFC-w0-NnI"/>
                             <constraint firstItem="7fq-m1-yif" firstAttribute="leading" secondItem="JTh-FF-7Gs" secondAttribute="leadingMargin" id="ln1-D9-hhj"/>
-                            <constraint firstItem="s2d-FI-iqz" firstAttribute="top" secondItem="6kg-ex-nud" secondAttribute="bottom" constant="8" id="sdX-ik-ou8"/>
                             <constraint firstItem="alX-Ot-8Cn" firstAttribute="top" secondItem="ZQS-Su-YLy" secondAttribute="bottom" constant="8" id="tuh-bx-Wh5"/>
-                            <constraint firstItem="6kg-ex-nud" firstAttribute="top" secondItem="DVA-Xj-zaH" secondAttribute="bottom" constant="10" id="wSK-ga-aIg"/>
                             <constraint firstItem="DVA-Xj-zaH" firstAttribute="top" secondItem="7fq-m1-yif" secondAttribute="bottom" constant="24.5" id="y0C-vG-DNz"/>
                             <constraint firstItem="7fq-m1-yif" firstAttribute="top" secondItem="alX-Ot-8Cn" secondAttribute="bottom" constant="8" id="ySG-lz-vBS"/>
                         </constraints>

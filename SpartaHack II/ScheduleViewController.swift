@@ -76,11 +76,14 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .ShortStyle
-        let dateString = formatter.stringFromDate(event.valueForKey("eventTime") as! NSDate)
+        
+        if let eventTime = event.valueForKey("eventTime") as? NSDate {
+            cell.eventTimeLabel.text = formatter.stringFromDate(eventTime)
+        }
+        
         cell.eventTitleLabel.text = event.valueForKey("eventTitle") as? String
         cell.eventDescriptionLabel.text = event.valueForKey("eventDescription") as? String
         cell.eventLocationLabel.text = event.valueForKey("eventLocation") as? String
-        cell.eventTimeLabel.text = dateString
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

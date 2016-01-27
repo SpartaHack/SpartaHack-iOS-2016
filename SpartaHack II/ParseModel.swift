@@ -31,7 +31,7 @@ protocol ParseNewsDelegate {
 }
 
 protocol ParseUserDelegate {
-    func userDidLogin(login: Bool)
+    func userDidLogin(login: Bool, error: NSError?)
 }
 
 protocol ParseHelpDeskDelegate {
@@ -149,6 +149,7 @@ class ParseModel: NSObject {
             } catch let error as NSError {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
+            print("\n Save \(entity) Successful \n")
         }
     }
     
@@ -157,14 +158,14 @@ class ParseModel: NSObject {
         let query = PFQuery(className: "Announcements")
         var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
-        query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
                 print("Why must the success codes always be gone? \(errorString)")
             } else {
                 // Hooray! Let them use the app now.
-                if let objects = objects as? [PFObject] {
+                if let objects = objects as [PFObject]? {
                     for news in objects {
                         print(news)
                         dict.updateValue(news["Title"] as! String, forKey: "title")
@@ -186,14 +187,14 @@ class ParseModel: NSObject {
         let query = PFQuery(className: "HelpDesk")
         var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
                 print("Why must the success codes always be gone? \(errorString)")
             } else {
                 // Hooray! Let them use the app now.
-                if let objects = objects as? [PFObject] {
+                if let objects = objects as [PFObject]? {
                     for ticketSubject in objects {
                         print(ticketSubject)
                         dict.updateValue(ticketSubject["category"] as! String, forKey: "category")
@@ -216,11 +217,11 @@ class ParseModel: NSObject {
         var dictAry = [[String:AnyObject]]()
         query.includeKey("category")
         query.whereKey("user", equalTo: (PFUser.currentUser())!)
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 print (error.userInfo["error"])
             } else {
-                if let objects = objects as? [PFObject] {
+                if let objects = objects as [PFObject]? {
                     for ticket in objects {
                         print(ticket)
                         let category = ticket["category"] as! PFObject
@@ -241,14 +242,14 @@ class ParseModel: NSObject {
         let query = PFQuery(className: "Schedule")
         var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
-        query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
                 print("Why must the success codes always be gone? \(errorString)")
             } else {
                 // Hooray! Let them use the app now.
-                if let objects = objects as? [PFObject] {
+                if let objects = objects as [PFObject]? {
                     for news in objects {
                         print(news)
                         dict.updateValue(news["eventTitle"] as! String, forKey: "eventTitle")
@@ -270,14 +271,14 @@ class ParseModel: NSObject {
         var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
         query.includeKey("sponsor")
-        query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
                 print("Why must the success codes always be gone? \(errorString)")
             } else {
                 // Hooray! Let them use the app now.
-                if let objects = objects as? [PFObject] {
+                if let objects = objects as [PFObject]? {
                     for prize in objects {
                         print(prize)
                         if let sponsor:PFObject = prize["sponsor"] as? PFObject {
@@ -327,15 +328,19 @@ class ParseModel: NSObject {
                 // Do stuff after successful login.
                 let currentInstallation = PFInstallation.currentInstallation()
                 currentInstallation["user"] = PFUser.currentUser()
-                currentInstallation.save()
+                do {
+                    try currentInstallation.save()
+                } catch let error as NSError  {
+                    print("Could not save \(error), \(error.userInfo)")
+                }
                 print("User logged in")
                 self.getUserTickets()
                 self.getHelpDeskOptions()
-                self.userDelegate?.userDidLogin(true)
+                self.userDelegate?.userDidLogin(true, error: nil)
             } else {
                 // The login failed. Check error to see why.
                 print(error?.localizedDescription)
-                self.userDelegate?.userDidLogin(false)
+                self.userDelegate?.userDidLogin(false, error: error)
             }
         }
     }
@@ -344,34 +349,25 @@ class ParseModel: NSObject {
 		let query = PFQuery(className: "Company")
 		var dict = [String:AnyObject]()
 		var dictAry = [[String:AnyObject]]()
-		query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]?, error: NSError?) -> Void in
+		query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
 			if let error = error {
 				let errorString = error.userInfo["error"] as? NSString
 				// Show the errorString somewhere and let the user try again.
 				print("Why must the success codes always be gone? \(errorString)")
 			} else {
 				// Hooray! Let them use the app now.
-				if let objects = objects as? [PFObject] {
+				if let objects = objects as [PFObject]? {
 					for sponsor in objects {
-						print(sponsor)
 						let userImageFile = sponsor["png_img"] as! PFFile
-						userImageFile.getDataInBackgroundWithBlock {
-							(imageData: NSData?, error: NSError?) -> Void in
-							if error == nil {
-								if let imageData = imageData {
-									let image = UIImage(data:imageData)
-                                    dict.updateValue(sponsor.objectId!, forKey: "objectId")
-                                    dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
-                                    dict.updateValue(sponsor["level"] as! String, forKey: "tier")
-									dict.updateValue(UIImagePNGRepresentation(image!)!, forKey: "image")
-									dictAry.append(dict)
-								}
-							}
-						}
+                        dict.updateValue(sponsor.objectId!, forKey: "objectId")
+                        dict.updateValue(userImageFile.url!, forKey: "image")
+                        dict.updateValue(sponsor["name"] as! String, forKey: "name")
+                        dict.updateValue(sponsor["level"] as! String, forKey: "tier")
+                        dictAry.append(dict)
 					}
+                    self.save("Sponsor", dictAry: dictAry)
+                    self.sponsorDelegate?.didGetSponsors()
 				}
-				self.save("Sponsor", dictAry: dictAry)
-				self.sponsorDelegate?.didGetSponsors()
 			}
 		}
 	}

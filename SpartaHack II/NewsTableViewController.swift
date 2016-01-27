@@ -43,13 +43,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         // Do any additional setup after loading the view, typically from a nib.
         ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
-        self.fetch()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        tableView.addSubview(refreshControl)
+        self.tableView.addSubview(refreshControl)
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 100.0
     }
     
     func fetch (){
@@ -59,6 +58,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
+        self.tableView.reloadData()
     }
     
     func refresh(refreshControl: UIRefreshControl) {
@@ -76,10 +76,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
-        let news = fetchedResultsController.objectAtIndexPath(indexPath)
-        cell.titleLabel?.text = news.valueForKey("title") as? String
-        cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
-        
+        configureCell(cell, indexPath: indexPath)
         return cell
     }
     
@@ -95,6 +92,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
             let sectionInfo = sections[section]
+            print("\n Number of objects \(sectionInfo.numberOfObjects) \n")
             return sectionInfo.numberOfObjects
         }
         return 0
@@ -107,8 +105,15 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         return 0
     }
 
+    func configureCell (cell: NewsCell, indexPath: NSIndexPath) {
+        print("\n Creating Cells \n")
+        let news = fetchedResultsController.objectAtIndexPath(indexPath)
+        cell.titleLabel?.text = news.valueForKey("title") as? String
+        cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
+    }
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     // MARK: -
@@ -126,12 +131,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         case .Insert:
             if let indexPath = newIndexPath {
                 print("New things are better ")
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
             }
             break;
         case .Delete:
             if let indexPath = indexPath {
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
             }
             break;
         case .Update:
@@ -145,11 +150,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
             break;
         case .Move:
             if let indexPath = indexPath {
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
             }
             
             if let newIndexPath = newIndexPath {
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Middle)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Middle)
             }
             break;
         }

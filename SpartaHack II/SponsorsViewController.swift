@@ -24,7 +24,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "Sponsor")
         // Add Sort Descriptors
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -32,16 +32,12 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Configure Fetched Results Controller
         fetchedResultsController.delegate = self
         return fetchedResultsController
-    }()
-
-
+    }()     
 
 	@IBOutlet var tableView: UITableView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetch()
-        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
@@ -61,6 +57,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
+        self.tableView.reloadData()
     }
     
     func didGetSponsors() {
@@ -70,24 +67,25 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
         print("make a spinny thing")
-        ParseModel.sharedInstance.getNews()
+        ParseModel.sharedInstance.getSponsors()
         refreshControl.endRefreshing()
     }
 
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		
 		let cell = tableView.dequeueReusableCellWithIdentifier(SponsorCell.cellIdentifier, forIndexPath: indexPath) as! SponsorCell
-        
         configureCell(cell, indexPath: indexPath)
-        
 		return cell
-		
 	}
 	
     func configureCell(cell: SponsorCell, indexPath: NSIndexPath) {
         let sponsor = fetchedResultsController.objectAtIndexPath(indexPath)
         cell.sponsorTextLabel.text = sponsor.valueForKey("name") as? String
-        cell.sponsorImageView.image = UIImage(data: sponsor.valueForKey("image") as! NSData)
+        
+        print("image ID \(sponsor.valueForKey("image"))")
+        
+        if let image = sponsor.valueForKey("image") as? String {
+            cell.sponsorImageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: image)!)!)
+        }
         
     }
 	

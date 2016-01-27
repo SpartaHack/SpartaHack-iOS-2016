@@ -41,9 +41,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
         ParseModel.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!)
     }
     
-    func userDidLogin(login: Bool) {
+    func userDidLogin(login: Bool, error: NSError?) {
         if !login {
             // there was a problem with logging the user in
+            let alert = UIAlertController(title: "Error", message: "\(error!.localizedDescription)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
             print("ERROR")
         } else {
             print("dismissing login view")
@@ -53,11 +56,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
                 })
             })
         }
-    }
-    
-    @IBAction func ForgotPasswordButtonTapped(sender: AnyObject) {
-    
-    
     }
     
     @IBAction func skipLoginButtonTapped(sender: AnyObject) {

@@ -51,6 +51,7 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
     @IBAction func logoutButtonTapped(sender: AnyObject) {
         PFUser.logOut()
         print("logged out")
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
     /*

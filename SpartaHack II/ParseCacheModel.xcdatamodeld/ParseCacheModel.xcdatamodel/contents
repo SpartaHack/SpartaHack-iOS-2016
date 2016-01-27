@@ -22,7 +22,7 @@
         <attribute name="tier" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Sponsor" syncable="YES">
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tier" optional="YES" attributeType="String" syncable="YES"/>
