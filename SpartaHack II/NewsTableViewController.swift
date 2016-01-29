@@ -80,6 +80,13 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         return cell
     }
     
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = UIColor.spartaGreen()
+        }
+    }
+    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:

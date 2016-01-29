@@ -25,6 +25,7 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        tableView.backgroundColor = UIColor.spartaBlack()
         ParseModel.sharedInstance.helpDeskDelegate = self
     }
     
@@ -75,9 +76,19 @@ class HelpDeskTableViewController: UITableViewController, ParseModelDelegate, Pa
         }
     }
     
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = UIColor.spartaGreen()
+        }
+    }
+
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(helpDeskCell.cellIdentifier) as! helpDeskCell
-        
+        cell.titleLabel.textColor = UIColor.whiteColor()
+        cell.descriptionLabel.textColor = UIColor.whiteColor()
+        cell.contentView.backgroundColor = UIColor.spartaBlack()
         if indexPath.section == 0 {
             if ticketOptionsAry.count > 0 {
                 let ticketSubject = ticketOptionsAry[indexPath.row]

@@ -74,7 +74,7 @@
         <scene sceneID="ImC-4h-U3v">
             <objects>
                 <tableViewController id="i4n-dE-K9o" customClass="NewsTableViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" id="dXU-d5-U33">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" id="dXU-d5-U33">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,18 +83,18 @@
                                 <rect key="frame" x="0.0" y="49.5" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5uE-aX-zhi" id="APq-Hl-Yy2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzj-rl-4lF" userLabel="title">
-                                            <rect key="frame" x="15" y="8" width="577" height="26"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <rect key="frame" x="15" y="8" width="577" height="25"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="this is a test of text wrapping and it should be long as fuck" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qd-VB-JoX" userLabel="description">
-                                            <rect key="frame" x="15" y="38" width="577" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="15" y="37" width="577" height="25"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -277,32 +277,29 @@
         <scene sceneID="5Qg-cb-ja8">
             <objects>
                 <tableViewController id="oeJ-kG-QIj" customClass="HelpDeskTableViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7Vt-x8-4ql">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7Vt-x8-4ql">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="70" id="AbE-gG-DwA" userLabel="helpCell" customClass="helpDeskCell" customModule="SpartaHack_2016" customModuleProvider="target">
+                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="70" id="AbE-gG-DwA" userLabel="helpCell" customClass="helpDeskCell" customModule="SpartaHack_2016" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="49.5" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AbE-gG-DwA" id="9Bc-GA-fYA">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-Py-41O" userLabel="title">
                                             <rect key="frame" x="15" y="8" width="577" height="24.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="this is a test of text wrapping and it should be long as fuck" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB1-Tw-CwK" userLabel="description">
                                             <rect key="frame" x="15" y="36" width="577" height="25.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="mHd-Py-41O" firstAttribute="top" secondItem="9Bc-GA-fYA" secondAttribute="topMargin" id="Mv3-Ag-Rsg"/>
                                         <constraint firstItem="FB1-Tw-CwK" firstAttribute="trailing" secondItem="9Bc-GA-fYA" secondAttribute="trailingMargin" id="dmY-k2-WpW"/>
@@ -403,7 +400,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="94" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jIO-ut-sW3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="94" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jIO-ut-sW3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -411,7 +408,7 @@
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3e6-Xg-MOe" id="Fzd-Qq-e54">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="93.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Test Event!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLq-KH-QUj">
@@ -516,13 +513,13 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5d-63-DMJ" userLabel="Sponsors Container View">
-                                <rect key="frame" x="0.0" y="108" width="600" height="330"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="443"/>
                                 <connections>
                                     <segue destination="syC-zl-SSq" kind="embed" identifier="sponsorSegue" id="8RS-rl-a04"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvd-Ys-HXD" userLabel="Prizes Container View">
-                                <rect key="frame" x="0.0" y="44" width="600" height="394"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="443"/>
                                 <connections>
                                     <segue destination="HxH-ti-BRF" kind="embed" identifier="prizesSegue" id="90u-TI-eCl"/>
                                 </connections>
@@ -530,11 +527,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="q5d-63-DMJ" secondAttribute="bottom" constant="49" id="GtV-tI-3pB"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="q5d-63-DMJ" secondAttribute="bottom" id="GtV-tI-3pB"/>
                             <constraint firstAttribute="trailing" secondItem="q5d-63-DMJ" secondAttribute="trailing" id="N7l-Xc-Yz5"/>
                             <constraint firstItem="qvd-Ys-HXD" firstAttribute="leading" secondItem="HTs-1e-5tG" secondAttribute="leading" id="ObU-C1-Nbe"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="qvd-Ys-HXD" secondAttribute="bottom" constant="49" id="VjP-6V-aVX"/>
-                            <constraint firstItem="q5d-63-DMJ" firstAttribute="top" secondItem="HTs-1e-5tG" secondAttribute="topMargin" constant="108" id="cBx-Bd-WOT"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qvd-Ys-HXD" secondAttribute="bottom" id="VjP-6V-aVX"/>
+                            <constraint firstItem="q5d-63-DMJ" firstAttribute="top" secondItem="HTs-1e-5tG" secondAttribute="topMargin" constant="44" id="cBx-Bd-WOT"/>
                             <constraint firstItem="5NC-or-6Wc" firstAttribute="centerX" secondItem="HTs-1e-5tG" secondAttribute="centerX" id="dTh-vj-1ds"/>
                             <constraint firstItem="5NC-or-6Wc" firstAttribute="top" secondItem="9jy-r5-3CB" secondAttribute="bottom" constant="8" id="gUQ-cw-3As"/>
                             <constraint firstAttribute="trailing" secondItem="qvd-Ys-HXD" secondAttribute="trailing" id="khS-0l-K5T"/>
@@ -563,18 +560,18 @@
                         <viewControllerLayoutGuide type="bottom" id="4EO-1s-dda"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fmn-Gx-sdc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="394"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="85" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-dW-t6c">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="394"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="85" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-dW-t6c">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prizeCell" rowHeight="85" id="No0-2m-lad" customClass="PrizeCell" customModule="SpartaHack_2016" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="No0-2m-lad" id="35j-MO-1cx">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best something something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUu-CN-R1p">
@@ -647,18 +644,18 @@
                         <viewControllerLayoutGuide type="bottom" id="k0J-2F-h9w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UTE-xI-5oS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="173" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="b8l-ef-5md">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="173" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="b8l-ef-5md">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponsorCell" rowHeight="173" id="3NV-9L-ZI1" customClass="SponsorCell" customModule="SpartaHack_2016" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3NV-9L-ZI1" id="6Nj-1X-eBK">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="172.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="173"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MSUFCU" translatesAutoresizingMaskIntoConstraints="NO" id="ZCj-XM-HvV">

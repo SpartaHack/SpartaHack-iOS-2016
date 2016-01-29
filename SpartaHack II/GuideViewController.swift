@@ -30,6 +30,8 @@ class GuideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.spartaBlack()
+        guideSegmentButton.tintColor = UIColor.spartaGreen()
         // Do any additional setup after loading the view.
     }
 

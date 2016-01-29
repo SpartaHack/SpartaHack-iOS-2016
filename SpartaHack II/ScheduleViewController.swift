@@ -43,6 +43,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
+        tableView.backgroundColor = UIColor.spartaBlack()
+
     }
 
     func fetch (){
@@ -65,6 +67,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         self.fetch()
     }
     
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = UIColor.spartaGreen()
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(ScheduleCell.cellIdentifier) as! ScheduleCell
         configureCell(cell, indexPath: indexPath)
@@ -84,6 +93,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.eventTitleLabel.text = event.valueForKey("eventTitle") as? String
         cell.eventDescriptionLabel.text = event.valueForKey("eventDescription") as? String
         cell.eventLocationLabel.text = event.valueForKey("eventLocation") as? String
+        
+        cell.eventTitleLabel.textColor = UIColor.whiteColor()
+        cell.eventDescriptionLabel.textColor = UIColor.whiteColor()
+        cell.eventLocationLabel.textColor = UIColor.whiteColor()
+        cell.eventTimeLabel.textColor = UIColor.whiteColor()
+        
+        cell.contentView.backgroundColor = UIColor.spartaBlack()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -48,6 +48,7 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
+        tableView.backgroundColor = UIColor.spartaBlack()
     }
     
     func didGetPrizes() {
@@ -86,6 +87,13 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.prizeNameLabel.text = prize.valueForKey("name") as? String
         cell.prizeDescriptionLabel.text = prize.valueForKey("prizeDescription") as? String
         cell.prizesSponsorLabel.text = "Sponsored by \(prize.valueForKey("sponsor") as! String)"
+        
+        cell.prizeNameLabel.textColor = UIColor.whiteColor()
+        cell.prizeDescriptionLabel.textColor = UIColor.whiteColor()
+        cell.prizesSponsorLabel.textColor = UIColor.spartaGreen()
+        
+        cell.contentView.backgroundColor = UIColor.spartaBlack()
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

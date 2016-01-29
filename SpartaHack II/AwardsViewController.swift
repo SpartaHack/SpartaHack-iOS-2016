@@ -30,6 +30,8 @@ class AwardsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.spartaBlack()
+        awardSegmentButton.tintColor = UIColor.spartaGreen()
         // Do any additional setup after loading the view.
     }
     

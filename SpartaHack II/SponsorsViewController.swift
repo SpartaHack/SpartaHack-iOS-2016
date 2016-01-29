@@ -48,6 +48,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        tableView.backgroundColor = UIColor.spartaBlack()
         // Do any additional setup after loading the view.
     }
 
@@ -83,22 +84,11 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         guard sponsor == nil else {
             cell.sponsorTextLabel.text = sponsor!.valueForKey("name") as? String
             cell.sponsorImageView.sd_setImageWithURL(NSURL(string: sponsor!.valueForKey("image") as! String))
-            print("image ID \(sponsor!.valueForKey("image"))")
+            cell.contentView.backgroundColor = UIColor.spartaBlack()
+            cell.sponsorTextLabel.textColor = UIColor.whiteColor()
+//            print("image ID \(sponsor!.valueForKey("image"))")
             return
         }
-        
-        
-        
-//        if let imageLink = sponsor.valueForKey("image") as? String {
-////            cell.sponsorImageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: image)!)!)
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-//                let image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageLink)!)!)
-//                dispatch_async(dispatch_get_main_queue()) {
-//                    cell.sponsorImageView.image = image;
-//                }
-//            }
-//        }
-        
     }
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
