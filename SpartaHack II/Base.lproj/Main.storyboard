@@ -1081,7 +1081,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="ForgotPasswordButtonTapped:" destination="VoL-Qz-Epd" eventType="touchUpInside" id="hES-Jr-XH2"/>
                                     <action selector="skipLoginButtonTapped:" destination="VoL-Qz-Epd" eventType="touchUpInside" id="dR7-oF-xKh"/>
                                 </connections>
                             </button>
