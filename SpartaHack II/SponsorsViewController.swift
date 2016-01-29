@@ -79,20 +79,25 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
 	}
 	
     func configureCell(cell: SponsorCell, indexPath: NSIndexPath) {
-        let sponsor = fetchedResultsController.objectAtIndexPath(indexPath)
-        cell.sponsorTextLabel.text = sponsor.valueForKey("name") as? String
-        
-        print("image ID \(sponsor.valueForKey("image"))")
-        
-        if let imageLink = sponsor.valueForKey("image") as? String {
-//            cell.sponsorImageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: image)!)!)
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-                let image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageLink)!)!)
-                dispatch_async(dispatch_get_main_queue()) {
-                    cell.sponsorImageView.image = image;
-                }
-            }
+        let sponsor = fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject
+        guard sponsor == nil else {
+            cell.sponsorTextLabel.text = sponsor!.valueForKey("name") as? String
+            cell.sponsorImageView.sd_setImageWithURL(NSURL(string: sponsor!.valueForKey("image") as! String))
+            print("image ID \(sponsor!.valueForKey("image"))")
+            return
         }
+        
+        
+        
+//        if let imageLink = sponsor.valueForKey("image") as? String {
+////            cell.sponsorImageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: image)!)!)
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+//                let image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageLink)!)!)
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    cell.sponsorImageView.image = image;
+//                }
+//            }
+//        }
         
     }
 	
@@ -141,8 +146,9 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         case .Update:
             print("work here bitch")
             if let indexPath = indexPath {
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as! SponsorCell
-                configureCell(cell, indexPath: indexPath)
+                if let cell = tableView.cellForRowAtIndexPath(indexPath) as? SponsorCell {
+                    configureCell(cell, indexPath: indexPath)
+                }
             }
             break;
         case .Move:

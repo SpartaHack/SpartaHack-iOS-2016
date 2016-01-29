@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '561135A773957D78DE5F425C'
+               BlueprintIdentifier = 'A9860B7836692F5A70653CAB'
                BlueprintName = 'Pods-SpartaHack 2016'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_SpartaHack_2016.framework'>

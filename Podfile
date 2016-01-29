@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'SpartaHack 2016' do
 pod 'SDWebImage', '~>3.7'
+pod 'Parse'
 end
 
 target 'SpartaHack 2016Tests' do

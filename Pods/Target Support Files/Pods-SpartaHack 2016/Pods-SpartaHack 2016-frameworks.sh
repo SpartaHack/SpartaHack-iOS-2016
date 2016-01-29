@@ -84,8 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-SpartaHack 2016/Bolts.framework"
+  install_framework "Pods-SpartaHack 2016/Parse.framework"
   install_framework "Pods-SpartaHack 2016/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-SpartaHack 2016/Bolts.framework"
+  install_framework "Pods-SpartaHack 2016/Parse.framework"
   install_framework "Pods-SpartaHack 2016/SDWebImage.framework"
 fi
