@@ -1,0 +1,6 @@
+framework module Pods_SpartaHack_2016 {
+  umbrella header "Pods-SpartaHack 2016-umbrella.h"
+
+  export *
+  module * { export * }
+}

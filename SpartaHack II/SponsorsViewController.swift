@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SDWebImage
 
 class SponsorCell: UITableViewCell {
 	static let cellIdentifier = "sponsorCell"
