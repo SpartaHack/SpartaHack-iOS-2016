@@ -13,7 +13,9 @@ class RootTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tabBar.tintColor = UIColor.spartaGreen()
+        self.tabBar.backgroundColor = UIColor.spartaBlack()
+        self.tabBar.barTintColor = UIColor.spartaBlack()
         // Do any additional setup after loading the view.
     }
 

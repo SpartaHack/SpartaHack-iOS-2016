@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        UINavigationBar.appearance().topItem?.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action:"logoutUser:")
         
+        UINavigationBar.appearance().barTintColor = UIColor.spartaBlack()
+        UINavigationBar.appearance().tintColor = UIColor.spartaGreen()
+        UINavigationBar.appearance().barStyle = .Black
         // Initialize Parse.
         var keyDict: NSDictionary?
         if let path = NSBundle.mainBundle().pathForResource("keys", ofType: "plist") {

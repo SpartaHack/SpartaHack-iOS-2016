@@ -46,9 +46,9 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         self.tableView.addSubview(refreshControl)
-        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100.0
+        self.tableView.backgroundColor = UIColor.spartaBlack()
     }
     
     func fetch (){
@@ -109,6 +109,15 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         let news = fetchedResultsController.objectAtIndexPath(indexPath)
         cell.titleLabel?.text = news.valueForKey("title") as? String
         cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
+        cell.backgroundColor = UIColor.spartaBlack()
+        
+        ///Set colors
+        cell.titleLabel.textColor = UIColor.whiteColor()
+        cell.detailLabel.textColor = UIColor.whiteColor()
+        cell.titleLabel.backgroundColor = UIColor.spartaBlack()
+        cell.detailLabel.backgroundColor = UIColor.spartaBlack()
+        cell.contentView.backgroundColor = UIColor.spartaBlack()
+        
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

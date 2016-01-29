@@ -38,6 +38,7 @@
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
 		F57BA33E1C288BB6000E0381 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */; };
 		F57BA3401C288BCC000E0381 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33F1C288BCC000E0381 /* libz.tbd */; };
+		F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */; };
 		F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2341C2DE25F00F1512D /* MapViewController.swift */; };
 		F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2361C2DE27100F1512D /* ScheduleViewController.swift */; };
 		F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2391C2DE2B800F1512D /* GuideViewController.swift */; };
@@ -110,6 +111,9 @@
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
 		F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F57BA33F1C288BCC000E0381 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F58BE28E1C5C16DC0000696B /* SpartaHack 2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpartaHack 2016-Bridging-Header.h"; sourceTree = "<group>"; };
+		F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SpartaColor.h"; sourceTree = "<group>"; };
+		F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SpartaColor.m"; sourceTree = "<group>"; };
 		F591B2341C2DE25F00F1512D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F591B2361C2DE27100F1512D /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		F591B2391C2DE2B800F1512D /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
@@ -200,12 +204,15 @@
 				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
 				F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */,
+				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
+				F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B921B327566007F508C /* LaunchScreen.xib */,
 				F5AE53831C3234A30030BCCA /* ios-map.pdf */,
 				F5373B851B327566007F508C /* Supporting Files */,
+				F58BE28E1C5C16DC0000696B /* SpartaHack 2016-Bridging-Header.h */,
 			);
 			path = "SpartaHack II";
 			sourceTree = "<group>";
@@ -345,7 +352,7 @@
 		F5373B7A1B327566007F508C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Chris McGrath";
 				TargetAttributes = {
@@ -469,6 +476,7 @@
 				F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
+				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
 				F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */,
@@ -606,6 +614,7 @@
 			baseConfigurationReference = 8C5A9D8C7F9E6042BEEA828E /* Pods-SpartaHack 2016.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -619,6 +628,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -627,6 +638,7 @@
 			baseConfigurationReference = 0EFB0FF51496D9DB7980D069 /* Pods-SpartaHack 2016.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -640,6 +652,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";
 			};
 			name = Release;
 		};
