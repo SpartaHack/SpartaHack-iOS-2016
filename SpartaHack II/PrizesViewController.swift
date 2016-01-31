@@ -20,7 +20,6 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!    
     
-    var managedObjectContext: NSManagedObjectContext!
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request

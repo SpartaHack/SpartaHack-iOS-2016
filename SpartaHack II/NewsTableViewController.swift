@@ -20,9 +20,7 @@ class NewsCell: UITableViewCell {
 }
 
 class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseNewsDelegate, NSFetchedResultsControllerDelegate {
-    
-    var managedObjectContext: NSManagedObjectContext!
-    
+        
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "News")
@@ -102,7 +100,6 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
             let sectionInfo = sections[section]
-            print("\n Number of objects \(sectionInfo.numberOfObjects) \n")
             return sectionInfo.numberOfObjects
         }
         return 0
@@ -158,7 +155,6 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
             }
             break;
         case .Update:
-            print("work here bitch")
             if let indexPath = indexPath {
                 let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
                 configureCell(cell, indexPath: indexPath)

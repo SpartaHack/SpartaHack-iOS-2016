@@ -18,7 +18,6 @@ class ScheduleCell: UITableViewCell {
 }
 
 class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseScheduleDelegate, NSFetchedResultsControllerDelegate {    
-    var managedObjectContext: NSManagedObjectContext!
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request

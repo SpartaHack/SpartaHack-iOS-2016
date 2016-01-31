@@ -227,6 +227,7 @@ class ParseModel: NSObject {
                         let category = ticket["category"] as! PFObject
                         dict.updateValue(category["category"] as! String, forKey: "category")
                         dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
+                        dict.updateValue(ticket["status"] as! String, forKey: "status")
                         dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")
                         dict.updateValue(ticket.objectId!, forKey: "objectId")
                         dictAry.append(dict)

@@ -19,7 +19,6 @@ class SponsorCell: UITableViewCell {
 
 class SponsorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseModelDelegate, ParseSponsorDelegate, NSFetchedResultsControllerDelegate{
 
-    var managedObjectContext: NSManagedObjectContext!
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request

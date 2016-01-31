@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-//        UINavigationBar.appearance().topItem?.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action:"logoutUser:")
         
         UINavigationBar.appearance().barTintColor = UIColor.spartaBlack()
         UINavigationBar.appearance().tintColor = UIColor.spartaGreen()

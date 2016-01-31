@@ -301,30 +301,39 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-Py-41O" userLabel="title">
-                                            <rect key="frame" x="15" y="8" width="577" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-Py-41O" userLabel="title">
+                                            <rect key="frame" x="15" y="8" width="472" height="25"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="this is a test of text wrapping and it should be long as fuck" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB1-Tw-CwK" userLabel="description">
-                                            <rect key="frame" x="15" y="37" width="577" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="this is a test of text wrapping and it should be long as fuck" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB1-Tw-CwK" userLabel="description">
+                                            <rect key="frame" x="15" y="37" width="472" height="25"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: Open" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjA-DH-fPt">
+                                            <rect key="frame" x="495" y="25" width="97" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pjA-DH-fPt" secondAttribute="trailing" id="GMh-tr-oyl"/>
                                         <constraint firstItem="mHd-Py-41O" firstAttribute="top" secondItem="9Bc-GA-fYA" secondAttribute="topMargin" id="Mv3-Ag-Rsg"/>
-                                        <constraint firstItem="FB1-Tw-CwK" firstAttribute="trailing" secondItem="9Bc-GA-fYA" secondAttribute="trailingMargin" id="dmY-k2-WpW"/>
+                                        <constraint firstItem="pjA-DH-fPt" firstAttribute="centerY" secondItem="9Bc-GA-fYA" secondAttribute="centerY" id="bRO-jY-SSq"/>
                                         <constraint firstItem="mHd-Py-41O" firstAttribute="leading" secondItem="9Bc-GA-fYA" secondAttribute="leadingMargin" constant="7" id="ggg-gS-ow8"/>
                                         <constraint firstItem="FB1-Tw-CwK" firstAttribute="leading" secondItem="9Bc-GA-fYA" secondAttribute="leadingMargin" constant="7" id="imO-9B-hEG"/>
+                                        <constraint firstItem="pjA-DH-fPt" firstAttribute="leading" secondItem="FB1-Tw-CwK" secondAttribute="trailing" constant="8" id="kSx-uP-aGJ"/>
+                                        <constraint firstItem="pjA-DH-fPt" firstAttribute="leading" secondItem="mHd-Py-41O" secondAttribute="trailing" constant="8" id="wWA-l9-3cU"/>
                                         <constraint firstItem="FB1-Tw-CwK" firstAttribute="top" secondItem="mHd-Py-41O" secondAttribute="bottom" constant="4" id="wki-hC-xPh"/>
-                                        <constraint firstItem="mHd-Py-41O" firstAttribute="trailing" secondItem="9Bc-GA-fYA" secondAttribute="trailingMargin" id="y4a-jg-BUy"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="FB1-Tw-CwK" secondAttribute="bottom" id="zI4-P3-5h9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="FB1-Tw-CwK" id="Kfj-cE-oF2"/>
+                                    <outlet property="statusCell" destination="pjA-DH-fPt" id="SNY-BG-Bfj"/>
                                     <outlet property="titleLabel" destination="mHd-Py-41O" id="piR-zL-yd8"/>
                                 </connections>
                             </tableViewCell>
