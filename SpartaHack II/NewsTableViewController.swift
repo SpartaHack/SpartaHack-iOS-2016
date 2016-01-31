@@ -43,12 +43,15 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         // Do any additional setup after loading the view, typically from a nib.
         ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         self.tableView.addSubview(refreshControl)
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.backgroundColor = UIColor.spartaBlack()
+        
     }
     
     func fetch (){

@@ -300,12 +300,14 @@ class ParseModel: NSObject {
         }
     }
     
-    func submitUserTicket(category: String, subject: String, description: String) {
+    func submitUserTicket(category: String, subject: String, description: String, location:String) {
         let ticket = PFObject(className: "HelpDeskTickets")
         let ticketSbj = PFObject(withoutDataWithClassName: "HelpDesk", objectId: category)
         ticket["category"] = ticketSbj
         ticket["subject"] = subject
         ticket["description"] = description
+        ticket["location"] = location
+        ticket["status"] = "Open"
         ticket["user"] = PFUser.currentUser()!
         ticket.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {

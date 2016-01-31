@@ -8,16 +8,18 @@
 
 import UIKit
 
-class CreateTicketViewController: UIViewController, ParseTicketDelegate {
+class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextViewDelegate {
     var topic = ""
     var topicObjId = ""
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var subjectTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         ParseModel.sharedInstance.ticketDelegate = self
+        self.descriptionTextField.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,12 +38,37 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate {
         }
     }
     
+    func textViewDidBeginEditing(textView: UITextView) {
+        self.descriptionTextField.text = ""
+    }
+    
     @IBAction func cancelButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func submitButtonTapped(sender: AnyObject) {
-        ParseModel.sharedInstance.submitUserTicket(topicObjId, subject: subjectTextField.text!, description: descriptionTextField.text!)
+    
+        guard subjectTextField.text != "" else {
+            self.fieldError()
+            return
+        }
+        
+        guard locationTextField.text != "" else {
+            self.fieldError()
+            return
+        }
+        
+        guard descriptionTextField.text != "" else {
+            self.fieldError()
+            return
+        }
+        ParseModel.sharedInstance.submitUserTicket(topicObjId, subject: subjectTextField.text!, description: descriptionTextField.text!, location: locationTextField.text!)
+    }
+    
+    func fieldError () {
+        let alert = UIAlertController(title: "Error", message: "All fields are required", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok.", style: .Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
