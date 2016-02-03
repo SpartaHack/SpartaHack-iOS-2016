@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import KILabel
+import MessageUI
 
 /* 
     Declaring more than one class in a file is sometimes considered a bit unorthodox
@@ -16,7 +18,8 @@ import CoreData
 class NewsCell: UITableViewCell {
     static let cellIdentifier = "cell"
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var detailLabel: KILabel!
+
 }
 
 class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseNewsDelegate, NSFetchedResultsControllerDelegate {
@@ -64,14 +67,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
-        print("make a spinny thing")
         ParseModel.sharedInstance.getNews()
         refreshControl.endRefreshing()
     }
     
     func didGetNewsUpdate() {
         // got more news from parse
-        print("\nLOADDING THINGGYS")
         self.fetch()
     }
     
@@ -111,16 +112,24 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         }
         return 0
     }
-
+    
     func configureCell (cell: NewsCell, indexPath: NSIndexPath) {
         let news = fetchedResultsController.objectAtIndexPath(indexPath)
+        
         cell.titleLabel?.text = news.valueForKey("title") as? String
         cell.detailLabel?.text = news.valueForKey("newsDescription") as? String
         cell.backgroundColor = UIColor.spartaBlack()
         
+        cell.detailLabel.textColor = UIColor.whiteColor()
+        cell.detailLabel.selectedLinkBackgroundColor = UIColor.spartaGreen()
+        cell.detailLabel.linkDetectionTypes = KILinkTypeOption.URL
+        
+        cell.detailLabel.urlLinkTapHandler = { label, url, range in
+            UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+        }
+        
         ///Set colors
         cell.titleLabel.textColor = UIColor.whiteColor()
-        cell.detailLabel.textColor = UIColor.whiteColor()
         cell.titleLabel.backgroundColor = UIColor.spartaBlack()
         cell.detailLabel.backgroundColor = UIColor.spartaBlack()
         cell.contentView.backgroundColor = UIColor.spartaBlack()
@@ -145,13 +154,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         switch (type) {
         case .Insert:
             if let indexPath = newIndexPath {
-                print("New things are better ")
-                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
             break;
         case .Delete:
             if let indexPath = indexPath {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
             break;
         case .Update:
@@ -162,11 +170,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
             break;
         case .Move:
             if let indexPath = indexPath {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
             
             if let newIndexPath = newIndexPath {
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Middle)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
             }
             break;
         }

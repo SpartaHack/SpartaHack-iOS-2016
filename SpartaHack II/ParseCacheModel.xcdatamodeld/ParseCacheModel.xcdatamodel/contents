@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15E27e" minimumToolsVersion="Xcode 7.0">
     <entity name="Event" syncable="YES">
+        <attribute name="eventDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventLocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventTime" optional="YES" attributeType="Date" syncable="YES"/>
@@ -25,7 +26,7 @@
         <attribute name="image" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Ticket" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,7 +41,7 @@
         <attribute name="ticketSubjectDescription" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="45" width="128" height="120"/>
+        <element name="Event" positionX="0" positionY="45" width="128" height="135"/>
         <element name="News" positionX="-207" positionY="-12" width="128" height="120"/>
         <element name="Prize" positionX="306" positionY="-117" width="128" height="120"/>
         <element name="Sponsor" positionX="88" positionY="-54" width="128" height="105"/>

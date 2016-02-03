@@ -19,26 +19,27 @@ class SponsorCell: UITableViewCell {
 
 class SponsorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseModelDelegate, ParseSponsorDelegate, NSFetchedResultsControllerDelegate{
 
+    @IBOutlet var tableView: UITableView!
+    let refreshControl = UIRefreshControl()
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "Sponsor")
         // Add Sort Descriptors
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let sortDescriptor = NSSortDescriptor(key: "tier", ascending: true)
+        let nameDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor,nameDescriptor]
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: "tier", cacheName: nil)
         // Configure Fetched Results Controller
         fetchedResultsController.delegate = self
         return fetchedResultsController
-    }()     
+    }()
 
-	@IBOutlet var tableView: UITableView!
-	
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
         
@@ -59,6 +60,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("\(fetchError), \(fetchError.userInfo)")
         }
         self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     func didGetSponsors() {
@@ -67,9 +69,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
-        print("make a spinny thing")
         ParseModel.sharedInstance.getSponsors()
-        refreshControl.endRefreshing()
     }
 
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -81,15 +81,58 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
     func configureCell(cell: SponsorCell, indexPath: NSIndexPath) {
         let sponsor = fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject
         guard sponsor == nil else {
-            cell.sponsorTextLabel.text = sponsor!.valueForKey("name") as? String
-            cell.sponsorImageView.sd_setImageWithURL(NSURL(string: sponsor!.valueForKey("image") as! String))
+            cell.sponsorTextLabel.text = ""
+            if let imageURL = sponsor!.valueForKey("image") as? String {
+                cell.sponsorImageView.sd_setImageWithURL(NSURL(string: imageURL))
+            } else {
+                cell.sponsorImageView = nil
+            }
             cell.contentView.backgroundColor = UIColor.spartaBlack()
             cell.sponsorTextLabel.textColor = UIColor.whiteColor()
-//            print("image ID \(sponsor!.valueForKey("image"))")
             return
         }
     }
 	
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = UIColor.spartaGreen()
+        }
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            var numLevel = ""
+            switch currentSection.name {
+            case "1":
+                numLevel = "Legend"
+                break
+            case "2" :
+                numLevel = "Commander"
+                break
+            case "3" :
+                numLevel = "Warrior"
+                break
+            case "4" :
+                numLevel = "Trainee"
+                break
+            default:
+                numLevel = "Partner"
+                break
+            }
+            return numLevel
+        }
+        return""
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        }
+        return 0
+    }
+    
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
             let sectionInfo = sections[section]
@@ -123,7 +166,6 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         switch (type) {
         case .Insert:
             if let indexPath = newIndexPath {
-                print("New things are better ")
                 tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
             break;
@@ -133,7 +175,6 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             break;
         case .Update:
-            print("work here bitch")
             if let indexPath = indexPath {
                 if let cell = tableView.cellForRowAtIndexPath(indexPath) as? SponsorCell {
                     configureCell(cell, indexPath: indexPath)
@@ -151,15 +192,4 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             break;
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

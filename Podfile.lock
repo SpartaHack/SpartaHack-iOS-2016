@@ -1,5 +1,6 @@
 PODS:
   - Bolts/Tasks (1.6.0)
+  - KILabel (1.0.1)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
   - SDWebImage (3.7.5):
@@ -7,11 +8,13 @@ PODS:
   - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
+  - KILabel
   - Parse
   - SDWebImage (~> 3.7)
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
+  KILabel: 4797807cdc0b4992dad8bf91175ddc973c3b569b
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 

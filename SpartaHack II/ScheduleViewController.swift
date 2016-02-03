@@ -23,25 +23,30 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "Event")
         // Add Sort Descriptors
-        let sortDescriptor = NSSortDescriptor(key: "eventTime", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let dateDescriptor = NSSortDescriptor(key: "eventDate", ascending: true)
+        let timeDescriptor = NSSortDescriptor(key: "eventTime", ascending: true)
+        fetchRequest.sortDescriptors = [dateDescriptor,timeDescriptor]
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: "eventDate", cacheName: nil)
         // Configure Fetched Results Controller
         fetchedResultsController.delegate = self
         return fetchedResultsController
     }()
+    
+    let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseModel.sharedInstance.scheduleDelegate = self
         ParseModel.sharedInstance.getSchedule()
-        self.fetch()
-        let refreshControl = UIRefreshControl()
+        
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 100.0
         tableView.backgroundColor = UIColor.spartaBlack()
 
     }
@@ -53,13 +58,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
+        self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
-        print("make a spinny thing")
         ParseModel.sharedInstance.getSchedule()
-        refreshControl.endRefreshing()
     }
 
     func didGetSchedule() {
@@ -73,6 +78,19 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+        case 0:
+            return "Friday"
+        case 1:
+            return "Saturday"
+        case 2:
+            return "Sunday"
+        default:
+            return "error"
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(ScheduleCell.cellIdentifier) as! ScheduleCell
         configureCell(cell, indexPath: indexPath)
@@ -82,11 +100,12 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func configureCell (cell: ScheduleCell, indexPath:NSIndexPath) {
         let event = fetchedResultsController.objectAtIndexPath(indexPath)
         let formatter = NSDateFormatter()
-        formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .ShortStyle
         
         if let eventTime = event.valueForKey("eventTime") as? NSDate {
             cell.eventTimeLabel.text = formatter.stringFromDate(eventTime)
+        } else {
+            cell.eventTimeLabel.text = ""
         }
         
         cell.eventTitleLabel.text = event.valueForKey("eventTitle") as? String
@@ -134,7 +153,6 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         switch (type) {
         case .Insert:
             if let indexPath = newIndexPath {
-                print("New things are better ")
                 tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
             break;
@@ -144,9 +162,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             break;
         case .Update:
-            print("work here bitch")
             if let indexPath = indexPath {
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as! ScheduleCell
+                let cell = tableView.dequeueReusableCellWithIdentifier(ScheduleCell.cellIdentifier) as! ScheduleCell
                 configureCell(cell, indexPath: indexPath)
             }
             break;

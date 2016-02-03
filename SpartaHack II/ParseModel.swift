@@ -115,12 +115,8 @@ class ParseModel: NSObject {
                 let result = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
                 if result.count > 0 {
                     // update the object instead of adding more
-                    print("")
-                    print("Updating Existing Object!")
-                    print("")
                     for (key,value) in keyValues {
                         // grab the objectId of the parse object in question (it should be passed in within the dictAry)
-                        print("Save: ","\(key)","\(value)")
                         result[0].setValue(value, forKey: key)
                         do {
                             try managedContext.save()
@@ -132,12 +128,8 @@ class ParseModel: NSObject {
                     // add the new object
                     let entityToSave =  NSEntityDescription.entityForName(entity, inManagedObjectContext:managedContext)
                     let newManObj = NSManagedObject(entity: entityToSave!, insertIntoManagedObjectContext: managedContext)
-                    print("")
-                    print("Adding New Object!")
-                    print("")
                     for (key,value) in keyValues {
                         // grab the objectId of the parse object in question (it should be passed in within the dictAry)
-                        print("Save: ","\(key)","\(value)")
                         newManObj.setValue(value, forKey: key)
                         do {
                             try managedContext.save()
@@ -149,7 +141,6 @@ class ParseModel: NSObject {
             } catch let error as NSError {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
-            print("\n Save \(entity) Successful \n")
         }
     }
     
@@ -167,10 +158,15 @@ class ParseModel: NSObject {
                 // Hooray! Let them use the app now.
                 if let objects = objects as [PFObject]? {
                     for news in objects {
-                        print(news)
-                        dict.updateValue(news["Title"] as! String, forKey: "title")
-                        dict.updateValue(news["Description"] as! String, forKey: "newsDescription")
-                        dict.updateValue(news["Pinned"]! , forKey: "pinned")
+                        if let title = news["Title"] as? String {
+                            dict.updateValue(title, forKey: "title")
+                        }
+                        if let description = news["Description"] as? String {
+                            dict.updateValue(description, forKey: "newsDescription")
+                        }
+                        if let pinned = news["Pinned"] as? Bool {
+                            dict.updateValue(pinned, forKey: "pinned")
+                        }
                         dict.updateValue(news.createdAt! as NSDate, forKey: "createdAt")
                         dict.updateValue(news.objectId!, forKey: "objectId")
                         dictAry.append(dict)
@@ -196,7 +192,6 @@ class ParseModel: NSObject {
                 // Hooray! Let them use the app now.
                 if let objects = objects as [PFObject]? {
                     for ticketSubject in objects {
-                        print(ticketSubject)
                         dict.updateValue(ticketSubject["category"] as! String, forKey: "category")
                         dict.updateValue(ticketSubject["Description"] as! String, forKey: "ticketSubjectDescription")
                         dict.updateValue(ticketSubject.objectId!, forKey: "objectId")
@@ -205,7 +200,6 @@ class ParseModel: NSObject {
                     self.save("TicketSubject", dictAry: dictAry)
                     self.helpDeskDelegate?.didGetHelpDeskOptions()
                 }
-                print("great success!")
             }
         }
     }
@@ -223,7 +217,6 @@ class ParseModel: NSObject {
             } else {
                 if let objects = objects as [PFObject]? {
                     for ticket in objects {
-                        print(ticket)
                         let category = ticket["category"] as! PFObject
                         dict.updateValue(category["category"] as! String, forKey: "category")
                         dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
@@ -252,11 +245,31 @@ class ParseModel: NSObject {
                 // Hooray! Let them use the app now.
                 if let objects = objects as [PFObject]? {
                     for news in objects {
-                        print(news)
-                        dict.updateValue(news["eventTitle"] as! String, forKey: "eventTitle")
-                        dict.updateValue(news["eventDescription"] as! String, forKey: "eventDescription")
-                        dict.updateValue(news["eventLocation"] as! String, forKey: "eventLocation")
-                        dict.updateValue(news["eventTime"] as! NSDate, forKey: "eventTime")
+                        
+                        let timeFormatter = NSDateFormatter()
+                        timeFormatter.timeStyle = .ShortStyle
+                        
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateStyle = .MediumStyle
+                        
+                        if let title = news["eventTitle"] as? String {
+                            dict.updateValue(title, forKey: "eventTitle")
+                        }
+                        if let description = news["eventDescription"] as? String {
+                            dict.updateValue(description, forKey: "eventDescription")
+                        }
+                        if let location = news["eventLocation"] as? String {
+                            dict.updateValue(location, forKey: "eventLocation")
+                        }
+                        if let time = news["eventTime"] as? NSDate {
+                            let formattedTime = timeFormatter.dateFromString(timeFormatter.stringFromDate(time))
+                            dict.updateValue(formattedTime!, forKey: "eventTime")
+                        }
+                        
+                        if let date = news["eventTime"] as? NSDate {
+                            dict.updateValue(dateFormatter.stringFromDate(date), forKey: "eventDate")
+                        }
+                        
                         dict.updateValue(news.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
@@ -281,7 +294,6 @@ class ParseModel: NSObject {
                 // Hooray! Let them use the app now.
                 if let objects = objects as [PFObject]? {
                     for prize in objects {
-                        print(prize)
                         if let sponsor:PFObject = prize["sponsor"] as? PFObject {
                             dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
                             dict.updateValue(sponsor["level"] as! String, forKey: "tier")
@@ -308,6 +320,8 @@ class ParseModel: NSObject {
         ticket["subject"] = subject
         ticket["description"] = description
         ticket["location"] = location
+        ticket["notifiedFlag"] = false
+        ticket["subCategory"] = "iOS"
         ticket["status"] = "Open"
         ticket["user"] = PFUser.currentUser()!
         ticket.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
@@ -361,11 +375,37 @@ class ParseModel: NSObject {
 				// Hooray! Let them use the app now.
 				if let objects = objects as [PFObject]? {
 					for sponsor in objects {
-						let userImageFile = sponsor["png_img"] as! PFFile
+                        if let userImageFile = sponsor["png"] as? PFFile {
+                            dict.updateValue(userImageFile.url!, forKey: "image")
+                        }
+                        
+                        if let name = sponsor["name"] as? String {
+                            dict.updateValue(name, forKey: "name")
+                        }
+                        
+                        if let level = sponsor["level"] as? String {
+                            var numLevel = 0
+                            switch level {
+                            case "legend" :
+                                numLevel = 1
+                                break
+                            case "commander" :
+                                numLevel = 2
+                                break
+                            case "warrior" :
+                                numLevel = 3
+                                break
+                            case "trainee" :
+                                numLevel = 4
+                                break
+                            default:
+                                numLevel = 5
+                                break
+                            }
+                            dict.updateValue(numLevel, forKey: "tier")
+                        }
+                        
                         dict.updateValue(sponsor.objectId!, forKey: "objectId")
-                        dict.updateValue(userImageFile.url!, forKey: "image")
-                        dict.updateValue(sponsor["name"] as! String, forKey: "name")
-                        dict.updateValue(sponsor["level"] as! String, forKey: "tier")
                         dictAry.append(dict)
 					}
                     self.save("Sponsor", dictAry: dictAry)
@@ -374,6 +414,26 @@ class ParseModel: NSObject {
 			}
 		}
 	}
+    
+    func deleteAllData(entity: String)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do
+        {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.deleteObject(managedObjectData)
+            }
+        } catch let error as NSError {
+            print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
 	
 
 }

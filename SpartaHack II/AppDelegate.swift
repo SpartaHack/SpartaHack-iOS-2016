@@ -32,8 +32,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         Parse.setApplicationId((keyDict!.objectForKey("ParseAppId")) as! String, clientKey: (keyDict!.objectForKey("ParseClient")) as! String)
         
+        // Set up push notification buttons
+        
+        // Actions
+        let firstAction:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        firstAction.identifier = "EXTEND"
+        firstAction.title = "Extend"
+        
+        firstAction.activationMode = UIUserNotificationActivationMode.Background
+        firstAction.destructive = false
+        firstAction.authenticationRequired = false
+        
+        let secondAction:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        secondAction.identifier = "CANCEL"
+        secondAction.title = "Cancel"
+        
+        secondAction.activationMode = UIUserNotificationActivationMode.Foreground
+        secondAction.destructive = false
+        secondAction.authenticationRequired = false
+        
+        
+        // category
+        
+        let firstCategory = UIMutableUserNotificationCategory()
+        firstCategory.identifier = "USER_TICKET_ACTION"
+        
+        let defaultActions = [firstAction, secondAction]
+        let minimalActions = [firstAction, secondAction]
+        
+        firstCategory.setActions(defaultActions, forContext: UIUserNotificationActionContext.Default)
+        firstCategory.setActions(minimalActions, forContext: UIUserNotificationActionContext.Minimal)
+        
+        // NSSet of all our categories
+        
+        let categories = NSSet(objects: firstCategory)
+        
         // Enable push notifications
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories:categories as? Set<UIUserNotificationCategory>)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
         
@@ -60,11 +95,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        print("didReceiveRemoteNotification")
         print("Push contents \(userInfo)")
         PFPush.handlePush(userInfo)
     }
-
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        
+        print("notification???")
+        
+        if identifier == "EXTEND" {
+            print("Extending alert")
+        }
+        
+        if identifier == "CANCEL" {
+            print("closing ticket")
+        }
+        
+        
+        completionHandler()
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

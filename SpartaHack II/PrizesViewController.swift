@@ -35,6 +35,7 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return fetchedResultsController
     }()
     
+    let prizeRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,8 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ParseModel.sharedInstance.getPrizes()
         self.fetch()
         // Do any additional setup after loading the view.
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        tableView.addSubview(refreshControl)
+        prizeRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(prizeRefreshControl)
         tableView.backgroundColor = UIColor.spartaBlack()
     }
     
@@ -61,13 +61,13 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
+        self.prizeRefreshControl.endRefreshing()
+        self.tableView.reloadData()
     }
     
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
-        print("make a spinny thing")
-        ParseModel.sharedInstance.getSchedule()
-        refreshControl.endRefreshing()
+        ParseModel.sharedInstance.getPrizes()
     }
     
     
@@ -124,7 +124,6 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         switch (type) {
         case .Insert:
             if let indexPath = newIndexPath {
-                print("New things are better ")
                 tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
             break;
@@ -134,9 +133,8 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             break;
         case .Update:
-            print("work here bitch")
             if let indexPath = indexPath {
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as! PrizeCell
+                let cell = tableView.dequeueReusableCellWithIdentifier(PrizeCell.cellIdentifier) as! PrizeCell
                 configureCell(cell, indexPath: indexPath)
             }
             break;

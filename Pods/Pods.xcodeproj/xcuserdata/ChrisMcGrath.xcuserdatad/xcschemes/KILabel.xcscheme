@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '60B08C7C926855F14AFFA4EA'
-               BlueprintName = 'Pods-SpartaHack 2016'
+               BlueprintIdentifier = 'EA6FA62B24B4EC1EF592F7BD'
+               BlueprintName = 'KILabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_SpartaHack_2016.framework'>
+               BuildableName = 'KILabel.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

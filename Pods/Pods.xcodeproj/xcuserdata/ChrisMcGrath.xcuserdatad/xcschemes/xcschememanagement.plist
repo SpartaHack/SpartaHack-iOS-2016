@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KILabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2985FAFB62C7FFAB6FBDA497A8D692AA</key>
+		<key>162B59B96FF1F5B6B21CF89AC9E41170</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>745FE4AEA6B5DEBDAE1A06AC4F58438A</key>
+		<key>648727B044E63983A3AB2A477C97DE1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>BCA053B6430690326435042FEB61B458</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D835F5F103670A54B1575CDD649BE99F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

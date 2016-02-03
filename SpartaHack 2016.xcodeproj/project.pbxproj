@@ -36,6 +36,7 @@
 		F5470C001C58768E000E2687 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BFA1C58768E000E2687 /* ParseUI.framework */; };
 		F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */; };
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
+		F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */; };
 		F57BA33E1C288BB6000E0381 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */; };
 		F57BA3401C288BCC000E0381 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33F1C288BCC000E0381 /* libz.tbd */; };
 		F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */; };
@@ -109,6 +110,7 @@
 		F5470BFA1C58768E000E2687 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDeskViewController.swift; sourceTree = "<group>"; };
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
+		F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCategoryViewTableViewController.swift; sourceTree = "<group>"; };
 		F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F57BA33F1C288BCC000E0381 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F58BE28E1C5C16DC0000696B /* SpartaHack 2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpartaHack 2016-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				F5373B891B327566007F508C /* NewsTableViewController.swift */,
 				F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */,
+				F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */,
 				F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */,
 				F591B2381C2DE27600F1512D /* Guide View Controllers */,
 				F5AE53801C30928F0030BCCA /* Award View Controller */,
@@ -475,6 +478,7 @@
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
 				F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
+				F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,

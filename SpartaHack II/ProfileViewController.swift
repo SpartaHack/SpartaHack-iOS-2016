@@ -52,6 +52,7 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         PFUser.logOut()
         print("logged out")
         self.navigationController?.popToRootViewControllerAnimated(true)
+        ParseModel.sharedInstance.deleteAllData("Ticket")
     }
 
     /*
