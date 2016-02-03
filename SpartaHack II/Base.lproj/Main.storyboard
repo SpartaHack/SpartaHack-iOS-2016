@@ -230,18 +230,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5mw-tl-jOi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Platform" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJy-Rh-dOF">
                                 <rect key="frame" x="20" y="99" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-tF-L3z">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5mw-tl-jOi">
                                 <rect key="frame" x="20" y="137" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-tF-L3z">
+                                <rect key="frame" x="20" y="175" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Test ticket" translatesAutoresizingMaskIntoConstraints="NO" id="elw-2t-TM1">
-                                <rect key="frame" x="20" y="175" width="560" height="158"/>
+                                <rect key="frame" x="20" y="213" width="560" height="158"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="158" id="LmL-ZL-bq0"/>
@@ -253,7 +258,7 @@
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RP4-T0-wvJ">
-                                <rect key="frame" x="20" y="341" width="278" height="30"/>
+                                <rect key="frame" x="20" y="379" width="278" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -261,7 +266,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bkq-lx-1Jh">
-                                <rect key="frame" x="303" y="341" width="277" height="30"/>
+                                <rect key="frame" x="303" y="379" width="277" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
@@ -271,6 +276,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XJy-Rh-dOF" secondAttribute="trailing" id="4WO-V7-33W"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="XJy-Rh-dOF" secondAttribute="leading" id="5nK-gZ-HM6"/>
                             <constraint firstItem="1cd-VF-8On" firstAttribute="top" secondItem="cK1-Qa-GtR" secondAttribute="bottom" id="7yE-qz-fnK"/>
                             <constraint firstItem="oLc-tF-L3z" firstAttribute="top" secondItem="5mw-tl-jOi" secondAttribute="bottom" constant="8" id="AGL-RA-Re7"/>
                             <constraint firstAttribute="leadingMargin" secondItem="oLc-tF-L3z" secondAttribute="leading" id="Auf-7h-v2p"/>
@@ -286,16 +293,24 @@
                             <constraint firstItem="Zof-b5-b96" firstAttribute="top" secondItem="1cd-VF-8On" secondAttribute="bottom" constant="8" id="YMS-61-gMT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oLc-tF-L3z" secondAttribute="trailing" id="gBU-pJ-VuD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bkq-lx-1Jh" secondAttribute="trailing" id="jku-Za-lgD"/>
+                            <constraint firstItem="5mw-tl-jOi" firstAttribute="top" secondItem="XJy-Rh-dOF" secondAttribute="bottom" constant="8" id="kAS-iH-HuC"/>
                             <constraint firstItem="elw-2t-TM1" firstAttribute="top" secondItem="oLc-tF-L3z" secondAttribute="bottom" constant="8" id="koh-w1-1QS"/>
                             <constraint firstItem="RP4-T0-wvJ" firstAttribute="width" secondItem="Bkq-lx-1Jh" secondAttribute="width" id="pOo-Lt-Tms"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Zof-b5-b96" secondAttribute="leading" id="sKN-zw-uKI"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5mw-tl-jOi" secondAttribute="leading" id="wuN-Nh-kV0"/>
                             <constraint firstItem="5mw-tl-jOi" firstAttribute="top" secondItem="Zof-b5-b96" secondAttribute="bottom" constant="8" id="xsa-OV-sE9"/>
+                            <constraint firstItem="XJy-Rh-dOF" firstAttribute="top" secondItem="Zof-b5-b96" secondAttribute="bottom" constant="8" id="za2-pH-H1z"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="xsa-OV-sE9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="descriptionTextField" destination="elw-2t-TM1" id="S5Y-Oi-73G"/>
                         <outlet property="locationTextField" destination="oLc-tF-L3z" id="KMM-p1-qbA"/>
+                        <outlet property="platformTextField" destination="XJy-Rh-dOF" id="vtT-jg-m2w"/>
                         <outlet property="subjectTextField" destination="5mw-tl-jOi" id="bZ6-LE-EOB"/>
                         <outlet property="topicLabel" destination="Zof-b5-b96" id="A11-02-Vtd"/>
                     </connections>

@@ -8,18 +8,47 @@
 
 import UIKit
 
-class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextViewDelegate {
+class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+
     var topic = ""
     var topicObjId = ""
+    var listOfOptions = NSData()
+    var platformOptions:[String] = []
+    
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var subjectTextField: UITextField!
+    @IBOutlet weak var platformTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        platformOptions = (NSKeyedUnarchiver.unarchiveObjectWithData(listOfOptions) as? [String])!
+        
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        platformTextField.inputView = pickerView
+        
         ParseModel.sharedInstance.ticketDelegate = self
         self.descriptionTextField.delegate = self
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return platformOptions.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return platformOptions[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        platformTextField.text = platformOptions[row]
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,7 +91,17 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
             self.fieldError()
             return
         }
-        ParseModel.sharedInstance.submitUserTicket(topicObjId, subject: subjectTextField.text!, description: descriptionTextField.text!, location: locationTextField.text!)
+        
+        guard platformTextField.text != "" else {
+            self.fieldError()
+            return
+        }
+        
+        ParseModel.sharedInstance.submitUserTicket(topicObjId,
+                subject: subjectTextField.text!,
+            description: descriptionTextField.text!,
+               location: locationTextField.text!,
+            subCategory: platformTextField.text!)
     }
     
     func fieldError () {

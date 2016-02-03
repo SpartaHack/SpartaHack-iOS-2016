@@ -43,6 +43,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         // Do your job, when done:
         if PFUser.currentUser() != nil {
             ParseModel.sharedInstance.getUserTickets()
+            self.helpRefreshControl.endRefreshing()
         } else {
             self.helpRefreshControl.endRefreshing()
         }
@@ -62,6 +63,9 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     override func viewWillAppear(animated: Bool) {
         if PFUser.currentUser() == nil {
             tickets.removeAll()
+            fetch()
+        } else {
+            ParseModel.sharedInstance.helpDeskDelegate = self
             fetch()
         }
     }
@@ -83,9 +87,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         }
     }
     
-    func didGetHelpDeskOptions() {
-    
-    }
+    func didGetHelpDeskOptions() {}
     
     func didGetUserTickets() {
         self.fetch()

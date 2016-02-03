@@ -193,6 +193,10 @@ class ParseModel: NSObject {
                 if let objects = objects as [PFObject]? {
                     for ticketSubject in objects {
                         dict.updateValue(ticketSubject["category"] as! String, forKey: "category")
+                        if let array = ticketSubject["subCategory"] as? [String] {
+                            let archive = NSKeyedArchiver.archivedDataWithRootObject(array)
+                            dict.updateValue(archive, forKey: "subCategory")
+                        }
                         dict.updateValue(ticketSubject["Description"] as! String, forKey: "ticketSubjectDescription")
                         dict.updateValue(ticketSubject.objectId!, forKey: "objectId")
                         dictAry.append(dict)
@@ -313,7 +317,7 @@ class ParseModel: NSObject {
         }
     }
     
-    func submitUserTicket(category: String, subject: String, description: String, location:String) {
+    func submitUserTicket(category: String, subject: String, description: String, location:String, subCategory:String) {
         let ticket = PFObject(className: "HelpDeskTickets")
         let ticketSbj = PFObject(withoutDataWithClassName: "HelpDesk", objectId: category)
         ticket["category"] = ticketSbj
@@ -321,7 +325,7 @@ class ParseModel: NSObject {
         ticket["description"] = description
         ticket["location"] = location
         ticket["notifiedFlag"] = false
-        ticket["subCategory"] = "iOS"
+        ticket["subCategory"] = subCategory
         ticket["status"] = "Open"
         ticket["user"] = PFUser.currentUser()!
         ticket.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
