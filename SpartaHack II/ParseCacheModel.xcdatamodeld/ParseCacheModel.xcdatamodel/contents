@@ -8,6 +8,17 @@
         <attribute name="eventTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Mentor" syncable="YES">
+        <attribute name="categoires" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MentorTickets" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ticketDescrption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="News" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="newsDescription" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,5 +59,7 @@
         <element name="Sponsor" positionX="88" positionY="-54" width="128" height="105"/>
         <element name="Ticket" positionX="-11" positionY="-198" width="128" height="120"/>
         <element name="TicketSubject" positionX="-200" positionY="-153" width="128" height="105"/>
+        <element name="Mentor" positionX="-9" positionY="-54" width="128" height="75"/>
+        <element name="MentorTickets" positionX="0" positionY="-45" width="128" height="120"/>
     </elements>
 </model>

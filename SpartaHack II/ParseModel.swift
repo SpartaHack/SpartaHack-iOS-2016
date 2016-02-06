@@ -55,6 +55,14 @@ protocol ParseSponsorDelegate {
 	func didGetSponsors()
 }
 
+protocol ParseMentorDelegate {
+    func didGetMentorCategories()
+}
+
+protocol ParseOpenTicketsDelegate {
+    func didGetOpenTickets()
+}
+
 class ParseModel: NSObject {
     
     static let sharedInstance = ParseModel()
@@ -68,7 +76,8 @@ class ParseModel: NSObject {
     var prizeDelegate = ParsePrizesDelegate?()
     var ticketDelegate = ParseTicketDelegate?()
 	var sponsorDelegate = ParseSponsorDelegate?()
-    
+    var mentorDelegate = ParseMentorDelegate?()
+    var openTicketDelegate = ParseOpenTicketsDelegate?()
     // Register user with our Parse database
     /*
      - This will be removed soon.
@@ -105,19 +114,19 @@ class ParseModel: NSObject {
     func save(entity: String, dictAry: [[String:AnyObject]]) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        
+        var coreDataObjects = [NSManagedObject]()
         // for all key value pairs, map to the entity in the Core Data Model
         for keyValues in dictAry {
             let parseKey = keyValues["objectId"] as? String
             let fetchRequest = NSFetchRequest(entityName: entity)
             fetchRequest.predicate = NSPredicate(format: "objectId == %@", parseKey!)
             do {
-                let result = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-                if result.count > 0 {
+                coreDataObjects = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+                if coreDataObjects.count > 0 {
                     // update the object instead of adding more
                     for (key,value) in keyValues {
                         // grab the objectId of the parse object in question (it should be passed in within the dictAry)
-                        result[0].setValue(value, forKey: key)
+                        coreDataObjects[0].setValue(value, forKey: key)
                         do {
                             try managedContext.save()
                         } catch let error as NSError  {
@@ -141,6 +150,23 @@ class ParseModel: NSObject {
             } catch let error as NSError {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
+        }
+        
+        // check to see if the core data result exists in the object were passing to save
+        // handles cases where we no longer get updates from parse about an object and we're assuming it has been deleted from parse
+        if coreDataObjects.count > 0 {
+            for i in 0...coreDataObjects.count {
+                guard dictAry[safe:i] != nil else {
+                    print("delete the item")
+                    managedContext.deleteObject(coreDataObjects[i])
+                    continue
+                }
+            }            
+        }
+
+        // there is no data for the request so
+        if dictAry.count == 0 {
+            self.deleteAllData(entity)
         }
     }
     
@@ -176,6 +202,35 @@ class ParseModel: NSObject {
                 self.newsDelegate?.didGetNewsUpdate()
             }
         }
+    }
+    
+    func getMentorCategories() {
+        let query = PFQuery(className: "Mentors")
+        var dict = [String:AnyObject]()
+        var dictAry = [[String:AnyObject]]()
+        query.whereKey("mentor", equalTo: (PFUser.currentUser())!)
+        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+                print("Why must the success codes always be gone? \(errorString)")
+            } else {
+                // Hooray! Let them use the app now.
+                if let objects = objects as [PFObject]? {
+                    for mentor in objects {
+                        if let mentorTopics = mentor["categories"] as? [String] {
+                            let archive = NSKeyedArchiver.archivedDataWithRootObject(mentorTopics)
+                            dict.updateValue(archive, forKey: "categoires")
+                        }
+                        dict.updateValue(mentor.objectId!, forKey: "objectId")
+                        dictAry.append(dict)
+                    }
+                }
+                self.save("Mentor", dictAry: dictAry)
+                self.mentorDelegate?.didGetMentorCategories()
+            }
+        }
+
     }
     
     // Get the options that a user has for the help desk
@@ -231,6 +286,32 @@ class ParseModel: NSObject {
                     }
                     self.save("Ticket", dictAry: dictAry)
                     self.helpDeskDelegate?.didGetUserTickets()
+                }
+            }
+        }
+    }
+    
+    func getOpenTickets () {
+        let query = PFQuery(className: "HelpDeskTickets")
+        var dict = [String:AnyObject]()
+        var dictAry = [[String:AnyObject]]()
+        query.includeKey("category")
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if let error = error {
+                print (error.userInfo["error"])
+            } else {
+                if let objects = objects as [PFObject]? {
+                    for ticket in objects {
+                        let category = ticket["category"] as! PFObject
+                        dict.updateValue(category["category"] as! String, forKey: "category")
+                        dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
+                        dict.updateValue(ticket["status"] as! String, forKey: "status")
+                        dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")
+                        dict.updateValue(ticket.objectId!, forKey: "objectId")
+                        dictAry.append(dict)
+                    }
+                    self.save("MentorTickets", dictAry: dictAry)
+                    self.openTicketDelegate?.didGetOpenTickets()
                 }
             }
         }
@@ -357,6 +438,7 @@ class ParseModel: NSObject {
                 print("User logged in")
                 self.getUserTickets()
                 self.getHelpDeskOptions()
+                self.getMentorCategories()
                 self.userDelegate?.userDidLogin(true, error: nil)
             } else {
                 // The login failed. Check error to see why.
@@ -425,7 +507,6 @@ class ParseModel: NSObject {
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: entity)
         fetchRequest.returnsObjectsAsFaults = false
-        
         do
         {
             let results = try managedContext.executeFetchRequest(fetchRequest)
@@ -438,6 +519,10 @@ class ParseModel: NSObject {
             print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
         }
     }
-	
+}
 
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return indices ~= index ? self[index] : nil
+    }
 }

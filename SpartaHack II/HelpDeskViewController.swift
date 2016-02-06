@@ -26,6 +26,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     let helpRefreshControl = UIRefreshControl()
     
     func fetch (){
+        tickets.removeAll()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Ticket")
@@ -141,7 +142,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if PFUser.currentUser() != nil {
             // check to see if user is logged in or not
-            return "Current Tickets"
+            return "Your Tickets"
         } else {
             return "Please Login"
         }

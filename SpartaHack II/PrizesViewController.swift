@@ -85,7 +85,12 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let prize = fetchedResultsController.objectAtIndexPath(indexPath)
         cell.prizeNameLabel.text = prize.valueForKey("name") as? String
         cell.prizeDescriptionLabel.text = prize.valueForKey("prizeDescription") as? String
-        cell.prizesSponsorLabel.text = "Sponsored by \(prize.valueForKey("sponsor") as! String)"
+        
+        if let sponsor = prize.valueForKey("sponsor") as? String {
+            cell.prizesSponsorLabel.text = "Sponsored by \(sponsor)"
+        } else {
+            cell.prizesSponsorLabel.text = "Sponsored by \("Error")"
+        }
         
         cell.prizeNameLabel.textColor = UIColor.whiteColor()
         cell.prizeDescriptionLabel.textColor = UIColor.whiteColor()

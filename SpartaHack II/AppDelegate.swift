@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // category
         
         let firstCategory = UIMutableUserNotificationCategory()
-        firstCategory.identifier = "USER_TICKET_ACTION"
+        firstCategory.identifier = "USER_ACTIONABLE"
         
         let defaultActions = [firstAction, secondAction]
         let minimalActions = [firstAction, secondAction]
