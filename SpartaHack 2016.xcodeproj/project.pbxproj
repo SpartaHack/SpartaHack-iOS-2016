@@ -633,6 +633,18 @@
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"KILabel\"",
+					"-framework",
+					"\"Parse\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"ZXingObjC\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
@@ -657,6 +669,18 @@
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"KILabel\"",
+					"-framework",
+					"\"Parse\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"ZXingObjC\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";

@@ -28,10 +28,11 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         
         let statusPredicate = NSPredicate(format: "status != %@", "Expired")
         let categoryPredicate = NSPredicate(format: "category == %@", "Mentorship")
+        
         fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, categoryPredicate])
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: "status", cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         // Configure Fetched Results Controller
         fetchedResultsController.delegate = self
         return fetchedResultsController

@@ -8,14 +8,16 @@
 
 import UIKit
 import Parse
+import ZXingObjC
 
 class ProfileViewController: UIViewController, LoginViewControllerDelegate {
 
     
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userBarCodeImageView: UIImageView!
+    @IBOutlet weak var volunteerButton: UIButton!
     
     var user = PFUser.currentUser()
-    var asked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +32,20 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
             vc.delegate = self
-            if !asked {
-                asked = true  
-                self.navigationController?.presentViewController(vc, animated: true, completion: nil)
+            self.navigationController?.presentViewController(vc, animated: true, completion: nil)
+        } else {
+            // generate barcode for the user 
+            let generator = ZXMultiFormatWriter()
+            do {
+                let result = try generator.encode(PFUser.currentUser()!.objectId! , format: kBarcodeFormatCode128, width: 500, height: 100)
+                let image = ZXImage(matrix: result).cgimage
+                userBarCodeImageView.image = UIImage(CGImage: image)
+            } catch {
+                let error = error as NSError
+                print("\(error), \(error.userInfo)")
             }
+//            let result = generator.encode(PFUser.currentUser()!.objectId! , format: kBarcodeFormatCode128, width: 100, height: 100)
+
         }
     }
     

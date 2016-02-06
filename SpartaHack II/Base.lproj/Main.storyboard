@@ -7,6 +7,24 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="Q2b-YI-AcA">
+            <objects>
+                <viewController id="ewG-kA-K1P" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Noc-pG-TTc"/>
+                        <viewControllerLayoutGuide type="bottom" id="CbD-1S-VTv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DRq-iK-r2N">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zma-0b-rDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-349" y="1666"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="aP2-RX-G8m">
             <objects>
@@ -20,49 +38,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hatt Mammerly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTo-OM-aiD">
-                                <rect key="frame" x="241" y="420" width="118" height="21"/>
+                                <rect key="frame" x="241" y="362" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QR Code" translatesAutoresizingMaskIntoConstraints="NO" id="Lzl-cy-YA6">
-                                <rect key="frame" x="30" y="8" width="540" height="405"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lzl-cy-YA6">
+                                <rect key="frame" x="69" y="8" width="462" height="346"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lzl-cy-YA6" secondAttribute="height" multiplier="4:3" id="ZiQ-NF-NQo"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need a wireframe for profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quS-38-wFY">
-                                <rect key="frame" x="191" y="449" width="219" height="20"/>
+                                <rect key="frame" x="191" y="391" width="219" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-W7-0Vw">
-                                <rect key="frame" x="20" y="479" width="560" height="30"/>
+                                <rect key="frame" x="20" y="421" width="560" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.057803820979999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="logoutButtonTapped:" destination="Sw0-ET-v4s" eventType="touchUpInside" id="DNS-f6-TqW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvX-Hm-2da">
+                                <rect key="frame" x="20" y="459" width="560" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.76785339765100669" blue="0.057803820979999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Volunteer Scanning"/>
+                                <connections>
+                                    <segue destination="ewG-kA-K1P" kind="showDetail" id="Z9M-au-1Bk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="quS-38-wFY" firstAttribute="top" secondItem="vTo-OM-aiD" secondAttribute="bottom" constant="8" id="0d3-6R-4tD"/>
+                            <constraint firstItem="yvX-Hm-2da" firstAttribute="top" secondItem="JbI-W7-0Vw" secondAttribute="bottom" constant="8" id="9Sx-Jh-aBr"/>
                             <constraint firstItem="quS-38-wFY" firstAttribute="centerX" secondItem="vTo-OM-aiD" secondAttribute="centerX" id="B6i-d5-JGj"/>
-                            <constraint firstItem="vTo-OM-aiD" firstAttribute="top" secondItem="Lzl-cy-YA6" secondAttribute="bottom" constant="7" id="DOL-HN-4Fj"/>
+                            <constraint firstItem="vTo-OM-aiD" firstAttribute="top" secondItem="Lzl-cy-YA6" secondAttribute="bottom" constant="8" id="DOL-HN-4Fj"/>
                             <constraint firstItem="Lzl-cy-YA6" firstAttribute="top" secondItem="ZHC-it-hBu" secondAttribute="bottom" constant="8" id="G8j-Vl-suN"/>
-                            <constraint firstItem="Lzl-cy-YA6" firstAttribute="leading" secondItem="GTC-SL-Jkc" secondAttribute="leadingMargin" constant="10" id="PHC-CI-uPD"/>
+                            <constraint firstItem="Lzl-cy-YA6" firstAttribute="leading" secondItem="GTC-SL-Jkc" secondAttribute="leadingMargin" constant="49" id="PHC-CI-uPD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yvX-Hm-2da" secondAttribute="trailing" id="ZKg-CV-9Ph"/>
                             <constraint firstItem="Lzl-cy-YA6" firstAttribute="centerX" secondItem="GTC-SL-Jkc" secondAttribute="centerX" id="dzP-2A-XFt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JbI-W7-0Vw" secondAttribute="trailing" id="hI7-q3-l8L"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="yvX-Hm-2da" secondAttribute="leading" id="inE-VB-Ckg"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JbI-W7-0Vw" secondAttribute="leading" id="kme-M3-14V"/>
                             <constraint firstItem="JbI-W7-0Vw" firstAttribute="top" secondItem="quS-38-wFY" secondAttribute="bottom" constant="10.5" id="pOR-bv-vNt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lzl-cy-YA6" secondAttribute="trailing" constant="10" id="v5N-na-fqB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lzl-cy-YA6" secondAttribute="trailing" constant="49" id="v5N-na-fqB"/>
                             <constraint firstItem="vTo-OM-aiD" firstAttribute="centerX" secondItem="Lzl-cy-YA6" secondAttribute="centerX" id="vyM-1Y-RVs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="userBarCodeImageView" destination="Lzl-cy-YA6" id="G4F-LZ-B8c"/>
                         <outlet property="userNameLabel" destination="vTo-OM-aiD" id="qy0-AI-d46"/>
+                        <outlet property="volunteerButton" destination="yvX-Hm-2da" id="ZQY-Ry-Xb9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QM-Nd-Uw3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1377,7 +1408,6 @@
     </scenes>
     <resources>
         <image name="MSUFCU" width="833" height="302"/>
-        <image name="QR Code" width="330" height="330"/>
         <image name="awards" width="30" height="30"/>
         <image name="guide" width="30" height="30"/>
         <image name="help" width="30" height="30"/>
