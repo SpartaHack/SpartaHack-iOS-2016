@@ -306,6 +306,7 @@ class ParseModel: NSObject {
                         dict.updateValue(category["category"] as! String, forKey: "category")
                         dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
                         dict.updateValue(ticket["status"] as! String, forKey: "status")
+                        dict.updateValue(ticket["subject"] as! String, forKey: "subject")
                         dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")
                         dict.updateValue(ticket.objectId!, forKey: "objectId")
                         dictAry.append(dict)
@@ -415,6 +416,31 @@ class ParseModel: NSObject {
                 print("ticket submitted...")
                 self.ticketDelegate?.didSubmitTicket(true)
                 self.getUserTickets()
+            } else {
+                // error
+                print(error)
+            }
+        }
+    }
+    
+    func extendTicket (objectId:String, status:String) {
+        let notificationObj = PFObject(withoutDataWithClassName: "HelpDeskTickets", objectId: objectId)
+        if status == "" {
+            // if we're passing a status the mentor has accepted a ticket
+            notificationObj["status"] = status
+        } else if status != "Expired" {
+            // User must be extending ticket
+            notificationObj["status"] = status
+            notificationObj["notifiedFlag"] = false
+        } else {
+            notificationObj["status"] = status
+            notificationObj["notifiedFlag"] = true
+        }
+        notificationObj.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if success {
+                // yay it worked!
+                print("ticket submitted...")
+                self.getOpenTickets()
             } else {
                 // error
                 print(error)

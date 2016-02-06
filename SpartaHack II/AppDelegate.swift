@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let secondAction:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
         secondAction.identifier = "CANCEL"
-        secondAction.title = "Cancel"
+        secondAction.title = "Cancel ticket"
         
         secondAction.activationMode = UIUserNotificationActivationMode.Foreground
         secondAction.destructive = false
@@ -101,14 +101,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
         
-        print("notification???")
+        print("notification??? \(userInfo)")
         
         if identifier == "EXTEND" {
             print("Extending alert")
+            ParseModel.sharedInstance.extendTicket(userInfo["ticketId"] as! String, status: "Open")
         }
         
         if identifier == "CANCEL" {
             print("closing ticket")
+            ParseModel.sharedInstance.extendTicket("\(userInfo["ticketId"] as? String)", status: "Expired")
         }
         
         

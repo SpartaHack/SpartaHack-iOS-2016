@@ -16,6 +16,7 @@
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ticketDescrption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
@@ -60,6 +61,6 @@
         <element name="Ticket" positionX="-11" positionY="-198" width="128" height="120"/>
         <element name="TicketSubject" positionX="-200" positionY="-153" width="128" height="105"/>
         <element name="Mentor" positionX="-9" positionY="-54" width="128" height="75"/>
-        <element name="MentorTickets" positionX="0" positionY="-45" width="128" height="120"/>
+        <element name="MentorTickets" positionX="0" positionY="-45" width="128" height="135"/>
     </elements>
 </model>
