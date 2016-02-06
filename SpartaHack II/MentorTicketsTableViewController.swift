@@ -78,6 +78,21 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
 
     // MARK: - Table view data source
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let ticket = fetchedResultsController.objectAtIndexPath(indexPath)
+        ParseModel.sharedInstance.extendTicket(ticket.valueForKey("objectId") as! String, status: "Accepted")
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+        case 0:
+            return "Select open ticket to accept"
+        default:
+            return "Accepted Tickets"
+        }
+    }
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if let sections = fetchedResultsController.sections {
             return sections.count
