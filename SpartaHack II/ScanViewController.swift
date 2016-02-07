@@ -61,6 +61,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         qrCodeFrameView?.layer.borderWidth = 3
         videoPreviewLayer.addSubview(qrCodeFrameView!)
         videoPreviewLayer.bringSubviewToFront(qrCodeFrameView!)
+        self.captureSession?.startRunning()
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,34 +79,46 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
         if metadataObj.type == AVMetadataObjectTypeCode128Code {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoLayer?.transformedMetadataObjectForMetadataObject(metadataObj) as? AVMetadataMachineReadableCodeObject
             qrCodeFrameView?.frame = barCodeObject!.bounds;
-            //qrCodeFrameView?.layer.cornerRadius = (qrCodeFrameView?.layer.frame.height)! / 2.0
-            
             if metadataObj.stringValue != nil {
                 messageLabel!.text = metadataObj.stringValue
                 // send request to parse with the eventID to grab the name
+                self.checkInUser(metadataObj.stringValue)
                 self.captureSession?.stopRunning()
             }
         }
     }
     
-    func askUserToCheckIn (title:String) {
+    func checkInUser (title:String) {
         let alertController = UIAlertController(title: "Check-in?", message: title, preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
             // cancelButton tapped
+            self.captureSession?.startRunning()
         }
         
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        let checkinAction = UIAlertAction(title: "Check-In User", style: .Default) { (action) in
             // check the user in
             print("Check-in!")
-            // add unique object only lets new users check-in. The prevents the same person checkin in multiple times and inflating the attendence
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("checkInView") as! CheckInUserViewController
+            vc.objectId = title
+            self.presentViewController(vc, animated: true, completion: nil)           
         }
         
-        alertController.addAction(OKAction)
+        let hardwareOutAction = UIAlertAction(title: "Hardware Check Out", style: .Default) { (action) -> Void in
+            
+        }
+        
+        let hardwareInAction = UIAlertAction(title: "Hardware Check In", style: .Default) { (action) -> Void in
+            
+        }
+        
+        alertController.addAction(checkinAction)
+        alertController.addAction(hardwareOutAction)
+        alertController.addAction(hardwareInAction)
         alertController.addAction(cancelAction)
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
@@ -114,5 +127,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
     }
 
+    @IBAction func closeButtonTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }
