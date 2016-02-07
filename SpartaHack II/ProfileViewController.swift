@@ -37,15 +37,13 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
             // generate barcode for the user 
             let generator = ZXMultiFormatWriter()
             do {
-                let result = try generator.encode(PFUser.currentUser()!.objectId! , format: kBarcodeFormatCode128, width: 500, height: 100)
+                let result = try generator.encode(PFUser.currentUser()!.objectId! , format: kBarcodeFormatCode128, width: 500, height: 500)
                 let image = ZXImage(matrix: result).cgimage
                 userBarCodeImageView.image = UIImage(CGImage: image)
             } catch {
                 let error = error as NSError
                 print("\(error), \(error.userInfo)")
             }
-//            let result = generator.encode(PFUser.currentUser()!.objectId! , format: kBarcodeFormatCode128, width: 100, height: 100)
-
         }
     }
     

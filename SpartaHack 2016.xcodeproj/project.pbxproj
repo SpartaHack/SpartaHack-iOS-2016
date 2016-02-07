@@ -43,6 +43,7 @@
 		F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2341C2DE25F00F1512D /* MapViewController.swift */; };
 		F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2361C2DE27100F1512D /* ScheduleViewController.swift */; };
 		F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2391C2DE2B800F1512D /* GuideViewController.swift */; };
+		F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599B44F1C66BF84008E1E6D /* ScanViewController.swift */; };
 		F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A60A971B40FD5600709528 /* ProfileViewController.swift */; };
 		F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537B1C3092740030BCCA /* PrizesViewController.swift */; };
 		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
@@ -120,6 +121,7 @@
 		F591B2341C2DE25F00F1512D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F591B2361C2DE27100F1512D /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		F591B2391C2DE2B800F1512D /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		F599B44F1C66BF84008E1E6D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		F5A60A971B40FD5600709528 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F5AE537B1C3092740030BCCA /* PrizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
 		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
+				F599B44F1C66BF84008E1E6D /* ScanViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				F5CD8FB41C430D500077E1F9 /* CreateTicketViewController.swift in Sources */,
 				F5F5A0F41C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
+				F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
 				F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
