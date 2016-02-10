@@ -18,12 +18,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sloganLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet var mainView: UIView!
     
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var nahButton: UIButton!
+
     var delegate: LoginViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseModel.sharedInstance.userDelegate = self
+        
+        titleLabel.textColor = UIColor.spartaGreen()
+        sloganLabel.textColor = UIColor.spartaGreen()
+        emailLabel.textColor = UIColor.spartaGreen()
+        passwordLabel.textColor = UIColor.spartaGreen()
+        
+        loginButton.layer.cornerRadius = 4
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        loginButton.titleLabel?.textColor = UIColor.spartaGreen()
+        loginButton.backgroundColor = UIColor.spartaBlack()
+        
+        nahButton.layer.cornerRadius = 4
+        nahButton.layer.borderWidth = 1
+        nahButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        nahButton.titleLabel?.textColor = UIColor.spartaGreen()
+        nahButton.backgroundColor = UIColor.spartaBlack()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

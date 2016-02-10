@@ -81,13 +81,14 @@ class TicketCategoryViewTableViewController: UITableViewController, ParseModelDe
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
             view.textLabel!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = UIColor.spartaGreen()
         }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Select Category"
+        return "<Select Category/>"
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

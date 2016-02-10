@@ -33,10 +33,32 @@ class CheckInUserViewController: UIViewController {
                 if let diet = object!["diet"] as? String {
                     self.dietLabel.text = "Dietary Restriction: \(diet)"
                 }
+                let alreadyIn = PFQuery(className: "Attendance")
+                alreadyIn.whereKey("user", equalTo: object!)
+                alreadyIn.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
+                    if (objects?.count == 0) {
+                        // allow checkin
+                    } else {
+                        // show alert to dismiss view
+                        self.showAlert()
+                    }
+                }
             } else {
                 print(error)
             }
         }
+        
+        
+        
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Error", message: "User is Already Checked in", preferredStyle: UIAlertControllerStyle.Alert)
+        let okayAction = UIAlertAction(title: "Ok", style: .Default) { (UIAlertAction) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alert.addAction(okayAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +68,24 @@ class CheckInUserViewController: UIViewController {
     
     @IBAction func acceptButtonTapped(sender: AnyObject) {
     
+        let query = PFQuery(className: "_User")
+        query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error:NSError?) -> Void in
+            if object != nil {
+                let checkin = PFObject(className: "Attendance")
+                checkin["user"] = object!
+                checkin.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+                    if success {
+                        print("success")
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    } else {
+                        print("error \(error)")
+                    }
+                }
+
+            } else {
+                print(error)
+            }
+        }
     }
 
     @IBAction func cancelButtonTapped(sender: AnyObject) {

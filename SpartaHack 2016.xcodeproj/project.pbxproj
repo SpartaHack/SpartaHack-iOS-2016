@@ -49,6 +49,7 @@
 		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
 		F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53831C3234A30030BCCA /* ios-map.pdf */; };
 		F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */; };
+		F5CA4C9F1C684BBE00CDC37B /* Moondance.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */; };
 		F5CD8FB41C430D500077E1F9 /* CreateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */; };
 		F5DC9D111C65934500CF6FDB /* MentorTicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */; };
 		F5F5A0F41C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F5A0F21C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld */; };
@@ -128,6 +129,7 @@
 		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		F5AE53831C3234A30030BCCA /* ios-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ios-map.pdf"; sourceTree = "<group>"; };
 		F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInUserViewController.swift; sourceTree = "<group>"; };
+		F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Moondance.ttf; sourceTree = "<group>"; };
 		F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
 		F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorTicketsTableViewController.swift; sourceTree = "<group>"; };
 		F5F5A0F31C3A15A7003BA63D /* ParseCacheModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParseCacheModel.xcdatamodel; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				F5F5A0F21C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld */,
+				F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */,
 				F52BC0EE1BF5360B0074870E /* keys.plist */,
 				F57BA33F1C288BCC000E0381 /* libz.tbd */,
 				F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */,
@@ -280,11 +283,10 @@
 		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */,
 				F5373B891B327566007F508C /* NewsTableViewController.swift */,
 				F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */,
-				F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */,
 				F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */,
+				F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */,
 				F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */,
 				F591B2381C2DE27600F1512D /* Guide View Controllers */,
 				F5AE53801C30928F0030BCCA /* Award View Controller */,
@@ -292,6 +294,7 @@
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
 				F599B44F1C66BF84008E1E6D /* ScanViewController.swift */,
+				F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
+				F5CA4C9F1C684BBE00CDC37B /* Moondance.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

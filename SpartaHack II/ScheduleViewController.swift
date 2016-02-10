@@ -8,11 +8,12 @@
 
 import UIKit
 import CoreData
+import KILabel
 
 class ScheduleCell: UITableViewCell {
     static let cellIdentifier = "eventCell"
     @IBOutlet weak var eventTitleLabel: UILabel!
-    @IBOutlet weak var eventDescriptionLabel: UILabel!
+    @IBOutlet weak var eventDescriptionLabel: KILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var eventLocationLabel: UILabel!
 }
@@ -46,7 +47,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.addSubview(refreshControl)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.estimatedRowHeight = 70.0
         tableView.backgroundColor = UIColor.spartaBlack()
 
     }
@@ -73,6 +74,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
             view.textLabel!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = UIColor.spartaGreen()
         }
@@ -81,11 +83,11 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
-            return "Friday"
+            return "<Friday/>"
         case 1:
-            return "Saturday"
+            return "<Saturday/>"
         case 2:
-            return "Sunday"
+            return "<Sunday/>"
         default:
             return "error"
         }
@@ -107,10 +109,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             cell.eventTimeLabel.text = ""
         }
+
         
-        cell.eventTitleLabel.text = event.valueForKey("eventTitle") as? String
-        cell.eventDescriptionLabel.text = event.valueForKey("eventDescription") as? String
-        cell.eventLocationLabel.text = event.valueForKey("eventLocation") as? String
+        cell.eventDescriptionLabel.selectedLinkBackgroundColor = UIColor.spartaGreen()
+        cell.eventDescriptionLabel.linkDetectionTypes = KILinkTypeOption.URL
+        cell.eventDescriptionLabel.urlLinkTapHandler = { label, url, range in
+            UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+        }
         
         cell.eventTitleLabel.textColor = UIColor.whiteColor()
         cell.eventDescriptionLabel.textColor = UIColor.whiteColor()
@@ -118,6 +123,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.eventTimeLabel.textColor = UIColor.whiteColor()
         
         cell.contentView.backgroundColor = UIColor.spartaBlack()
+        
+        cell.eventTitleLabel.text = event.valueForKey("eventTitle") as? String
+        cell.eventDescriptionLabel.text = event.valueForKey("eventDescription") as? String
+        cell.eventLocationLabel.text = event.valueForKey("eventLocation") as? String
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

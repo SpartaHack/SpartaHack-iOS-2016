@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userBarCodeImageView: UIImageView!
     @IBOutlet weak var volunteerButton: UIButton!
+    @IBOutlet var profileView: UIView!
     
     var user = PFUser.currentUser()
     
@@ -23,6 +24,7 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         userNameLabel.text = "Welcome: \(user!.username!)"
+        profileView.backgroundColor = UIColor.spartaBlack()
 
     }
     

@@ -13,9 +13,7 @@ import SDWebImage
 class SponsorCell: UITableViewCell {
 	static let cellIdentifier = "sponsorCell"
 	@IBOutlet var sponsorImageView: UIImageView!
-	@IBOutlet var sponsorTextLabel: UILabel!
 }
-
 
 class SponsorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseModelDelegate, ParseSponsorDelegate, NSFetchedResultsControllerDelegate{
 
@@ -51,7 +49,12 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.backgroundColor = UIColor.spartaBlack()
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("Delete images")
+    }
+    
     func fetch (){
         do {
             try self.fetchedResultsController.performFetch()
@@ -81,20 +84,34 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
     func configureCell(cell: SponsorCell, indexPath: NSIndexPath) {
         let sponsor = fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject
         guard sponsor == nil else {
-            cell.sponsorTextLabel.text = ""
             if let imageURL = sponsor!.valueForKey("image") as? String {
                 cell.sponsorImageView.sd_setImageWithURL(NSURL(string: imageURL))
             } else {
                 cell.sponsorImageView = nil
             }
             cell.contentView.backgroundColor = UIColor.spartaBlack()
-            cell.sponsorTextLabel.textColor = UIColor.whiteColor()
             return
         }
     }
 	
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 100
+        case 1 :
+            return 75
+        case 2 :
+            return 50
+        case 3 :
+            return 25
+        default:
+            return 100
+        }
+    }
+    
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
             view.textLabel!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = UIColor.spartaGreen()
         }
@@ -106,19 +123,19 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             var numLevel = ""
             switch currentSection.name {
             case "1":
-                numLevel = "Legend"
+                numLevel = "<Legend/>"
                 break
             case "2" :
-                numLevel = "Commander"
+                numLevel = "<Commander/>"
                 break
             case "3" :
-                numLevel = "Warrior"
+                numLevel = "<Warrior/>"
                 break
             case "4" :
-                numLevel = "Trainee"
+                numLevel = "<Trainee/>"
                 break
             default:
-                numLevel = "Partner"
+                numLevel = "<Partner/>"
                 break
             }
             return numLevel

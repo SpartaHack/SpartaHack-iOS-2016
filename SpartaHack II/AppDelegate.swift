@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barTintColor = UIColor.spartaBlack()
         UINavigationBar.appearance().tintColor = UIColor.spartaGreen()
-        UINavigationBar.appearance().barStyle = .Black
+        UINavigationBar.appearance().barStyle = .Black       
+
         // Initialize Parse.
         var keyDict: NSDictionary?
         if let path = NSBundle.mainBundle().pathForResource("keys", ofType: "plist") {
@@ -82,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         currentInstallation.setDeviceTokenFromData(deviceToken)
         currentInstallation.saveInBackgroundWithBlock { (succeeded, e) -> Void in
             if succeeded {
-                print("Push notification successful")
+                print("Push registration notification successful")
             }
             if e != nil {
                 print(e)

@@ -27,9 +27,10 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         let statusPredicate = NSPredicate(format: "status != %@", "Expired")
+        let deletedPredicate = NSPredicate(format: "status != %@", "Deleted")
         let categoryPredicate = NSPredicate(format: "category == %@", "Mentorship")
         
-        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, categoryPredicate])
+        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, categoryPredicate])
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -63,6 +64,7 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         helpRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         self.tableView.addSubview(helpRefreshControl)
         
+        tableView.backgroundColor = UIColor.spartaBlack()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70.0
     }
@@ -88,9 +90,17 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
-            return "Select open ticket to accept"
+            return "<Select open ticket to accept/>"
         default:
-            return "Accepted Tickets"
+            return "<Accepted Tickets>"
+        }
+    }
+
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
+            view.textLabel!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = UIColor.spartaGreen()
         }
     }
 
@@ -120,6 +130,13 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         cell.ticketSubjectLabel?.text = ticket.valueForKey("category") as? String
         cell.ticketDescriptionLabel?.text = ticket.valueForKey("ticketDescrption") as? String
         cell.ticketStatusLabel.text = ticket.valueForKey("status") as? String
+        
+        cell.ticketSubjectLabel.textColor = UIColor.whiteColor()
+        cell.ticketDescriptionLabel.textColor = UIColor.whiteColor()
+        cell.ticketLocationLabel.textColor = UIColor.whiteColor()
+        cell.ticketStatusLabel.textColor = UIColor.whiteColor()
+        
+        cell.contentView.backgroundColor = UIColor.spartaBlack()
     }
         
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {

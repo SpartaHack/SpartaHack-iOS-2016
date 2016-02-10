@@ -21,6 +21,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var createTicketButton: UIButton!
     
     var tickets = [NSManagedObject]()
     let helpRefreshControl = UIRefreshControl()
@@ -86,6 +87,12 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         if PFUser.currentUser() != nil {
             ParseModel.sharedInstance.getUserTickets()
         }
+        
+        createTicketButton.backgroundColor = UIColor.spartaBlack()
+        createTicketButton.tintColor = UIColor.spartaGreen()
+        createTicketButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        createTicketButton.layer.cornerRadius = 4
+        createTicketButton.layer.borderWidth = 1
     }
     
     func didGetHelpDeskOptions() {}
@@ -96,6 +103,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
             view.textLabel!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = UIColor.spartaGreen()
         }
@@ -142,9 +150,9 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if PFUser.currentUser() != nil {
             // check to see if user is logged in or not
-            return "Your Tickets"
+            return "<Your Tickets/>"
         } else {
-            return "Please Login"
+            return "<Please Login/>"
         }
     }
     

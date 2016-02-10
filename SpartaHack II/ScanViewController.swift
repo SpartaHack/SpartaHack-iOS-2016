@@ -117,8 +117,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
         
         alertController.addAction(checkinAction)
-        alertController.addAction(hardwareOutAction)
-        alertController.addAction(hardwareInAction)
+//        alertController.addAction(hardwareOutAction)
+//        alertController.addAction(hardwareInAction)
         alertController.addAction(cancelAction)
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in

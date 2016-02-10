@@ -10,6 +10,8 @@ import UIKit
 import Parse
 import CoreData
 
+let headerFontSize:CGFloat = 20;
+
 class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
 
     var subjects = [NSManagedObject]()
@@ -43,6 +45,10 @@ class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
         
         ParseModel.sharedInstance.mentorDelegate = self
         // Do any additional setup after loading the view.
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Moondance", size: 20)!]
+        self.navigationController?.navigationBar.topItem?.title = "<SPARTAHACK/>"
+        
     }
     
     override func viewWillAppear(animated: Bool) {
