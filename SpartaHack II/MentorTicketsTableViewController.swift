@@ -19,37 +19,33 @@ class MentorTicketTableViewCell: UITableViewCell {
 
 class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsDelegate, NSFetchedResultsControllerDelegate {
 
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        // Initialize Fetch Request
+    var tickets = [NSManagedObject]()
+    let helpRefreshControl = UIRefreshControl()
+    
+    func fetch (){
+        tickets.removeAll()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "MentorTickets")
-        // Add Sort Descriptors
-        let sortDescriptor = NSSortDescriptor(key: "status", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
         
         let statusPredicate = NSPredicate(format: "status != %@", "Expired")
         let deletedPredicate = NSPredicate(format: "status != %@", "Deleted")
         let categoryPredicate = NSPredicate(format: "category == %@", "Mentorship")
-        
         fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, categoryPredicate])
-        // Initialize Fetched Results Controller
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        // Configure Fetched Results Controller
-        fetchedResultsController.delegate = self
-        return fetchedResultsController
-    }()
-
-    let helpRefreshControl = UIRefreshControl()
-    
-    func fetch (){
+        
+        let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
+        let statusDescriptor = NSSortDescriptor(key: "statusNum", ascending: true)
+        
+        fetchRequest.sortDescriptors = [statusDescriptor,sortDescriptor]
         do {
-            try self.fetchedResultsController.performFetch()
-        } catch {
-            let fetchError = error as NSError
-            print("\(fetchError), \(fetchError.userInfo)")
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            tickets = results as! [NSManagedObject]
+            self.tableView.reloadData()
+            self.helpRefreshControl.endRefreshing()
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
         }
-        self.helpRefreshControl.endRefreshing()
-        self.tableView.reloadData()
+
     }
     
     func didGetOpenTickets() {
@@ -58,8 +54,6 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ParseModel.sharedInstance.openTicketDelegate = self
-        ParseModel.sharedInstance.getOpenTickets()
         
         helpRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         self.tableView.addSubview(helpRefreshControl)
@@ -67,6 +61,9 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         tableView.backgroundColor = UIColor.spartaBlack()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70.0
+        
+        ParseModel.sharedInstance.openTicketDelegate = self
+        ParseModel.sharedInstance.getOpenTickets()
     }
 
     func refresh(refreshControl: UIRefreshControl) {
@@ -83,8 +80,9 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let ticket = fetchedResultsController.objectAtIndexPath(indexPath)
+        let ticket = tickets[indexPath.row]
         ParseModel.sharedInstance.extendTicket(ticket.valueForKey("objectId") as! String, status: "Accepted")
+        ParseModel.sharedInstance.getOpenTickets()
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -105,18 +103,11 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if let sections = fetchedResultsController.sections {
-            return sections.count
-        }
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sections = fetchedResultsController.sections {
-            let sectionInfo = sections[section]
-            return sectionInfo.numberOfObjects
-        }
-        return 0
+        return tickets.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -126,10 +117,11 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
     }
     
     func configureCell (cell: MentorTicketTableViewCell, indexPath: NSIndexPath) {
-        let ticket = fetchedResultsController.objectAtIndexPath(indexPath)
+        let ticket = tickets[indexPath.row]
         cell.ticketSubjectLabel?.text = ticket.valueForKey("category") as? String
         cell.ticketDescriptionLabel?.text = ticket.valueForKey("ticketDescrption") as? String
         cell.ticketStatusLabel.text = ticket.valueForKey("status") as? String
+        cell.ticketLocationLabel.text = ticket.valueForKey("location") as? String
         
         cell.ticketSubjectLabel.textColor = UIColor.whiteColor()
         cell.ticketDescriptionLabel.textColor = UIColor.whiteColor()
@@ -137,35 +129,5 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         cell.ticketStatusLabel.textColor = UIColor.whiteColor()
         
         cell.contentView.backgroundColor = UIColor.spartaBlack()
-    }
-        
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        switch (type) {
-        case .Insert:
-            if let indexPath = newIndexPath {
-                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            break;
-        case .Delete:
-            if let indexPath = indexPath {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            break;
-        case .Update:
-            if let indexPath = indexPath {
-                let cell = tableView.dequeueReusableCellWithIdentifier(MentorTicketTableViewCell.cellIdentifier) as! MentorTicketTableViewCell
-                configureCell(cell, indexPath: indexPath)
-            }
-            break;
-        case .Move:
-            if let indexPath = indexPath {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            
-            if let newIndexPath = newIndexPath {
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-            }
-            break;
-        }
     }
 }

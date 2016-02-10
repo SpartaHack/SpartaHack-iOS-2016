@@ -99,7 +99,7 @@ class TicketCategoryViewTableViewController: UITableViewController, ParseModelDe
         vc.topic = ticketSubjects[indexPath.row].valueForKey("category") as! String
         vc.topicObjId = ticketSubjects[indexPath.row].valueForKey("objectId") as! String
         vc.listOfOptions = ticketSubjects[indexPath.row].valueForKey("subCategory") as! NSData
-        self.navigationController?.presentViewController(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func configureCell (cell: helpDeskCell, indexPath: NSIndexPath) {

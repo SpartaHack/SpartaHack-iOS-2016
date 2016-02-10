@@ -31,6 +31,14 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Ticket")
+        
+        let statusPredicate = NSPredicate(format: "status != %@", "Deleted")
+        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate])
+        
+        let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
+        let statusDescriptor = NSSortDescriptor(key: "statusNum", ascending: true)
+        
+        fetchRequest.sortDescriptors = [statusDescriptor,sortDescriptor]
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             tickets = results as! [NSManagedObject]
@@ -141,6 +149,20 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
             self.navigationController?.presentViewController(vc, animated: true, completion: nil)
         }
+        ParseModel.sharedInstance.extendTicket(tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
+        ParseModel.sharedInstance.getUserTickets()
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+            switch editingStyle {
+            case .Delete:
+                ParseModel.sharedInstance.extendTicket(tickets[indexPath.row].valueForKey("objectId") as! String, status: "Deleted")
+                ParseModel.sharedInstance.getUserTickets()
+                self.tickets.removeAtIndex(indexPath.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            default:
+                return
+            }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

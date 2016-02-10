@@ -12,20 +12,40 @@ import ZXingObjC
 
 class ProfileViewController: UIViewController, LoginViewControllerDelegate {
 
-    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userBarCodeImageView: UIImageView!
     @IBOutlet weak var volunteerButton: UIButton!
     @IBOutlet var profileView: UIView!
+    
+    @IBOutlet weak var scanButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     var user = PFUser.currentUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        logoutButton.layer.borderWidth = 2
+        logoutButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        logoutButton.layer.cornerRadius = 4
+        logoutButton.backgroundColor = UIColor.spartaBlack()
+        
         userNameLabel.text = "Welcome: \(user!.username!)"
         profileView.backgroundColor = UIColor.spartaBlack()
-
+        
+        let query = PFQuery(className: "_User")
+        query.getObjectInBackgroundWithId(PFUser.currentUser()!.objectId!) { (object:PFObject?, error:NSError?) -> Void in
+            if error == nil {
+                let role = object!["role"] as! String
+                if role != "admin" && role != "volunteer" {
+                    self.scanButton.hidden = true
+                }
+                
+            } else {
+                print("error \(error)")
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

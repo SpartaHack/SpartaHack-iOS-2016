@@ -96,7 +96,9 @@
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-W7-0Vw">
                                 <rect key="frame" x="20" y="398.5" width="560" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.057803820979999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Log Out"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutButtonTapped:" destination="Sw0-ET-v4s" eventType="touchUpInside" id="DNS-f6-TqW"/>
                                 </connections>
@@ -127,7 +129,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="JbI-W7-0Vw" id="L79-mG-VuM"/>
                         <outlet property="profileView" destination="GTC-SL-Jkc" id="Sl3-ks-4bC"/>
+                        <outlet property="scanButton" destination="yvX-Hm-2da" id="Ubg-iK-Lmj"/>
                         <outlet property="userBarCodeImageView" destination="Lzl-cy-YA6" id="G4F-LZ-B8c"/>
                         <outlet property="userNameLabel" destination="vTo-OM-aiD" id="qy0-AI-d46"/>
                         <outlet property="volunteerButton" destination="yvX-Hm-2da" id="ZQY-Ry-Xb9"/>
@@ -1059,26 +1063,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-Shirt: Medium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si7-Ib-01b">
+                                <rect key="frame" x="20" y="84" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dietary Restriction: Gluten Free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W23-hZ-t9l">
-                                <rect key="frame" x="20" y="85" width="560" height="20.5"/>
+                                <rect key="frame" x="20" y="112" width="560" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAKE SURE ID MATCHES " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBt-vs-OXs">
-                                <rect key="frame" x="20" y="133" width="560" height="30"/>
+                                <rect key="frame" x="20" y="159.5" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARK ANY DIETARY RESTRICTION(S) ON BADGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYB-36-yS1">
-                                <rect key="frame" x="20" y="178" width="560" height="60"/>
+                                <rect key="frame" x="20" y="204.5" width="560" height="60"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30l-OD-bd6">
-                                <rect key="frame" x="20" y="246" width="276" height="30"/>
+                                <rect key="frame" x="20" y="272.5" width="276" height="30"/>
                                 <color key="backgroundColor" white="0.79180526413373498" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Accept"/>
                                 <connections>
@@ -1086,7 +1096,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUu-K0-LY3">
-                                <rect key="frame" x="304" y="246" width="276" height="30"/>
+                                <rect key="frame" x="304" y="272.5" width="276" height="30"/>
                                 <color key="backgroundColor" white="0.79180526413373498" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -1096,9 +1106,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="si7-Ib-01b" firstAttribute="top" secondItem="pKf-lm-W6e" secondAttribute="bottom" constant="7.5" id="4WJ-ZO-Txy"/>
                             <constraint firstItem="yUu-K0-LY3" firstAttribute="top" secondItem="JYB-36-yS1" secondAttribute="bottom" constant="8" id="5Os-84-8qR"/>
                             <constraint firstItem="W23-hZ-t9l" firstAttribute="top" secondItem="pKf-lm-W6e" secondAttribute="bottom" constant="8" id="6GC-nB-nI3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="13e-Lu-R9t" secondAttribute="trailing" id="7cl-K2-Au0"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="si7-Ib-01b" secondAttribute="leading" id="F8o-sU-IQp"/>
                             <constraint firstItem="30l-OD-bd6" firstAttribute="top" secondItem="JYB-36-yS1" secondAttribute="bottom" constant="8" id="I9O-SA-ln0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="pKf-lm-W6e" secondAttribute="leading" id="JPj-Z3-Szy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pKf-lm-W6e" secondAttribute="trailing" id="LwL-Xh-FmX"/>
@@ -1108,21 +1120,29 @@
                             <constraint firstItem="JYB-36-yS1" firstAttribute="top" secondItem="cBt-vs-OXs" secondAttribute="bottom" constant="15" id="PPw-u9-7Dz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W23-hZ-t9l" secondAttribute="trailing" id="RHv-xA-oPM"/>
                             <constraint firstItem="13e-Lu-R9t" firstAttribute="top" secondItem="H8t-VP-Hu6" secondAttribute="bottom" constant="8" id="Sce-VK-fbV"/>
+                            <constraint firstItem="W23-hZ-t9l" firstAttribute="top" secondItem="si7-Ib-01b" secondAttribute="bottom" constant="7.5" id="Tp3-8D-jCj"/>
                             <constraint firstItem="30l-OD-bd6" firstAttribute="width" secondItem="yUu-K0-LY3" secondAttribute="width" id="XDp-7y-keL"/>
                             <constraint firstItem="yUu-K0-LY3" firstAttribute="leading" secondItem="30l-OD-bd6" secondAttribute="trailing" constant="8" id="Zid-2D-Vb2"/>
                             <constraint firstAttribute="leadingMargin" secondItem="W23-hZ-t9l" secondAttribute="leading" id="cBP-Sm-WJM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cBt-vs-OXs" secondAttribute="trailing" id="d82-yg-WWB"/>
                             <constraint firstAttribute="leadingMargin" secondItem="13e-Lu-R9t" secondAttribute="leading" id="gFC-YQ-2z4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="si7-Ib-01b" secondAttribute="trailing" id="gFt-vA-wac"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JYB-36-yS1" secondAttribute="trailing" id="hzj-2k-hSs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yUu-K0-LY3" secondAttribute="trailing" id="nqI-23-Spr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JYB-36-yS1" secondAttribute="leading" id="p4U-2N-MG5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="cBt-vs-OXs" secondAttribute="leading" id="uwe-Ct-JVp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6GC-nB-nI3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="dietLabel" destination="W23-hZ-t9l" id="dQj-Q2-ukg"/>
                         <outlet property="emailLabel" destination="pKf-lm-W6e" id="eHg-R6-wcu"/>
                         <outlet property="nameLabel" destination="13e-Lu-R9t" id="AjB-bW-7k3"/>
+                        <outlet property="tshirtSizeLabel" destination="si7-Ib-01b" id="bAA-tD-FUV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqL-LE-Lf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1560,7 +1580,7 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="RootTabBarViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Jwh-6F-9O8">
-                        <barButtonItem key="leftBarButtonItem" image="help" id="n7x-13-POd">
+                        <barButtonItem key="leftBarButtonItem" image="profile" id="n7x-13-POd">
                             <connections>
                                 <action selector="profileButtonTapped:" destination="49e-Tb-3d3" id="26r-Vf-bt9"/>
                             </connections>
@@ -1597,5 +1617,6 @@
         <image name="guide" width="30" height="30"/>
         <image name="help" width="30" height="30"/>
         <image name="news" width="30" height="30"/>
+        <image name="profile" width="30" height="30"/>
     </resources>
 </document>

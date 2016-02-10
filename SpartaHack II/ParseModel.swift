@@ -279,7 +279,27 @@ class ParseModel: NSObject {
                         let category = ticket["category"] as! PFObject
                         dict.updateValue(category["category"] as! String, forKey: "category")
                         dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
-                        dict.updateValue(ticket["status"] as! String, forKey: "status")
+                        dict.updateValue(ticket["location"], forKey: "location")
+                        if let status = ticket["status"] as? String {
+                            dict.updateValue(status, forKey: "status")
+                            var code = 0
+                            switch status {
+                                case "Open":
+                                    code = 0
+                                    break
+                                case "Accepted":
+                                    code = 1
+                                    break
+                                case "Expired":
+                                    code = 2
+                                    break
+                                default:
+                                    code = 0
+                                    break
+                            }
+                            dict.updateValue(code, forKey: "statusNum")
+                        }
+                        dict.updateValue(ticket.createdAt!, forKey: "createdAt")
                         dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")
                         dict.updateValue(ticket.objectId!, forKey: "objectId")
                         dictAry.append(dict)
@@ -305,8 +325,27 @@ class ParseModel: NSObject {
                         let category = ticket["category"] as! PFObject
                         dict.updateValue(category["category"] as! String, forKey: "category")
                         dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
-                        dict.updateValue(ticket["status"] as! String, forKey: "status")
-                        dict.updateValue(ticket["subject"] as! String, forKey: "subject")
+                        dict.updateValue(ticket["location"], forKey: "location")
+                        if let status = ticket["status"] as? String {
+                            dict.updateValue(status, forKey: "status")
+                            var code = 0
+                            switch status {
+                            case "Open":
+                                code = 0
+                                break
+                            case "Accepted":
+                                code = 1
+                                break
+                            case "Expired":
+                                code = 2
+                                break
+                            default:
+                                code = 0
+                                break
+                            }
+                            dict.updateValue(code, forKey: "statusNum")
+                        }
+                        dict.updateValue(ticket.createdAt!, forKey: "createdAt")
                         dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")
                         dict.updateValue(ticket.objectId!, forKey: "objectId")
                         dictAry.append(dict)

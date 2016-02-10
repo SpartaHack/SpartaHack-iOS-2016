@@ -63,7 +63,7 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     
     func didSubmitTicket(success: Bool) {
         if success {
-            self.dismissViewControllerAnimated(true, completion:nil)
+            self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }
     
@@ -72,7 +72,7 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     }
     
     @IBAction func cancelButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
     @IBAction func submitButtonTapped(sender: AnyObject) {

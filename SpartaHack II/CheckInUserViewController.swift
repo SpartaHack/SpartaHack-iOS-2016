@@ -16,23 +16,61 @@ class CheckInUserViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var dietLabel: UILabel!
+    @IBOutlet weak var tshirtSizeLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        
         let query = PFQuery(className: "_User")
         query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error:NSError?) -> Void in
             if object != nil {
-                if let name = object!["name"] as? String {
-                    self.nameLabel.text = "Name: \(name)"
+                let applicationInfo = PFQuery(className: "Application")
+                applicationInfo.whereKey("user", equalTo: object!)
+                applicationInfo.getFirstObjectInBackgroundWithBlock { (object:PFObject?, error:NSError?) -> Void in
+                    if error == nil {
+                    
+                        var name = ""
+                        if let firstName = object!["firstName"] as? String {
+                            name += firstName
+                        }
+                        if let lastName = object!["lastName"] as? String {
+                            name += lastName
+                        }
+                        self.nameLabel.text = "Name: \(name)"
+                        
+                        let foodQuery = PFQuery(className: "RSVP")
+                        foodQuery.whereKey("user", equalTo: object!["user"])
+                        foodQuery.getFirstObjectInBackgroundWithBlock({ (object:PFObject?, error:NSError?) -> Void in
+                            if error == nil {
+                                if let diets = object!["restrictions"] as? [String] {
+                                    var dietString = ""
+                                    for diet in diets {
+                                        dietString += " \(diet)"
+                                    }
+                                    self.dietLabel.text = "Dietary Restriction: \(dietString)"
+                                }
+                                
+                                if let shirt = object!["tshirt"] as? String {
+                                    self.tshirtSizeLabel.text = "T-Shirt: \(shirt)"
+                                }
+                            } else {
+                                print("error")
+                            }
+                        })
+                        
+                    } else {
+                        print("error")
+                    }
                 }
+                
                 if let email = object!["email"] as? String {
                     self.emailLabel.text = "Email: \(email)"
                 }
-                if let diet = object!["diet"] as? String {
-                    self.dietLabel.text = "Dietary Restriction: \(diet)"
-                }
+                
                 let alreadyIn = PFQuery(className: "Attendance")
                 alreadyIn.whereKey("user", equalTo: object!)
                 alreadyIn.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
@@ -70,18 +108,31 @@ class CheckInUserViewController: UIViewController {
     
         let query = PFQuery(className: "_User")
         query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error:NSError?) -> Void in
-            if object != nil {
-                let checkin = PFObject(className: "Attendance")
-                checkin["user"] = object!
-                checkin.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
-                    if success {
-                        print("success")
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    } else {
-                        print("error \(error)")
+            if error == nil {
+                let applicationInfo = PFQuery(className: "Application")
+                applicationInfo.whereKey("user", equalTo: object!)
+                applicationInfo.getFirstObjectInBackgroundWithBlock({ (appObject:PFObject?, error:NSError?) -> Void in
+                    if error == nil {
+                        let rsvpInfo = PFQuery(className: "RSVP")
+                        rsvpInfo.whereKey("user", equalTo: object!)
+                        rsvpInfo.getFirstObjectInBackgroundWithBlock({ (rsvpObject:PFObject?, error:NSError?) -> Void in
+                            if error == nil {
+                                let checkin = PFObject(className: "Attendance")
+                                checkin["user"] = object!
+                                checkin["application"] = appObject!
+                                checkin["rsvp"] = rsvpObject!
+                                checkin.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+                                    if success {
+                                        print("success")
+                                        self.dismissViewControllerAnimated(true, completion: nil)
+                                    } else {
+                                        print("error \(error)")
+                                    }
+                                }
+                            }
+                        })
                     }
-                }
-
+                })
             } else {
                 print(error)
             }
