@@ -111,7 +111,7 @@ class ParseModel: NSObject {
     }
     
     // save function that takes the entity name, and an array of dicts that match the string key for anyobject (make sure whatever type your passing in is what your core data model expects)
-    func save(entity: String, dictAry: [[String:AnyObject]]) {
+    func save(entity: String, dictAry: [[String:AnyObject]], completion:Bool -> Void) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         var coreDataObjects = [NSManagedObject]()
@@ -147,6 +147,7 @@ class ParseModel: NSObject {
                         }
                     }
                 }
+                completion(true)
             } catch let error as NSError {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
@@ -198,8 +199,11 @@ class ParseModel: NSObject {
                         dictAry.append(dict)
                     }
                 }
-                self.save("News", dictAry: dictAry)
-                self.newsDelegate?.didGetNewsUpdate()
+                self.save("News", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                    if success {
+                        self.newsDelegate?.didGetNewsUpdate()
+                    }
+                })
             }
         }
     }
@@ -226,8 +230,11 @@ class ParseModel: NSObject {
                         dictAry.append(dict)
                     }
                 }
-                self.save("Mentor", dictAry: dictAry)
-                self.mentorDelegate?.didGetMentorCategories()
+                self.save("Mentor", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                    if success {
+                        self.mentorDelegate?.didGetMentorCategories()
+                    }
+                })
             }
         }
 
@@ -256,8 +263,12 @@ class ParseModel: NSObject {
                         dict.updateValue(ticketSubject.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
-                    self.helpDeskDelegate?.didGetHelpDeskOptions()
-                    self.save("TicketSubject", dictAry: dictAry)
+                    self.save("TicketSubject", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                        if success {
+                            self.helpDeskDelegate?.didGetHelpDeskOptions()
+                        }
+                    })
+                    
                 }
             }
         }
@@ -309,8 +320,12 @@ class ParseModel: NSObject {
                         dict.updateValue(ticket.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
-                    self.save("Ticket", dictAry: dictAry)
-                    self.helpDeskDelegate?.didGetUserTickets()
+                    self.save("Ticket", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                        if success {
+                            self.helpDeskDelegate?.didGetUserTickets()
+                        }
+                    })
+                    
                 }
             }
         }
@@ -327,10 +342,15 @@ class ParseModel: NSObject {
             } else {
                 if let objects = objects as [PFObject]? {
                     for ticket in objects {
-                        let category = ticket["category"] as! PFObject
-                        dict.updateValue(category["category"] as! String, forKey: "category")
-                        dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
-                        dict.updateValue(ticket["location"], forKey: "location")
+                        if let category = ticket["category"] as? PFObject {
+                            dict.updateValue(category["category"] as! String, forKey: "category")
+                        }
+                        if let description = ticket["description"] as? String {
+                            dict.updateValue(description, forKey: "ticketDescrption")
+                        }
+                        if let location = ticket["location"] as? String {
+                            dict.updateValue(location, forKey: "ticketDescrption")
+                        }
                         if let status = ticket["status"] as? String {
                             dict.updateValue(status, forKey: "status")
                             var code = 0
@@ -374,8 +394,13 @@ class ParseModel: NSObject {
                         dict.updateValue(ticket.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
-                    self.save("MentorTickets", dictAry: dictAry)
-                    self.openTicketDelegate?.didGetOpenTickets()
+                    
+                    self.save("MentorTickets", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                        if success {
+                            self.mentorDelegate?.didGetMentorCategories()
+                            self.openTicketDelegate?.didGetOpenTickets()
+                        }
+                    })
                 }
             }
         }
@@ -423,8 +448,11 @@ class ParseModel: NSObject {
                         dictAry.append(dict)
                     }
                 }
-                self.save("Event", dictAry: dictAry)
-                self.scheduleDelegate?.didGetSchedule()
+                self.save("Event", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                    if success {
+                        self.scheduleDelegate?.didGetSchedule()
+                    }
+                })
             }
         }
     }
@@ -456,8 +484,11 @@ class ParseModel: NSObject {
                         dictAry.append(dict)
                     }
                 }
-                self.save("Prize", dictAry: dictAry)
-                self.prizeDelegate?.didGetPrizes()
+                self.save("Prize", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                    if success {
+                        self.prizeDelegate?.didGetPrizes()
+                    }
+                })
             }
         }
     }
@@ -583,8 +614,12 @@ class ParseModel: NSObject {
                         dict.updateValue(sponsor.objectId!, forKey: "objectId")
                         dictAry.append(dict)
 					}
-                    self.save("Sponsor", dictAry: dictAry)
-                    self.sponsorDelegate?.didGetSponsors()
+                    
+                    self.save("Sponsor", dictAry: dictAry, completion: { (success:Bool) -> Void in
+                        if success {
+                            self.sponsorDelegate?.didGetSponsors()
+                        }
+                    })
 				}
 			}
 		}

@@ -91,9 +91,9 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
-            return "<Select open ticket to accept/>"
+            return "Select open ticket to accept"
         default:
-            return "<Accepted Tickets>"
+            return "Accepted Tickets"
         }
     }
 

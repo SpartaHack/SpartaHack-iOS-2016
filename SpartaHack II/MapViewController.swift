@@ -13,7 +13,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
-		if let pdf = NSBundle.mainBundle().URLForResource("ios-map", withExtension: "pdf", subdirectory: nil, localization: nil)  {
+		if let pdf = NSURL(string: "https://spartahack.com/map")  {
 			let req = NSURLRequest(URL: pdf)
 			webView.loadRequest(req)
 		}

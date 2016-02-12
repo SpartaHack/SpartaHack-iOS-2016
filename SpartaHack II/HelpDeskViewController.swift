@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 import CoreData
+import BOZPongRefreshControl
+
 
 class helpDeskCell: UITableViewCell {
     static let cellIdentifier = "helpCell"
@@ -22,6 +24,8 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createTicketButton: UIButton!
+    
+    var pongRefreshControl = BOZPongRefreshControl()
     
     var tickets = [NSManagedObject]()
     var ticketSubjects = [NSManagedObject]()
@@ -57,23 +61,46 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             tickets = results as! [NSManagedObject]
+            self.pongRefreshControl.finishedLoading()
             tableView.reloadData()
-            self.helpRefreshControl.endRefreshing()
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
     
-    func refresh(refreshControl: UIRefreshControl) {
-        // Do your job, when done:
+    override func viewDidLayoutSubviews() {
+        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
+        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
+        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
+        
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.pongRefreshControl.scrollViewDidScroll()
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pongRefreshControl.scrollViewDidEndDragging()
+    }
+    
+    func refreshTriggered() {
         if PFUser.currentUser() != nil {
             ParseModel.sharedInstance.getUserTickets()
-            ParseModel.sharedInstance.getHelpDeskOptions()
-            self.helpRefreshControl.endRefreshing()
         } else {
-            self.helpRefreshControl.endRefreshing()
+            self.pongRefreshControl.finishedLoading()
         }
     }
+
+//    func refresh(refreshControl: UIRefreshControl) {
+//        // Do your job, when done:
+//        if PFUser.currentUser() != nil {
+//            ParseModel.sharedInstance.getUserTickets()
+//            ParseModel.sharedInstance.getHelpDeskOptions()
+//            self.helpRefreshControl.endRefreshing()
+//        } else {
+//            self.helpRefreshControl.endRefreshing()
+//        }
+//    }
  
     @IBAction func createNewTicketButtonTapped(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -107,8 +134,8 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         tableView.backgroundColor = UIColor.spartaBlack()
         mainView.backgroundColor = UIColor.spartaBlack()
         
-        helpRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        self.tableView.addSubview(helpRefreshControl)
+//        helpRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+//        self.tableView.addSubview(helpRefreshControl)
         
         ParseModel.sharedInstance.helpDeskDelegate = self
         ParseModel.sharedInstance.getHelpDeskOptions()
@@ -196,9 +223,9 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if PFUser.currentUser() != nil {
             // check to see if user is logged in or not
-            return "<Your Tickets/>"
+            return "Your Tickets"
         } else {
-            return "<Please Login/>"
+            return "Please Login"
         }
     }
     

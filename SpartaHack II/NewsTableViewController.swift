@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import KILabel
 import MessageUI
+import Parse
+import BOZPongRefreshControl
 
 /* 
     Declaring more than one class in a file is sometimes considered a bit unorthodox
@@ -24,8 +26,8 @@ class NewsCell: UITableViewCell {
 
 class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseNewsDelegate, NSFetchedResultsControllerDelegate {
 
-    let newsRefreshControl = UIRefreshControl()
-        
+    var pongRefreshControl = BOZPongRefreshControl()
+    
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "News")
@@ -35,10 +37,10 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         fetchRequest.sortDescriptors = [sectionDescriptior,sortDescriptor]
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: "pinned", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: "pinned", cacheName: nil)
         // Configure Fetched Results Controller
-        fetchedResultsController.delegate = self
-        return fetchedResultsController
+        frc.delegate = self
+        return frc
     }()
     
     override func viewDidLoad() {
@@ -47,13 +49,36 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
         
-        newsRefreshControl.tintColor = UIColor.spartaGreen()
-        newsRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        self.tableView.addSubview(newsRefreshControl)
-        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.backgroundColor = UIColor.spartaBlack()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
+        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
+        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
+
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.pongRefreshControl.scrollViewDidScroll()
+    }
+    
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pongRefreshControl.scrollViewDidEndDragging()
+    }
+    
+    func refreshTriggered() {
+        ParseModel.sharedInstance.getNews()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let install = PFInstallation.currentInstallation()
+        install.badge = 0
+        install.saveEventually()
         
     }
     
@@ -64,17 +89,12 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
+        self.pongRefreshControl.finishedLoading()
         self.tableView.reloadData()
-    }
-    
-    func refresh(refreshControl: UIRefreshControl) {
-        // Do your job, when done:
-        ParseModel.sharedInstance.getNews()
     }
     
     func didGetNewsUpdate() {
         // got more news from parse
-        newsRefreshControl.endRefreshing()
         self.fetch()
     }
     
@@ -95,9 +115,9 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
-            return "<Pinned Announcements/>"
+            return "Pinned Announcements"
         default:
-            return "<Announcements/>"
+            return "Announcements"
         }
     }
     
@@ -136,7 +156,6 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         cell.titleLabel.backgroundColor = UIColor.spartaBlack()
         cell.detailLabel.backgroundColor = UIColor.spartaBlack()
         cell.contentView.backgroundColor = UIColor.spartaBlack()
-        
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -153,35 +172,56 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         self.tableView.endUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        switch (type) {
-        case .Insert:
-            if let indexPath = newIndexPath {
-                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            break;
-        case .Delete:
-            if let indexPath = indexPath {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            break;
-        case .Update:
-            if let indexPath = indexPath {
-                let cell = tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
-                configureCell(cell, indexPath: indexPath)
-            }
-            break;
-        case .Move:
-            if let indexPath = indexPath {
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
+    func controller(
+        controller: NSFetchedResultsController,
+        didChangeObject anObject: AnyObject,
+        atIndexPath indexPath: NSIndexPath?,
+        forChangeType type: NSFetchedResultsChangeType,
+        newIndexPath: NSIndexPath?) {
             
-            if let newIndexPath = newIndexPath {
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+            switch type {
+            case NSFetchedResultsChangeType.Insert:
+                if let insertIndexPath = newIndexPath {
+                    self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                }
+            case NSFetchedResultsChangeType.Delete:
+                if let deleteIndexPath = indexPath {
+                    self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                }
+            case NSFetchedResultsChangeType.Update:
+                if let updateIndexPath = indexPath {
+                    let cell = self.tableView.dequeueReusableCellWithIdentifier(NewsCell.cellIdentifier) as! NewsCell
+                    configureCell(cell, indexPath: updateIndexPath)
+                }
+            case NSFetchedResultsChangeType.Move:
+                if let deleteIndexPath = indexPath {
+                    self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                }
+                
+                if let insertIndexPath = newIndexPath {
+                    self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                }
             }
-            break;
-        }
     }
+    
+    func controller(
+        controller: NSFetchedResultsController,
+        didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
+        atIndex sectionIndex: Int,
+        forChangeType type: NSFetchedResultsChangeType) {
+            
+            switch type {
+            case .Insert:
+                let sectionIndexSet = NSIndexSet(index: sectionIndex)
+                self.tableView.insertSections(sectionIndexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+            case .Delete:
+                let sectionIndexSet = NSIndexSet(index: sectionIndex)
+                self.tableView.deleteSections(sectionIndexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+            default:
+                ""
+            }
+    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

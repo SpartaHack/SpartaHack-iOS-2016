@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import BOZPongRefreshControl
 
 class PrizeCell: UITableViewCell {
     static let cellIdentifier = "prizeCell"
@@ -20,6 +21,7 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!    
     
+    var pongRefreshControl = BOZPongRefreshControl()
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
@@ -35,7 +37,6 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return fetchedResultsController
     }()
     
-    let prizeRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +46,6 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ParseModel.sharedInstance.getPrizes()
         self.fetch()
         // Do any additional setup after loading the view.
-        prizeRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        tableView.addSubview(prizeRefreshControl)
         tableView.backgroundColor = UIColor.spartaBlack()
     }
     
@@ -61,15 +60,28 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
-        self.prizeRefreshControl.endRefreshing()
+        self.pongRefreshControl.finishedLoading()
         self.tableView.reloadData()
     }
     
-    func refresh(refreshControl: UIRefreshControl) {
-        // Do your job, when done:
-        ParseModel.sharedInstance.getPrizes()
+    override func viewDidLayoutSubviews() {
+        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
+        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
+        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
+        
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.pongRefreshControl.scrollViewDidScroll()
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pongRefreshControl.scrollViewDidEndDragging()
+    }
+    
+    func refreshTriggered() {
+        ParseModel.sharedInstance.getPrizes()
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)

@@ -88,7 +88,7 @@ class TicketCategoryViewTableViewController: UITableViewController, ParseModelDe
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "<Select Category/>"
+        return "Select Category"
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

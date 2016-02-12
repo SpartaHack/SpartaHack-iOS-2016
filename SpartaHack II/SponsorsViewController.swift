@@ -85,7 +85,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         let sponsor = fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject
         guard sponsor == nil else {
             if let imageURL = sponsor!.valueForKey("image") as? String {
-                cell.sponsorImageView.sd_setImageWithURL(NSURL(string: imageURL))
+                cell.sponsorImageView.sd_setImageWithURL((NSURL(string: imageURL)), placeholderImage: UIImage(named: "MSUFCU"), options: SDWebImageOptions.ContinueInBackground)
             } else {
                 cell.sponsorImageView = nil
             }
@@ -123,19 +123,19 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             var numLevel = ""
             switch currentSection.name {
             case "1":
-                numLevel = "<Legend/>"
+                numLevel = "Legend"
                 break
             case "2" :
-                numLevel = "<Commander/>"
+                numLevel = "Commander"
                 break
             case "3" :
-                numLevel = "<Warrior/>"
+                numLevel = "Warrior"
                 break
             case "4" :
-                numLevel = "<Trainee/>"
+                numLevel = "Trainee"
                 break
             default:
-                numLevel = "<Partner/>"
+                numLevel = "Partner"
                 break
             }
             return numLevel

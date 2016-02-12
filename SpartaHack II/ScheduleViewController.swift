@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import KILabel
+import BOZPongRefreshControl
 
 class ScheduleCell: UITableViewCell {
     static let cellIdentifier = "eventCell"
@@ -19,6 +20,8 @@ class ScheduleCell: UITableViewCell {
 }
 
 class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseScheduleDelegate, NSFetchedResultsControllerDelegate {    
+    
+    var pongRefreshControl = BOZPongRefreshControl()
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
@@ -35,16 +38,12 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         return fetchedResultsController
     }()
     
-    let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseModel.sharedInstance.scheduleDelegate = self
         ParseModel.sharedInstance.getSchedule()
-        
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        tableView.addSubview(refreshControl)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 70.0
@@ -59,12 +58,26 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
+        self.pongRefreshControl.finishedLoading()
         self.tableView.reloadData()
-        self.refreshControl.endRefreshing()
     }
     
-    func refresh(refreshControl: UIRefreshControl) {
-        // Do your job, when done:
+    override func viewDidLayoutSubviews() {
+        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
+        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
+        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
+        
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.pongRefreshControl.scrollViewDidScroll()
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pongRefreshControl.scrollViewDidEndDragging()
+    }
+    
+    func refreshTriggered() {
         ParseModel.sharedInstance.getSchedule()
     }
 
@@ -83,11 +96,11 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
-            return "<Friday/>"
+            return "Friday"
         case 1:
-            return "<Saturday/>"
+            return "Saturday"
         case 2:
-            return "<Sunday/>"
+            return "Sunday"
         default:
             return "error"
         }

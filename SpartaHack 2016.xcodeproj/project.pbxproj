@@ -284,17 +284,13 @@
 			isa = PBXGroup;
 			children = (
 				F5373B891B327566007F508C /* NewsTableViewController.swift */,
-				F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */,
-				F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */,
-				F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */,
-				F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */,
+				F5C351A31C6DA48200B0D0FE /* Help Desk */,
 				F591B2381C2DE27600F1512D /* Guide View Controllers */,
 				F5AE53801C30928F0030BCCA /* Award View Controller */,
 				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
 				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
-				F599B44F1C66BF84008E1E6D /* ScanViewController.swift */,
-				F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */,
+				F5C351A41C6DA48F00B0D0FE /* Volunteer */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -317,6 +313,26 @@
 				F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */,
 			);
 			name = "Award View Controller";
+			sourceTree = "<group>";
+		};
+		F5C351A31C6DA48200B0D0FE /* Help Desk */ = {
+			isa = PBXGroup;
+			children = (
+				F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */,
+				F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */,
+				F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */,
+				F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */,
+			);
+			name = "Help Desk";
+			sourceTree = "<group>";
+		};
+		F5C351A41C6DA48F00B0D0FE /* Volunteer */ = {
+			isa = PBXGroup;
+			children = (
+				F599B44F1C66BF84008E1E6D /* ScanViewController.swift */,
+				F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */,
+			);
+			name = Volunteer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
