@@ -296,72 +296,6 @@
             </objects>
             <point key="canvasLocation" x="812" y="-805"/>
         </scene>
-        <!--Ticket Category View Table View Controller-->
-        <scene sceneID="qCs-IK-VOM">
-            <objects>
-                <tableViewController id="XFL-CD-WaG" customClass="TicketCategoryViewTableViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7d3-gu-EWm">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpCell" rowHeight="70" id="AFy-NV-s0R" userLabel="helpCell" customClass="helpDeskCell" customModule="SpartaHack_2016" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AFy-NV-s0R" id="9Yc-p1-W87">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8Z-M6-aC1" userLabel="title">
-                                            <rect key="frame" x="15" y="8" width="472" height="25"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="this is a test of text wrapping and it should be long as fuck" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-jQ-YhP" userLabel="description">
-                                            <rect key="frame" x="15" y="37" width="472" height="25"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: Open" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IN-vm-tJk">
-                                            <rect key="frame" x="495" y="25" width="97" height="20.5"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="9IN-vm-tJk" firstAttribute="centerY" secondItem="9Yc-p1-W87" secondAttribute="centerY" id="0Bu-Hm-mZv"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="8l1-jQ-YhP" secondAttribute="bottom" id="1iv-eW-OBD"/>
-                                        <constraint firstItem="p8Z-M6-aC1" firstAttribute="leading" secondItem="9Yc-p1-W87" secondAttribute="leadingMargin" constant="7" id="7XS-fj-fm8"/>
-                                        <constraint firstItem="9IN-vm-tJk" firstAttribute="leading" secondItem="p8Z-M6-aC1" secondAttribute="trailing" constant="8" id="8jY-K5-dRm"/>
-                                        <constraint firstItem="8l1-jQ-YhP" firstAttribute="leading" secondItem="9Yc-p1-W87" secondAttribute="leadingMargin" constant="7" id="FSe-C7-OGm"/>
-                                        <constraint firstItem="8l1-jQ-YhP" firstAttribute="top" secondItem="p8Z-M6-aC1" secondAttribute="bottom" constant="4" id="Jec-Ly-Rxc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="9IN-vm-tJk" secondAttribute="trailing" id="WG4-tC-BWL"/>
-                                        <constraint firstItem="9IN-vm-tJk" firstAttribute="leading" secondItem="8l1-jQ-YhP" secondAttribute="trailing" constant="8" id="hQF-oP-dHM"/>
-                                        <constraint firstItem="p8Z-M6-aC1" firstAttribute="top" secondItem="9Yc-p1-W87" secondAttribute="topMargin" id="y8F-Bj-bvp"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="descriptionLabel" destination="8l1-jQ-YhP" id="l3h-y4-UBy"/>
-                                    <outlet property="statusCell" destination="9IN-vm-tJk" id="mR6-4J-yoh"/>
-                                    <outlet property="titleLabel" destination="p8Z-M6-aC1" id="STc-AX-pdB"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="XFL-CD-WaG" id="acA-Wo-UBg"/>
-                            <outlet property="delegate" destination="XFL-CD-WaG" id="X6w-Qh-Zxh"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="y0q-Kd-a5n" kind="presentation" identifier="createTicket" id="gvk-Oz-IOQ"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oG6-JR-OHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2256" y="-395"/>
-        </scene>
         <!--Create Ticket View Controller-->
         <scene sceneID="lc1-im-4TC">
             <objects>
@@ -473,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDK-kW-i46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2938" y="-395"/>
+            <point key="canvasLocation" x="2231" y="-395"/>
         </scene>
         <!--Help Desk-->
         <scene sceneID="MfV-MJ-ZBk">
@@ -565,7 +499,7 @@
                         <outlet property="createTicketButton" destination="Zry-xq-DLh" id="ZHG-z3-BXq"/>
                         <outlet property="mainView" destination="PJs-p8-Qvt" id="fhr-bk-kV8"/>
                         <outlet property="tableView" destination="Zjw-qw-lGc" id="L0S-vU-zcI"/>
-                        <segue destination="XFL-CD-WaG" kind="show" identifier="categoryTickets" id="csH-9D-bBr"/>
+                        <segue destination="y0q-Kd-a5n" kind="showDetail" identifier="categoryTickets" id="URA-9B-y88"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3K-4w-L0r" userLabel="First Responder" sceneMemberID="firstResponder"/>

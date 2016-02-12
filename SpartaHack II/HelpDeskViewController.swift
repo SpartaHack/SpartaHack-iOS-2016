@@ -24,7 +24,22 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
     @IBOutlet weak var createTicketButton: UIButton!
     
     var tickets = [NSManagedObject]()
+    var ticketSubjects = [NSManagedObject]()
     let helpRefreshControl = UIRefreshControl()
+    
+    
+    func fetchCategories (){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "TicketSubject")
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            ticketSubjects = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+
     
     func fetch (){
         tickets.removeAll()
@@ -53,6 +68,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         // Do your job, when done:
         if PFUser.currentUser() != nil {
             ParseModel.sharedInstance.getUserTickets()
+            ParseModel.sharedInstance.getHelpDeskOptions()
             self.helpRefreshControl.endRefreshing()
         } else {
             self.helpRefreshControl.endRefreshing()
@@ -65,7 +81,11 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
             self.navigationController?.presentViewController(vc, animated: true, completion: nil)
         } else {
-            self.performSegueWithIdentifier("categoryTickets", sender: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("newTicket") as! CreateTicketViewController
+            vc.topic = ticketSubjects[0].valueForKey("category") as! String
+            vc.topicObjId = ticketSubjects[0].valueForKey("objectId") as! String
+            vc.listOfOptions = ticketSubjects[0].valueForKey("subCategory") as! NSData
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -75,6 +95,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
             fetch()
         } else {
             ParseModel.sharedInstance.helpDeskDelegate = self
+            ParseModel.sharedInstance.getHelpDeskOptions()
             fetch()
         }
     }
@@ -90,6 +111,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         self.tableView.addSubview(helpRefreshControl)
         
         ParseModel.sharedInstance.helpDeskDelegate = self
+        ParseModel.sharedInstance.getHelpDeskOptions()
         
         if PFUser.currentUser() != nil {
             ParseModel.sharedInstance.getUserTickets()
@@ -102,7 +124,9 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         createTicketButton.layer.borderWidth = 1
     }
     
-    func didGetHelpDeskOptions() {}
+    func didGetHelpDeskOptions() {
+        self.fetchCategories()
+    }
     
     func didGetUserTickets() {
         self.fetch()

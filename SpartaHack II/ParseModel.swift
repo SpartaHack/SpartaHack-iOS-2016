@@ -256,8 +256,8 @@ class ParseModel: NSObject {
                         dict.updateValue(ticketSubject.objectId!, forKey: "objectId")
                         dictAry.append(dict)
                     }
-                    self.save("TicketSubject", dictAry: dictAry)
                     self.helpDeskDelegate?.didGetHelpDeskOptions()
+                    self.save("TicketSubject", dictAry: dictAry)
                 }
             }
         }
