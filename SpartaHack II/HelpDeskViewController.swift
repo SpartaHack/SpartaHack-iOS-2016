@@ -67,7 +67,6 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         } else {
             self.performSegueWithIdentifier("categoryTickets", sender: nil)
         }
-
     }
     
     override func viewWillAppear(animated: Bool) {

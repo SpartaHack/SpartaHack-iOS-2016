@@ -276,10 +276,15 @@ class ParseModel: NSObject {
             } else {
                 if let objects = objects as [PFObject]? {
                     for ticket in objects {
-                        let category = ticket["category"] as! PFObject
-                        dict.updateValue(category["category"] as! String, forKey: "category")
-                        dict.updateValue(ticket["description"] as! String, forKey: "ticketDescrption")
-                        dict.updateValue(ticket["location"], forKey: "location")
+                        if let category = ticket["category"] as? PFObject {
+                            dict.updateValue(category["category"] as! String, forKey: "category")
+                        }
+                        if let description = ticket["description"] as? String {
+                            dict.updateValue(description, forKey: "ticketDescrption")
+                        }
+                        if let location = ticket["location"] as? String {
+                            dict.updateValue(location, forKey: "location")
+                        }
                         if let status = ticket["status"] as? String {
                             dict.updateValue(status, forKey: "status")
                             var code = 0
