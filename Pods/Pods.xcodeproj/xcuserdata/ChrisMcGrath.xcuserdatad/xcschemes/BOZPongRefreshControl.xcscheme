@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C2945E7AE2029655AE5CA78E'
-               BlueprintName = 'KILabel'
+               BlueprintIdentifier = '27A1F9B6EF6DA1E81267CA1F'
+               BlueprintName = 'BOZPongRefreshControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'KILabel.framework'>
+               BuildableName = 'BOZPongRefreshControl.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

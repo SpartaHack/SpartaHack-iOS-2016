@@ -1580,6 +1580,7 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="RootTabBarViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Jwh-6F-9O8">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="p9r-BW-36s"/>
                         <barButtonItem key="leftBarButtonItem" image="profile" id="n7x-13-POd">
                             <connections>
                                 <action selector="profileButtonTapped:" destination="49e-Tb-3d3" id="26r-Vf-bt9"/>

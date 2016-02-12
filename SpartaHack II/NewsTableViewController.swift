@@ -23,6 +23,8 @@ class NewsCell: UITableViewCell {
 }
 
 class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseNewsDelegate, NSFetchedResultsControllerDelegate {
+
+    let newsRefreshControl = UIRefreshControl()
         
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
@@ -45,9 +47,9 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         ParseModel.sharedInstance.newsDelegate = self
         ParseModel.sharedInstance.getNews()
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        self.tableView.addSubview(refreshControl)
+        newsRefreshControl.tintColor = UIColor.spartaGreen()
+        newsRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        self.tableView.addSubview(newsRefreshControl)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100.0
@@ -68,11 +70,11 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
         ParseModel.sharedInstance.getNews()
-        refreshControl.endRefreshing()
     }
     
     func didGetNewsUpdate() {
         // got more news from parse
+        newsRefreshControl.endRefreshing()
         self.fetch()
     }
     

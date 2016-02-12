@@ -345,6 +345,14 @@ class ParseModel: NSObject {
                             }
                             dict.updateValue(code, forKey: "statusNum")
                         }
+                        if let mentor = ticket["mentor"] as? PFObject {
+                            dict.updateValue(mentor.objectId!, forKey: "mentorId")
+                        } else {
+                            dict.updateValue("", forKey: "mentorId")
+                        }
+                        if let user = ticket["user"] as? PFObject {
+                            dict.updateValue(user.objectId!, forKey: "userId")
+                        }
                         dict.updateValue(ticket.createdAt!, forKey: "createdAt")
                         dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")
                         dict.updateValue(ticket.objectId!, forKey: "objectId")

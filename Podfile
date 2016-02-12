@@ -8,6 +8,7 @@ pod 'SDWebImage', '~>3.7'
 pod 'Parse'
 pod 'KILabel'
 pod 'ZXingObjC', '~> 3.0'
+pod 'BOZPongRefreshControl'
 end
 
 target 'SpartaHack 2016Tests' do

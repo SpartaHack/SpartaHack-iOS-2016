@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BOZPongRefreshControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34AC828CBCEFAD36C9B485D0E068745D</key>
+		<key>33BD1B8A1E2A26C6CBE2FA96519CED31</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7519FFD11D900BC46EE8F6554DA5123</key>
+		<key>3FBBC4BD37A138A83CFD88BA826F1442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62171472865B96C56E1A9F3CF67826D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A6327FE33B802F7E5544402DF0F6E090</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,11 +73,6 @@
 			<true/>
 		</dict>
 		<key>BCA053B6430690326435042FEB61B458</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C9AEE2B6168C2BB8A02AE8764CEF4CD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

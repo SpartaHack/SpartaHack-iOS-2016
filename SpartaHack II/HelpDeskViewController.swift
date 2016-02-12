@@ -148,9 +148,10 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         if PFUser.currentUser() == nil {
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
             self.navigationController?.presentViewController(vc, animated: true, completion: nil)
+        } else {
+            ParseModel.sharedInstance.extendTicket(tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
+            ParseModel.sharedInstance.getUserTickets()
         }
-        ParseModel.sharedInstance.extendTicket(tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
-        ParseModel.sharedInstance.getUserTickets()
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
