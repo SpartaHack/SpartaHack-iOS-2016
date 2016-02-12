@@ -16,6 +16,7 @@ class MentorTicketTableViewCell: UITableViewCell {
     @IBOutlet weak var ticketDescriptionLabel: UILabel!
     @IBOutlet weak var ticketStatusLabel: UILabel!
     @IBOutlet weak var ticketLocationLabel: UILabel!
+    @IBOutlet weak var ticketUserNameLabel: UILabel!
 }
 
 class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsDelegate, NSFetchedResultsControllerDelegate {
@@ -33,7 +34,6 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         let deletedPredicate = NSPredicate(format: "status != %@", "Deleted")
         let categoryPredicate = NSPredicate(format: "category == %@", "Mentorship")
         let openPredicate = NSPredicate(format: "mentorId == %@ || mentorId == %@","", (PFUser.currentUser()?.objectId!)!) // open ticket with no mentor assigned
-//        let acceptedPredicate = NSPredicate(format: "mentorId == %@", (PFUser.currentUser()?.objectId!)!)
         fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, categoryPredicate, openPredicate])
         
         let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
@@ -126,7 +126,12 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         cell.ticketStatusLabel.text = ticket.valueForKey("status") as? String
         cell.ticketLocationLabel.text = ticket.valueForKey("location") as? String
         
-        print("Assigned Mentor \(tickets[indexPath.row].valueForKey("mentorId"))")
+        if let userName = ticket.valueForKey("userName") as? String {
+            cell.ticketUserNameLabel.text = userName
+        } else {
+            cell.ticketUserNameLabel.text = "User name is blank"
+        }
+        
         
         cell.ticketSubjectLabel.textColor = UIColor.whiteColor()
         cell.ticketDescriptionLabel.textColor = UIColor.whiteColor()

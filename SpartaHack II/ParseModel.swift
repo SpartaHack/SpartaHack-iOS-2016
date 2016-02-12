@@ -352,6 +352,17 @@ class ParseModel: NSObject {
                         }
                         if let user = ticket["user"] as? PFObject {
                             dict.updateValue(user.objectId!, forKey: "userId")
+                            let userQuery = PFQuery(className: "Application")
+                            userQuery.whereKey("user", equalTo: user)
+                            userQuery.getFirstObjectInBackgroundWithBlock({ (object:PFObject?, error:NSError?) -> Void in
+                                if error == nil {
+                                    if let firstName = object!["firstName"] as? String {
+                                        let lastName = object!["lastName"]
+                                        let name = "\(firstName) \(lastName)"
+                                        dict.updateValue(name, forKey: "userName")
+                                    }
+                                }
+                            })
                         }
                         dict.updateValue(ticket.createdAt!, forKey: "createdAt")
                         dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")

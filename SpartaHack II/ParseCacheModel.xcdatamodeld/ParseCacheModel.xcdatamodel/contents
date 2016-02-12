@@ -23,6 +23,7 @@
         <attribute name="ticketDescrption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="News" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -63,7 +64,7 @@
     <elements>
         <element name="Event" positionX="0" positionY="45" width="128" height="135"/>
         <element name="Mentor" positionX="-9" positionY="-54" width="128" height="75"/>
-        <element name="MentorTickets" positionX="0" positionY="-45" width="128" height="195"/>
+        <element name="MentorTickets" positionX="0" positionY="-45" width="128" height="210"/>
         <element name="News" positionX="-207" positionY="-12" width="128" height="120"/>
         <element name="Prize" positionX="306" positionY="-117" width="128" height="120"/>
         <element name="Sponsor" positionX="88" positionY="-54" width="128" height="105"/>
