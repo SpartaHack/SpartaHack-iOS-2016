@@ -17,6 +17,7 @@ class helpDeskCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var statusCell: UILabel!
+    @IBOutlet weak var dividerView: UIView!
 }
 
 class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHelpDeskDelegate, NSFetchedResultsControllerDelegate {
@@ -170,8 +171,10 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
                 cell.titleLabel?.text = userTicket.valueForKey("category") as? String
                 cell.descriptionLabel?.text = userTicket.valueForKey("ticketDescrption") as? String
                 cell.statusCell.text = userTicket.valueForKey("status") as? String
+                cell.dividerView.backgroundColor = UIColor.whiteColor()
             }
         } else {
+            cell.dividerView.backgroundColor = UIColor.spartaBlack()
             cell.titleLabel?.text = "Authentication Required"
             cell.descriptionLabel?.text = "Please login to use help desk features"
             cell.statusCell?.text = ""

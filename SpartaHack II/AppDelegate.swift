@@ -72,11 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories:categories as? Set<UIUserNotificationCategory>)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
-        
-//        let install = PFInstallation.currentInstallation()
-//        install.badge = 0
-//        install.saveEventually()
-        
+                
         return true
     }
     
@@ -84,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Registering for push notifications")
         let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.setDeviceTokenFromData(deviceToken)
-        currentInstallation.channels = [""]
+//        currentInstallation.channels = [""]
         currentInstallation.saveInBackgroundWithBlock { (succeeded, e) -> Void in
             if succeeded {
                 print("Push registration notification successful")

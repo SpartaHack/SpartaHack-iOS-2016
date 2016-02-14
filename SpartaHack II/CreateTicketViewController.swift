@@ -59,27 +59,27 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         self.platformTextField.attributedPlaceholder = NSAttributedString(string:"Platform", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
         self.platformTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         self.platformTextField.layer.cornerRadius = 4
-        self.platformTextField.layer.borderWidth = 2
+        self.platformTextField.layer.borderWidth = 1
         
         self.subjectTextField.backgroundColor = UIColor.spartaBlack()
         self.subjectTextField.textColor = UIColor.whiteColor()
         self.subjectTextField.attributedPlaceholder = NSAttributedString(string:"Subject", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
         self.subjectTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         self.subjectTextField.layer.cornerRadius = 4
-        self.subjectTextField.layer.borderWidth = 2
+        self.subjectTextField.layer.borderWidth = 1
         
         self.locationTextField.backgroundColor = UIColor.spartaBlack()
         self.locationTextField.textColor = UIColor.whiteColor()
         self.locationTextField.attributedPlaceholder = NSAttributedString(string:"Location", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
         self.locationTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         self.locationTextField.layer.cornerRadius = 4
-        self.locationTextField.layer.borderWidth = 2
+        self.locationTextField.layer.borderWidth = 1
         
         self.descriptionTextField.backgroundColor = UIColor.spartaBlack()
         self.descriptionTextField.textColor = UIColor.spartaGreen()
         self.descriptionTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         self.descriptionTextField.layer.cornerRadius = 4
-        self.descriptionTextField.layer.borderWidth = 2
+        self.descriptionTextField.layer.borderWidth = 1
         
         self.createNewTicketButton.backgroundColor = UIColor.spartaBlack()
         self.createNewTicketButton.tintColor = UIColor.spartaGreen()

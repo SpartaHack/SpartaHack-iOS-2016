@@ -32,9 +32,9 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         
         let statusPredicate = NSPredicate(format: "status != %@", "Expired")
         let deletedPredicate = NSPredicate(format: "status != %@", "Deleted")
-//        let categoryPredicate = NSPredicate(format: "category == %@", "Mentorship")
+        let selfPredicate = NSPredicate(format: "userId != %@", (PFUser.currentUser()?.objectId!)!)
         let openPredicate = NSPredicate(format: "mentorId == %@ || mentorId == %@","", (PFUser.currentUser()?.objectId!)!) // open ticket with no mentor assigned
-        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, openPredicate])
+        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, openPredicate, selfPredicate])
         
         let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
         let statusDescriptor = NSSortDescriptor(key: "statusNum", ascending: true)
@@ -131,7 +131,7 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         cell.ticketSubjectLabel?.text = ticket.valueForKey("category") as? String
         cell.ticketDescriptionLabel?.text = ticket.valueForKey("ticketDescrption") as? String
         cell.ticketStatusLabel.text = ticket.valueForKey("status") as? String
-        cell.ticketLocationLabel.text = "Location: \(ticket.valueForKey("location") as! String)"
+        cell.ticketLocationLabel.text = ticket.valueForKey("location") as? String
         
         
         
