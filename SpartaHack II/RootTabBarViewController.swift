@@ -24,7 +24,6 @@ class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             subjects = results as! [NSManagedObject]
-            print("Results \(results.count)")
             if results.count < 1 {
                 mentorButton.enabled = false
                 mentorButton.tintColor = UIColor.spartaBlack()
@@ -97,15 +96,4 @@ class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
             self.navigationController?.performSegueWithIdentifier("mentorTickets", sender: nil)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

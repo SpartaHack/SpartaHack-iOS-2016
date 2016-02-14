@@ -90,17 +90,6 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
             self.pongRefreshControl.finishedLoading()
         }
     }
-
-//    func refresh(refreshControl: UIRefreshControl) {
-//        // Do your job, when done:
-//        if PFUser.currentUser() != nil {
-//            ParseModel.sharedInstance.getUserTickets()
-//            ParseModel.sharedInstance.getHelpDeskOptions()
-//            self.helpRefreshControl.endRefreshing()
-//        } else {
-//            self.helpRefreshControl.endRefreshing()
-//        }
-//    }
  
     @IBAction func createNewTicketButtonTapped(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -133,9 +122,6 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         tableView.estimatedRowHeight = 100.0
         tableView.backgroundColor = UIColor.spartaBlack()
         mainView.backgroundColor = UIColor.spartaBlack()
-        
-//        helpRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-//        self.tableView.addSubview(helpRefreshControl)
         
         ParseModel.sharedInstance.helpDeskDelegate = self
         ParseModel.sharedInstance.getHelpDeskOptions()
@@ -199,8 +185,18 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
             let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
             self.navigationController?.presentViewController(vc, animated: true, completion: nil)
         } else {
-            ParseModel.sharedInstance.extendTicket(tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
-            ParseModel.sharedInstance.getUserTickets()
+            let ticketStatus = tickets[indexPath.row].valueForKey("status") as! String
+            if  ticketStatus == "Expired" {
+                let alert = UIAlertController(title: "", message: "Reopen Ticket?", preferredStyle: .ActionSheet)
+                let extend = UIAlertAction(title: "Yes", style: .Default, handler: { (UIAlertAction) -> Void in
+                    ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
+                    ParseModel.sharedInstance.getUserTickets()
+                })
+                let cancel = UIAlertAction(title: "No", style: .Cancel, handler: nil)
+                alert.addAction(extend)
+                alert.addAction(cancel)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
     

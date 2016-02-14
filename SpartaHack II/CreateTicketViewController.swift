@@ -15,11 +15,11 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     var listOfOptions = NSData()
     var platformOptions:[String] = []
     
-    @IBOutlet weak var topicLabel: UILabel!
-    @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var platformTextField: UITextField!
+    @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextView!
+    @IBOutlet weak var createNewTicketButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,39 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        topicLabel.text = topic
+        
+        self.platformTextField.backgroundColor = UIColor.spartaBlack()
+        self.platformTextField.textColor = UIColor.whiteColor()
+        self.platformTextField.attributedPlaceholder = NSAttributedString(string:"Platform", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.platformTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.platformTextField.layer.cornerRadius = 4
+        self.platformTextField.layer.borderWidth = 2
+        
+        self.subjectTextField.backgroundColor = UIColor.spartaBlack()
+        self.subjectTextField.textColor = UIColor.whiteColor()
+        self.subjectTextField.attributedPlaceholder = NSAttributedString(string:"Subject", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.subjectTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.subjectTextField.layer.cornerRadius = 4
+        self.subjectTextField.layer.borderWidth = 2
+        
+        self.locationTextField.backgroundColor = UIColor.spartaBlack()
+        self.locationTextField.textColor = UIColor.whiteColor()
+        self.locationTextField.attributedPlaceholder = NSAttributedString(string:"Location", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.locationTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.locationTextField.layer.cornerRadius = 4
+        self.locationTextField.layer.borderWidth = 2
+        
+        self.descriptionTextField.backgroundColor = UIColor.spartaBlack()
+        self.descriptionTextField.textColor = UIColor.spartaGreen()
+        self.descriptionTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.descriptionTextField.layer.cornerRadius = 4
+        self.descriptionTextField.layer.borderWidth = 2
+        
+        self.createNewTicketButton.backgroundColor = UIColor.spartaBlack()
+        self.createNewTicketButton.tintColor = UIColor.spartaGreen()
+        self.createNewTicketButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.createNewTicketButton.layer.cornerRadius = 4
+        self.createNewTicketButton.layer.borderWidth = 2
     }
 
     override func didReceiveMemoryWarning() {

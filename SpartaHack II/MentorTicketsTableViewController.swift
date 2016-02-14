@@ -32,9 +32,9 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         
         let statusPredicate = NSPredicate(format: "status != %@", "Expired")
         let deletedPredicate = NSPredicate(format: "status != %@", "Deleted")
-        let categoryPredicate = NSPredicate(format: "category == %@", "Mentorship")
+//        let categoryPredicate = NSPredicate(format: "category == %@", "Mentorship")
         let openPredicate = NSPredicate(format: "mentorId == %@ || mentorId == %@","", (PFUser.currentUser()?.objectId!)!) // open ticket with no mentor assigned
-        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, categoryPredicate, openPredicate])
+        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, openPredicate])
         
         let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
         let statusDescriptor = NSSortDescriptor(key: "statusNum", ascending: true)
@@ -83,9 +83,16 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let ticket = tickets[indexPath.row]
-        ParseModel.sharedInstance.extendTicket(ticket.valueForKey("objectId") as! String, status: "Accepted")
-        ParseModel.sharedInstance.getOpenTickets()
+        let alert = UIAlertController(title: "", message: "Accept Ticket?", preferredStyle: .ActionSheet)
+        let extend = UIAlertAction(title: "Yes", style: .Default, handler: { (UIAlertAction) -> Void in
+            ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
+            ParseModel.sharedInstance.getOpenTickets()
+        })
+        let cancel = UIAlertAction(title: "No", style: .Cancel, handler: nil)
+        alert.addAction(extend)
+        alert.addAction(cancel)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -124,16 +131,27 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         cell.ticketSubjectLabel?.text = ticket.valueForKey("category") as? String
         cell.ticketDescriptionLabel?.text = ticket.valueForKey("ticketDescrption") as? String
         cell.ticketStatusLabel.text = ticket.valueForKey("status") as? String
-        cell.ticketLocationLabel.text = ticket.valueForKey("location") as? String
+        cell.ticketLocationLabel.text = "Location: \(ticket.valueForKey("location") as! String)"
         
-        if let userName = ticket.valueForKey("userName") as? String {
-            cell.ticketUserNameLabel.text = userName
-        } else {
-            cell.ticketUserNameLabel.text = "User name is blank"
-        }
+        
+        
+        let userQuery = PFQuery(className: "_User")
+        userQuery.getObjectInBackgroundWithId(ticket.valueForKey("userId") as! String, block: { (object:PFObject?, error:NSError?) -> Void in
+            if error == nil {
+                if let firstName = object!["firstName"] as? String {
+                    if let lastName = object!["lastName"] as? String {
+                        let name = "\(firstName) \(lastName)"
+                        cell.ticketUserNameLabel.text = "By: \(name)"
+                    }
+                } else {
+                        cell.ticketUserNameLabel.text = "User name is blank"
+                }
+            }
+        })
         
         
         cell.ticketSubjectLabel.textColor = UIColor.whiteColor()
+        cell.ticketUserNameLabel.textColor = UIColor.whiteColor()
         cell.ticketDescriptionLabel.textColor = UIColor.whiteColor()
         cell.ticketLocationLabel.textColor = UIColor.whiteColor()
         cell.ticketStatusLabel.textColor = UIColor.whiteColor()

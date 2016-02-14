@@ -147,11 +147,11 @@ class ParseModel: NSObject {
                         }
                     }
                 }
-                completion(true)
             } catch let error as NSError {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
         }
+        completion(true)
         
         // check to see if the core data result exists in the object were passing to save
         // handles cases where we no longer get updates from parse about an object and we're assuming it has been deleted from parse
@@ -342,14 +342,12 @@ class ParseModel: NSObject {
             } else {
                 if let objects = objects as [PFObject]? {
                     for ticket in objects {
-                        if let category = ticket["category"] as? PFObject {
-                            dict.updateValue(category["category"] as! String, forKey: "category")
-                        }
+                        dict.updateValue(ticket["subCategory"] as! String, forKey: "category")
                         if let description = ticket["description"] as? String {
                             dict.updateValue(description, forKey: "ticketDescrption")
                         }
                         if let location = ticket["location"] as? String {
-                            dict.updateValue(location, forKey: "ticketDescrption")
+                            dict.updateValue(location, forKey: "location")
                         }
                         if let status = ticket["status"] as? String {
                             dict.updateValue(status, forKey: "status")
@@ -377,17 +375,6 @@ class ParseModel: NSObject {
                         }
                         if let user = ticket["user"] as? PFObject {
                             dict.updateValue(user.objectId!, forKey: "userId")
-                            let userQuery = PFQuery(className: "Application")
-                            userQuery.whereKey("user", equalTo: user)
-                            userQuery.getFirstObjectInBackgroundWithBlock({ (object:PFObject?, error:NSError?) -> Void in
-                                if error == nil {
-                                    if let firstName = object!["firstName"] as? String {
-                                        let lastName = object!["lastName"]
-                                        let name = "\(firstName) \(lastName)"
-                                        dict.updateValue(name, forKey: "userName")
-                                    }
-                                }
-                            })
                         }
                         dict.updateValue(ticket.createdAt!, forKey: "createdAt")
                         dict.updateValue(ticket.updatedAt!, forKey: "updatedAt")

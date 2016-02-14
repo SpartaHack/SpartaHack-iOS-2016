@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SDWebImage
+import BOZPongRefreshControl
 
 class SponsorCell: UITableViewCell {
 	static let cellIdentifier = "sponsorCell"
@@ -18,7 +19,7 @@ class SponsorCell: UITableViewCell {
 class SponsorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseModelDelegate, ParseSponsorDelegate, NSFetchedResultsControllerDelegate{
 
     @IBOutlet var tableView: UITableView!
-    let refreshControl = UIRefreshControl()
+    var pongRefreshControl = BOZPongRefreshControl()
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
@@ -38,9 +39,6 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        tableView.addSubview(refreshControl)
-        
         ParseModel.sharedInstance.sponsorDelegate = self
         ParseModel.sharedInstance.getSponsors()
         
@@ -50,9 +48,23 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("Delete images")
+    override func viewDidLayoutSubviews() {
+        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
+        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
+        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
+        
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.pongRefreshControl.scrollViewDidScroll()
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pongRefreshControl.scrollViewDidEndDragging()
+    }
+    
+    func refreshTriggered() {
+        ParseModel.sharedInstance.getSponsors()
     }
     
     func fetch (){
@@ -63,17 +75,12 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("\(fetchError), \(fetchError.userInfo)")
         }
         self.tableView.reloadData()
-        self.refreshControl.endRefreshing()
     }
     
     func didGetSponsors() {
         self.fetch()
     }
     
-    func refresh(refreshControl: UIRefreshControl) {
-        // Do your job, when done:
-        ParseModel.sharedInstance.getSponsors()
-    }
 
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier(SponsorCell.cellIdentifier, forIndexPath: indexPath) as! SponsorCell
@@ -85,7 +92,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         let sponsor = fetchedResultsController.objectAtIndexPath(indexPath) as? NSManagedObject
         guard sponsor == nil else {
             if let imageURL = sponsor!.valueForKey("image") as? String {
-                cell.sponsorImageView.sd_setImageWithURL((NSURL(string: imageURL)), placeholderImage: UIImage(named: "MSUFCU"), options: SDWebImageOptions.ContinueInBackground)
+                cell.sponsorImageView.sd_setImageWithURL((NSURL(string: imageURL)), placeholderImage: UIImage(named: "loading"), options: SDWebImageOptions.ContinueInBackground)
             } else {
                 cell.sponsorImageView = nil
             }

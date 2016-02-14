@@ -30,8 +30,6 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         logoutButton.layer.borderColor = UIColor.spartaGreen().CGColor
         logoutButton.layer.cornerRadius = 4
         logoutButton.backgroundColor = UIColor.spartaBlack()
-        
-        userNameLabel.text = "Welcome: \(user!.username!)"
         profileView.backgroundColor = UIColor.spartaBlack()
         
         let query = PFQuery(className: "_User")
@@ -41,7 +39,14 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
                 if role != "admin" && role != "volunteer" {
                     self.scanButton.hidden = true
                 }
-                
+                var name = ""
+                if let firstName = object!["firstName"] as? String {
+                    name += firstName
+                }
+                if let lastName = object!["lastName"] as? String {
+                    name += " \(lastName)"
+                }
+                self.userNameLabel.text = "Welcome: \(name)"
             } else {
                 print("error \(error)")
             }

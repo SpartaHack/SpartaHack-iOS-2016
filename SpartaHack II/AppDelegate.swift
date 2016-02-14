@@ -73,6 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
         
+//        let install = PFInstallation.currentInstallation()
+//        install.badge = 0
+//        install.saveEventually()
         
         return true
     }

@@ -75,11 +75,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        let install = PFInstallation.currentInstallation()
-        install.badge = 0
-        install.saveEventually()
-        
+        super.viewDidAppear(animated)        
     }
     
     func fetch (){
