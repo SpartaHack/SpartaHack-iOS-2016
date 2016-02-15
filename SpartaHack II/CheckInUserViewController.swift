@@ -28,44 +28,34 @@ class CheckInUserViewController: UIViewController {
         let query = PFQuery(className: "_User")
         query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error:NSError?) -> Void in
             if object != nil {
-                let applicationInfo = PFQuery(className: "Application")
-                applicationInfo.whereKey("user", equalTo: object!)
-                applicationInfo.getFirstObjectInBackgroundWithBlock { (object:PFObject?, error:NSError?) -> Void in
+                var name = ""
+                if let firstName = object!["firstName"] as? String {
+                    name += firstName
+                }
+                if let lastName = object!["lastName"] as? String {
+                    name += lastName
+                }
+                self.nameLabel.text = "Name: \(name)"
+                let foodQuery = PFQuery(className: "RSVP")
+                foodQuery.whereKey("user", equalTo: object!)
+                foodQuery.getFirstObjectInBackgroundWithBlock({ (object:PFObject?, error:NSError?) -> Void in
                     if error == nil {
-                    
-                        var name = ""
-                        if let firstName = object!["firstName"] as? String {
-                            name += firstName
-                        }
-                        if let lastName = object!["lastName"] as? String {
-                            name += lastName
-                        }
-                        self.nameLabel.text = "Name: \(name)"
-                        
-                        let foodQuery = PFQuery(className: "RSVP")
-                        foodQuery.whereKey("user", equalTo: object!["user"])
-                        foodQuery.getFirstObjectInBackgroundWithBlock({ (object:PFObject?, error:NSError?) -> Void in
-                            if error == nil {
-                                if let diets = object!["restrictions"] as? [String] {
-                                    var dietString = ""
-                                    for diet in diets {
-                                        dietString += " \(diet)"
-                                    }
-                                    self.dietLabel.text = "Dietary Restriction: \(dietString)"
-                                }
-                                
-                                if let shirt = object!["tshirt"] as? String {
-                                    self.tshirtSizeLabel.text = "T-Shirt: \(shirt)"
-                                }
-                            } else {
-                                print("error")
+                        if let diets = object!["restrictions"] as? [String] {
+                            var dietString = ""
+                            for diet in diets {
+                                dietString += " \(diet)"
                             }
-                        })
+                            self.dietLabel.text = "Dietary Restriction: \(dietString)"
+                        }
                         
+                        if let shirt = object!["tshirt"] as? String {
+                            self.tshirtSizeLabel.text = "T-Shirt: \(shirt)"
+                        }
                     } else {
                         print("error")
                     }
-                }
+                })
+                
                 
                 if let email = object!["email"] as? String {
                     self.emailLabel.text = "Email: \(email)"
@@ -85,9 +75,6 @@ class CheckInUserViewController: UIViewController {
                 print(error)
             }
         }
-        
-        
-        
     }
     
     func showAlert() {

@@ -42,6 +42,9 @@ class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
         self.tabBar.backgroundColor = UIColor.spartaBlack()
         self.tabBar.barTintColor = UIColor.spartaBlack()
         
+        mentorButton.enabled = false
+        mentorButton.tintColor = UIColor.spartaBlack()
+        
         ParseModel.sharedInstance.mentorDelegate = self
         // Do any additional setup after loading the view.
         

@@ -74,6 +74,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
+        self.pongRefreshControl.finishedLoading()
         self.tableView.reloadData()
     }
     
@@ -106,48 +107,14 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         case 0:
             return 100
         case 1 :
-            return 75
+            return 85
         case 2 :
-            return 50
+            return 65
         case 3 :
-            return 25
+            return 55
         default:
             return 100
         }
-    }
-    
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let view = view as? UITableViewHeaderFooterView {
-            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
-            view.textLabel!.backgroundColor = UIColor.clearColor()
-            view.textLabel!.textColor = UIColor.spartaGreen()
-        }
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let sections = fetchedResultsController.sections {
-            let currentSection = sections[section]
-            var numLevel = ""
-            switch currentSection.name {
-            case "1":
-                numLevel = "Legend"
-                break
-            case "2" :
-                numLevel = "Commander"
-                break
-            case "3" :
-                numLevel = "Warrior"
-                break
-            case "4" :
-                numLevel = "Trainee"
-                break
-            default:
-                numLevel = "Partner"
-                break
-            }
-            return numLevel
-        }
-        return""
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -27,11 +27,13 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "Prize")
         // Add Sort Descriptors
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let ourPrizeDescriptor = NSSortDescriptor(key:"sponsoredPrize", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "sponsor", ascending: true)
+        let nameDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [ourPrizeDescriptor, sortDescriptor, nameDescriptor]
         // Initialize Fetched Results Controller
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: "sponsoredPrize", cacheName: nil)
         // Configure Fetched Results Controller
         fetchedResultsController.delegate = self
         return fetchedResultsController
@@ -44,7 +46,6 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 100.0
         ParseModel.sharedInstance.prizeDelegate = self
         ParseModel.sharedInstance.getPrizes()
-        self.fetch()
         // Do any additional setup after loading the view.
         tableView.backgroundColor = UIColor.spartaBlack()
     }
@@ -93,15 +94,34 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
+            view.textLabel!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = UIColor.spartaGreen()
+        }
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+        case 0:
+            return "SpartaHack Prizes"
+        default:
+            return "Sponsored Prizes"
+        }
+    }
+    
     func configureCell (cell: PrizeCell, indexPath: NSIndexPath) {
         let prize = fetchedResultsController.objectAtIndexPath(indexPath)
         cell.prizeNameLabel.text = prize.valueForKey("name") as? String
         cell.prizeDescriptionLabel.text = prize.valueForKey("prizeDescription") as? String
         
         if let sponsor = prize.valueForKey("sponsor") as? String {
-            cell.prizesSponsorLabel.text = "Sponsored by \(sponsor)"
-        } else {
-            cell.prizesSponsorLabel.text = "Sponsored by \("Error")"
+            if sponsor != "" {
+                cell.prizesSponsorLabel.text = "Sponsored by \(sponsor)"
+            } else {
+                cell.prizesSponsorLabel.text = ""
+            }
         }
         
         cell.prizeNameLabel.textColor = UIColor.whiteColor()

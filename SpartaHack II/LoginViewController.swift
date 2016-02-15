@@ -41,10 +41,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
         emailTextField.backgroundColor = UIColor.spartaBlack()
         emailTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        emailTextField.textColor = UIColor.spartaGreen()
         emailTextField.layer.borderWidth = 1
         
         passwordTextField.backgroundColor = UIColor.spartaBlack()
         passwordTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        passwordTextField.textColor = UIColor.spartaGreen()
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
         passwordTextField.layer.borderWidth = 1
         
@@ -75,7 +77,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
     }
     
     @IBAction func LoginButtonTapped(sender: AnyObject) {
-        ParseModel.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!)
+        ParseModel.sharedInstance.loginUser((emailTextField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))!, password: passwordTextField.text!)
     }
     
     func userDidLogin(login: Bool, error: NSError?) {

@@ -72,6 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories:categories as? Set<UIUserNotificationCategory>)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
+        
+        ParseModel.sharedInstance.getHelpDeskOptions()
                 
         return true
     }

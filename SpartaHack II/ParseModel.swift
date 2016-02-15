@@ -223,6 +223,12 @@ class ParseModel: NSObject {
                 if let objects = objects as [PFObject]? {
                     for mentor in objects {
                         if let mentorTopics = mentor["categories"] as? [String] {
+                        
+                            let prefs = NSUserDefaults.standardUserDefaults()
+                            prefs.setValue(mentorTopics, forKey: "mentorCategories")
+                            prefs.synchronize()
+                        
+                        
                             let archive = NSKeyedArchiver.archivedDataWithRootObject(mentorTopics)
                             dict.updateValue(archive, forKey: "categoires")
                         }
@@ -452,8 +458,8 @@ class ParseModel: NSObject {
     
     func getPrizes() {
         let query = PFQuery(className: "Prizes")
-        var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
+        var dict = [String:AnyObject]()
         query.includeKey("sponsor")
         query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
@@ -464,12 +470,15 @@ class ParseModel: NSObject {
                 // Hooray! Let them use the app now.
                 if let objects = objects as [PFObject]? {
                     for prize in objects {
+                        print(prize)
                         if let sponsor:PFObject = prize["sponsor"] as? PFObject {
+                            dict.updateValue(true, forKey: "sponsoredPrize")
                             dict.updateValue(sponsor["name"] as! String, forKey: "sponsor")
                             dict.updateValue(sponsor["level"] as! String, forKey: "tier")
                         } else {
-                            dict.updateValue("Nan", forKey: "sponsor")
-                            dict.updateValue("Nan", forKey: "tier")
+                            dict.updateValue(false, forKey: "sponsoredPrize")
+                            dict.updateValue("", forKey: "sponsor")
+                            dict.updateValue("", forKey: "tier")
                         }
                         dict.updateValue(prize["name"] as! String, forKey: "name")
                         dict.updateValue(prize["description"] as! String, forKey: "prizeDescription")

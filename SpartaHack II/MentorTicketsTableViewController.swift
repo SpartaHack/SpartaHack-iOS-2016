@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Parse
+import BOZPongRefreshControl
 
 class MentorTicketTableViewCell: UITableViewCell {
     static let cellIdentifier = "mentorTicketCell"
@@ -22,19 +23,24 @@ class MentorTicketTableViewCell: UITableViewCell {
 class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsDelegate, NSFetchedResultsControllerDelegate {
 
     var tickets = [NSManagedObject]()
-    let helpRefreshControl = UIRefreshControl()
+    var pongRefreshControl = BOZPongRefreshControl()
     
     func fetch (){
         tickets.removeAll()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "MentorTickets")
-        
+    
+        let prefs = NSUserDefaults.standardUserDefaults()
         let statusPredicate = NSPredicate(format: "status != %@", "Expired")
         let deletedPredicate = NSPredicate(format: "status != %@", "Deleted")
         let selfPredicate = NSPredicate(format: "userId != %@", (PFUser.currentUser()?.objectId!)!)
         let openPredicate = NSPredicate(format: "mentorId == %@ || mentorId == %@","", (PFUser.currentUser()?.objectId!)!) // open ticket with no mentor assigned
-        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, openPredicate, selfPredicate])
+        
+        let topics = prefs.valueForKey("mentorCategories")
+        let mentoredTopics = NSPredicate(format: "category contains[c] %@", argumentArray: topics as? [String])
+
+        fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, openPredicate, selfPredicate, mentoredTopics])
         
         let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
         let statusDescriptor = NSSortDescriptor(key: "statusNum", ascending: true)
@@ -44,7 +50,7 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
             let results = try managedContext.executeFetchRequest(fetchRequest)
             tickets = results as! [NSManagedObject]
             self.tableView.reloadData()
-            self.helpRefreshControl.endRefreshing()
+            self.pongRefreshControl.finishedLoading()
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
@@ -58,9 +64,6 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        helpRefreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        self.tableView.addSubview(helpRefreshControl)
-        
         tableView.backgroundColor = UIColor.spartaBlack()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70.0
@@ -68,6 +71,26 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         ParseModel.sharedInstance.openTicketDelegate = self
         ParseModel.sharedInstance.getOpenTickets()
     }
+    
+    override func viewDidLayoutSubviews() {
+        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
+        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
+        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
+        
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.pongRefreshControl.scrollViewDidScroll()
+    }
+    
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pongRefreshControl.scrollViewDidEndDragging()
+    }
+    
+    func refreshTriggered() {
+        ParseModel.sharedInstance.getOpenTickets()
+    }
+
 
     func refresh(refreshControl: UIRefreshControl) {
         // Do your job, when done:
