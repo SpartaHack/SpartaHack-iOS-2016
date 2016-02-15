@@ -37,8 +37,8 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         let selfPredicate = NSPredicate(format: "userId != %@", (PFUser.currentUser()?.objectId!)!)
         let openPredicate = NSPredicate(format: "mentorId == %@ || mentorId == %@","", (PFUser.currentUser()?.objectId!)!) // open ticket with no mentor assigned
         
-        let topics = prefs.valueForKey("mentorCategories")
-        let mentoredTopics = NSPredicate(format: "category contains[c] %@", argumentArray: topics as? [String])
+        let topics = prefs.valueForKey("mentorCategories") as! [String]
+        let mentoredTopics = NSPredicate(format: "category in %@", topics)
 
         fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [statusPredicate, deletedPredicate, openPredicate, selfPredicate, mentoredTopics])
         
@@ -121,7 +121,7 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         alert.addAction(details)
         alert.addAction(cancel)
         if tickets[indexPath.row].valueForKey("status") as? String == "Open" {
-            let accept = UIAlertAction(title: "Yes", style: .Default, handler: { (UIAlertAction) -> Void in
+            let accept = UIAlertAction(title: "Accept", style: .Default, handler: { (UIAlertAction) -> Void in
                 ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
                 ParseModel.sharedInstance.getOpenTickets()
             })

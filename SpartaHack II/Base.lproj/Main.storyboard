@@ -249,13 +249,13 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txH-nF-Obe">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txH-nF-Obe">
                                             <rect key="frame" x="8" y="65" width="481" height="20.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3320" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0n-wj-6hy">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3320" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0n-wj-6hy">
                                             <rect key="frame" x="507" y="47" width="75" height="20.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -352,11 +352,16 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfd-rl-vr6">
-                                <rect key="frame" x="149" y="486" width="303" height="30"/>
+                                <rect key="frame" x="20" y="486" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="303" id="61u-fP-fS6"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="61u-fP-fS6"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="dismissButtonTapped:" destination="ugN-TM-mta" eventType="touchUpInside" id="DNI-4P-FgQ"/>
                                 </connections>
@@ -368,10 +373,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Xy6-gu-S6G" secondAttribute="trailing" id="5Hg-YH-KBx"/>
                             <constraint firstAttribute="leadingMargin" secondItem="mLf-ez-4Nn" secondAttribute="leading" id="ATs-8Y-H9e"/>
                             <constraint firstItem="Qfd-rl-vr6" firstAttribute="centerX" secondItem="Xy6-gu-S6G" secondAttribute="centerX" id="D6K-ox-jHv"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Qfd-rl-vr6" secondAttribute="leading" id="DeS-Gt-rN5"/>
                             <constraint firstItem="9uJ-At-LsI" firstAttribute="top" secondItem="RSX-UZ-cq8" secondAttribute="bottom" constant="8" id="Eay-r9-63u"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RSX-UZ-cq8" secondAttribute="leading" id="IFx-91-TdD"/>
                             <constraint firstItem="Qfd-rl-vr6" firstAttribute="top" secondItem="Xy6-gu-S6G" secondAttribute="bottom" constant="8" id="P1i-vY-yQD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RSX-UZ-cq8" secondAttribute="trailing" id="SCf-Hv-MUn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qfd-rl-vr6" secondAttribute="trailing" id="SqZ-vz-gMW"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Xy6-gu-S6G" secondAttribute="leading" id="Y1B-wH-ezQ"/>
                             <constraint firstItem="Xy6-gu-S6G" firstAttribute="top" secondItem="9uJ-At-LsI" secondAttribute="bottom" constant="9" id="Z08-G2-So2"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9uJ-At-LsI" secondAttribute="leading" id="a2g-QL-C4C"/>
@@ -416,12 +423,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5mw-tl-jOi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5mw-tl-jOi" customClass="UITextFieldLimit">
                                 <rect key="frame" x="20" y="119" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What room are you in? ex 3320" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-tF-L3z">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What room are you in? ex 3320" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-tF-L3z" customClass="UITextFieldLimit">
                                 <rect key="frame" x="20" y="157" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1556,7 +1563,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2d-FI-iqz">
                                 <rect key="frame" x="20" y="279" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Nah">
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

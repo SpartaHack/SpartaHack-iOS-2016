@@ -41,7 +41,7 @@ class MentorDetailTicketViewController: UIViewController {
 
         
         self.locationLabel.text = "Location: \(location)"
-        self.subjectLabel.text = "Subject \(subject)"
+        self.subjectLabel.text = "Subject: \(subject)"
         self.detailTextView.text = detail
 
         // Do any additional setup after loading the view.

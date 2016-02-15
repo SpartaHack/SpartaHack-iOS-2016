@@ -17,8 +17,8 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     let pickerView = UIPickerView()
     
     @IBOutlet weak var platformTextField: UITextField!
-    @IBOutlet weak var subjectTextField: UITextField!
-    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var subjectTextField: UITextFieldLimit!
+    @IBOutlet weak var locationTextField: UITextFieldLimit!
     @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var createNewTicketButton: UIButton!
     
@@ -30,6 +30,9 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         
         pickerView.delegate = self
         platformTextField.inputView = pickerView
+        
+        subjectTextField.limit = 60
+        locationTextField.limit = 10
         
         ParseModel.sharedInstance.ticketDelegate = self
         self.descriptionTextField.delegate = self

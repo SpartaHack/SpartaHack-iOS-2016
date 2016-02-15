@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		489EAF0751CB058141A602E1 /* Pods_SpartaHack_2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */; };
+		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
 		F52BC0EF1BF5360B0074870E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52BC0EE1BF5360B0074870E /* keys.plist */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
@@ -83,6 +84,8 @@
 		0EFB0FF51496D9DB7980D069 /* Pods-SpartaHack 2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaHack 2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016.release.xcconfig"; sourceTree = "<group>"; };
 		8C5A9D8C7F9E6042BEEA828E /* Pods-SpartaHack 2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaHack 2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016.debug.xcconfig"; sourceTree = "<group>"; };
 		B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpartaHack_2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
+		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
 		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		F52BC0EE1BF5360B0074870E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		F5373B821B327566007F508C /* SpartaHack 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +221,8 @@
 				F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */,
 				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
 				F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */,
+				F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */,
+				F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
@@ -516,6 +521,7 @@
 				F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
 				F5DC9D111C65934500CF6FDB /* MentorTicketsTableViewController.swift in Sources */,
+				F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
