@@ -168,7 +168,7 @@ class HelpDeskTableViewController: UIViewController, ParseModelDelegate, ParseHe
         if PFUser.currentUser() != nil {
             if tickets.count > 0 {
                 let userTicket = tickets[indexPath.row]
-                cell.titleLabel?.text = userTicket.valueForKey("category") as? String
+                cell.titleLabel?.text = "\(userTicket.valueForKey("subject") as! String) (\(userTicket.valueForKey("category") as! String))"
                 cell.descriptionLabel?.text = userTicket.valueForKey("ticketDescrption") as? String
                 cell.statusCell.text = userTicket.valueForKey("status") as? String
                 cell.dividerView.backgroundColor = UIColor.whiteColor()

@@ -29,15 +29,18 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         logoutButton.layer.borderWidth = 2
         logoutButton.layer.borderColor = UIColor.spartaGreen().CGColor
         logoutButton.layer.cornerRadius = 4
+        logoutButton.tintColor = UIColor.spartaGreen()
         logoutButton.backgroundColor = UIColor.spartaBlack()
         profileView.backgroundColor = UIColor.spartaBlack()
+        
+        self.scanButton.hidden = true
         
         let query = PFQuery(className: "_User")
         query.getObjectInBackgroundWithId(PFUser.currentUser()!.objectId!) { (object:PFObject?, error:NSError?) -> Void in
             if error == nil {
                 let role = object!["role"] as! String
-                if role != "admin" && role != "volunteer" {
-                    self.scanButton.hidden = true
+                if role == "admin" || role == "volunteer" {
+                    self.scanButton.hidden = false
                 }
                 var name = ""
                 if let firstName = object!["firstName"] as? String {
@@ -87,7 +90,17 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
     
     @IBAction func logoutButtonTapped(sender: AnyObject) {
         PFUser.logOut()
-        print("logged out")
+        let currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.removeObjectForKey("user")
+        currentInstallation.saveInBackgroundWithBlock { (succeeded, e) -> Void in
+            if succeeded {
+                print("logout successful")
+            }
+            if e != nil {
+                print(e)
+            }
+        }
+
         self.navigationController?.popToRootViewControllerAnimated(true)
         ParseModel.sharedInstance.deleteAllData("Ticket")
     }

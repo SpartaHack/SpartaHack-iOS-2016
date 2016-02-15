@@ -294,6 +294,11 @@ class ParseModel: NSObject {
                         if let location = ticket["location"] as? String {
                             dict.updateValue(location, forKey: "location")
                         }
+                        
+                        if let subject = ticket["subject"] as? String {
+                            dict.updateValue(subject, forKey: "subject")
+                        }
+                        
                         if let status = ticket["status"] as? String {
                             dict.updateValue(status, forKey: "status")
                             var code = 0
@@ -346,6 +351,9 @@ class ParseModel: NSObject {
                         }
                         if let location = ticket["location"] as? String {
                             dict.updateValue(location, forKey: "location")
+                        }
+                        if let subject = ticket["subject"] as? String {
+                            dict.updateValue(subject, forKey: "subject")
                         }
                         if let status = ticket["status"] as? String {
                             dict.updateValue(status, forKey: "status")

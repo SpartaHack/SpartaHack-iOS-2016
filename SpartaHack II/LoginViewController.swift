@@ -38,17 +38,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
         emailLabel.textColor = UIColor.spartaGreen()
         passwordLabel.textColor = UIColor.spartaGreen()
         
+        emailTextField.backgroundColor = UIColor.spartaBlack()
+        emailTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        emailTextField.layer.borderWidth = 1
+        
+        passwordTextField.backgroundColor = UIColor.spartaBlack()
+        passwordTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        passwordTextField.layer.borderWidth = 1
+        
         loginButton.layer.cornerRadius = 4
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = UIColor.spartaGreen().CGColor
         loginButton.titleLabel?.textColor = UIColor.spartaGreen()
         loginButton.backgroundColor = UIColor.spartaBlack()
+        loginButton.titleLabel?.textColor = UIColor.spartaGreen()
         
         nahButton.layer.cornerRadius = 4
         nahButton.layer.borderWidth = 1
         nahButton.layer.borderColor = UIColor.spartaGreen().CGColor
         nahButton.titleLabel?.textColor = UIColor.spartaGreen()
         nahButton.backgroundColor = UIColor.spartaBlack()
+        nahButton.titleLabel?.textColor = UIColor.spartaGreen()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -83,14 +83,27 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let alert = UIAlertController(title: "", message: "Accept Ticket?", preferredStyle: .ActionSheet)
-        let extend = UIAlertAction(title: "Yes", style: .Default, handler: { (UIAlertAction) -> Void in
-            ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
-            ParseModel.sharedInstance.getOpenTickets()
-        })
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let alert = UIAlertController(title: "Ticket Actions", message: "", preferredStyle: .ActionSheet)
+        let details = UIAlertAction(title: "Details", style: .Default) { (UIAlertAction) -> Void in
+            // perform segue for details
+            let detailVC = storyboard.instantiateViewControllerWithIdentifier("ticketDetail") as! MentorDetailTicketViewController
+            detailVC.userName = self.tickets[indexPath.row].valueForKey("userId") as! String
+            detailVC.location = self.tickets[indexPath.row].valueForKey("location") as! String
+            detailVC.subject = self.tickets[indexPath.row].valueForKey("subject") as! String
+            detailVC.detail = self.tickets[indexPath.row].valueForKey("ticketDescrption") as! String
+            self.navigationController?.presentViewController(detailVC, animated: true, completion: nil)
+        }
         let cancel = UIAlertAction(title: "No", style: .Cancel, handler: nil)
-        alert.addAction(extend)
+        alert.addAction(details)
         alert.addAction(cancel)
+        if tickets[indexPath.row].valueForKey("status") as? String == "Open" {
+            let accept = UIAlertAction(title: "Yes", style: .Default, handler: { (UIAlertAction) -> Void in
+                ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
+                ParseModel.sharedInstance.getOpenTickets()
+            })
+            alert.addAction(accept)
+        }
         self.presentViewController(alert, animated: true, completion: nil)
         
     }

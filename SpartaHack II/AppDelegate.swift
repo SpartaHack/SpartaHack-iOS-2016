@@ -80,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Registering for push notifications")
         let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.setDeviceTokenFromData(deviceToken)
-//        currentInstallation.channels = [""]
         currentInstallation.saveInBackgroundWithBlock { (succeeded, e) -> Void in
             if succeeded {
                 print("Push registration notification successful")
@@ -97,6 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         print("Push contents \(userInfo)")
+        ParseModel.sharedInstance.getNews()
+        ParseModel.sharedInstance.getUserTickets()
         PFPush.handlePush(userInfo)
     }
     

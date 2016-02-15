@@ -14,6 +14,7 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     var topicObjId = ""
     var listOfOptions = NSData()
     var platformOptions:[String] = []
+    let pickerView = UIPickerView()
     
     @IBOutlet weak var platformTextField: UITextField!
     @IBOutlet weak var subjectTextField: UITextField!
@@ -27,7 +28,6 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         
         platformOptions = (NSKeyedUnarchiver.unarchiveObjectWithData(listOfOptions) as? [String])!
         
-        let pickerView = UIPickerView()
         pickerView.delegate = self
         platformTextField.inputView = pickerView
         
@@ -38,6 +38,8 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
+    
+    
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return platformOptions.count
@@ -50,6 +52,7 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         platformTextField.text = platformOptions[row]
     }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,6 +60,7 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         self.platformTextField.backgroundColor = UIColor.spartaBlack()
         self.platformTextField.textColor = UIColor.whiteColor()
         self.platformTextField.attributedPlaceholder = NSAttributedString(string:"Platform", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.platformTextField.textColor = UIColor.spartaGreen()
         self.platformTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         self.platformTextField.layer.cornerRadius = 4
         self.platformTextField.layer.borderWidth = 1
@@ -64,6 +68,7 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         self.subjectTextField.backgroundColor = UIColor.spartaBlack()
         self.subjectTextField.textColor = UIColor.whiteColor()
         self.subjectTextField.attributedPlaceholder = NSAttributedString(string:"Subject", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.subjectTextField.textColor = UIColor.spartaGreen()
         self.subjectTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         self.subjectTextField.layer.cornerRadius = 4
         self.subjectTextField.layer.borderWidth = 1
@@ -71,6 +76,7 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         self.locationTextField.backgroundColor = UIColor.spartaBlack()
         self.locationTextField.textColor = UIColor.whiteColor()
         self.locationTextField.attributedPlaceholder = NSAttributedString(string:"Location", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.locationTextField.textColor = UIColor.spartaGreen()
         self.locationTextField.layer.borderColor = UIColor.spartaGreen().CGColor
         self.locationTextField.layer.cornerRadius = 4
         self.locationTextField.layer.borderWidth = 1

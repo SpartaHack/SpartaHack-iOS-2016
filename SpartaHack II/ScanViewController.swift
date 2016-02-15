@@ -108,17 +108,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             self.presentViewController(vc, animated: true, completion: nil)           
         }
         
-        let hardwareOutAction = UIAlertAction(title: "Hardware Check Out", style: .Default) { (action) -> Void in
-            
-        }
-        
-        let hardwareInAction = UIAlertAction(title: "Hardware Check In", style: .Default) { (action) -> Void in
-            
-        }
         
         alertController.addAction(checkinAction)
-//        alertController.addAction(hardwareOutAction)
-//        alertController.addAction(hardwareInAction)
         alertController.addAction(cancelAction)
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
