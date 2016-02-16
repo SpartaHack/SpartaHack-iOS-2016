@@ -38,6 +38,7 @@
 		F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */; };
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
 		F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */; };
+		F574CE531C7380A30032203C /* map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F574CE521C7380A30032203C /* map.pdf */; };
 		F57BA33E1C288BB6000E0381 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */; };
 		F57BA3401C288BCC000E0381 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33F1C288BCC000E0381 /* libz.tbd */; };
 		F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */; };
@@ -119,6 +120,7 @@
 		F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDeskViewController.swift; sourceTree = "<group>"; };
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
 		F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCategoryViewTableViewController.swift; sourceTree = "<group>"; };
+		F574CE521C7380A30032203C /* map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = map.pdf; sourceTree = "<group>"; };
 		F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F57BA33F1C288BCC000E0381 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F58BE28E1C5C16DC0000696B /* SpartaHack 2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpartaHack 2016-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		F5373B851B327566007F508C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F574CE521C7380A30032203C /* map.pdf */,
 				F5F5A0F21C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld */,
 				F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */,
 				F52BC0EE1BF5360B0074870E /* keys.plist */,
@@ -439,6 +442,7 @@
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
+				F574CE531C7380A30032203C /* map.pdf in Resources */,
 				F5CA4C9F1C684BBE00CDC37B /* Moondance.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

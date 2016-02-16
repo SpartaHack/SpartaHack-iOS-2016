@@ -115,14 +115,14 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
             detailVC.location = self.tickets[indexPath.row].valueForKey("location") as! String
             detailVC.subject = self.tickets[indexPath.row].valueForKey("subject") as! String
             detailVC.detail = self.tickets[indexPath.row].valueForKey("ticketDescrption") as! String
-            self.navigationController?.presentViewController(detailVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(detailVC, animated: true)
         }
         let cancel = UIAlertAction(title: "No", style: .Cancel, handler: nil)
         alert.addAction(details)
         alert.addAction(cancel)
         if tickets[indexPath.row].valueForKey("status") as? String == "Open" {
             let accept = UIAlertAction(title: "Accept", style: .Default, handler: { (UIAlertAction) -> Void in
-                ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Open")
+                ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Accpeted")
                 ParseModel.sharedInstance.getOpenTickets()
             })
             alert.addAction(accept)

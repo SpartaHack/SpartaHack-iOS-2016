@@ -341,6 +341,7 @@ class ParseModel: NSObject {
     }
     
     func getOpenTickets () {
+        self.deleteAllData("MentorTickets")
         let query = PFQuery(className: "HelpDeskTickets")
         var dict = [String:AnyObject]()
         var dictAry = [[String:AnyObject]]()
@@ -430,9 +431,13 @@ class ParseModel: NSObject {
                         }
                         if let description = news["eventDescription"] as? String {
                             dict.updateValue(description, forKey: "eventDescription")
+                        } else {
+                            dict.updateValue("", forKey: "eventDescription")
                         }
                         if let location = news["eventLocation"] as? String {
                             dict.updateValue(location, forKey: "eventLocation")
+                        } else {
+                            dict.updateValue("", forKey: "eventLocation")
                         }
                         if let time = news["eventTime"] as? NSDate {
                             let formattedTime = timeFormatter.dateFromString(timeFormatter.stringFromDate(time))
