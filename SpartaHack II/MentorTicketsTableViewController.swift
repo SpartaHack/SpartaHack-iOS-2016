@@ -122,7 +122,7 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
         alert.addAction(cancel)
         if tickets[indexPath.row].valueForKey("status") as? String == "Open" {
             let accept = UIAlertAction(title: "Accept", style: .Default, handler: { (UIAlertAction) -> Void in
-                ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Accpeted")
+                ParseModel.sharedInstance.extendTicket(self.tickets[indexPath.row].valueForKey("objectId") as! String, status: "Accepted")
                 ParseModel.sharedInstance.getOpenTickets()
             })
             alert.addAction(accept)

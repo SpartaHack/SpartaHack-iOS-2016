@@ -20,7 +20,6 @@ class MentorDetailTicketViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var detailTextView: UITextView!
-    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,16 +59,9 @@ class MentorDetailTicketViewController: UIViewController {
         self.detailTextView.layer.cornerRadius = 4
         self.detailTextView.layer.borderColor = UIColor.spartaGreen().CGColor
         
-        self.doneButton.tintColor = UIColor.spartaGreen()
-        self.doneButton.layer.borderColor = UIColor.spartaGreen().CGColor
-        self.doneButton.layer.borderWidth = 2
-        self.doneButton.layer.cornerRadius = 4
         
     }
-
-    @IBAction func dismissButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
