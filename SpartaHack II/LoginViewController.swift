@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
         titleLabel.textColor = UIColor.spartaGreen()
         sloganLabel.textColor = UIColor.spartaGreen()
         
-        
+        // fixing overrides
         emailTextField.backgroundColor = UIColor.spartaBlack()
         emailTextField.layer.borderColor = UIColor.spartaMutedGrey().CGColor
         emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])

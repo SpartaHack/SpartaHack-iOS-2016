@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // fix overrides 
         logoutButton.layer.borderWidth = 1
         logoutButton.layer.borderColor = UIColor.spartaMutedGrey().CGColor
         logoutButton.layer.cornerRadius = 1
