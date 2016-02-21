@@ -403,7 +403,7 @@
 				TargetAttributes = {
 					F5373B811B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 5L9ZWL5Y6H;
+						DevelopmentTeam = V6R9L68573;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -691,7 +691,7 @@
 					"-framework",
 					"\"ZXingObjC\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bogdan.spartahack2016;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";
@@ -706,7 +706,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpartaHack\\ II/",
@@ -727,7 +727,7 @@
 					"-framework",
 					"\"ZXingObjC\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bogdan.spartahack2016;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";

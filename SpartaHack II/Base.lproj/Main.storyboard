@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Olp-Fx-k8f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Olp-Fx-k8f">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -8,8 +8,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Moondance.ttf">
-            <string>Moondance</string>
-            <string>Moondance</string>
             <string>Moondance</string>
             <string>Moondance</string>
         </mutableArray>
@@ -93,8 +91,8 @@
                                     <constraint firstAttribute="width" secondItem="Lzl-cy-YA6" secondAttribute="height" multiplier="233:144" id="Olo-nb-fSo"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-W7-0Vw">
-                                <rect key="frame" x="20" y="490" width="560" height="30"/>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-W7-0Vw">
+                                <rect key="frame" x="20" y="490" width="560" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.057803820979999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ixq-kr-Guf"/>
@@ -106,7 +104,7 @@
                                     <action selector="logoutButtonTapped:" destination="Sw0-ET-v4s" eventType="touchUpInside" id="DNS-f6-TqW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvX-Hm-2da">
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvX-Hm-2da">
                                 <rect key="frame" x="20" y="446" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Volunteer Scanning"/>
@@ -117,6 +115,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.49630348154362414" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yvX-Hm-2da" firstAttribute="top" secondItem="Lzl-cy-YA6" secondAttribute="bottom" constant="46" id="1Ii-Xy-zni"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lzl-cy-YA6" secondAttribute="trailing" constant="8" id="2hl-sn-tAM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yvX-Hm-2da" secondAttribute="leading" id="D1J-49-mdH"/>
                             <constraint firstItem="Lzl-cy-YA6" firstAttribute="centerY" secondItem="GTC-SL-Jkc" secondAttribute="centerY" constant="-36" id="GF0-0q-e3E"/>
@@ -124,6 +123,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="JbI-W7-0Vw" secondAttribute="leading" id="S5c-lU-q7R"/>
                             <constraint firstItem="vTo-OM-aiD" firstAttribute="centerX" secondItem="Lzl-cy-YA6" secondAttribute="centerX" id="WNz-T7-7h6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JbI-W7-0Vw" secondAttribute="trailing" id="di8-18-wwF"/>
+                            <constraint firstItem="JbI-W7-0Vw" firstAttribute="top" secondItem="yvX-Hm-2da" secondAttribute="bottom" constant="14" id="gOP-8r-FkH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yvX-Hm-2da" secondAttribute="trailing" id="gzM-ei-dVr"/>
                             <constraint firstItem="Lzl-cy-YA6" firstAttribute="leading" secondItem="GTC-SL-Jkc" secondAttribute="leadingMargin" constant="8" id="i2m-LZ-9uc"/>
                             <constraint firstItem="Lzl-cy-YA6" firstAttribute="centerX" secondItem="GTC-SL-Jkc" secondAttribute="centerX" id="l3l-DI-Z4r"/>
@@ -158,13 +158,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaZ-a5-QC1" userLabel="Divider View">
-                                            <rect key="frame" x="15" y="-4" width="570" height="1"/>
-                                            <color key="backgroundColor" red="0.086274509803921567" green="0.16078431372549018" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="e3D-0y-NkE"/>
-                                            </constraints>
-                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzj-rl-4lF" userLabel="title">
                                             <rect key="frame" x="15" y="8" width="577" height="25"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
@@ -195,13 +188,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3Qd-VB-JoX" firstAttribute="top" secondItem="Xzj-rl-4lF" secondAttribute="bottom" constant="4" id="0uA-iF-Y73"/>
-                                        <constraint firstItem="xaZ-a5-QC1" firstAttribute="leading" secondItem="Xzj-rl-4lF" secondAttribute="leading" id="6iN-jc-aFr"/>
                                         <constraint firstItem="Xzj-rl-4lF" firstAttribute="leading" secondItem="APq-Hl-Yy2" secondAttribute="leadingMargin" constant="7" id="Am6-Mh-Lut"/>
-                                        <constraint firstItem="xaZ-a5-QC1" firstAttribute="centerX" secondItem="APq-Hl-Yy2" secondAttribute="centerX" id="QvY-dP-Gzg"/>
                                         <constraint firstItem="Xzj-rl-4lF" firstAttribute="top" secondItem="APq-Hl-Yy2" secondAttribute="topMargin" id="TxA-jn-vDz"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="3Qd-VB-JoX" secondAttribute="bottom" id="bZj-ZQ-giH"/>
                                         <constraint firstItem="3Qd-VB-JoX" firstAttribute="trailing" secondItem="APq-Hl-Yy2" secondAttribute="trailingMargin" id="fNS-WS-JJY"/>
-                                        <constraint firstItem="Xzj-rl-4lF" firstAttribute="top" secondItem="xaZ-a5-QC1" secondAttribute="bottom" constant="11" id="j7P-FA-Cfa"/>
                                         <constraint firstItem="Xzj-rl-4lF" firstAttribute="trailing" secondItem="APq-Hl-Yy2" secondAttribute="trailingMargin" id="s09-Y3-Aug"/>
                                         <constraint firstItem="3Qd-VB-JoX" firstAttribute="leading" secondItem="APq-Hl-Yy2" secondAttribute="leadingMargin" constant="7" id="vE8-62-bIW"/>
                                     </constraints>
@@ -1540,7 +1530,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="pLN-zJ-SkK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Moondance" family="Moondance" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                 <connections>
                                     <outlet property="delegate" destination="VoL-Qz-Epd" id="vig-0U-Ckv"/>
@@ -1551,7 +1541,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="QAL-UW-qDH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Moondance" family="Moondance" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="VoL-Qz-Epd" id="Sed-P5-DZk"/>
