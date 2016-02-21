@@ -31,6 +31,7 @@ class AwardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.spartaBlack()
+        // custom colors
         awardSegmentButton.tintColor = UIColor.spartaMutedGrey()
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.spartaGreen()], forState: UIControlState.Selected)
         // Do any additional setup after loading the view.

@@ -31,6 +31,7 @@ class GuideViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.spartaBlack()
+        // add custom color
         guideSegmentButton.tintColor = UIColor.spartaMutedGrey()
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.spartaGreen()], forState: UIControlState.Selected)
         // Do any additional setup after loading the view.
