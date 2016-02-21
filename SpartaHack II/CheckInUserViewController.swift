@@ -57,7 +57,7 @@ class CheckInUserViewController: UIViewController {
                     }
                 })
                 
-                
+                // check ages of attendees
                 let appQuery = PFQuery(className: "Application")
                 appQuery.whereKey("user", equalTo: object!)
                 appQuery.getFirstObjectInBackgroundWithBlock({ (appObject:PFObject?, error:NSError?) -> Void in

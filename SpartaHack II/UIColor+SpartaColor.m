@@ -23,7 +23,6 @@
 }
 
 +(UIColor*)spartaMutedGrey{
-//    return [UIColor colorWithRed:128 green:255 blue:219 alpha:0.3];
     return [UIColor colorWithRed:((0x160000) >> 16)/255.0 green:((0x2900) >> 8)/255.0 blue:(0x34 >> 0)/255.0 alpha:1.0];
 }
 

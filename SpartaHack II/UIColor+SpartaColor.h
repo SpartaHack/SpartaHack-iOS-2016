@@ -10,6 +10,7 @@
 
 @interface UIColor (SpartaColor)
 
+// define custom colors
 +(UIColor*)spartaBlack;
 +(UIColor*)spartaMutedGrey;
 +(UIColor*)spartaGreen;
