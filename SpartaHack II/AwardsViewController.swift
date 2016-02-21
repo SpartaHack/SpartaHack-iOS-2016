@@ -11,10 +11,27 @@ import UIKit
 /// Controlls the AwardsView
 class AwardsViewController: UIViewController {
 
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var prizesContainerView: UIView!
+    @IBOutlet weak var sponsorContainerView: UIView!
+    @IBOutlet weak var awardSegmentButton: UISegmentedControl!
+
+    @IBAction func segmentedButtonsTapped(sender: AnyObject) {
+        switch awardSegmentButton.selectedSegmentIndex {
+        case 0:
+        //prizes
+            sponsorContainerView.hidden = true
+            prizesContainerView.hidden = false
+        default:
+        //sponsors
+            sponsorContainerView.hidden = false
+            prizesContainerView.hidden = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor.spartaBlack()
+        awardSegmentButton.tintColor = UIColor.spartaGreen()
         // Do any additional setup after loading the view.
     }
     
@@ -22,9 +39,4 @@ class AwardsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func segmentedButtonsTapped(sender: AnyObject) {
-        // load either the prizes or sponsors
-    }
-    
 }

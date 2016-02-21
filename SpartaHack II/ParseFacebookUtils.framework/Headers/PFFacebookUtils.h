@@ -1,18 +1,20 @@
-//
-//  PFFacebookUtils.h
-//
-//  Copyright 2011-present Parse Inc. All rights reserved.
-//
+/**
+ * Copyright (c) 2015-present, Parse, LLC.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
 
 #import <Foundation/Foundation.h>
 
 #import <FacebookSDK/FacebookSDK.h>
 
 #import <Parse/PFConstants.h>
-#import <Parse/PFNullability.h>
 #import <Parse/PFUser.h>
 
-PF_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 @class BFTask;
 
@@ -30,7 +32,7 @@ PF_ASSUME_NONNULL_BEGIN
 /*!
  @abstract Gets the Facebook session for the current user.
  */
-+ (PF_NULLABLE FBSession *)session;
++ (nullable FBSession *)session;
 
 /*!
  @abstract Initializes the Facebook singleton.
@@ -41,7 +43,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @deprecated Please use `[PFFacebookUtils initializeFacebook]` instead.
  */
-+ (void)initializeWithApplicationId:(PF_NULLABLE NSString *)appId PARSE_DEPRECATED("Use [PFFacebookUtils initializeFacebook] instead.");
++ (void)initializeWithApplicationId:(nullable NSString *)appId PARSE_DEPRECATED("Use [PFFacebookUtils initializeFacebook] instead.");
 
 /*!
  @abstract Initializes the Facebook singleton.
@@ -53,8 +55,8 @@ PF_ASSUME_NONNULL_BEGIN
 
  @deprecated Please use `[PFFacebookUtils initializeFacebookWithUrlShemeSuffix:]` instead.
  */
-+ (void)initializeWithApplicationId:(PF_NULLABLE NSString *)appId
-                    urlSchemeSuffix:(PF_NULLABLE NSString *)urlSchemeSuffix PARSE_DEPRECATED("Use [PFFacebookUtils initializeFacebookWithUrlShemeSuffix:] instead.");
++ (void)initializeWithApplicationId:(nullable NSString *)appId
+                    urlSchemeSuffix:(nullable NSString *)urlSchemeSuffix PARSE_DEPRECATED("Use [PFFacebookUtils initializeFacebookWithUrlShemeSuffix:] instead.");
 
 /*!
  @abstract Initializes the Facebook singleton.
@@ -77,7 +79,7 @@ PF_ASSUME_NONNULL_BEGIN
  @param urlSchemeSuffix The URL suffix for this application - used when multiple applications with the same
  Facebook application ID may be on the same device.
  */
-+ (void)initializeFacebookWithUrlShemeSuffix:(PF_NULLABLE NSString *)urlSchemeSuffix;
++ (void)initializeFacebookWithUrlShemeSuffix:(nullable NSString *)urlSchemeSuffix;
 
 /*!
  @abstract Whether the user has their account linked to Facebook.
@@ -125,7 +127,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @returns The task, that encapsulates the work being done.
  */
-+ (BFTask *)logInWithPermissionsInBackground:(PF_NULLABLE NSArray *)permissions;
++ (BFTask<PFUser *> *)logInWithPermissionsInBackground:(nullable NSArray<NSString *> *)permissions;
 
 /*!
  @abstract Logs in a user using Facebook.
@@ -141,7 +143,8 @@ PF_ASSUME_NONNULL_BEGIN
  @param block The block to execute.
  It should have the following argument signature: `^(PFUser *user, NSError *error)`.
  */
-+ (void)logInWithPermissions:(PF_NULLABLE NSArray *)permissions block:(PF_NULLABLE PFUserResultBlock)block;
++ (void)logInWithPermissions:(nullable NSArray<NSString *> *)permissions
+                       block:(nullable PFUserResultBlock)block;
 
 /*
  @abstract Logs in a user using Facebook *asynchronously*.
@@ -158,7 +161,9 @@ PF_ASSUME_NONNULL_BEGIN
  @param selector The selector that will be called when the asynchronous request is complete.
  It should have the following signature: `(void)callbackWithUser:(PFUser *)user error:(NSError *)error`.
  */
-+ (void)logInWithPermissions:(PF_NULLABLE NSArray *)permissions target:(PF_NULLABLE_S id)target selector:(PF_NULLABLE_S SEL)selector;
++ (void)logInWithPermissions:(nullable NSArray<NSString *> *)permissions
+                      target:(nullable id)target
+                    selector:(nullable SEL)selector;
 
 /*!
  @abstract Logs in a user using Facebook *asynchronously*.
@@ -172,9 +177,9 @@ PF_ASSUME_NONNULL_BEGIN
 
  @returns The task, that encapsulates the work being done.
  */
-+ (BFTask *)logInWithFacebookIdInBackground:(NSString *)facebookId
-                                accessToken:(NSString *)accessToken
-                             expirationDate:(NSDate *)expirationDate;
++ (BFTask<PFUser *> *)logInWithFacebookIdInBackground:(NSString *)facebookId
+                                          accessToken:(NSString *)accessToken
+                                       expirationDate:(NSDate *)expirationDate;
 
 /*!
  @abstract Logs in a user using Facebook *asynchronously*.
@@ -191,7 +196,7 @@ PF_ASSUME_NONNULL_BEGIN
 + (void)logInWithFacebookId:(NSString *)facebookId
                 accessToken:(NSString *)accessToken
              expirationDate:(NSDate *)expirationDate
-                      block:(PF_NULLABLE PFUserResultBlock)block;
+                      block:(nullable PFUserResultBlock)block;
 
 /*
  @abstract Logs in a user using Facebook *asynchronously*.
@@ -209,8 +214,8 @@ PF_ASSUME_NONNULL_BEGIN
 + (void)logInWithFacebookId:(NSString *)facebookId
                 accessToken:(NSString *)accessToken
              expirationDate:(NSDate *)expirationDate
-                     target:(PF_NULLABLE_S id)target
-                   selector:(PF_NULLABLE_S SEL)selector;
+                     target:(nullable id)target
+                   selector:(nullable SEL)selector;
 
 ///--------------------------------------
 /// @name Linking Users with Facebook
@@ -228,7 +233,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @deprecated Please use `[PFFacebookUtils linkUserInBackground:permissions:]` instead.
  */
-+ (void)linkUser:(PFUser *)user permissions:(PF_NULLABLE NSArray *)permissions PARSE_DEPRECATED("Please use `[PFFacebookUtils linkUserInBackground:permissions:]` instead.");
++ (void)linkUser:(PFUser *)user permissions:(nullable NSArray<NSString *> *)permissions PARSE_DEPRECATED("Please use `[PFFacebookUtils linkUserInBackground:permissions:]` instead.");
 
 /*!
  @abstract Links Facebook to an existing <PFUser> *asynchronously*.
@@ -242,7 +247,8 @@ PF_ASSUME_NONNULL_BEGIN
 
  @returns The task, that encapsulates the work being done.
  */
-+ (BFTask *)linkUserInBackground:(PFUser *)user permissions:(PF_NULLABLE NSArray *)permissions;
++ (BFTask<NSNumber *> *)linkUserInBackground:(PFUser *)user
+                                 permissions:(nullable NSArray<NSString *> *)permissions;
 
 /*!
  @abstract Links Facebook to an existing <PFUser> *asynchronously*.
@@ -257,8 +263,8 @@ PF_ASSUME_NONNULL_BEGIN
  It should have the following argument signature: `^(BOOL *success, NSError *error)`.
  */
 + (void)linkUser:(PFUser *)user
-     permissions:(PF_NULLABLE NSArray *)permissions
-           block:(PF_NULLABLE PFBooleanResultBlock)block;
+     permissions:(nullable NSArray<NSString *> *)permissions
+           block:(nullable PFBooleanResultBlock)block;
 
 /*
  @abstract Links Facebook to an existing <PFUser> *asynchronously*.
@@ -274,9 +280,9 @@ PF_ASSUME_NONNULL_BEGIN
  It should have the following signature: `(void)callbackWithResult:(NSNumber *)result error:(NSError *)error`.
  */
 + (void)linkUser:(PFUser *)user
-     permissions:(PF_NULLABLE NSArray *)permissions
-          target:(PF_NULLABLE_S id)target
-        selector:(PF_NULLABLE_S SEL)selector;
+     permissions:(nullable NSArray<NSString *> *)permissions
+          target:(nullable id)target
+        selector:(nullable SEL)selector;
 
 /*!
  @abstract Links Facebook to an existing <PFUser> *asynchronously*.
@@ -291,10 +297,10 @@ PF_ASSUME_NONNULL_BEGIN
 
  @returns The task, that encapsulates the work being done.
  */
-+ (BFTask *)linkUserInBackground:(PFUser *)user
-                      facebookId:(NSString *)facebookId
-                     accessToken:(NSString *)accessToken
-                  expirationDate:(NSDate *)expirationDate;
++ (BFTask<NSNumber *> *)linkUserInBackground:(PFUser *)user
+                                  facebookId:(NSString *)facebookId
+                                 accessToken:(NSString *)accessToken
+                              expirationDate:(NSDate *)expirationDate;
 
 /*!
  @abstract Links Facebook to an existing <PFUser> *asynchronously*.
@@ -313,7 +319,7 @@ PF_ASSUME_NONNULL_BEGIN
       facebookId:(NSString *)facebookId
      accessToken:(NSString *)accessToken
   expirationDate:(NSDate *)expirationDate
-           block:(PF_NULLABLE PFBooleanResultBlock)block;
+           block:(nullable PFBooleanResultBlock)block;
 
 /*
  @abstract Links Facebook to an existing <PFUser> *asynchronously*.
@@ -333,8 +339,8 @@ PF_ASSUME_NONNULL_BEGIN
       facebookId:(NSString *)facebookId
      accessToken:(NSString *)accessToken
   expirationDate:(NSDate *)expirationDate
-          target:(PF_NULLABLE_S id)target
-        selector:(PF_NULLABLE_S SEL)selector;
+          target:(nullable id)target
+        selector:(nullable SEL)selector;
 
 ///--------------------------------------
 /// @name Unlinking Users from Facebook
@@ -365,7 +371,7 @@ PF_ASSUME_NONNULL_BEGIN
  @param user User to unlink from Facebook.
  @returns The task, that encapsulates the work being done.
  */
-+ (BFTask *)unlinkUserInBackground:(PFUser *)user;
++ (BFTask<NSNumber *> *)unlinkUserInBackground:(PFUser *)user;
 
 /*!
  @abstract Unlinks the <PFUser> from a Facebook account *asynchronously*.
@@ -374,7 +380,7 @@ PF_ASSUME_NONNULL_BEGIN
  @param block The block to execute.
  It should have the following argument signature: `^(BOOL succeeded, NSError *error)`.
  */
-+ (void)unlinkUserInBackground:(PFUser *)user block:(PF_NULLABLE PFBooleanResultBlock)block;
++ (void)unlinkUserInBackground:(PFUser *)user block:(nullable PFBooleanResultBlock)block;
 
 /*
  @abstract Unlinks the <PFUser> from a Facebook account *asynchronously*.
@@ -384,9 +390,7 @@ PF_ASSUME_NONNULL_BEGIN
  @param selector The selector that will be called when the asynchronous request is complete.
  It should have the following signature: `(void)callbackWithResult:(NSNumber *)result error:(NSError *)error`.
  */
-+ (void)unlinkUserInBackground:(PFUser *)user
-                        target:(PF_NULLABLE_S id)target
-                      selector:(PF_NULLABLE_S SEL)selector;
++ (void)unlinkUserInBackground:(PFUser *)user target:(nullable id)target selector:(nullable SEL)selector;
 
 ///--------------------------------------
 /// @name Obtaining New Permissions
@@ -405,9 +409,9 @@ PF_ASSUME_NONNULL_BEGIN
 
  @returns The task, that encapsulates the work being done.
  */
-+ (BFTask *)reauthorizeUserInBackground:(PFUser *)user
-                 withPublishPermissions:(PF_NULLABLE NSArray *)permissions
-                               audience:(FBSessionDefaultAudience)audience;
++ (BFTask<NSNumber *> *)reauthorizeUserInBackground:(PFUser *)user
+                             withPublishPermissions:(nullable NSArray<NSString *> *)permissions
+                                           audience:(FBSessionDefaultAudience)audience;
 
 /*!
  @abstract Requests new Facebook publish permissions for the given user *asynchronously*.
@@ -423,9 +427,9 @@ PF_ASSUME_NONNULL_BEGIN
  It should have the following argument signature: `^(BOOL succeeded, NSError *error)`.
  */
 + (void)reauthorizeUser:(PFUser *)user
- withPublishPermissions:(PF_NULLABLE NSArray *)permissions
+ withPublishPermissions:(nullable NSArray<NSString *> *)permissions
                audience:(FBSessionDefaultAudience)audience
-                  block:(PF_NULLABLE PFBooleanResultBlock)block;
+                  block:(nullable PFBooleanResultBlock)block;
 
 /*
  @abstract Requests new Facebook publish permissions for the given user *asynchronously*.
@@ -442,10 +446,10 @@ PF_ASSUME_NONNULL_BEGIN
  It should have the following signature: `(void)callbackWithResult:(NSNumber *)result error:(NSError *)error`.
  */
 + (void)reauthorizeUser:(PFUser *)user
- withPublishPermissions:(PF_NULLABLE NSArray *)permissions
+ withPublishPermissions:(nullable NSArray<NSString *> *)permissions
                audience:(FBSessionDefaultAudience)audience
-                 target:(PF_NULLABLE_S id)target
-               selector:(PF_NULLABLE_S SEL)selector;
+                 target:(nullable id)target
+               selector:(nullable SEL)selector;
 
 ///--------------------------------------
 /// @name Delegating URL Actions
@@ -463,8 +467,8 @@ PF_ASSUME_NONNULL_BEGIN
  sourceApplication:sourceApplication
  withSession:[PFFacebookUtils session]];` instead.
  */
-+ (BOOL)handleOpenURL:(PF_NULLABLE NSURL *)url PARSE_DEPRECATED("Use [FBAppCall handleOpenURL:sourceApplication:withSession:] instead.");
++ (BOOL)handleOpenURL:(nullable NSURL *)url PARSE_DEPRECATED("Use [FBAppCall handleOpenURL:sourceApplication:withSession:] instead.");
 
 @end
 
-PF_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END

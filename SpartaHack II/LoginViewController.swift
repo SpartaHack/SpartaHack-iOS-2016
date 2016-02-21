@@ -10,41 +10,96 @@ import Foundation
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+protocol LoginViewControllerDelegate {
+    func userSuccessfullyLoggedIn (result: Bool)
+}
+
+class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sloganLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet var mainView: UIView!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var nahButton: UIButton!
 
-    @IBAction func SignupButtonTapped(sender: AnyObject) {
-        // load the sign up view with the navigation controller segue
-        self.performSegueWithIdentifier("signupSegue", sender: nil)   
-    }
-    
-    @IBAction func LoginButtonTapped(sender: AnyObject) {
-        PFUser.logInWithUsernameInBackground(emailTextField.text!, password:passwordTextField.text!) {
-            (user: PFUser?, error: NSError?) -> Void in
-            if user != nil {
-                // Do stuff after successful login.
-                self.dismissViewControllerAnimated(true, completion: nil)
-            } else {
-                // The login failed. Check error to see why.
-            }
-        }
-    }
-    
-    @IBAction func ForgotPasswordButtonTapped(sender: AnyObject) {
-    
-    
-    }
-    
-    
+    var delegate: LoginViewControllerDelegate!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // view code here
+        ParseModel.sharedInstance.userDelegate = self
+        
+        titleLabel.textColor = UIColor.spartaGreen()
+        sloganLabel.textColor = UIColor.spartaGreen()
+        emailLabel.textColor = UIColor.spartaGreen()
+        passwordLabel.textColor = UIColor.spartaGreen()
+        
+        emailTextField.backgroundColor = UIColor.spartaBlack()
+        emailTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        emailTextField.textColor = UIColor.spartaGreen()
+        emailTextField.layer.borderWidth = 1
+        
+        passwordTextField.backgroundColor = UIColor.spartaBlack()
+        passwordTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        passwordTextField.textColor = UIColor.spartaGreen()
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        passwordTextField.layer.borderWidth = 1
+        
+        loginButton.layer.cornerRadius = 4
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        loginButton.titleLabel?.textColor = UIColor.spartaGreen()
+        loginButton.backgroundColor = UIColor.spartaBlack()
+        loginButton.titleLabel?.textColor = UIColor.spartaGreen()
+        
+        nahButton.layer.cornerRadius = 4
+        nahButton.layer.borderWidth = 1
+        nahButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        nahButton.titleLabel?.textColor = UIColor.spartaGreen()
+        nahButton.backgroundColor = UIColor.spartaBlack()
+        nahButton.titleLabel?.textColor = UIColor.spartaGreen()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    @IBAction func SignupButtonTapped(sender: AnyObject) {
+        // load the sign up view with the navigation controller segue
+        // TODO: make a constants file
+        self.performSegueWithIdentifier("signupSegue", sender: nil)
+    }
+    
+    @IBAction func LoginButtonTapped(sender: AnyObject) {
+        ParseModel.sharedInstance.loginUser((emailTextField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))!, password: passwordTextField.text!)
+    }
+    
+    func userDidLogin(login: Bool, error: NSError?) {
+        if !login {
+            // there was a problem with logging the user in
+            let alert = UIAlertController(title: "Error", message: "\(error!.localizedDescription)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            print("ERROR")
+        } else {
+            print("dismissing login view")
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.delegate?.userSuccessfullyLoggedIn(true)
+                })
+            })
+        }
+    }
+    
+    @IBAction func skipLoginButtonTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            self.delegate?.userSuccessfullyLoggedIn(false)
+        }
     }
 }
