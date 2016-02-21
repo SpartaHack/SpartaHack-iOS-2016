@@ -51,6 +51,7 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100.0
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 0);
         self.tableView.backgroundColor = UIColor.spartaBlack()
         
     }

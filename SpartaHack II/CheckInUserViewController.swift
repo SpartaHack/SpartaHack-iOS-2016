@@ -17,6 +17,7 @@ class CheckInUserViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var dietLabel: UILabel!
     @IBOutlet weak var tshirtSizeLabel: UILabel!
+    @IBOutlet weak var minorLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class CheckInUserViewController: UIViewController {
                     name += firstName
                 }
                 if let lastName = object!["lastName"] as? String {
-                    name += lastName
+                    name += " \(lastName)"
                 }
                 self.nameLabel.text = "Name: \(name)"
                 let foodQuery = PFQuery(className: "RSVP")
@@ -47,10 +48,30 @@ class CheckInUserViewController: UIViewController {
                             }
                             self.dietLabel.text = "Dietary Restriction: \(dietString)"
                         }
-                        
+            
                         if let shirt = object!["tshirt"] as? String {
                             self.tshirtSizeLabel.text = "T-Shirt: \(shirt)"
                         }
+                    } else {
+                        print("error")
+                    }
+                })
+                
+                
+                let appQuery = PFQuery(className: "Application")
+                appQuery.whereKey("user", equalTo: object!)
+                appQuery.getFirstObjectInBackgroundWithBlock({ (appObject:PFObject?, error:NSError?) -> Void in
+                    if error == nil {
+                        let bday = appObject!["birthday"]
+                        let bmonth = appObject!["birthmonth"]
+                        let byear = appObject!["birthyear"]
+                        let birthdate = NSDate(dateString:"\(byear)-\(bmonth)-\(bday)").timeIntervalSince1970*1000
+                        if NSDate(dateString: "2016-February-26").timeIntervalSince1970*1000 - birthdate < 568025136000  { // 18 years 18 years, got you for 18 years.
+                            self.minorLabel.text = "Minor: Yes"
+                        } else {
+                            self.minorLabel.text = "Minor: No"
+                        }
+                        
                     } else {
                         print("error")
                     }

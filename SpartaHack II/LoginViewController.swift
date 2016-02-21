@@ -20,8 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sloganLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var loginButton: UIButton!
@@ -35,31 +33,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
         
         titleLabel.textColor = UIColor.spartaGreen()
         sloganLabel.textColor = UIColor.spartaGreen()
-        emailLabel.textColor = UIColor.spartaGreen()
-        passwordLabel.textColor = UIColor.spartaGreen()
+        
         
         emailTextField.backgroundColor = UIColor.spartaBlack()
-        emailTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        emailTextField.layer.borderColor = UIColor.spartaMutedGrey().CGColor
         emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
         emailTextField.textColor = UIColor.spartaGreen()
         emailTextField.layer.borderWidth = 1
+        emailTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
         
         passwordTextField.backgroundColor = UIColor.spartaBlack()
-        passwordTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        passwordTextField.layer.borderColor = UIColor.spartaMutedGrey().CGColor
         passwordTextField.textColor = UIColor.spartaGreen()
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
         passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
         
-        loginButton.layer.cornerRadius = 4
+        loginButton.layer.cornerRadius = 1
         loginButton.layer.borderWidth = 1
-        loginButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        loginButton.layer.borderColor = UIColor.spartaMutedGrey().CGColor
         loginButton.titleLabel?.textColor = UIColor.spartaGreen()
         loginButton.backgroundColor = UIColor.spartaBlack()
         loginButton.titleLabel?.textColor = UIColor.spartaGreen()
         
-        nahButton.layer.cornerRadius = 4
+        nahButton.layer.cornerRadius = 1
         nahButton.layer.borderWidth = 1
-        nahButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        nahButton.layer.borderColor = UIColor.spartaMutedGrey().CGColor
         nahButton.titleLabel?.textColor = UIColor.spartaGreen()
         nahButton.backgroundColor = UIColor.spartaBlack()
         nahButton.titleLabel?.textColor = UIColor.spartaGreen()

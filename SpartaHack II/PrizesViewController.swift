@@ -44,6 +44,7 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 0);
         ParseModel.sharedInstance.prizeDelegate = self
         ParseModel.sharedInstance.getPrizes()
         // Do any additional setup after loading the view.

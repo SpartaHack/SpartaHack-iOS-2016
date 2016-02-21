@@ -48,10 +48,10 @@ class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
         ParseModel.sharedInstance.mentorDelegate = self
         // Do any additional setup after loading the view.
         
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Moondance", size: 20)!], forState: .Normal)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Moondance", size: 20)!, NSForegroundColorAttributeName: UIColor.spartaGreen()], forState: .Normal)
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Moondance", size: 20)!]
-        self.navigationController?.navigationBar.topItem?.title = "<SPARTAHACK/>"
+        self.navigationController?.navigationBar.topItem?.title = "< SPARTAHACK />"
         
     }
     

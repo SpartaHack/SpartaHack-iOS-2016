@@ -46,6 +46,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         ParseModel.sharedInstance.getSchedule()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 0);
         self.tableView.estimatedRowHeight = 70.0
         tableView.backgroundColor = UIColor.spartaBlack()
 
@@ -90,6 +91,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
             view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
             view.textLabel!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = UIColor.spartaGreen()
+            view.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            view.textLabel!.numberOfLines = 2
         }
     }
     

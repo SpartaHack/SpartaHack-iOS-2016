@@ -26,9 +26,9 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        logoutButton.layer.borderWidth = 2
-        logoutButton.layer.borderColor = UIColor.spartaGreen().CGColor
-        logoutButton.layer.cornerRadius = 4
+        logoutButton.layer.borderWidth = 1
+        logoutButton.layer.borderColor = UIColor.spartaMutedGrey().CGColor
+        logoutButton.layer.cornerRadius = 1
         logoutButton.tintColor = UIColor.spartaGreen()
         logoutButton.backgroundColor = UIColor.spartaBlack()
         profileView.backgroundColor = UIColor.spartaBlack()

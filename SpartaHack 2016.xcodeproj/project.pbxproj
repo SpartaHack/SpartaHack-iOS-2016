@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331AB8D1C79040C00424B12 /* NSDateExtension.swift */; };
 		489EAF0751CB058141A602E1 /* Pods_SpartaHack_2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		0EFB0FF51496D9DB7980D069 /* Pods-SpartaHack 2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaHack 2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016.release.xcconfig"; sourceTree = "<group>"; };
+		4331AB8D1C79040C00424B12 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		8C5A9D8C7F9E6042BEEA828E /* Pods-SpartaHack 2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaHack 2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016.debug.xcconfig"; sourceTree = "<group>"; };
 		B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpartaHack_2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
@@ -127,7 +129,7 @@
 		F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SpartaColor.h"; sourceTree = "<group>"; };
 		F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SpartaColor.m"; sourceTree = "<group>"; };
 		F591B2341C2DE25F00F1512D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		F591B2361C2DE27100F1512D /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		F591B2361C2DE27100F1512D /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ScheduleViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		F591B2391C2DE2B800F1512D /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		F599B44F1C66BF84008E1E6D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		F59A46661C7185DE005D21F1 /* MentorDetailTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorDetailTicketViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				F5AE53831C3234A30030BCCA /* ios-map.pdf */,
 				F5373B851B327566007F508C /* Supporting Files */,
 				F58BE28E1C5C16DC0000696B /* SpartaHack 2016-Bridging-Header.h */,
+				4331AB8D1C79040C00424B12 /* NSDateExtension.swift */,
 			);
 			path = "SpartaHack II";
 			sourceTree = "<group>";
@@ -400,7 +403,7 @@
 				TargetAttributes = {
 					F5373B811B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = V6R9L68573;
+						DevelopmentTeam = 5L9ZWL5Y6H;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -521,6 +524,7 @@
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
 				F59A46671C7185DE005D21F1 /* MentorDetailTicketViewController.swift in Sources */,
 				F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */,
+				4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
 				F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
@@ -687,7 +691,7 @@
 					"-framework",
 					"\"ZXingObjC\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bogdan.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";
@@ -723,7 +727,7 @@
 					"-framework",
 					"\"ZXingObjC\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bogdan.spartahack2016;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";

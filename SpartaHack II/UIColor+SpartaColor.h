@@ -11,5 +11,6 @@
 @interface UIColor (SpartaColor)
 
 +(UIColor*)spartaBlack;
++(UIColor*)spartaMutedGrey;
 +(UIColor*)spartaGreen;
 @end
