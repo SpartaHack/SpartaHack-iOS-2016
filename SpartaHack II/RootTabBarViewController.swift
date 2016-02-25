@@ -50,8 +50,19 @@ class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
         
         self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Moondance", size: 20)!, NSForegroundColorAttributeName: UIColor.spartaGreen()], forState: .Normal)
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Moondance", size: 20)!]
-        self.navigationController?.navigationBar.topItem?.title = "< SPARTAHACK />"
+        
+        let label = UILabel(frame: CGRectMake(0,0,440,44))
+        label.backgroundColor = UIColor.clearColor()
+        label.textColor = UIColor.whiteColor()
+        label.numberOfLines = 1
+        label.textAlignment = NSTextAlignment.Center
+        label.font = UIFont(name: "Moondance", size: 20)
+        label.adjustsFontSizeToFitWidth = true
+        label.text = "< SPARTAHACK />"
+        self.navigationController?.navigationBar.topItem?.titleView = label
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Moondance", size: 20)!]
+//        self.navigationController?.navigationBar.topItem?.
+//        self.navigationController?.navigationBar.topItem?.title = "< SPARTAHACK />"
         
     }
     

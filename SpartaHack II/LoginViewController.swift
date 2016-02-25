@@ -24,12 +24,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var nahButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     var delegate: LoginViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseModel.sharedInstance.userDelegate = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil)
+
         
         titleLabel.textColor = UIColor.spartaGreen()
         sloganLabel.textColor = UIColor.spartaGreen()
@@ -65,7 +70,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        textField.resignFirstResponder()
+//        self.view.endEditing(true)
         return false
     }
     
@@ -101,4 +107,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ParseUserDeleg
             self.delegate?.userSuccessfullyLoggedIn(false)
         }
     }
+    
+    func keyboardWillShow(notification:NSNotification){
+        
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        keyboardFrame = self.view.convertRect(keyboardFrame, fromView: nil)
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        self.scrollView.contentInset = contentInset
+    }
+    
+    func keyboardWillHide(notification:NSNotification){
+        
+        let contentInset:UIEdgeInsets = UIEdgeInsetsZero
+        self.scrollView.contentInset = contentInset
+    }
+    
 }
