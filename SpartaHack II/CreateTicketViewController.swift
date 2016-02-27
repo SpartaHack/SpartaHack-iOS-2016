@@ -21,12 +21,16 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     @IBOutlet weak var locationTextField: UITextFieldLimit!
     @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var createNewTicketButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         platformOptions = (NSKeyedUnarchiver.unarchiveObjectWithData(listOfOptions) as? [String])!
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil)
         
         pickerView.delegate = self
         platformTextField.inputView = pickerView
@@ -150,4 +154,22 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         alert.addAction(UIAlertAction(title: "Ok.", style: .Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    func keyboardWillShow(notification:NSNotification){
+        
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        keyboardFrame = self.view.convertRect(keyboardFrame, fromView: nil)
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        self.scrollView.contentInset = contentInset
+    }
+    
+    func keyboardWillHide(notification:NSNotification){
+        
+        let contentInset:UIEdgeInsets = UIEdgeInsetsZero
+        self.scrollView.contentInset = contentInset
+    }
+
 }
