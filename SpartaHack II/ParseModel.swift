@@ -502,7 +502,7 @@ class ParseModel: NSObject {
     
     func submitUserTicket(category: String, subject: String, description: String, location:String, subCategory:String) {
         let ticket = PFObject(className: "HelpDeskTickets")
-        let ticketSbj = PFObject(withoutDataWithClassName: "HelpDesk", objectId: category)
+        let ticketSbj = PFObject(outDataWithClassName: "HelpDesk", objectId: category)
         ticket["category"] = ticketSbj
         ticket["subject"] = subject
         ticket["description"] = description
@@ -525,7 +525,7 @@ class ParseModel: NSObject {
     }
     
     func extendTicket (objectId:String, status:String) {
-        let notificationObj = PFObject(withoutDataWithClassName: "HelpDeskTickets", objectId: objectId)
+        let notificationObj = PFObject(outDataWithClassName: "HelpDeskTickets", objectId: objectId)
         if status == "" {
             // if we're passing a status the mentor has accepted a ticket
             notificationObj["status"] = status

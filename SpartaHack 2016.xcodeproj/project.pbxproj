@@ -38,6 +38,8 @@
 		F5470C001C58768E000E2687 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BFA1C58768E000E2687 /* ParseUI.framework */; };
 		F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */; };
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
+		F559F6D01C82516B00C1D4A1 /* SpartaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */; };
+		F559F6D21C826C2800C1D4A1 /* SpartaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */; };
 		F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */; };
 		F574CE531C7380A30032203C /* map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F574CE521C7380A30032203C /* map.pdf */; };
 		F57BA33E1C288BB6000E0381 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */; };
@@ -121,6 +123,8 @@
 		F5470BFA1C58768E000E2687 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDeskViewController.swift; sourceTree = "<group>"; };
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
+		F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaLabel.swift; sourceTree = "<group>"; };
+		F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTextField.swift; sourceTree = "<group>"; };
 		F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCategoryViewTableViewController.swift; sourceTree = "<group>"; };
 		F574CE521C7380A30032203C /* map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = map.pdf; sourceTree = "<group>"; };
 		F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -220,6 +224,8 @@
 		F5373B841B327566007F508C /* SpartaHack II */ = {
 			isa = PBXGroup;
 			children = (
+				F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */,
+				F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */,
 				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
 				F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */,
@@ -526,6 +532,7 @@
 				F59A46671C7185DE005D21F1 /* MentorDetailTicketViewController.swift in Sources */,
 				F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */,
 				4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */,
+				F559F6D01C82516B00C1D4A1 /* SpartaLabel.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
 				F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
@@ -534,6 +541,7 @@
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
+				F559F6D21C826C2800C1D4A1 /* SpartaTextField.swift in Sources */,
 				F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */,
 				F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */,
 				F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */,

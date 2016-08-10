@@ -19,7 +19,7 @@ import BOZPongRefreshControl
 */
 class NewsCell: UITableViewCell {
     static let cellIdentifier = "cell"
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: SpartaLabel!
     @IBOutlet weak var detailLabel: KILabel!
 
 }
@@ -153,8 +153,8 @@ class NewsTableViewController: UITableViewController, ParseModelDelegate, ParseN
         }
         
         ///Set colors
-        cell.titleLabel.textColor = UIColor.whiteColor()
-        cell.titleLabel.backgroundColor = UIColor.spartaBlack()
+//        cell.titleLabel.textColor = UIColor.whiteColor()
+//        cell.titleLabel.backgroundColor = UIColor.spartaBlack()
         cell.detailLabel.backgroundColor = UIColor.spartaBlack()
         cell.contentView.backgroundColor = UIColor.spartaBlack()
     }
