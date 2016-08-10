@@ -51,7 +51,7 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
             tickets = results as! [NSManagedObject]
             self.tableView.reloadData()
             self.pongRefreshControl.finishedLoading()
-        } catch let error as NSError {1
+        } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
 
@@ -73,7 +73,7 @@ class MentorTicketsTableViewController: UITableViewController, ParseOpenTicketsD
     }
     
     override func viewDidLayoutSubviews() {
-        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: #selector(MentorTicketsTableViewController.refreshTriggered))
+        self.pongRefreshControl = BOZPongRefreshControl.attachToScrollView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
         self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
         self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
         

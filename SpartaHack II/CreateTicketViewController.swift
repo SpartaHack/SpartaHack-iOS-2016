@@ -16,9 +16,9 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     var platformOptions:[String] = []
     let pickerView = UIPickerView()
     
-    @IBOutlet weak var platformTextField: SpartaTextField!
-    @IBOutlet weak var subjectTextField: SpartaTextField!
-    @IBOutlet weak var locationTextField: SpartaTextField!
+    @IBOutlet weak var platformTextField: UITextField!
+    @IBOutlet weak var subjectTextField: UITextFieldLimit!
+    @IBOutlet weak var locationTextField: UITextFieldLimit!
     @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var createNewTicketButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -34,6 +34,9 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         
         pickerView.delegate = self
         platformTextField.inputView = pickerView
+        
+        subjectTextField.limit = 60
+        locationTextField.limit = 10
         
         ParseModel.sharedInstance.ticketDelegate = self
         self.descriptionTextField.delegate = self
@@ -61,9 +64,29 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.platformTextField.backgroundColor = UIColor.spartaBlack()
+        self.platformTextField.textColor = UIColor.whiteColor()
         self.platformTextField.attributedPlaceholder = NSAttributedString(string:"Platform", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.platformTextField.textColor = UIColor.spartaGreen()
+        self.platformTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.platformTextField.layer.cornerRadius = 4
+        self.platformTextField.layer.borderWidth = 1
+        
+        self.subjectTextField.backgroundColor = UIColor.spartaBlack()
+        self.subjectTextField.textColor = UIColor.whiteColor()
         self.subjectTextField.attributedPlaceholder = NSAttributedString(string:"Subject", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.subjectTextField.textColor = UIColor.spartaGreen()
+        self.subjectTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.subjectTextField.layer.cornerRadius = 4
+        self.subjectTextField.layer.borderWidth = 1
+        
+        self.locationTextField.backgroundColor = UIColor.spartaBlack()
+        self.locationTextField.textColor = UIColor.whiteColor()
         self.locationTextField.attributedPlaceholder = NSAttributedString(string:"Location", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
+        self.locationTextField.textColor = UIColor.spartaGreen()
+        self.locationTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.locationTextField.layer.cornerRadius = 4
+        self.locationTextField.layer.borderWidth = 1
         
         self.descriptionTextField.backgroundColor = UIColor.spartaBlack()
         self.descriptionTextField.textColor = UIColor.spartaGreen()
