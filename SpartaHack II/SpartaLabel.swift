@@ -12,8 +12,8 @@ import QuartzCore
 class SpartaLabel: UILabel {
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
-        self.textColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.clear
+        self.textColor = UIColor.white
     }
     
     override init(frame:CGRect) {

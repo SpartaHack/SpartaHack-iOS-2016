@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 class CheckInUserViewController: UIViewController {
 
@@ -23,88 +22,16 @@ class CheckInUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
-        
-        let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error:NSError?) -> Void in
-            if object != nil {
-                var name = ""
-                if let firstName = object!["firstName"] as? String {
-                    name += firstName
-                }
-                if let lastName = object!["lastName"] as? String {
-                    name += " \(lastName)"
-                }
-                self.nameLabel.text = "Name: \(name)"
-                let foodQuery = PFQuery(className: "RSVP")
-                foodQuery.whereKey("user", equalTo: object!)
-                foodQuery.getFirstObjectInBackgroundWithBlock({ (object:PFObject?, error:NSError?) -> Void in
-                    if error == nil {
-                        if let diets = object!["restrictions"] as? [String] {
-                            var dietString = ""
-                            for diet in diets {
-                                dietString += " \(diet)"
-                            }
-                            self.dietLabel.text = "Dietary Restriction: \(dietString)"
-                        }
-            
-                        if let shirt = object!["tshirt"] as? String {
-                            self.tshirtSizeLabel.text = "T-Shirt: \(shirt)"
-                        }
-                    } else {
-                        print("error")
-                    }
-                })
-                
-                // check ages of attendees
-                let appQuery = PFQuery(className: "Application")
-                appQuery.whereKey("user", equalTo: object!)
-                appQuery.getFirstObjectInBackgroundWithBlock({ (appObject:PFObject?, error:NSError?) -> Void in
-                    if error == nil {
-                        let bday = appObject!["birthday"]
-                        let bmonth = appObject!["birthmonth"]
-                        let byear = appObject!["birthyear"]
-                        let birthdate = NSDate(dateString:"\(byear)-\(bmonth)-\(bday)").timeIntervalSince1970*1000
-                        if NSDate(dateString: "2016-February-26").timeIntervalSince1970*1000 - birthdate < 568025136000  { // 18 years 18 years, got you for 18 years.
-                            self.minorLabel.text = "Minor: Yes"
-                        } else {
-                            self.minorLabel.text = "Minor: No"
-                        }
-                        
-                    } else {
-                        print("error")
-                    }
-                })
-                
-                
-                if let email = object!["email"] as? String {
-                    self.emailLabel.text = "Email: \(email)"
-                }
-                
-                let alreadyIn = PFQuery(className: "Attendance")
-                alreadyIn.whereKey("user", equalTo: object!)
-                alreadyIn.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
-                    if (objects?.count == 0) {
-                        // allow checkin
-                    } else {
-                        // show alert to dismiss view
-                        self.showAlert()
-                    }
-                }
-            } else {
-                print(error)
-            }
-        }
+
     }
     
     func showAlert() {
-        let alert = UIAlertController(title: "Error", message: "User is Already Checked in", preferredStyle: UIAlertControllerStyle.Alert)
-        let okayAction = UIAlertAction(title: "Ok", style: .Default) { (UIAlertAction) -> Void in
-            self.dismissViewControllerAnimated(true, completion: nil)
+        let alert = UIAlertController(title: "Error", message: "User is Already Checked in", preferredStyle: UIAlertControllerStyle.alert)
+        let okayAction = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) -> Void in
+            self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(okayAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,43 +39,13 @@ class CheckInUserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func acceptButtonTapped(sender: AnyObject) {
+    @IBAction func acceptButtonTapped(_ sender: AnyObject) {
     
-        let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(objectId) { (object: PFObject?, error:NSError?) -> Void in
-            if error == nil {
-                let applicationInfo = PFQuery(className: "Application")
-                applicationInfo.whereKey("user", equalTo: object!)
-                applicationInfo.getFirstObjectInBackgroundWithBlock({ (appObject:PFObject?, error:NSError?) -> Void in
-                    if error == nil {
-                        let rsvpInfo = PFQuery(className: "RSVP")
-                        rsvpInfo.whereKey("user", equalTo: object!)
-                        rsvpInfo.getFirstObjectInBackgroundWithBlock({ (rsvpObject:PFObject?, error:NSError?) -> Void in
-                            if error == nil {
-                                let checkin = PFObject(className: "Attendance")
-                                checkin["user"] = object!
-                                checkin["application"] = appObject!
-                                checkin["rsvp"] = rsvpObject!
-                                checkin.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
-                                    if success {
-                                        print("success")
-                                        self.dismissViewControllerAnimated(true, completion: nil)
-                                    } else {
-                                        print("error \(error)")
-                                    }
-                                }
-                            }
-                        })
-                    }
-                })
-            } else {
-                print(error)
-            }
-        }
+
     }
 
-    @IBAction func cancelButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 

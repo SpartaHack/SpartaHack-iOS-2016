@@ -15,16 +15,16 @@ class AwardsViewController: UIViewController {
     @IBOutlet weak var sponsorContainerView: UIView!
     @IBOutlet weak var awardSegmentButton: UISegmentedControl!
 
-    @IBAction func segmentedButtonsTapped(sender: AnyObject) {
+    @IBAction func segmentedButtonsTapped(_ sender: AnyObject) {
         switch awardSegmentButton.selectedSegmentIndex {
         case 0:
         //prizes
-            sponsorContainerView.hidden = true
-            prizesContainerView.hidden = false
+            sponsorContainerView.isHidden = true
+            prizesContainerView.isHidden = false
         default:
         //sponsors
-            sponsorContainerView.hidden = false
-            prizesContainerView.hidden = true
+            sponsorContainerView.isHidden = false
+            prizesContainerView.isHidden = true
         }
     }
     
@@ -33,7 +33,7 @@ class AwardsViewController: UIViewController {
         view.backgroundColor = UIColor.spartaBlack()
         // custom colors
         awardSegmentButton.tintColor = UIColor.spartaMutedGrey()
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.spartaGreen()], forState: UIControlState.Selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.spartaGreen()], for: UIControlState.selected)
         // Do any additional setup after loading the view.
     }
     

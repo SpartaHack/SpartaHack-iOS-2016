@@ -15,16 +15,16 @@ class GuideViewController: UIViewController {
     @IBOutlet weak var scheduleViewController: UIView!
     @IBOutlet weak var guideSegmentButton: UISegmentedControl!
     
-    @IBAction func didSwitchViewTapped(sender: AnyObject) {
+    @IBAction func didSwitchViewTapped(_ sender: AnyObject) {
         switch guideSegmentButton.selectedSegmentIndex {
         case 0:
             // Schedule View Controller
-            mapViewControllerContainer.hidden = true
-            scheduleViewController.hidden = false
+            mapViewControllerContainer.isHidden = true
+            scheduleViewController.isHidden = false
         default:
             // Map View Controller
-            mapViewControllerContainer.hidden = false
-            scheduleViewController.hidden = true
+            mapViewControllerContainer.isHidden = false
+            scheduleViewController.isHidden = true
         }
     }
     
@@ -33,7 +33,7 @@ class GuideViewController: UIViewController {
         view.backgroundColor = UIColor.spartaBlack()
         // add custom color
         guideSegmentButton.tintColor = UIColor.spartaMutedGrey()
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.spartaGreen()], forState: UIControlState.Selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.spartaGreen()], for: UIControlState.selected)
         // Do any additional setup after loading the view.
     }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 import ZXingObjC
 
 class ProfileViewController: UIViewController, LoginViewControllerDelegate {
@@ -20,7 +19,6 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     
-    var user = PFUser.currentUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,59 +26,21 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         
         // fix overrides 
         logoutButton.layer.borderWidth = 1
-        logoutButton.layer.borderColor = UIColor.spartaMutedGrey().CGColor
+        logoutButton.layer.borderColor = UIColor.spartaMutedGrey().cgColor
         logoutButton.layer.cornerRadius = 1
         logoutButton.tintColor = UIColor.spartaGreen()
         logoutButton.backgroundColor = UIColor.spartaBlack()
         profileView.backgroundColor = UIColor.spartaBlack()
         
-        self.scanButton.hidden = true
-        
-        let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(PFUser.currentUser()!.objectId!) { (object:PFObject?, error:NSError?) -> Void in
-            if error == nil {
-                let role = object!["role"] as! String
-                if role == "admin" || role == "volunteer" {
-                    self.scanButton.hidden = false
-                }
-                var name = ""
-                if let firstName = object!["firstName"] as? String {
-                    name += firstName
-                }
-                if let lastName = object!["lastName"] as? String {
-                    name += " \(lastName)"
-                }
-                self.userNameLabel.text = "Welcome: \(name)"
-            } else {
-                print("error \(error)")
-            }
-        }
+        self.scanButton.isHidden = true
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if PFUser.currentUser() == nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
-            vc.delegate = self
-            self.navigationController?.presentViewController(vc, animated: true, completion: nil)
-        } else {
-            // generate barcode for the user 
-            let generator = ZXMultiFormatWriter()
-            do {
-                let result = try generator.encode(PFUser.currentUser()!.objectId! , format: kBarcodeFormatCode128, width: 870, height: 354)
-                let image = ZXImage(matrix: result).cgimage
-                userBarCodeImageView.image = UIImage(CGImage: image)
-            } catch {
-                let error = error as NSError
-                print("\(error), \(error.userInfo)")
-            }
         }
-    }
     
-    func userSuccessfullyLoggedIn(result: Bool) {
+    func userSuccessfullyLoggedIn(_ result: Bool) {
         if !result {
-            self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }
 
@@ -89,23 +49,7 @@ class ProfileViewController: UIViewController, LoginViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func logoutButtonTapped(sender: AnyObject) {
-        PFUser.logOut()
-        let currentInstallation = PFInstallation.currentInstallation()
-        currentInstallation.removeObjectForKey("user")
-        currentInstallation.saveInBackgroundWithBlock { (succeeded, e) -> Void in
-            if succeeded {
-                print("logout successful")
-            }
-            if e != nil {
-                print(e)
-            }
-        }
-
-        self.navigationController?.popToRootViewControllerAnimated(true)
-        ParseModel.sharedInstance.deleteAllData("Ticket")
-    }
-
+   
     /*
     // MARK: - Navigation
 

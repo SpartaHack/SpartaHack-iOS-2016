@@ -5,7 +5,6 @@ use_frameworks!
 
 target 'SpartaHack 2016' do
 pod 'SDWebImage', '~>3.7'
-pod 'Parse'
 pod 'KILabel'
 pod 'ZXingObjC', '~> 3.0'
 pod 'BOZPongRefreshControl'

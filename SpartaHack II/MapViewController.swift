@@ -16,16 +16,16 @@ class MapViewController: UIViewController, UIWebViewDelegate {
 		// Do any additional setup after loading the view.
         webView.delegate = self
         
-		if let pdf = NSURL(string: "https://spartahack.com/map")  {
-			let req = NSURLRequest(URL: pdf)
+		if let pdf = URL(string: "https://spartahack.com/map")  {
+			let req = URLRequest(url: pdf)
 			webView.loadRequest(req)
 		}
     }
     
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        if let pdf = NSBundle.mainBundle().URLForResource("map", withExtension: "pdf", subdirectory: nil, localization: nil)  {
-            let req = NSURLRequest(URL: pdf)
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        if let pdf = Bundle.main.url(forResource: "map", withExtension: "pdf", subdirectory: nil, localization: nil)  {
+            let req = URLRequest(url: pdf)
             webView.loadRequest(req)
         }
     }

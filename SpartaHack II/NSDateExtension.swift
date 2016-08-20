@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension NSDate
+extension Date
 {
-    convenience
-    init(dateString:String) {
-        let dateStringFormatter = NSDateFormatter()
-        dateStringFormatter.dateFormat = "yyyy-MMMM-dd"
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        let d = dateStringFormatter.dateFromString(dateString)!
-        self.init(timeInterval:0, sinceDate:d)
-    }
+    
+//    init(dateString:String) {
+//        let dateStringFormatter = DateFormatter()
+//        dateStringFormatter.dateFormat = "yyyy-MMMM-dd"
+//        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+//        let d = dateStringFormatter.date(from: dateString)!
+//        (self as NSDate).type(of: init)(timeInterval:0, since:d)
+//    }
 }

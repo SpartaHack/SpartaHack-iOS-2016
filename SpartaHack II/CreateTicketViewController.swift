@@ -8,11 +8,11 @@
 
 import UIKit
 
-class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreateTicketViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     var topic = ""
     var topicObjId = ""
-    var listOfOptions = NSData()
+    var listOfOptions = Data()
     var platformOptions:[String] = []
     let pickerView = UIPickerView()
     
@@ -27,38 +27,37 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        platformOptions = (NSKeyedUnarchiver.unarchiveObjectWithData(listOfOptions) as? [String])!
+        platformOptions = (NSKeyedUnarchiver.unarchiveObject(with: listOfOptions) as? [String])!
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTicketViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTicketViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         pickerView.delegate = self
         platformTextField.inputView = pickerView
         
-        ParseModel.sharedInstance.ticketDelegate = self
         self.descriptionTextField.delegate = self
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return platformOptions.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return platformOptions[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         platformTextField.text = platformOptions[row]
     }
 
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.platformTextField.attributedPlaceholder = NSAttributedString(string:"Platform", attributes:[NSForegroundColorAttributeName: UIColor.spartaGreen()])
@@ -67,13 +66,13 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         
         self.descriptionTextField.backgroundColor = UIColor.spartaBlack()
         self.descriptionTextField.textColor = UIColor.spartaGreen()
-        self.descriptionTextField.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.descriptionTextField.layer.borderColor = UIColor.spartaGreen().cgColor
         self.descriptionTextField.layer.cornerRadius = 4
         self.descriptionTextField.layer.borderWidth = 1
         
         self.createNewTicketButton.backgroundColor = UIColor.spartaBlack()
         self.createNewTicketButton.tintColor = UIColor.spartaGreen()
-        self.createNewTicketButton.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.createNewTicketButton.layer.borderColor = UIColor.spartaGreen().cgColor
         self.createNewTicketButton.layer.cornerRadius = 4
         self.createNewTicketButton.layer.borderWidth = 2
     }
@@ -83,21 +82,21 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
         // Dispose of any resources that can be recreated.
     }
     
-    func didSubmitTicket(success: Bool) {
+    func didSubmitTicket(_ success: Bool) {
         if success {
-            self.navigationController?.popToRootViewControllerAnimated(true)
+//            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     
-    func textViewDidBeginEditing(textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         self.descriptionTextField.text = ""
     }
     
-    @IBAction func cancelButtonTapped(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
+//        self.navigationController?.popToRootViewController(animated: true)
     }
 
-    @IBAction func submitButtonTapped(sender: AnyObject) {
+    @IBAction func submitButtonTapped(_ sender: AnyObject) {
     
         guard subjectTextField.text != "" else {
             self.fieldError()
@@ -119,33 +118,28 @@ class CreateTicketViewController: UIViewController, ParseTicketDelegate, UITextV
             return
         }
         
-        ParseModel.sharedInstance.submitUserTicket(topicObjId,
-                subject: subjectTextField.text!,
-            description: descriptionTextField.text!,
-               location: locationTextField.text!,
-            subCategory: platformTextField.text!)
     }
     
     func fieldError () {
-        let alert = UIAlertController(title: "Error", message: "All fields are required", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok.", style: .Cancel, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Error", message: "All fields are required", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok.", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func keyboardWillShow(notification:NSNotification){
+    func keyboardWillShow(_ notification:Notification){
         
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        keyboardFrame = self.view.convertRect(keyboardFrame, fromView: nil)
+        var userInfo = (notification as NSNotification).userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height
         self.scrollView.contentInset = contentInset
     }
     
-    func keyboardWillHide(notification:NSNotification){
+    func keyboardWillHide(_ notification:Notification){
         
-        let contentInset:UIEdgeInsets = UIEdgeInsetsZero
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         self.scrollView.contentInset = contentInset
     }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 class MentorDetailTicketViewController: UIViewController {
 
@@ -23,21 +22,7 @@ class MentorDetailTicketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let userQuery = PFQuery(className: "_User")
-        userQuery.getObjectInBackgroundWithId(userName, block: { (object:PFObject?, error:NSError?) -> Void in
-            if error == nil {
-                if let firstName = object!["firstName"] as? String {
-                    if let lastName = object!["lastName"] as? String {
-                        let name = "\(firstName) \(lastName)"
-                        self.userNameLabel.text = "User's Name: \(name)"
-                    }
-                } else {
-                    self.userNameLabel.text = ""
-                }
-            }
-        })
-
+    
         
         self.locationLabel.text = "Location: \(location)"
         self.subjectLabel.text = "Subject: \(subject)"
@@ -57,7 +42,7 @@ class MentorDetailTicketViewController: UIViewController {
         
         self.detailTextView.layer.borderWidth = 1
         self.detailTextView.layer.cornerRadius = 4
-        self.detailTextView.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.detailTextView.layer.borderColor = UIColor.spartaGreen().cgColor
         
         
     }

@@ -11,7 +11,6 @@
 		489EAF0751CB058141A602E1 /* Pods_SpartaHack_2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
-		F52BC0EF1BF5360B0074870E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52BC0EE1BF5360B0074870E /* keys.plist */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
 		F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* NewsTableViewController.swift */; };
 		F5373B8F1B327566007F508C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5373B8D1B327566007F508C /* Main.storyboard */; };
@@ -29,7 +28,6 @@
 		F5373BC61B327604007F508C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC51B327604007F508C /* SystemConfiguration.framework */; };
 		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
-		F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */; };
 		F5470BFB1C58768E000E2687 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF51C58768D000E2687 /* Bolts.framework */; };
 		F5470BFC1C58768E000E2687 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF61C58768D000E2687 /* Parse.framework */; };
 		F5470BFD1C58768E000E2687 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF71C58768D000E2687 /* ParseFacebookUtils.framework */; };
@@ -58,7 +56,6 @@
 		F5CA4C9F1C684BBE00CDC37B /* Moondance.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */; };
 		F5CD8FB41C430D500077E1F9 /* CreateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */; };
 		F5DC9D111C65934500CF6FDB /* MentorTicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */; };
-		F5F5A0F41C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F5A0F21C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +89,6 @@
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
 		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
 		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
-		F52BC0EE1BF5360B0074870E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		F5373B821B327566007F508C /* SpartaHack 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5373B871B327566007F508C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +110,6 @@
 		F5373BC51B327604007F508C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseModel.swift; sourceTree = "<group>"; };
 		F5470BF51C58768D000E2687 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		F5470BF61C58768D000E2687 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		F5470BF71C58768D000E2687 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -145,7 +140,6 @@
 		F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Moondance.ttf; sourceTree = "<group>"; };
 		F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
 		F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorTicketsTableViewController.swift; sourceTree = "<group>"; };
-		F5F5A0F31C3A15A7003BA63D /* ParseCacheModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParseCacheModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +221,6 @@
 				F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */,
 				F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */,
 				F5373B871B327566007F508C /* AppDelegate.swift */,
-				F53D9FD81B40AA7B002BCA28 /* ParseModel.swift */,
 				F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */,
 				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
 				F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */,
@@ -249,9 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				F574CE521C7380A30032203C /* map.pdf */,
-				F5F5A0F21C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld */,
 				F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */,
-				F52BC0EE1BF5360B0074870E /* keys.plist */,
 				F57BA33F1C288BCC000E0381 /* libz.tbd */,
 				F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */,
 				F5373BC51B327604007F508C /* SystemConfiguration.framework */,
@@ -404,12 +395,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Chris McGrath";
 				TargetAttributes = {
 					F5373B811B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = V6R9L68573;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -419,6 +411,7 @@
 					F5373B981B327566007F508C = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = V6R9L68573;
+						LastSwiftMigration = 0800;
 						TestTargetID = F5373B811B327566007F508C;
 					};
 				};
@@ -447,7 +440,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F52BC0EF1BF5360B0074870E /* keys.plist in Resources */,
 				F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
@@ -520,11 +512,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
-				F53D9FD91B40AA7B002BCA28 /* ParseModel.swift in Sources */,
 				F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
 				F5CD8FB41C430D500077E1F9 /* CreateTicketViewController.swift in Sources */,
-				F5F5A0F41C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld in Sources */,
 				F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */,
@@ -599,8 +589,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher McGrath (V6R9L68573)";
@@ -625,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "cb8ba8ab-1876-47c0-b235-6e1558ebf8f3";
@@ -648,8 +640,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher McGrath (V6R9L68573)";
@@ -667,10 +661,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "cb8ba8ab-1876-47c0-b235-6e1558ebf8f3";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -691,6 +686,7 @@
 					II,
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -709,6 +705,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -727,6 +724,7 @@
 					II,
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -744,6 +742,7 @@
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -763,6 +762,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaHack 2016.app/SpartaHack 2016";
 			};
 			name = Debug;
@@ -779,6 +779,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chrismcgrath.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaHack 2016.app/SpartaHack 2016";
 			};
 			name = Release;
@@ -814,19 +815,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F5F5A0F21C3A15A7003BA63D /* ParseCacheModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F5F5A0F31C3A15A7003BA63D /* ParseCacheModel.xcdatamodel */,
-			);
-			currentVersion = F5F5A0F31C3A15A7003BA63D /* ParseCacheModel.xcdatamodel */;
-			path = ParseCacheModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F5373B7A1B327566007F508C /* Project object */;
 }

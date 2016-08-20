@@ -21,7 +21,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         // Get an instance of the AVCaptureDeviceInput class using the previous device object.
         do {
@@ -34,7 +34,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession?.addOutput(captureMetadataOutput)
             
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
                 AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
                 AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode]
@@ -51,16 +51,16 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        videoLayer?.frame = CGRectMake(0, 0, self.videoPreviewLayer.frame.width, self.videoPreviewLayer.frame.height)
+    override func viewDidAppear(_ animated: Bool) {
+        videoLayer?.frame = CGRect(x: 0, y: 0, width: self.videoPreviewLayer.frame.width, height: self.videoPreviewLayer.frame.height)
         videoPreviewLayer.layer.addSublayer(videoLayer!)
         
         // Start the green circle highlighter
         qrCodeFrameView = UIView()
-        qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
+        qrCodeFrameView?.layer.borderColor = UIColor.green.cgColor
         qrCodeFrameView?.layer.borderWidth = 3
         videoPreviewLayer.addSubview(qrCodeFrameView!)
-        videoPreviewLayer.bringSubviewToFront(qrCodeFrameView!)
+        videoPreviewLayer.bringSubview(toFront: qrCodeFrameView!)
         self.captureSession?.startRunning()
     }
     
@@ -69,10 +69,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRectZero
+            qrCodeFrameView?.frame = CGRect.zero
             messageLabel!.text = "Point at Code to Scan"
             return
         }
@@ -81,7 +81,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         if metadataObj.type == AVMetadataObjectTypeCode128Code {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoLayer?.transformedMetadataObjectForMetadataObject(metadataObj) as? AVMetadataMachineReadableCodeObject
+            let barCodeObject = videoLayer?.transformedMetadataObject(for: metadataObj) as? AVMetadataMachineReadableCodeObject
             qrCodeFrameView?.frame = barCodeObject!.bounds;
             if metadataObj.stringValue != nil {
                 messageLabel!.text = metadataObj.stringValue
@@ -92,34 +92,34 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
     }
     
-    func checkInUser (title:String) {
-        let alertController = UIAlertController(title: "Check-in?", message: title, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+    func checkInUser (_ title:String) {
+        let alertController = UIAlertController(title: "Check-in?", message: title, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             // cancelButton tapped
             self.captureSession?.startRunning()
         }
         
-        let checkinAction = UIAlertAction(title: "Check-In User", style: .Default) { (action) in
+        let checkinAction = UIAlertAction(title: "Check-In User", style: .default) { (action) in
             // check the user in
             print("Check-in!")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("checkInView") as! CheckInUserViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "checkInView") as! CheckInUserViewController
             vc.objectId = title
-            self.presentViewController(vc, animated: true, completion: nil)           
+            self.present(vc, animated: true, completion: nil)           
         }
         
         
         alertController.addAction(checkinAction)
         alertController.addAction(cancelAction)
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.presentViewController(alertController, animated: true) {
+        DispatchQueue.main.async { () -> Void in
+            self.present(alertController, animated: true) {
             }
         }
     }
 
-    @IBAction func closeButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

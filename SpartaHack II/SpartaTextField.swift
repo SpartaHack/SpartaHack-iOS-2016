@@ -13,9 +13,9 @@ class SpartaTextField: UITextField {
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)!
         self.backgroundColor = UIColor.spartaBlack()
-        self.textColor = UIColor.whiteColor()
+        self.textColor = UIColor.white
         self.textColor = UIColor.spartaGreen()
-        self.layer.borderColor = UIColor.spartaGreen().CGColor
+        self.layer.borderColor = UIColor.spartaGreen().cgColor
         self.layer.cornerRadius = 4
         self.layer.borderWidth = 1
     }

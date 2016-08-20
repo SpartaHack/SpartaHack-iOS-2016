@@ -7,34 +7,13 @@
 //
 
 import UIKit
-import Parse
-import CoreData
 
 let headerFontSize:CGFloat = 20;
 
-class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
+class RootTabBarViewController: UITabBarController {
 
-    var subjects = [NSManagedObject]()
     @IBOutlet weak var mentorButton: UIBarButtonItem!
     
-    func fetch (){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Mentor")
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            subjects = results as! [NSManagedObject]
-            if results.count < 1 {
-                mentorButton.enabled = false
-                mentorButton.tintColor = UIColor.spartaBlack()
-            } else {
-                mentorButton.enabled = true
-                mentorButton.tintColor = UIColor.spartaGreen()
-            }
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,72 +21,45 @@ class RootTabBarViewController: UITabBarController, ParseMentorDelegate {
         self.tabBar.backgroundColor = UIColor.spartaBlack()
         self.tabBar.barTintColor = UIColor.spartaBlack()
         
-        mentorButton.enabled = false
+        mentorButton.isEnabled = false
         mentorButton.tintColor = UIColor.spartaBlack()
         
-        ParseModel.sharedInstance.mentorDelegate = self
-        // Do any additional setup after loading the view.
         
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Moondance", size: 20)!, NSForegroundColorAttributeName: UIColor.spartaGreen()], forState: .Normal)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Moondance", size: 20)!, NSForegroundColorAttributeName: UIColor.spartaGreen()], for: UIControlState())
         
         
-        let label = UILabel(frame: CGRectMake(0,0,440,44))
-        label.backgroundColor = UIColor.clearColor()
-        label.textColor = UIColor.whiteColor()
+        let label = UILabel(frame: CGRect(x: 0,y: 0,width: 440,height: 44))
+        label.backgroundColor = UIColor.clear
+        label.textColor = UIColor.white
         label.numberOfLines = 1
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         label.font = UIFont(name: "Moondance", size: 20)
         label.adjustsFontSizeToFitWidth = true
         label.text = "< SPARTAHACK />"
         self.navigationController?.navigationBar.topItem?.titleView = label
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Moondance", size: 20)!]
-//        self.navigationController?.navigationBar.topItem?.
-//        self.navigationController?.navigationBar.topItem?.title = "< SPARTAHACK />"
+
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if PFUser.currentUser() == nil {
-            // hide the mentor button
-            mentorButton.enabled = false
-            mentorButton.tintColor = UIColor.spartaBlack()
-        } else {
-            ParseModel.sharedInstance.getMentorCategories()
-        }
-    }
+            }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    func didGetMentorCategories() {
-        self.fetch()
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func profileButtonTapped(sender: AnyObject) {
-        if PFUser.currentUser() == nil {
-            // load the login view
-            self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
-        } else {
-            // load the profile
-            self.navigationController?.performSegueWithIdentifier("profileSegue", sender: nil)
-        }
-    }
+    @IBAction func profileButtonTapped(_ sender: AnyObject) {
+            }
 
     
-    @IBAction func mentorshipButtonTapped(sender: AnyObject) {
-        if PFUser.currentUser() == nil {
-            // load the login view
-            self.navigationController?.performSegueWithIdentifier("loginSegue", sender: nil)
-        } else {
-            // load the profile
-            self.navigationController?.performSegueWithIdentifier("mentorTickets", sender: nil)
+    @IBAction func mentorshipButtonTapped(_ sender: AnyObject) {
         }
-    }
 }
