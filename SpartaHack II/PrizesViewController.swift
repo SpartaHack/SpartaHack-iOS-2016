@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BOZPongRefreshControl
 
 class PrizeCell: UITableViewCell {
     static let cellIdentifier = "prizeCell"
@@ -20,9 +19,6 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!    
     
-    var pongRefreshControl = BOZPongRefreshControl()
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +29,7 @@ class PrizesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.backgroundColor = UIColor.spartaBlack()
     }
 
-    override func viewDidLayoutSubviews() {
-        self.pongRefreshControl = BOZPongRefreshControl.attach(to: self.tableView, withRefreshTarget: self, andRefreshAction: #selector(PrizesViewController.refreshTriggered))
-        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
-        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
         
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.pongRefreshControl.scrollViewDidScroll()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.pongRefreshControl.scrollViewDidEndDragging()
-    }
-    
     func refreshTriggered() {
     }
     

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BOZPongRefreshControl
 
 class MentorTicketTableViewCell: UITableViewCell {
     static let cellIdentifier = "mentorTicketCell"
@@ -20,7 +19,6 @@ class MentorTicketTableViewCell: UITableViewCell {
 
 class MentorTicketsTableViewController: UITableViewController {
 
-    var pongRefreshControl = BOZPongRefreshControl()
     
 
     override func viewDidLoad() {
@@ -32,21 +30,7 @@ class MentorTicketsTableViewController: UITableViewController {
         
 
     }
-    
-    override func viewDidLayoutSubviews() {
-        self.pongRefreshControl = BOZPongRefreshControl.attach(to: self.tableView, withRefreshTarget: self, andRefreshAction: #selector(MentorTicketsTableViewController.refreshTriggered))
-        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
-        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
-        
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.pongRefreshControl.scrollViewDidScroll()
-    }
-    
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.pongRefreshControl.scrollViewDidEndDragging()
-    }
+
     
     func refreshTriggered() {
     }

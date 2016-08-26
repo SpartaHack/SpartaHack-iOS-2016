@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ZXingObjC
 
 class ProfileViewController: UIViewController, LoginViewControllerDelegate {
 

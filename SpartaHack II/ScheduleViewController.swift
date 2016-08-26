@@ -7,20 +7,16 @@
 //
 
 import UIKit
-import KILabel
-import BOZPongRefreshControl
 
 class ScheduleCell: UITableViewCell {
     static let cellIdentifier = "eventCell"
     @IBOutlet weak var eventTitleLabel: UILabel!
-    @IBOutlet weak var eventDescriptionLabel: KILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var eventLocationLabel: UILabel!
 }
 
 class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var pongRefreshControl = BOZPongRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -32,25 +28,6 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.backgroundColor = UIColor.spartaBlack()
 
     }
-
-    
-    override func viewDidLayoutSubviews() {
-        
-        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
-        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
-        
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.pongRefreshControl.scrollViewDidScroll()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.pongRefreshControl.scrollViewDidEndDragging()
-    }
-    
-
-
 
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

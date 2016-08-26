@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
-import BOZPongRefreshControl
 
 class SponsorCell: UITableViewCell {
 	static let cellIdentifier = "sponsorCell"
@@ -18,7 +16,6 @@ class SponsorCell: UITableViewCell {
 class SponsorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
-    var pongRefreshControl = BOZPongRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +26,7 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidLayoutSubviews() {
-        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
-        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
-        
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.pongRefreshControl.scrollViewDidScroll()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.pongRefreshControl.scrollViewDidEndDragging()
-    }
+
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: SponsorCell.cellIdentifier, for: indexPath) as! SponsorCell

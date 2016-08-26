@@ -74,26 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("failed to register for remote notifications:  \(error)")
     }
     
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : Any]) {
-//        print("Push contents \(userInfo)")
-//
-//    }
-//    
-//    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : Any], withResponseInfo responseInfo: [NSObject : Any], completionHandler: () -> Void) {
-//        
-//        print("notification??? \(userInfo)")
-//        
-//        if identifier == "EXTEND" {
-//            print("Extending alert")
-//        }
-//        
-//        if identifier == "CANCEL" {
-//            print("closing ticket")
-//        }
-//        
-//        
-//        completionHandler()
-//    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

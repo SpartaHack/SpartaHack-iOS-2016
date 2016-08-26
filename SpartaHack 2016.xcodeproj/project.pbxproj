@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331AB8D1C79040C00424B12 /* NSDateExtension.swift */; };
-		489EAF0751CB058141A602E1 /* Pods_SpartaHack_2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
@@ -21,27 +20,15 @@
 		F5373BB81B3275C9007F508C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BB71B3275C9007F508C /* CFNetwork.framework */; };
 		F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BB91B3275D1007F508C /* CoreGraphics.framework */; };
 		F5373BBC1B3275DA007F508C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBB1B3275DA007F508C /* CoreLocation.framework */; };
-		F5373BBE1B3275E1007F508C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBD1B3275E1007F508C /* MobileCoreServices.framework */; };
 		F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBF1B3275E9007F508C /* QuartzCore.framework */; };
-		F5373BC21B3275F1007F508C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC11B3275F1007F508C /* Security.framework */; };
-		F5373BC41B3275F9007F508C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC31B3275F9007F508C /* StoreKit.framework */; };
-		F5373BC61B327604007F508C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BC51B327604007F508C /* SystemConfiguration.framework */; };
 		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
-		F5470BFB1C58768E000E2687 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF51C58768D000E2687 /* Bolts.framework */; };
-		F5470BFC1C58768E000E2687 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF61C58768D000E2687 /* Parse.framework */; };
-		F5470BFD1C58768E000E2687 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF71C58768D000E2687 /* ParseFacebookUtils.framework */; };
-		F5470BFE1C58768E000E2687 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF81C58768D000E2687 /* ParseFacebookUtilsV4.framework */; };
-		F5470BFF1C58768E000E2687 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BF91C58768D000E2687 /* ParseTwitterUtils.framework */; };
-		F5470C001C58768E000E2687 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5470BFA1C58768E000E2687 /* ParseUI.framework */; };
 		F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */; };
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
 		F559F6D01C82516B00C1D4A1 /* SpartaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */; };
 		F559F6D21C826C2800C1D4A1 /* SpartaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */; };
 		F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */; };
 		F574CE531C7380A30032203C /* map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F574CE521C7380A30032203C /* map.pdf */; };
-		F57BA33E1C288BB6000E0381 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */; };
-		F57BA3401C288BCC000E0381 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F57BA33F1C288BCC000E0381 /* libz.tbd */; };
 		F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */; };
 		F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2341C2DE25F00F1512D /* MapViewController.swift */; };
 		F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2361C2DE27100F1512D /* ScheduleViewController.swift */; };
@@ -68,24 +55,8 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		F5F792D11BAC7B18008C1D51 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		0EFB0FF51496D9DB7980D069 /* Pods-SpartaHack 2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaHack 2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016.release.xcconfig"; sourceTree = "<group>"; };
 		4331AB8D1C79040C00424B12 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
-		8C5A9D8C7F9E6042BEEA828E /* Pods-SpartaHack 2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaHack 2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016.debug.xcconfig"; sourceTree = "<group>"; };
-		B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpartaHack_2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
 		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
 		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
@@ -106,16 +77,9 @@
 		F5373BBD1B3275E1007F508C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F5373BBF1B3275E9007F508C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F5373BC11B3275F1007F508C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		F5373BC31B3275F9007F508C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F5373BC51B327604007F508C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		F5470BF51C58768D000E2687 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		F5470BF61C58768D000E2687 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		F5470BF71C58768D000E2687 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		F5470BF81C58768D000E2687 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		F5470BF91C58768D000E2687 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		F5470BFA1C58768E000E2687 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDeskViewController.swift; sourceTree = "<group>"; };
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
 		F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaLabel.swift; sourceTree = "<group>"; };
@@ -147,24 +111,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5470BFD1C58768E000E2687 /* ParseFacebookUtils.framework in Frameworks */,
-				F57BA3401C288BCC000E0381 /* libz.tbd in Frameworks */,
-				F57BA33E1C288BB6000E0381 /* libsqlite3.tbd in Frameworks */,
-				F5373BC61B327604007F508C /* SystemConfiguration.framework in Frameworks */,
-				F5470BFB1C58768E000E2687 /* Bolts.framework in Frameworks */,
-				F5373BC41B3275F9007F508C /* StoreKit.framework in Frameworks */,
-				F5470BFF1C58768E000E2687 /* ParseTwitterUtils.framework in Frameworks */,
-				F5373BC21B3275F1007F508C /* Security.framework in Frameworks */,
-				F5470BFC1C58768E000E2687 /* Parse.framework in Frameworks */,
-				F5470C001C58768E000E2687 /* ParseUI.framework in Frameworks */,
 				F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */,
-				F5373BBE1B3275E1007F508C /* MobileCoreServices.framework in Frameworks */,
 				F5373BBC1B3275DA007F508C /* CoreLocation.framework in Frameworks */,
 				F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */,
 				F5373BB81B3275C9007F508C /* CFNetwork.framework in Frameworks */,
 				F5373BB61B3275C0007F508C /* AudioToolbox.framework in Frameworks */,
-				F5470BFE1C58768E000E2687 /* ParseFacebookUtilsV4.framework in Frameworks */,
-				489EAF0751CB058141A602E1 /* Pods_SpartaHack_2016.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,31 +129,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5848F4D493EC6DC74BD2FF29 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B637610DBEB61B49C3BE2560 /* Pods_SpartaHack_2016.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		869E7B5CC8911C0382404B77 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8C5A9D8C7F9E6042BEEA828E /* Pods-SpartaHack 2016.debug.xcconfig */,
-				0EFB0FF51496D9DB7980D069 /* Pods-SpartaHack 2016.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F5373B791B327566007F508C = {
 			isa = PBXGroup;
 			children = (
 				F5373B841B327566007F508C /* SpartaHack II */,
 				F5373B9C1B327566007F508C /* SpartaHack IITests */,
 				F5373B831B327566007F508C /* Products */,
-				869E7B5CC8911C0382404B77 /* Pods */,
-				5848F4D493EC6DC74BD2FF29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,7 +178,6 @@
 				F57BA33F1C288BCC000E0381 /* libz.tbd */,
 				F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */,
 				F5373BC51B327604007F508C /* SystemConfiguration.framework */,
-				F5373BC31B3275F9007F508C /* StoreKit.framework */,
 				F5373BC11B3275F1007F508C /* Security.framework */,
 				F5373BBF1B3275E9007F508C /* QuartzCore.framework */,
 				F5373BBD1B3275E1007F508C /* MobileCoreServices.framework */,
@@ -254,7 +185,6 @@
 				F5373BB91B3275D1007F508C /* CoreGraphics.framework */,
 				F5373BB71B3275C9007F508C /* CFNetwork.framework */,
 				F5373BB51B3275C0007F508C /* AudioToolbox.framework */,
-				F5373BCB1B327621007F508C /* Parse */,
 				F5373B861B327566007F508C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -275,19 +205,6 @@
 				F5373B9E1B327566007F508C /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F5373BCB1B327621007F508C /* Parse */ = {
-			isa = PBXGroup;
-			children = (
-				F5470BF51C58768D000E2687 /* Bolts.framework */,
-				F5470BF61C58768D000E2687 /* Parse.framework */,
-				F5470BF71C58768D000E2687 /* ParseFacebookUtils.framework */,
-				F5470BF81C58768D000E2687 /* ParseFacebookUtilsV4.framework */,
-				F5470BF91C58768D000E2687 /* ParseTwitterUtils.framework */,
-				F5470BFA1C58768E000E2687 /* ParseUI.framework */,
-			);
-			name = Parse;
 			sourceTree = "<group>";
 		};
 		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
@@ -353,13 +270,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5373BA31B327566007F508C /* Build configuration list for PBXNativeTarget "SpartaHack 2016" */;
 			buildPhases = (
-				A6E4B6F8C692AB545F38DE78 /* Check Pods Manifest.lock */,
 				F5373B7E1B327566007F508C /* Sources */,
 				F5373B7F1B327566007F508C /* Frameworks */,
 				F5373B801B327566007F508C /* Resources */,
-				F5F792D11BAC7B18008C1D51 /* Embed Watch Content */,
-				08B08171CBD25613844A559E /* Embed Pods Frameworks */,
-				E8E379FD37E5AF7582885317 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -403,6 +316,9 @@
 						DevelopmentTeam = V6R9L68573;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -457,54 +373,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		08B08171CBD25613844A559E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6E4B6F8C692AB545F38DE78 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E8E379FD37E5AF7582885317 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpartaHack 2016/Pods-SpartaHack 2016-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F5373B7E1B327566007F508C /* Sources */ = {
@@ -673,7 +541,6 @@
 		};
 		F5373BA41B327566007F508C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C5A9D8C7F9E6042BEEA828E /* Pods-SpartaHack 2016.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -687,20 +554,9 @@
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					"\"Bolts\"",
-					"-framework",
-					"\"KILabel\"",
-					"-framework",
-					"\"Parse\"",
-					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
-					"\"ZXingObjC\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2017;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";
@@ -711,7 +567,6 @@
 		};
 		F5373BA51B327566007F508C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EFB0FF51496D9DB7980D069 /* Pods-SpartaHack 2016.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -725,20 +580,9 @@
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					"\"Bolts\"",
-					"-framework",
-					"\"KILabel\"",
-					"-framework",
-					"\"Parse\"",
-					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
-					"\"ZXingObjC\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2016;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2017;
 				PRODUCT_NAME = "SpartaHack 2016";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartaHack II/SpartaHack 2016-Bridging-Header.h";

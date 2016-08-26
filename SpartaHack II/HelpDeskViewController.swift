@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BOZPongRefreshControl
 
 
 class helpDeskCell: UITableViewCell {
@@ -24,29 +23,9 @@ class HelpDeskTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createTicketButton: UIButton!
     
-    var pongRefreshControl = BOZPongRefreshControl()
     
     let helpRefreshControl = UIRefreshControl()
     
-    
-
-
-    
-    
-    override func viewDidLayoutSubviews() {
-        self.pongRefreshControl = BOZPongRefreshControl.attach(to: self.tableView, withRefreshTarget: self, andRefreshAction: #selector(HelpDeskTableViewController.refreshTriggered))
-        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
-        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
-        
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.pongRefreshControl.scrollViewDidScroll()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.pongRefreshControl.scrollViewDidEndDragging()
-    }
     
     func refreshTriggered() {
 

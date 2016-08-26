@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import KILabel
-import MessageUI
-import BOZPongRefreshControl
 
 /* 
     Declaring more than one class in a file is sometimes considered a bit unorthodox
@@ -18,13 +15,11 @@ import BOZPongRefreshControl
 class NewsCell: UITableViewCell {
     static let cellIdentifier = "cell"
     @IBOutlet weak var titleLabel: SpartaLabel!
-    @IBOutlet weak var detailLabel: KILabel!
 
 }
 
 class NewsTableViewController: UITableViewController  {
 
-    var pongRefreshControl = BOZPongRefreshControl()
     
 
     
@@ -40,21 +35,7 @@ class NewsTableViewController: UITableViewController  {
         
     }
     
-    override func viewDidLayoutSubviews() {
-//        self.pongRefreshControl = BOZPongRefreshControl.attach(to: self.tableView, withRefreshTarget: self, andRefreshAction: #selector(NewsTableViewController.refreshTriggered))
-        self.pongRefreshControl.backgroundColor = UIColor.spartaBlack()
-        self.pongRefreshControl.foregroundColor = UIColor.spartaGreen()
-
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.pongRefreshControl.scrollViewDidScroll()
-    }
-    
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.pongRefreshControl.scrollViewDidEndDragging()
-    }
-    
+  
 
     
     override func viewDidAppear(_ animated: Bool) {
