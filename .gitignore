@@ -2,5 +2,5 @@ keys.plist
 .DS_Store
 Source/Application.h
 *.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata
+*.xcodeproj/project.pbxproj
+*.xcodeproj/xcshareddata

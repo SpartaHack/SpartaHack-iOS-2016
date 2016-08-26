@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331AB8D1C79040C00424B12 /* NSDateExtension.swift */; };
+		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		4331AB8D1C79040C00424B12 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
 		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
 		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */,
 				F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */,
 				F5373BBC1B3275DA007F508C /* CoreLocation.framework in Frameworks */,
 				F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */,
@@ -129,12 +132,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5046D0E1D6FCBD3004A9898 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F5373B791B327566007F508C = {
 			isa = PBXGroup;
 			children = (
 				F5373B841B327566007F508C /* SpartaHack II */,
 				F5373B9C1B327566007F508C /* SpartaHack IITests */,
 				F5373B831B327566007F508C /* Products */,
+				F5046D0E1D6FCBD3004A9898 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,7 +332,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -542,10 +554,12 @@
 		F5373BA41B327566007F508C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = V6R9L68573;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpartaHack\\ II/",
@@ -554,7 +568,7 @@
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2017;
 				PRODUCT_NAME = "SpartaHack 2016";
@@ -568,10 +582,12 @@
 		F5373BA51B327566007F508C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = V6R9L68573;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpartaHack\\ II/",
@@ -580,7 +596,7 @@
 				);
 				INFOPLIST_FILE = "SpartaHack II/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartahack.spartahack2017;
 				PRODUCT_NAME = "SpartaHack 2016";
