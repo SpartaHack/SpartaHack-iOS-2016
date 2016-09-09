@@ -5,3 +5,4 @@ Source/Application.h
 *.xcodeproj/project.pbxproj
 *.xcodeproj/xcshareddata
 *.xcuserstate
+*xcuserdata/*
