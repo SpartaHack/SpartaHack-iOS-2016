@@ -10,6 +10,21 @@
 		4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331AB8D1C79040C00424B12 /* NSDateExtension.swift */; };
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
+		F51382B11DA6C154008F1FCE /* AnnouncementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B01DA6C154008F1FCE /* AnnouncementsTableViewCell.xib */; };
+		F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */; };
+		F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */; };
+		F51382BA1DA6C405008F1FCE /* MapWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B91DA6C405008F1FCE /* MapWebView.xib */; };
+		F51382BD1DA6C48E008F1FCE /* SponsorsCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382BC1DA6C48E008F1FCE /* SponsorsCollectionView.xib */; };
+		F51382BF1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382BE1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib */; };
+		F51382C21DA6C596008F1FCE /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C11DA6C596008F1FCE /* LoginView.xib */; };
+		F51382C41DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C31DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib */; };
+		F51382C61DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C51DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib */; };
+		F51382C81DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C71DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib */; };
+		F51382CB1DA6C634008F1FCE /* CheckinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CA1DA6C634008F1FCE /* CheckinView.xib */; };
+		F51382CE1DA6C688008F1FCE /* ProfileTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CD1DA6C688008F1FCE /* ProfileTableView.xib */; };
+		F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */; };
+		F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */; };
+		F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */; };
 		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
 		F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* NewsTableViewController.swift */; };
@@ -61,6 +76,21 @@
 		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
 		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
+		F51382B01DA6C154008F1FCE /* AnnouncementsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementsTableViewCell.xib; sourceTree = "<group>"; };
+		F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrizesTableViewCell.xib; sourceTree = "<group>"; };
+		F51382B91DA6C405008F1FCE /* MapWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapWebView.xib; sourceTree = "<group>"; };
+		F51382BC1DA6C48E008F1FCE /* SponsorsCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsCollectionView.xib; sourceTree = "<group>"; };
+		F51382BE1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsCollectionViewCell.xib; sourceTree = "<group>"; };
+		F51382C11DA6C596008F1FCE /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		F51382C31DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginTitleTableViewCell.xib; sourceTree = "<group>"; };
+		F51382C51DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		F51382C71DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginButtonTableViewCell.xib; sourceTree = "<group>"; };
+		F51382CA1DA6C634008F1FCE /* CheckinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinView.xib; sourceTree = "<group>"; };
+		F51382CD1DA6C688008F1FCE /* ProfileTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableView.xib; sourceTree = "<group>"; };
+		F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
+		F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePictureCell.xib; sourceTree = "<group>"; };
+		F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileInfoCell.xib; sourceTree = "<group>"; };
 		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		F5373B821B327566007F508C /* SpartaHack 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +170,94 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F51382AE1DA6C019008F1FCE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
+				F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */,
+				F51382AF1DA6C024008F1FCE /* Announcements */,
+				F51382B21DA6C25A008F1FCE /* Schedule */,
+				F51382B51DA6C33D008F1FCE /* Prizes */,
+				F51382B81DA6C3D3008F1FCE /* Map */,
+				F51382BB1DA6C457008F1FCE /* Sponsors */,
+				F51382C01DA6C4D3008F1FCE /* Login */,
+				F51382CC1DA6C65B008F1FCE /* Profile */,
+				F51382C91DA6C617008F1FCE /* Checkin */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F51382AF1DA6C024008F1FCE /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				F51382B01DA6C154008F1FCE /* AnnouncementsTableViewCell.xib */,
+			);
+			name = Announcements;
+			sourceTree = "<group>";
+		};
+		F51382B21DA6C25A008F1FCE /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		F51382B51DA6C33D008F1FCE /* Prizes */ = {
+			isa = PBXGroup;
+			children = (
+				F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */,
+			);
+			name = Prizes;
+			sourceTree = "<group>";
+		};
+		F51382B81DA6C3D3008F1FCE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F51382B91DA6C405008F1FCE /* MapWebView.xib */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		F51382BB1DA6C457008F1FCE /* Sponsors */ = {
+			isa = PBXGroup;
+			children = (
+				F51382BC1DA6C48E008F1FCE /* SponsorsCollectionView.xib */,
+				F51382BE1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib */,
+			);
+			name = Sponsors;
+			sourceTree = "<group>";
+		};
+		F51382C01DA6C4D3008F1FCE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F51382C11DA6C596008F1FCE /* LoginView.xib */,
+				F51382C31DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib */,
+				F51382C51DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib */,
+				F51382C71DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		F51382C91DA6C617008F1FCE /* Checkin */ = {
+			isa = PBXGroup;
+			children = (
+				F51382CA1DA6C634008F1FCE /* CheckinView.xib */,
+			);
+			name = Checkin;
+			sourceTree = "<group>";
+		};
+		F51382CC1DA6C65B008F1FCE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F51382CD1DA6C688008F1FCE /* ProfileTableView.xib */,
+				F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */,
+				F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */,
+				F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		F5373B791B327566007F508C = {
 			isa = PBXGroup;
 			children = (
@@ -166,11 +284,10 @@
 				F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */,
 				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */,
-				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
-				F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */,
 				F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */,
 				F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
+				F51382AE1DA6C019008F1FCE /* Views */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B921B327566007F508C /* LaunchScreen.xib */,
@@ -368,12 +485,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */,
 				F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */,
+				F51382C41DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib in Resources */,
+				F51382C21DA6C596008F1FCE /* LoginView.xib in Resources */,
+				F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
+				F51382C81DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
+				F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */,
+				F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */,
+				F51382C61DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
+				F51382BF1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib in Resources */,
+				F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */,
+				F51382BA1DA6C405008F1FCE /* MapWebView.xib in Resources */,
 				F574CE531C7380A30032203C /* map.pdf in Resources */,
+				F51382CB1DA6C634008F1FCE /* CheckinView.xib in Resources */,
+				F51382CE1DA6C688008F1FCE /* ProfileTableView.xib in Resources */,
 				F5CA4C9F1C684BBE00CDC37B /* Moondance.ttf in Resources */,
+				F51382BD1DA6C48E008F1FCE /* SponsorsCollectionView.xib in Resources */,
+				F51382B11DA6C154008F1FCE /* AnnouncementsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
