@@ -25,8 +25,6 @@
 		F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */; };
 		F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */; };
 		F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */; };
-		F51382D61DA6C799008F1FCE /* SpartaHackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51382D51DA6C799008F1FCE /* SpartaHackTableViewCell.swift */; };
-		F51382D81DA6C899008F1FCE /* SpartaHackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51382D71DA6C899008F1FCE /* SpartaHackView.swift */; };
 		F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
 		F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* NewsTableViewController.swift */; };
@@ -93,8 +91,6 @@
 		F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
 		F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePictureCell.xib; sourceTree = "<group>"; };
 		F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileInfoCell.xib; sourceTree = "<group>"; };
-		F51382D51DA6C799008F1FCE /* SpartaHackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaHackTableViewCell.swift; sourceTree = "<group>"; };
-		F51382D71DA6C899008F1FCE /* SpartaHackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaHackView.swift; sourceTree = "<group>"; };
 		F52A15BB1C3F0DE90090ECD6 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		F5373B821B327566007F508C /* SpartaHack 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,8 +175,6 @@
 			children = (
 				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
 				F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */,
-				F51382D71DA6C899008F1FCE /* SpartaHackView.swift */,
-				F51382D51DA6C799008F1FCE /* SpartaHackTableViewCell.swift */,
 				F51382AF1DA6C024008F1FCE /* Announcements */,
 				F51382B21DA6C25A008F1FCE /* Schedule */,
 				F51382B51DA6C33D008F1FCE /* Prizes */,
@@ -545,7 +539,6 @@
 				F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
 				F5DC9D111C65934500CF6FDB /* MentorTicketsTableViewController.swift in Sources */,
-				F51382D81DA6C899008F1FCE /* SpartaHackView.swift in Sources */,
 				F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
@@ -554,7 +547,6 @@
 				F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */,
 				F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */,
 				F5373B8A1B327566007F508C /* NewsTableViewController.swift in Sources */,
-				F51382D61DA6C799008F1FCE /* SpartaHackTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
