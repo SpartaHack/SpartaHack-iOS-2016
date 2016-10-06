@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-PB-sRe">
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jsv-PB-sRe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1Lv-eb-WoC"/>
+                <constraint firstItem="jsv-PB-sRe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FYL-ra-fqf"/>
+                <constraint firstAttribute="bottom" secondItem="jsv-PB-sRe" secondAttribute="bottom" id="RNa-X7-z1L"/>
+                <constraint firstItem="jsv-PB-sRe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="iU4-Sq-9EY"/>
+                <constraint firstItem="jsv-PB-sRe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tSE-ho-8YH"/>
+                <constraint firstAttribute="trailing" secondItem="jsv-PB-sRe" secondAttribute="trailing" id="xDn-rS-JTd"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
