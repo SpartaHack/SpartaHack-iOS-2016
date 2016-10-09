@@ -6,6 +6,9 @@
 //  Copyright © 2015 Chris McGrath. All rights reserved.
 //
 
+// MARK: THIS IS A WIP!
+// TODO: We will figure out the collection view layout later. Right now I just want to create all the views.
+
 import UIKit
 
 class SponsorCell: UITableViewCell {

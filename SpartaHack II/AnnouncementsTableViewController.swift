@@ -1,18 +1,18 @@
 //
-//  ScheduleViewController.swift
+//  AnnouncementsTableViewController.swift
 //  SpartaHack II
 //
-//  Created by Chris McGrath on 12/25/15.
-//  Copyright © 2015 Chris McGrath. All rights reserved.
+//  Created by Chris McGrath on 6/17/15.
+//  Copyright (c) 2015 Chris McGrath. All rights reserved.
 //
 
 import UIKit
 
-class ScheduleTableViewCell: UITableViewCell {
+class AnnouncementsTableViewCell: UITableViewCell {
     @IBOutlet weak var placeholderLabel: UILabel!
 }
 
-class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AnnouncementsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var tableView: UITableView = UITableView()
     
@@ -35,8 +35,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let cellNib = UINib(nibName: "ScheduleTableViewCell", bundle: bundle)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "scheduleCell")
+        let cellNib = UINib(nibName: "AnnouncementsTableViewCell", bundle: bundle)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "announcementsCell")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 140
@@ -45,44 +45,40 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         self.view.addSubview(self.tableView)
         
     }
-
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        // TODO: scrolling changes
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "announcementsCell") as! AnnouncementsTableViewCell
         
-        cell.placeholderLabel.text = "Schedule Cell blah blah blah"
-        cell.placeholderLabel.textColor = UIColor(white: 114/255, alpha: 1)
+        cell.placeholderLabel.text = "Announcements Cell blah blah blah"
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Use real data instead of hardcoded 5.
-        return 3
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // TODO: Chris may want to implement these like last year?
-//        switch section{
-//        case 0:
-//            return "Friday"
-//        case 1:
-//            return "Saturday"
-//        case 2:
-//            return "Sunday"
-//        default:
-//            return "error"
-//        }
-        return ""
+        switch section{
+        case 0:
+            return "Pinned Announcements"
+        default:
+            return "Announcements"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 3
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO: Use real data instead of hardcoded 3.
-        return 3
+        
+        return 2
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,3 +90,4 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
 }
+
