@@ -16,11 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        UINavigationBar.appearance().barTintColor = UIColor.spartaBlack()
-        UINavigationBar.appearance().tintColor = UIColor.spartaGreen()
-        UINavigationBar.appearance().barStyle = .black       
+        UINavigationBar.appearance().barTintColor = Theme.darkBrown
+        UINavigationBar.appearance().tintColor = Theme.white
+        UINavigationBar.appearance().barStyle = .black
 
-        
         // Set up push notification buttons
         
         // Actions
@@ -39,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         secondAction.activationMode = UIUserNotificationActivationMode.foreground
         secondAction.isDestructive = false
         secondAction.isAuthenticationRequired = false
-        
         
         // category
         
@@ -61,7 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.registerUserNotificationSettings(settings)
         UIApplication.shared.registerForRemoteNotifications()
         
-
+        let rootView = SpartaTabBarViewController()
+        
+        if let window = self.window{
+            window.rootViewController = rootView
+        }
                 
         return true
     }

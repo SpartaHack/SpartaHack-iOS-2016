@@ -13,13 +13,16 @@ class MapViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
-        webView.delegate = self
         
-		if let pdf = URL(string: "https://spartahack.com/map")  {
-			let req = URLRequest(url: pdf)
-			webView.loadRequest(req)
-		}
+        // TODO: Set up the PDF viewer to work with laste year's map
+        
+		// Do any additional setup after loading the view.
+//        webView.delegate = self
+//        
+//		if let pdf = URL(string: "https://spartahack.com/map")  {
+//			let req = URLRequest(url: pdf)
+//			webView.loadRequest(req)
+//		}
     }
     
     
