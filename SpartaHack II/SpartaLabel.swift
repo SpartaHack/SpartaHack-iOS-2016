@@ -13,7 +13,7 @@ class SpartaLabel: UILabel {
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)!
         self.backgroundColor = UIColor.clear
-        self.textColor = UIColor.white
+        self.textColor = Theme.darkGold
     }
     
     override init(frame:CGRect) {

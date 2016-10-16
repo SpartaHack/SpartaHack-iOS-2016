@@ -12,12 +12,14 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+        
+//        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Arial", size: 20)!, NSForegroundColorAttributeName: Theme.darkBrown], for: UIControlState())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let item1 = AnnouncementsTableViewController()
-        let icon1 = UITabBarItem(title: "Annoucements", image: nil, selectedImage: nil)
+        let icon1 = UITabBarItem(title: "Announcements", image: nil, selectedImage: nil)
         item1.tabBarItem = icon1
         
         let item2 = ScheduleViewController()

@@ -22,7 +22,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let bundle = Bundle(for: type(of: self))
         
         // TODO: Possilby have the root view controller pass in the rect to use.
-        let topHeight: CGFloat = 50.0
+        let topHeight: CGFloat = 0.0
         
         var availableBounds = self.view.bounds
         
@@ -46,6 +46,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.parent?.navigationItem.title = "Schedule"
+    }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         // TODO: scrolling changes

@@ -9,12 +9,21 @@
 import UIKit
 
 class AnnouncementsTableViewCell: UITableViewCell {
-    @IBOutlet weak var placeholderLabel: UILabel!
+    @IBOutlet weak var titleLabel: SpartaLabel!
+    @IBOutlet weak var detailLabel: SpartaLabel!
 }
 
 class AnnouncementsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var tableView: UITableView = UITableView()
+    
+    let dummyAnnouncements = [
+        ["Covisint Drone Winner", "Congratulations NI Yao; your submission is the winner of Covisnit's Phantom 3 Drone. Thanks for participating! Reach out at hello@spartahack.com to claim :)"],
+        ["Buses", "All three buses are here outside the West A Wing! Raid the snack room and have a safe trip home :D"],
+        ["UM bus is here!", "Bus to the University of Michigan is here! outside the West A Wing entrance (spartahack.com/map)"],
+        ["Closing ceremony!", "Everyone head to B115! Let's give out some prizes :D"],
+        ["Top Ten!", "Come to A126: MUSEic, Quizlexa, wake, NutriCam, Employifai, Sir Mix-A-Drink, The Alumi-Moti, We'll Come Back to this Later, Browsvr, Remember"]
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +31,7 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
         let bundle = Bundle(for: type(of: self))
         
         // TODO: Possilby have the root view controller pass in the rect to use.
-        let topHeight: CGFloat = 50.0
+        let topHeight: CGFloat = 0.0
         
         var availableBounds = self.view.bounds
         
@@ -47,20 +56,26 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)       
+        super.viewDidAppear(animated)
+        self.parent?.navigationItem.title = "Announcements"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "announcementsCell") as! AnnouncementsTableViewCell
         
-        cell.placeholderLabel.text = "Announcements Cell blah blah blah"
+        let randomIndex = Int(arc4random_uniform(UInt32(self.dummyAnnouncements.count)))
+        let dummyAnnouncement = self.dummyAnnouncements[randomIndex]
+        cell.titleLabel.text = dummyAnnouncement[0]
+        cell.detailLabel.text = dummyAnnouncement[1]
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        
-    }
+    //func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //    let headerView = UIView()
+    //    headerView.backgroundColor = Theme.lightGold
+    //    return headerView
+    //}
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
