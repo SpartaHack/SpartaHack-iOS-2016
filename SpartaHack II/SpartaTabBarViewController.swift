@@ -12,8 +12,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        
-//        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Arial", size: 20)!, NSForegroundColorAttributeName: Theme.darkBrown], for: UIControlState())
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

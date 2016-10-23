@@ -30,13 +30,7 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
         
         let bundle = Bundle(for: type(of: self))
         
-        // TODO: Possilby have the root view controller pass in the rect to use.
-        let topHeight: CGFloat = 0.0
-        
-        var availableBounds = self.view.bounds
-        
-        availableBounds.size.height -= topHeight
-        availableBounds.origin.y += topHeight
+        let availableBounds = self.view.bounds
         
         self.tableView.frame = availableBounds
         
