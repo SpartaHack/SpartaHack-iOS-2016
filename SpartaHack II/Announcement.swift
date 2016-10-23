@@ -8,15 +8,10 @@
 
 import Foundation
 
-
-/* Announcement Object
-* Stores all details about announcements
-*/
-
 class Announcement: NSObject {
     var id: String! = nil
     var title: String! = nil
-    var detail: String!
+    var detail: String! = nil
     var pinned: Bool! = false
     var createdTime: NSDate! = nil
     var updatedTime: NSDate? = nil
