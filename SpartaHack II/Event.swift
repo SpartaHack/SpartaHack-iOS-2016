@@ -14,7 +14,6 @@ class Event: NSObject {
     var detail: String! = nil
     var time: NSDate? = nil
     var location: String! = nil
-    var createdTime: NSDate? = nil
     var updatedTime: NSDate? = nil
     
     override init() {
@@ -28,7 +27,6 @@ class Event: NSObject {
                 "\n detail:\(detail!)" +
                 "\n time:\(time)" +
                 "\n location:\(location!)" +
-                "\n created:\(createdTime)" +
         "\n updated:\(updatedTime)"
         
         return event

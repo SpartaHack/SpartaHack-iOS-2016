@@ -15,9 +15,14 @@ let baseURL = "https://d.api.spartahack.com/"
 
 class SpartaModel: NSObject {
     
+    let formatter = DateFormatter()
     override init () {
-        super.init()
         // initalize our data manager and get the current announcements
+        super.init()
+        
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        // make requests to get our stuff
         getAnnouncements()
         getSchedule()
     }
@@ -36,14 +41,41 @@ class SpartaModel: NSObject {
                     if let objArray = json["announcements"] as? [NSDictionary] {
                         // loop through our valid json dictionary and create announcement objects that will be added to announcements
                         for obj in objArray {
+
                             // create announcement objects 
                             let announcement = Announcement()
-                            announcement.id = obj["id"] as? String
-                            announcement.title = obj["title"] as? String
-                            announcement.detail = obj["description"] as? String
-                            announcement.pinned = obj["pinned"] as? Bool
-                            announcement.createdTime = obj["createdAt"] as? NSDate
-                            announcement.updatedTime = obj["updatedAt"] as? NSDate
+                            
+                            guard let id = obj["id"] as? Int else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            announcement.id = id
+                            
+                            guard let title = obj["title"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            announcement.title = title
+                            
+                            guard let detail = obj["description"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            announcement.detail = detail
+                            
+                            guard let pinned = obj["pinned"] as? Bool else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            announcement.pinned = pinned
+                            
+                            guard let createdStr = obj["createdAt"] as? String,
+                                let createdAt = self.formatter.date(from: createdStr) as NSDate? else {
+                                    fatalError("ToDo: gracefully handle error")
+                            }
+                            announcement.createdTime = createdAt
+                            
+                            guard let updatedStr = obj["createdAt"] as? String,
+                                let updatedAt = self.formatter.date(from: updatedStr) as NSDate? else {
+                                    fatalError("ToDo: gracefully handle error")
+                            }
+                            announcement.updatedTime = updatedAt
                             Announcements.sharedInstance.addAnnouncement(announcement: announcement)
                         }
                     }
@@ -66,9 +98,6 @@ class SpartaModel: NSObject {
                     if let objArray = json["schedule"] as? [NSDictionary] {
                         // loop through our valid json dictionary and create event objects that will be added to the schedule
                         for obj in objArray {
-                            // create a time formatter so we all good
-                            let formatter = DateFormatter()
-                            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
                             // create event objects
                             let event = Event()
                             
@@ -88,7 +117,7 @@ class SpartaModel: NSObject {
                             event.detail = detail
                             
                             guard let timeStr = obj["time"] as? String,
-                                let time = formatter.date(from: timeStr) as NSDate? else {
+                                let time = self.formatter.date(from: timeStr) as NSDate? else {
                                 fatalError("ToDo: gracefully handle error")
                             }
                             event.time = time
@@ -98,14 +127,8 @@ class SpartaModel: NSObject {
                             }
                             event.location = location
                             
-                            guard let createdString = obj["createdAt"] as? String,
-                                let createdAt = formatter.date(from: createdString) as NSDate? else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            event.createdTime = createdAt
-                            
                             guard let updatedString = obj["updatedAt"] as? String,
-                                let updatedAt = formatter.date(from: updatedString) as NSDate? else {
+                                let updatedAt = self.formatter.date(from: updatedString) as NSDate? else {
                                     fatalError("ToDo: gracefully handle error")
                             }
                             event.updatedTime = updatedAt

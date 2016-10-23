@@ -9,7 +9,7 @@
 import Foundation
 
 class Announcement: NSObject {
-    var id: String! = nil
+    var id: Int! = nil
     var title: String! = nil
     var detail: String! = nil
     var pinned: Bool! = false
