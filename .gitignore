@@ -3,6 +3,6 @@ keys.plist
 Source/Application.h
 *.xcodeproj/*
 *.xcodeproj/project.pbxproj
-*.xcodeproj/xcshareddata
+*.xcodeproj/xcshareddata/*
 *.xcuserstate
 *xcuserdata/*

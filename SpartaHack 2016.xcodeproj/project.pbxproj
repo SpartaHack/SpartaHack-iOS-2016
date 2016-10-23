@@ -61,6 +61,10 @@
 		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
 		F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53831C3234A30030BCCA /* ios-map.pdf */; };
 		F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */; };
+		F5C73CCB1DBD16980055C921 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59693A41DB427A300B830DD /* Alamofire.framework */; };
+		F5C73CCC1DBD16980055C921 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F59693A41DB427A300B830DD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F5C73CD11DBD37E50055C921 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C73CD01DBD37E50055C921 /* Schedule.swift */; };
+		F5C73CD31DBD37EC0055C921 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C73CD21DBD37EC0055C921 /* Event.swift */; };
 		F5CA4C9F1C684BBE00CDC37B /* Moondance.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */; };
 		F5CD8FB41C430D500077E1F9 /* CreateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */; };
 		F5DC9D111C65934500CF6FDB /* MentorTicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */; };
@@ -130,7 +134,28 @@
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS";
 		};
+		F5C73CCD1DBD16980055C921 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F59693981DB427A300B830DD /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5C73CCF1DBD16980055C921 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F5C73CCC1DBD16980055C921 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4331AB8D1C79040C00424B12 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
@@ -200,6 +225,8 @@
 		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		F5AE53831C3234A30030BCCA /* ios-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ios-map.pdf"; sourceTree = "<group>"; };
 		F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInUserViewController.swift; sourceTree = "<group>"; };
+		F5C73CD01DBD37E50055C921 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		F5C73CD21DBD37EC0055C921 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Moondance.ttf; sourceTree = "<group>"; };
 		F5CD8FB31C430D500077E1F9 /* CreateTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
 		F5DC9D101C65934500CF6FDB /* MentorTicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorTicketsTableViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +243,7 @@
 				F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */,
 				F5373BB81B3275C9007F508C /* CFNetwork.framework in Frameworks */,
 				F5373BB61B3275C0007F508C /* AudioToolbox.framework in Frameworks */,
+				F5C73CCB1DBD16980055C921 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +465,7 @@
 			children = (
 				F59693791DB41DB600B830DD /* SpartaModel.swift */,
 				F596937E1DB41DC200B830DD /* Announcements */,
+				F5C73CD41DBD37F10055C921 /* Schedule */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -495,6 +524,15 @@
 			name = Volunteer;
 			sourceTree = "<group>";
 		};
+		F5C73CD41DBD37F10055C921 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				F5C73CD01DBD37E50055C921 /* Schedule.swift */,
+				F5C73CD21DBD37EC0055C921 /* Event.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -505,11 +543,13 @@
 				F5373B7E1B327566007F508C /* Sources */,
 				F5373B7F1B327566007F508C /* Frameworks */,
 				F5373B801B327566007F508C /* Resources */,
+				F5C73CCF1DBD16980055C921 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F59693B21DB428FC00B830DD /* PBXTargetDependency */,
+				F5C73CCE1DBD16980055C921 /* PBXTargetDependency */,
 			);
 			name = "SpartaHack 2016";
 			productName = "SpartaHack II";
@@ -698,11 +738,13 @@
 				F52A15BC1C3F0DE90090ECD6 /* RootTabBarViewController.swift in Sources */,
 				4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */,
 				F559F6D01C82516B00C1D4A1 /* SpartaLabel.swift in Sources */,
+				F5C73CD31DBD37EC0055C921 /* Event.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
 				F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
 				F5DC9D111C65934500CF6FDB /* MentorTicketsTableViewController.swift in Sources */,
 				F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */,
+				F5C73CD11DBD37E50055C921 /* Schedule.swift in Sources */,
 				F596937A1DB41DB600B830DD /* Announcements.swift in Sources */,
 				C29683041DA7004000FF9982 /* Theme.swift in Sources */,
 				C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */,
@@ -737,6 +779,11 @@
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";
 			targetProxy = F59693B11DB428FC00B830DD /* PBXContainerItemProxy */;
+		};
+		F5C73CCE1DBD16980055C921 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = F5C73CCD1DBD16980055C921 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
