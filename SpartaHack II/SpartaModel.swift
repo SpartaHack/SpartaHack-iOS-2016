@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 
 class SpartaModel: NSObject {
@@ -14,6 +15,18 @@ class SpartaModel: NSObject {
     
     override init () {
         super.init()
+        
+        Alamofire.request("https://d.api.spartahack.com/announcements").responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
+        
     }
     
     func printAnnouncements () {
