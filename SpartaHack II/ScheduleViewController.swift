@@ -38,6 +38,9 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         // Display table with custom cells
         self.view.addSubview(self.tableView)
         
+        // ToDo: Subclass and make a SpartaViewController that sets this.
+        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.size.height, 0.0)
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {

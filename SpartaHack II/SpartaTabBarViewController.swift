@@ -12,6 +12,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+        self.tabBar.isTranslucent = false
 
     }
     
@@ -39,6 +40,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
         
         let controllers = [item1, item2, item3, item4, item5]  //array of the root view controllers displayed by the tab bar interface
         self.viewControllers = controllers
+        
     }
     
     //Delegate methods

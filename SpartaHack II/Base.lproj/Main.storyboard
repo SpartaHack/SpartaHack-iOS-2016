@@ -10,6 +10,7 @@
         <scene sceneID="glY-6v-X1i">
             <objects>
                 <navigationController id="SwN-Wr-NPN" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -39,6 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="yCe-42-e7e"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBf-FE-fPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
