@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UINavigationBar.appearance().barTintColor = Theme.lightGold
-        UINavigationBar.appearance().tintColor = Theme.white
+        UINavigationBar.appearance().tintColor = Theme.darkBrown
         
         // Set up push notification buttons
         

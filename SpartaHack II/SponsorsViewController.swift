@@ -22,10 +22,9 @@ class SponsorsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.parent?.navigationItem.title = "Sponsors"
+
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100.0
-        tableView.backgroundColor = UIColor.spartaBlack()
         // Do any additional setup after loading the view.
     }
     

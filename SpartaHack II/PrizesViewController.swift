@@ -21,13 +21,7 @@ class PrizesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let bundle = Bundle(for: type(of: self))
         
-        // TODO: Possilby have the root view controller pass in the rect to use.
-        let topHeight: CGFloat = 50.0
-        
-        var availableBounds = self.view.bounds
-        
-        availableBounds.size.height -= topHeight
-        availableBounds.origin.y += topHeight
+        let availableBounds = self.view.bounds
         
         self.tableView.frame = availableBounds
         
@@ -48,8 +42,8 @@ class PrizesViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.parent?.navigationItem.title = "Prizes"
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "prizesCell") as! PrizesTableViewCell
         
