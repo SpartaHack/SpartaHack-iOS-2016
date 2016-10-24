@@ -53,11 +53,11 @@ class HelpDeskTableViewController: UIViewController {
     
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let view = view as? UITableViewHeaderFooterView {
-            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
-            view.textLabel!.backgroundColor = UIColor.clear
-            view.textLabel!.textColor = UIColor.spartaGreen()
-        }
+//        if let view = view as? UITableViewHeaderFooterView {
+//            view.textLabel!.font = UIFont(name: "Moondance", size: headerFontSize)
+//            view.textLabel!.backgroundColor = UIColor.clear
+//            view.textLabel!.textColor = UIColor.spartaGreen()
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {

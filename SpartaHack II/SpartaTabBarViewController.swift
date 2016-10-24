@@ -12,12 +12,14 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+        self.tabBar.isTranslucent = false
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let item1 = AnnouncementsTableViewController()
-        let icon1 = UITabBarItem(title: "Annoucements", image: nil, selectedImage: nil)
+        let icon1 = UITabBarItem(title: "Announcements", image: nil, selectedImage: nil)
         item1.tabBarItem = icon1
         
         let item2 = ScheduleViewController()
@@ -38,6 +40,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
         
         let controllers = [item1, item2, item3, item4, item5]  //array of the root view controllers displayed by the tab bar interface
         self.viewControllers = controllers
+        
     }
     
     //Delegate methods

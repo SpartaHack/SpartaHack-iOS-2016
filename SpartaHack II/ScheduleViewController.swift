@@ -20,15 +20,9 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         let bundle = Bundle(for: type(of: self))
-        
-        // TODO: Possilby have the root view controller pass in the rect to use.
-        let topHeight: CGFloat = 50.0
-        
-        var availableBounds = self.view.bounds
-        
-        availableBounds.size.height -= topHeight
-        availableBounds.origin.y += topHeight
-        
+
+        let availableBounds = self.view.bounds
+
         self.tableView.frame = availableBounds
         
         // Then delegate the TableView
@@ -44,8 +38,15 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         // Display table with custom cells
         self.view.addSubview(self.tableView)
         
+        // ToDo: Subclass and make a SpartaViewController that sets this.
+        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.size.height, 0.0)
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.parent?.navigationItem.title = "Schedule"
+    }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         // TODO: scrolling changes

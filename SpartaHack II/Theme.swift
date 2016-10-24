@@ -37,7 +37,8 @@ struct Theme {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = type.getColors()
         gradientLayer.locations = [0.0, 1.0]
-        view.layer.addSublayer(gradientLayer)
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
         
 }
