@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let navigationBarAppearace = UINavigationBar.appearance()
-        
-        navigationBarAppearace.tintColor = Theme.extraLightGold
-        navigationBarAppearace.barTintColor = Theme.lightGold
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:Theme.darkBrown]
+        UINavigationBar.appearance().barTintColor = Theme.darkBrown
+        UINavigationBar.appearance().tintColor = Theme.white
+        UINavigationBar.appearance().barStyle = .black
+
+        SpartaModel()
         
         // Set up push notification buttons
         
