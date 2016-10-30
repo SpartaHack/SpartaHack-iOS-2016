@@ -23,11 +23,9 @@ class SpartaModel: NSObject {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         // make requests to get our stuff
-        getAnnouncements()
-        getSchedule()
     }
     
-    func getAnnouncements() {
+    func getAnnouncements( completionHandler: @escaping(Bool) -> () ) {
         Alamofire.request("\(baseURL)announcements").responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
@@ -78,13 +76,14 @@ class SpartaModel: NSObject {
                             announcement.updatedTime = updatedAt
                             Announcements.sharedInstance.addAnnouncement(announcement: announcement)
                         }
+                        completionHandler(true)
                     }
                 }
             }
         }
     }
     
-    func getSchedule() {
+    func getSchedule( completionHandler: @escaping(Bool) -> () ) {
         Alamofire.request("\(baseURL)schedule").responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
@@ -137,6 +136,7 @@ class SpartaModel: NSObject {
                             Schedule.sharedInstance.addEvent(event: event)
                         }
                     }
+                    completionHandler(true)
                 }
             }
         }

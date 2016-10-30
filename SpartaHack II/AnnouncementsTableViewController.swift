@@ -25,6 +25,22 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
         ["Top Ten!", "Come to A126: MUSEic, Quizlexa, wake, NutriCam, Employifai, Sir Mix-A-Drink, The Alumi-Moti, We'll Come Back to this Later, Browsvr, Remember"]
     ]
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.global(qos: .background).async {
+            // qos' default value is ´DispatchQoS.QoSClass.default`
+            SpartaModel().getAnnouncements(completionHandler: { (success: Bool) in
+                if success {
+                    DispatchQueue.main.async() {
+                        // we could do fancy animations here if we wanted
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,10 +77,10 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "announcementsCell") as! AnnouncementsTableViewCell
         
-        let randomIndex = Int(arc4random_uniform(UInt32(self.dummyAnnouncements.count)))
-        let dummyAnnouncement = self.dummyAnnouncements[randomIndex]
-        cell.titleLabel.text = dummyAnnouncement[0]
-        cell.detailLabel.text = dummyAnnouncement[1]
+        let randomIndex = Int(arc4random_uniform(UInt32(Announcements.sharedInstance.listOfAnnouncements().count)))
+        let dummyAnnouncement = Announcements.sharedInstance.listOfAnnouncements()[randomIndex]
+        cell.titleLabel.text = dummyAnnouncement.title
+        cell.detailLabel.text = dummyAnnouncement.detail
         
         return cell
     }
@@ -86,7 +102,7 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return Announcements.sharedInstance.listOfAnnouncements().count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -21,6 +21,23 @@ class Announcements: NSObject {
     
     func addAnnouncement(announcement:Announcement) {
         // adds announcement to our array 
-        spartaAnnouncements.append(announcement);
+        var valid = true
+        
+        for announce in spartaAnnouncements {
+            // check to see if the id exists in our array 
+            if announcement.id == announce.id {
+                // reject new entry
+                valid = false
+            }
+        }
+        
+        if valid {
+            spartaAnnouncements.append(announcement)
+        }
+        
+    }
+    
+    func listOfAnnouncements () -> [Announcement] {
+        return spartaAnnouncements
     }
 }

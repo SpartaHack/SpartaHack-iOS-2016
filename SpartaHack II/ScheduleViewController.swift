@@ -16,6 +16,22 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 
     var tableView: UITableView = UITableView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.global(qos: .background).async {
+            // qos' default value is ´DispatchQoS.QoSClass.default`
+            SpartaModel().getSchedule(completionHandler: { (success: Bool) in
+                if success {
+                    DispatchQueue.main.async() {
+                        // we could do fancy animations here if we wanted
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +71,11 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
         
-        cell.placeholderLabel.text = "Schedule Cell blah blah blah"
+        let randomIndex = Int(arc4random_uniform(UInt32(Schedule.sharedInstance.listOfEvents().count)))
+        
+        let dummyEvent = Schedule.sharedInstance.listOfEvents()[randomIndex]
+        
+        cell.placeholderLabel.text = dummyEvent.title
         cell.placeholderLabel.textColor = UIColor(white: 114/255, alpha: 1)
         
         return cell
@@ -63,7 +83,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: Use real data instead of hardcoded 5.
-        return 3
+        return Schedule.sharedInstance.listOfEvents().count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
