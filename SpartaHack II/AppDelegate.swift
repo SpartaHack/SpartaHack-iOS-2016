@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = Theme.darkBrown
         UINavigationBar.appearance().tintColor = Theme.white
         UINavigationBar.appearance().barStyle = .black
-
-        SpartaModel()
         
         // Set up push notification buttons
         

@@ -21,6 +21,22 @@ class Schedule: NSObject {
     
     func addEvent(event:Event) {
         // add event to schedule 
-        spartaScheulde.append(event)
+        var valid = true
+        
+        for obj in spartaScheulde {
+            // check to see if the id exists in our array
+            if event.id == obj.id {
+                // reject new entry
+                valid = false
+            }
+        }
+        
+        if valid {
+            spartaScheulde.append(event)
+        }
+    }
+    
+    func listOfEvents () -> [Event] {
+        return spartaScheulde
     }
 }
