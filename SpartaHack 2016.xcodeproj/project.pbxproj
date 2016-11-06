@@ -12,6 +12,7 @@
 		C29683041DA7004000FF9982 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683031DA7004000FF9982 /* Theme.swift */; };
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
+		F50EE5791DCEC64800A57BED /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE5781DCEC64800A57BED /* Map.swift */; };
 		F51382B11DA6C154008F1FCE /* AnnouncementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B01DA6C154008F1FCE /* AnnouncementsTableViewCell.xib */; };
 		F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */; };
 		F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */; };
@@ -163,6 +164,7 @@
 		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
 		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
+		F50EE5781DCEC64800A57BED /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		F51382B01DA6C154008F1FCE /* AnnouncementsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementsTableViewCell.xib; sourceTree = "<group>"; };
 		F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrizesTableViewCell.xib; sourceTree = "<group>"; };
@@ -261,6 +263,14 @@
 				F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F50EE5811DCEC65200A57BED /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F50EE5781DCEC64800A57BED /* Map.swift */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		F51382AE1DA6C019008F1FCE /* Views */ = {
@@ -463,6 +473,7 @@
 				F59693791DB41DB600B830DD /* SpartaModel.swift */,
 				F596937E1DB41DC200B830DD /* Announcements */,
 				F5C73CD41DBD37F10055C921 /* Schedule */,
+				F50EE5811DCEC65200A57BED /* Map */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -744,6 +755,7 @@
 				F596937A1DB41DB600B830DD /* Announcements.swift in Sources */,
 				C29683041DA7004000FF9982 /* Theme.swift in Sources */,
 				C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */,
+				F50EE5791DCEC64800A57BED /* Map.swift in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,

@@ -25,6 +25,7 @@ class SpartaModel: NSObject {
         // make requests to get our stuff
     }
     
+    /// Announcements
     func getAnnouncements( completionHandler: @escaping(Bool) -> () ) {
         Alamofire.request("\(baseURL)announcements").responseJSON { response in
             guard response.result.isSuccess else {
@@ -83,6 +84,7 @@ class SpartaModel: NSObject {
         }
     }
     
+    /// Schedule
     func getSchedule( completionHandler: @escaping(Bool) -> () ) {
         Alamofire.request("\(baseURL)schedule").responseJSON { response in
             guard response.result.isSuccess else {
@@ -142,4 +144,18 @@ class SpartaModel: NSObject {
         }
     }
     
+    /// Map
+    func getMap( completionHandler: @escaping(Bool) -> () ) {
+        
+    }
+    
+    /// getSponsors
+    func getSponsors( completionHandler: @escaping(Bool) -> () ) {
+        
+    }
+    
+    /// Prizes
+    func getPrizes( completionHandler: @escaping(Bool) -> () ) {
+        
+    }
 }
