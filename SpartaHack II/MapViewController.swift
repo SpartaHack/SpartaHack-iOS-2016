@@ -9,20 +9,19 @@
 import UIKit
 
 class MapViewController: UIViewController, UIWebViewDelegate {
-	@IBOutlet var webView: UIWebView!
+    
+    let pdfView = MapView.loadFromNibNamed(nibNamed: "MapWebView")! as! MapView
     
     override func viewDidLoad() {
 		super.viewDidLoad()
         
-        // TODO: Set up the PDF viewer to work with laste year's map
+        self.view = pdfView
+        pdfView.webView.delegate = self
         
-		// Do any additional setup after loading the view.
-//        webView.delegate = self
-//        
-//		if let pdf = URL(string: "https://spartahack.com/map")  {
-//			let req = URLRequest(url: pdf)
-//			webView.loadRequest(req)
-//		}
+		if let pdf = URL(string: "https://d.api.spartahack.com/map")  {
+			let req = URLRequest(url: pdf)
+			pdfView.webView.loadRequest(req)
+		}
     }
     
     
