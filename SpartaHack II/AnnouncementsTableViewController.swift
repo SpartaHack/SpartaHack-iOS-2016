@@ -16,15 +16,7 @@ class AnnouncementsTableViewCell: UITableViewCell {
 class AnnouncementsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var tableView: UITableView = UITableView()
-    
-    let dummyAnnouncements = [
-        ["Covisint Drone Winner", "Congratulations NI Yao; your submission is the winner of Covisnit's Phantom 3 Drone. Thanks for participating! Reach out at hello@spartahack.com to claim :)"],
-        ["Buses", "All three buses are here outside the West A Wing! Raid the snack room and have a safe trip home :D"],
-        ["UM bus is here!", "Bus to the University of Michigan is here! outside the West A Wing entrance (spartahack.com/map)"],
-        ["Closing ceremony!", "Everyone head to B115! Let's give out some prizes :D"],
-        ["Top Ten!", "Come to A126: MUSEic, Quizlexa, wake, NutriCam, Employifai, Sir Mix-A-Drink, The Alumi-Moti, We'll Come Back to this Later, Browsvr, Remember"]
-    ]
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -49,6 +41,8 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
         let availableBounds = self.view.bounds
         
         self.tableView.frame = availableBounds
+        
+        self.tableView.separatorStyle = .none
         
         // Then delegate the TableView
         self.tableView.delegate = self
@@ -76,12 +70,10 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "announcementsCell") as! AnnouncementsTableViewCell
-        
-        let randomIndex = Int(arc4random_uniform(UInt32(Announcements.sharedInstance.listOfAnnouncements().count)))
-        let dummyAnnouncement = Announcements.sharedInstance.listOfAnnouncements()[randomIndex]
-        cell.titleLabel.text = dummyAnnouncement.title
-        cell.detailLabel.text = dummyAnnouncement.detail
-        
+        let announcement =  Announcements.sharedInstance.listOfAnnouncements()[indexPath.item]
+        cell.titleLabel.text = announcement.title
+        cell.detailLabel.text = announcement.detail
+
         return cell
     }
     
@@ -101,8 +93,12 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return Announcements.sharedInstance.listOfAnnouncements().count
+        switch section {
+        case 1:
+            return Announcements.sharedInstance.listOfAnnouncements().count
+        default:
+            return 0
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

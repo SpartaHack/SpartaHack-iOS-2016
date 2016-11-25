@@ -1,45 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="announcementsCell" rowHeight="93" id="YaK-ns-MrY" customClass="AnnouncementsTableViewCell" customModule="SpartaHack_2016" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="413" height="93"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="announcementsCell" rowHeight="115" id="YaK-ns-MrY" customClass="AnnouncementsTableViewCell" customModule="SpartaHack_2016" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="115"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YaK-ns-MrY" id="lbG-uh-YOc">
-                <frame key="frameInset" width="413" height="92"/>
+                <rect key="frame" x="0.0" y="0.0" width="413" height="115"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md6-58-KqA" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <rect key="frame" x="19" y="18" width="384" height="24"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDk-bw-GpC" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                        <rect key="frame" x="19" y="50" width="384" height="46.5"/>
                         <attributedString key="attributedText">
                             <fragment content="Detail">
                                 <attributes>
-                                    <font key="NSFont" metaFont="system" size="17"/>
+                                    <font key="NSFont" size="16" name="Lato-Regular"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oK5-pA-kct">
+                        <rect key="frame" x="8" y="8" width="1" height="98.5"/>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="DQj-Ue-fhV"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="1" id="Kwk-Wp-BqE"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Md6-58-KqA" firstAttribute="top" secondItem="lbG-uh-YOc" secondAttribute="top" constant="8" id="5w7-3x-Hgs"/>
+                    <constraint firstItem="oK5-pA-kct" firstAttribute="leading" secondItem="lbG-uh-YOc" secondAttribute="leadingMargin" id="3lJ-At-88Z"/>
+                    <constraint firstItem="Md6-58-KqA" firstAttribute="top" secondItem="lbG-uh-YOc" secondAttribute="top" constant="18" id="5w7-3x-Hgs"/>
                     <constraint firstItem="HDk-bw-GpC" firstAttribute="top" secondItem="Md6-58-KqA" secondAttribute="bottom" constant="8" id="8UJ-8i-GVf"/>
-                    <constraint firstItem="Md6-58-KqA" firstAttribute="leading" secondItem="lbG-uh-YOc" secondAttribute="leading" constant="8" id="SWY-Ok-mCA"/>
-                    <constraint firstItem="HDk-bw-GpC" firstAttribute="leading" secondItem="lbG-uh-YOc" secondAttribute="leading" constant="8" id="ZJq-9C-jIL"/>
-                    <constraint firstAttribute="trailing" secondItem="Md6-58-KqA" secondAttribute="trailing" constant="8" id="api-DO-FbN"/>
-                    <constraint firstAttribute="bottom" secondItem="HDk-bw-GpC" secondAttribute="bottom" constant="8" id="mP9-Ur-iyi"/>
-                    <constraint firstAttribute="trailing" secondItem="HDk-bw-GpC" secondAttribute="trailing" constant="8" id="vof-Co-BDA"/>
+                    <constraint firstItem="HDk-bw-GpC" firstAttribute="leading" secondItem="oK5-pA-kct" secondAttribute="trailing" constant="10" id="Vig-EW-yGp"/>
+                    <constraint firstItem="oK5-pA-kct" firstAttribute="top" secondItem="lbG-uh-YOc" secondAttribute="topMargin" id="Xiw-Eo-wBZ"/>
+                    <constraint firstAttribute="trailing" secondItem="Md6-58-KqA" secondAttribute="trailing" constant="10" id="api-DO-FbN"/>
+                    <constraint firstAttribute="bottom" secondItem="HDk-bw-GpC" secondAttribute="bottom" constant="18" id="mP9-Ur-iyi"/>
+                    <constraint firstItem="Md6-58-KqA" firstAttribute="leading" secondItem="oK5-pA-kct" secondAttribute="trailing" constant="10" id="nhI-wt-WyS"/>
+                    <constraint firstAttribute="trailing" secondItem="HDk-bw-GpC" secondAttribute="trailing" constant="10" id="vof-Co-BDA"/>
+                    <constraint firstItem="oK5-pA-kct" firstAttribute="bottom" secondItem="lbG-uh-YOc" secondAttribute="bottomMargin" id="yTh-C5-HS0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
