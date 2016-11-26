@@ -11,6 +11,7 @@
 		C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */; };
 		C29683041DA7004000FF9982 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683031DA7004000FF9982 /* Theme.swift */; };
 		C29D16761DE7CAED00AA20A8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C29D167F1DE8A7D100AA20A8 /* AnnouncementsTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29D167E1DE8A7D100AA20A8 /* AnnouncementsTableViewHeaderCell.xib */; };
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F50EE5791DCEC64800A57BED /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE5781DCEC64800A57BED /* Map.swift */; };
@@ -154,6 +155,7 @@
 		4331AB8D1C79040C00424B12 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTabBarViewController.swift; sourceTree = "<group>"; };
 		C29683031DA7004000FF9982 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C29D167E1DE8A7D100AA20A8 /* AnnouncementsTableViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementsTableViewHeaderCell.xib; sourceTree = "<group>"; };
 		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
 		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
@@ -250,6 +252,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C29D167D1DE8A6C200AA20A8 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				F591B2361C2DE27100F1512D /* ScheduleViewController.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		F5046D0E1D6FCBD3004A9898 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				F51382B01DA6C154008F1FCE /* AnnouncementsTableViewCell.xib */,
+				C29D167E1DE8A7D100AA20A8 /* AnnouncementsTableViewHeaderCell.xib */,
 			);
 			name = Announcements;
 			sourceTree = "<group>";
@@ -452,8 +463,8 @@
 		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C29D167D1DE8A6C200AA20A8 /* Schedule */,
 				F5373B891B327566007F508C /* AnnouncementsTableViewController.swift */,
-				F591B2361C2DE27100F1512D /* ScheduleViewController.swift */,
 				F5C351A31C6DA48200B0D0FE /* Help Desk */,
 				F591B2381C2DE27600F1512D /* Guide View Controllers */,
 				F5AE53801C30928F0030BCCA /* Award View Controller */,
@@ -694,6 +705,7 @@
 				F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
 				F51382C81DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib in Resources */,
+				C29D167F1DE8A7D100AA20A8 /* AnnouncementsTableViewHeaderCell.xib in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
 				F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */,
 				F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */,

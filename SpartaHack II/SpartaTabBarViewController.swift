@@ -41,6 +41,14 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
         let controllers = [item1, item2, item3, item4, item5]  //array of the root view controllers displayed by the tab bar interface
         self.viewControllers = controllers
         
+        UITabBar.appearance().tintColor = Theme.darkGold
+        let borderSize: CGFloat = 1.5
+        let tabBarBorder = UIView(frame: CGRect(x: 0,
+                                                y: -borderSize,
+                                                width: self.tabBar.frame.size.width,
+                                                height: borderSize))
+        tabBarBorder.backgroundColor = Theme.darkGold
+        self.tabBar.addSubview(tabBarBorder)
     }
     
     //Delegate methods
