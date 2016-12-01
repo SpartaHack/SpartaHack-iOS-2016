@@ -9,23 +9,29 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nemoy-Medium.ttf">
+            <string>Nemoy-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="191" id="SdV-02-jZO" customClass="AnnouncementsTableViewHeaderCell" customModule="SpartaHack_2016" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="434" height="119"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="137" id="SdV-02-jZO" customClass="AnnouncementsTableViewHeaderCell" customModule="SpartaHack_2016" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="65"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SdV-02-jZO" id="QEN-gu-rSv">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="118"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vym-CD-Akk" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                        <rect key="frame" x="16" y="46" width="410" height="26"/>
-                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                        <rect key="frame" x="16" y="17.5" width="410" height="30"/>
+                        <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="Vym-CD-Akk" firstAttribute="centerY" secondItem="QEN-gu-rSv" secondAttribute="centerY" id="3m2-cv-0Ar"/>
                     <constraint firstItem="Vym-CD-Akk" firstAttribute="trailing" secondItem="QEN-gu-rSv" secondAttribute="trailingMargin" id="bKN-jc-0s9"/>
@@ -35,7 +41,7 @@
             <connections>
                 <outlet property="titleLabel" destination="Vym-CD-Akk" id="GSc-lc-fu3"/>
             </connections>
-            <point key="canvasLocation" x="78" y="196.5"/>
+            <point key="canvasLocation" x="78" y="169.5"/>
         </tableViewCell>
     </objects>
 </document>

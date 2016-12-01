@@ -8,14 +8,6 @@
 
 import UIKit
 
-class AnnouncementsTableViewCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: SpartaLabel!
-    @IBOutlet weak var detailLabel: SpartaLabel!
-    @IBOutlet weak var barView: UIView!
-    override func layoutSubviews() {
-        barView.backgroundColor = Theme.darkGold
-    }
-}
 class AnnouncementsTableViewHeaderCell: UITableViewCell {
     @IBOutlet weak var titleLabel: SpartaLabel!
 }
@@ -55,8 +47,8 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let cellNib = UINib(nibName: "AnnouncementsTableViewCell", bundle: bundle)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "announcementsCell")
+        let cellNib = UINib(nibName: "SpartaTableViewCell", bundle: bundle)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "spartaCell")
         
         let headerNib = UINib(nibName: "AnnouncementsTableViewHeaderCell", bundle: bundle)
         self.tableView.register(headerNib, forCellReuseIdentifier: "headerCell")
@@ -77,33 +69,35 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.parent?.navigationItem.title = "Announcements"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "announcementsCell") as! AnnouncementsTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
         let announcement: Announcement
         switch indexPath.section {
+        // Pinned Style
         case 0:
             announcement =  Announcements.sharedInstance.listOfPinnedAnnouncements()[indexPath.item]
+            Theme.setHorizontalGradient(of: .lightGradient, on: cell.contentView)
+        // Normal Announcement
         default:
             announcement =  Announcements.sharedInstance.listOfUnpinnedAnnouncements()[indexPath.item]
         }
         cell.titleLabel.text = announcement.title
         cell.detailLabel.text = announcement.detail
+        cell.separatorInset = .zero
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let  headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! AnnouncementsTableViewHeaderCell
-
-        Theme.setGradient(of: .lightGradient, on: headerCell.contentView)
-        
+        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! AnnouncementsTableViewHeaderCell
+        headerCell.separatorInset = .zero
         let sectionTitle: String
         switch section {
         case 0:
             sectionTitle = "Pinned"
+            Theme.setHorizontalGradient(of: .lightGradient, on: headerCell.contentView)
         default:
             sectionTitle = "Announcements"
         }
@@ -112,7 +106,7 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 75
+        return 60
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
