@@ -32,6 +32,7 @@ struct Theme {
         }
     }
     
+    // ToDo: make sure it removes the old gradient if this is being called a second time!
     static func setHorizontalGradient(of type: Gradient, on view: UIView) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = type.getColors()

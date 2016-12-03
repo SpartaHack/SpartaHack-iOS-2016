@@ -15,6 +15,7 @@ class AnnouncementsTableViewHeaderCell: UITableViewCell {
 class AnnouncementsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var tableView: UITableView = UITableView()
+    var separatorOverride: UIView = UIView()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -64,7 +65,9 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
         // ToDo: Subclass and make a SpartaViewController that sets this.
         self.automaticallyAdjustsScrollViewInsets = false
         self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.size.height, 0.0)
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
     }
     
     override func viewDidAppear(_ animated: Bool) {
