@@ -46,7 +46,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let cellNib = UINib(nibName: "SpartaTableViewCell", bundle: bundle)
         self.tableView.register(cellNib, forCellReuseIdentifier: "spartaCell")
         
-        let headerNib = UINib(nibName: "AnnouncementsTableViewHeaderCell", bundle: bundle)
+        let headerNib = UINib(nibName: "SpartaTableViewHeaderCell", bundle: bundle)
         self.tableView.register(headerNib, forCellReuseIdentifier: "headerCell")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -82,7 +82,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! AnnouncementsTableViewHeaderCell
+        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
         headerCell.separatorInset = .zero
         let sectionTitle: String
         sectionTitle = "Schedule"

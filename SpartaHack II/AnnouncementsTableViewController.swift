@@ -8,10 +8,6 @@
 
 import UIKit
 
-class AnnouncementsTableViewHeaderCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: SpartaLabel!
-}
-
 class AnnouncementsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var tableView: UITableView = UITableView()
@@ -51,7 +47,7 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
         let cellNib = UINib(nibName: "SpartaTableViewCell", bundle: bundle)
         self.tableView.register(cellNib, forCellReuseIdentifier: "spartaCell")
         
-        let headerNib = UINib(nibName: "AnnouncementsTableViewHeaderCell", bundle: bundle)
+        let headerNib = UINib(nibName: "SpartaTableViewHeaderCell", bundle: bundle)
         self.tableView.register(headerNib, forCellReuseIdentifier: "headerCell")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -94,7 +90,7 @@ class AnnouncementsTableViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! AnnouncementsTableViewHeaderCell
+        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
         headerCell.separatorInset = .zero
         let sectionTitle: String
         switch section {

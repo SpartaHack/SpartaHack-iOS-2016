@@ -17,15 +17,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="137" id="SdV-02-jZO" customClass="AnnouncementsTableViewHeaderCell" customModule="SpartaHack_2016" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="137" id="SdV-02-jZO" customClass="SpartaTableViewHeaderCell" customModule="SpartaHack_2016" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="434" height="65"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SdV-02-jZO" id="QEN-gu-rSv">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="65"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="64.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vym-CD-Akk" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                        <rect key="frame" x="16" y="17.5" width="410" height="30"/>
+                        <rect key="frame" x="16" y="18" width="410" height="30"/>
                         <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="titleLabel" destination="Vym-CD-Akk" id="GSc-lc-fu3"/>
+                <outlet property="titleLabel" destination="Vym-CD-Akk" id="0os-Hb-7Ex"/>
             </connections>
             <point key="canvasLocation" x="78" y="169.5"/>
         </tableViewCell>
