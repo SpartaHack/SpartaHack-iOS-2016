@@ -22,23 +22,35 @@ struct Theme {
     enum Gradient : Int {
         case lightGradient, darkGradient
         
-        func getColors() -> Array<UIColor> {
+        func getColors() -> Array<CGColor> {
             switch self {
             case .darkGradient:
-                return [darkGold, extraLightGold]
+                return [darkGold.cgColor, extraLightGold.cgColor]
             case .lightGradient:
-                return [extraLightGold, white]
+                return [extraLightGold.withAlphaComponent(0.75).cgColor, white.cgColor]
             }
         }
     }
     
-    // How modular is this code?? :D
-    static func setGradient(of type: Gradient, on view: UIView) {
+    // ToDo: make sure it removes the old gradient if this is being called a second time!
+    static func setHorizontalGradient(of type: Gradient, on view: UIView) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = type.getColors()
         gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
         
+}
+
+extension UITabBar {
+    
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        super.sizeThatFits(size)
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = 65
+        return sizeThatFits
+    }
 }

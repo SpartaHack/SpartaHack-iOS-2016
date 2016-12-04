@@ -8,10 +8,6 @@
 
 import UIKit
 
-class PrizesTableViewCell: UITableViewCell {
-    @IBOutlet weak var placeholderLabel: UILabel!
-}
-
 class PrizesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     var tableView: UITableView = UITableView()
@@ -29,8 +25,11 @@ class PrizesViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let cellNib = UINib(nibName: "PrizesTableViewCell", bundle: bundle)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "prizesCell")
+        let cellNib = UINib(nibName: "SpartaTableViewCell", bundle: bundle)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "spartaCell")
+        
+        let headerNib = UINib(nibName: "SpartaTableViewHeaderCell", bundle: bundle)
+        self.tableView.register(headerNib, forCellReuseIdentifier: "headerCell")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 140
@@ -48,9 +47,12 @@ class PrizesViewController: UIViewController, UITableViewDataSource, UITableView
         self.parent?.navigationItem.title = "Prizes"
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "prizesCell") as! PrizesTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
         
-        cell.placeholderLabel.text = "Prizes Cell blah blah blah"
+        let prize = Prizes.sharedInstance.listOfPrizes()[indexPath.row]
+        
+        cell.titleLabel.text = prize.name
+        cell.detailLabel.text = prize.detail
         
         return cell
     }
@@ -68,14 +70,28 @@ class PrizesViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
+        headerCell.separatorInset = .zero
+        let sectionTitle: String
+        sectionTitle = "Prizes"
+        
+        headerCell.titleLabel.text = sectionTitle
+        return headerCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return Prizes.sharedInstance.listOfPrizes().count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

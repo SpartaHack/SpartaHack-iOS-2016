@@ -8,17 +8,34 @@
 
 import UIKit
 
+extension UIImage {
+    class func colorForNavBar(color: UIColor) -> UIImage {
+        let rect = CGRect(origin: .zero, size: CGSize(width: 1.0, height: 1.0))
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+        
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return image
+        }
+        return UIImage()
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        UINavigationBar.appearance().barTintColor = Theme.darkBrown
-        UINavigationBar.appearance().tintColor = Theme.white
-        UINavigationBar.appearance().barStyle = .black
+        // Override point for customization after application launch.
+        UINavigationBar.appearance().barTintColor = Theme.white
+        UINavigationBar.appearance().tintColor = Theme.darkGold
+        UINavigationBar.appearance().barStyle = .default
         
         // Set up push notification buttons
         
@@ -69,7 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("failed to register for remote notifications:  \(error)")
     }
-    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
