@@ -9,6 +9,7 @@
 import Foundation
 
 class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate {
+    private var lastKnownTheme = Theme.currentTheme()
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -63,9 +64,10 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
             item.tabBarItem.titlePositionAdjustment.vertical = -5
         }
         
-        UITabBar.appearance().tintColor = Theme.darkGold
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.darkGold], for: .selected)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.darkGold], for: .normal)
+        self.tabBar.barTintColor = Theme.backgroundColor
+        self.tabBar.tintColor = Theme.darkGold
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
         
         let borderSize: CGFloat = 1.5
         let tabBarBorder = UIView(frame: CGRect(x: 0,
@@ -78,7 +80,11 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
     
     //Delegate methods
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        print("Should select viewController: \(viewController.title) ?")
+        if let spartaTableViewController = viewController as? SpartaTableViewController {
+            if spartaTableViewController.needsThemeUpdate() {
+                spartaTableViewController.updateTheme()
+            }
+        }
         return true;
     }
 }

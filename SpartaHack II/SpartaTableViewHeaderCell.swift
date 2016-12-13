@@ -9,6 +9,10 @@
 import UIKit
 
 class SpartaTableViewHeaderCell: UITableViewCell {
-
     @IBOutlet weak var titleLabel: SpartaLabel!
+    
+    override func layoutSubviews() {
+        self.titleLabel.textColor = Theme.primaryColor
+        self.contentView.backgroundColor = Theme.backgroundColor
+    }
 }

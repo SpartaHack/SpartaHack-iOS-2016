@@ -14,6 +14,8 @@ import UIKit
  */
 
 class SpartaNavigationBar: UINavigationBar {
+    private var themeSelection = UserDefaults.standard.integer(forKey: "themeKey")
+    private var animating: Bool = false
     ///The height you want your navigation bar to be of
     static let navigationBarHeight: CGFloat = 70
     
@@ -33,16 +35,50 @@ class SpartaNavigationBar: UINavigationBar {
         initialize()
     }
     
+    func imageTapped(img: AnyObject) {
+        if self.animating {
+            return
+        }
+        if themeSelection == 0 {
+            themeSelection = 1
+            Theme.darkTheme()
+        }
+        else {
+            themeSelection = 0
+            Theme.lightTheme()
+        }
+        self.animating = true
+        UIView.animate(withDuration: 1.0, animations: {
+            self.barTintColor = Theme.backgroundColor
+            self.tintColor = Theme.tintColor
+        }, completion: { _ in
+            self.animating = false
+        })
+        
+        // This must be a SpartaTableViewController!
+        let topController = UIApplication.topViewController()
+        if let topController = topController as? SpartaTableViewController {
+            topController.updateTheme(animated: true)
+        }
+                
+    }
+    
     private func initialize() {
         let diamondImage = UIImageView(image: UIImage(named: "diamond"))
         diamondImage.frame = CGRect(x: 0, y: 0, width: 50, height: 51)
-        self.topItem?.titleView = diamondImage
         
+        diamondImage.isUserInteractionEnabled = true
+        
+        let tapRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
+        //Add the recognizer to your view.
+        diamondImage.addGestureRecognizer(tapRecognizer)
+        
+        self.topItem?.titleView = diamondImage
         
         let profileButton = UIButton.init(type: .custom)
         profileButton.setImage(UIImage.init(named: "profile"), for: UIControlState.normal)
         // ToDo: Hook this up to the Profile page
-        // button.addTarget(self, action:#selector(ProfileViewController), for: UIControlEvents.touchUpInside)
+//        button.addTarget(self, action:#selector(ProfileViewController), for: UIControlEvents.touchUpInside)
         profileButton.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
         let profileButtonItem = UIBarButtonItem.init(customView: profileButton)
         
@@ -58,9 +94,13 @@ class SpartaNavigationBar: UINavigationBar {
         self.transform =
             CGAffineTransform(translationX: 0, y: -shift)
     }
-        
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        self.barTintColor = Theme.backgroundColor
+        self.barStyle = .default
+        self.tintColor = Theme.tintColor
         
         let shift = SpartaNavigationBar.heightIncrease/2
         

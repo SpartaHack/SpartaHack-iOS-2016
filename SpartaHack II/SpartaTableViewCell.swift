@@ -13,7 +13,15 @@ class SpartaTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: SpartaLabel!
     @IBOutlet weak var detailLabel: SpartaLabel!
     @IBOutlet weak var barView: UIView!
+    
     override func layoutSubviews() {
-        barView.backgroundColor = Theme.darkGold
+        UIView.animate(withDuration: 1.0, animations: {
+            self.backgroundColor = .clear
+            self.contentView.backgroundColor = Theme.backgroundColor
+            self.barView.backgroundColor = Theme.primaryColor
+            self.titleLabel.textColor = Theme.primaryColor
+            self.detailLabel.textColor = Theme.primaryColor
+        })
     }
+    
 }

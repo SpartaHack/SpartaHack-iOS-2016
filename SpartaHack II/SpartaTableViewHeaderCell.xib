@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vym-CD-Akk" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                        <rect key="frame" x="16" y="18" width="410" height="30"/>
+                        <rect key="frame" x="16" y="17.5" width="410" height="30"/>
                         <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

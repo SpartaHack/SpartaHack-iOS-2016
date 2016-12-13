@@ -295,8 +295,8 @@
 		C2D33BCA1DEFE79900EF3013 /* SpartaTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C287A8D21DF4C2BE003964A0 /* SpartaTableViewCell.swift */,
 				F51382B01DA6C154008F1FCE /* SpartaTableViewCell.xib */,
+				C287A8D21DF4C2BE003964A0 /* SpartaTableViewCell.swift */,
 			);
 			name = SpartaTableViewCell;
 			sourceTree = "<group>";

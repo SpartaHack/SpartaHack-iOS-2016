@@ -18,6 +18,46 @@ struct Theme {
     static let extraLightGold = UIColor(red:1.00, green:0.95, blue:0.85, alpha:1.0)
     static let white = UIColor(white: 1.0, alpha: 1.0)
     
+    static var primaryColor = UIColor.black
+    static var backgroundColor = UIColor.black
+    static var tintColor = UIColor.black
+    
+    static func loadTheme() {
+        switch currentTheme() {
+        case 0:
+            lightTheme()
+        case 1:
+            darkTheme()
+        default:
+            lightTheme() // 80s theme maybe?
+        }
+    }
+    
+    static func currentTheme() -> Int {
+        let defaults = UserDefaults.standard
+        return defaults.integer(forKey: "themeKey")
+    }
+    
+    // MARK: Light
+    static func lightTheme() {
+        primaryColor = darkGold
+        tintColor = darkGold
+        backgroundColor = white
+        
+        let defaults = UserDefaults.standard
+        defaults.set(0, forKey: "themeKey")
+    }
+    
+    // MARK: Dark
+    static func darkTheme() {
+        primaryColor = lightGold
+        tintColor = lightGold
+        backgroundColor = darkBrown
+                
+        let defaults = UserDefaults.standard
+        defaults.set(1, forKey: "themeKey")
+    }
+    
     // Mark: Gradients
     enum Gradient : Int {
         case lightGradient, darkGradient
@@ -40,7 +80,8 @@ struct Theme {
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at: 0)
+//        let bottomLayer = view.laye
+//        view.layer.insertSublayer(gradientLayer, at: 0)
     }
         
 }

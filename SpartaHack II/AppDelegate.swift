@@ -8,35 +8,17 @@
 
 import UIKit
 
-extension UIImage {
-    class func colorForNavBar(color: UIColor) -> UIImage {
-        let rect = CGRect(origin: .zero, size: CGSize(width: 1.0, height: 1.0))
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        
-        context!.setFillColor(color.cgColor)
-        context!.fill(rect)
-        
-        if let image = UIGraphicsGetImageFromCurrentImageContext() {
-            UIGraphicsEndImageContext()
-            return image
-        }
-        return UIImage()
-    }
-}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
-        UINavigationBar.appearance().barTintColor = Theme.white
-        UINavigationBar.appearance().tintColor = Theme.darkGold
-        UINavigationBar.appearance().barStyle = .default
-        
+        Theme.loadTheme()
+                
         // Set up push notification buttons
         
         // Actions
@@ -109,4 +91,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Required Core Data method
     }
 
+}
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}
+
+extension UIImage {
+    class func colorForNavBar(color: UIColor) -> UIImage {
+        let rect = CGRect(origin: .zero, size: CGSize(width: 1.0, height: 1.0))
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+        
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return image
+        }
+        return UIImage()
+    }
 }
