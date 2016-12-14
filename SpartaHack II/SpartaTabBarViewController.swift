@@ -85,6 +85,11 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
                 spartaTableViewController.updateTheme()
             }
         }
-        return true;
+        // ToDo: Get a notification working so the tab bar updates on theme change
+        self.tabBar.barTintColor = Theme.backgroundColor
+        self.tabBar.tintColor = Theme.darkGold
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
+        return true
     }
 }

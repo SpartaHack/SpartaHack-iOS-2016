@@ -47,6 +47,7 @@ class SpartaNavigationBar: UINavigationBar {
             themeSelection = 0
             Theme.lightTheme()
         }
+        
         self.animating = true
         UIView.animate(withDuration: 1.0, animations: {
             self.barTintColor = Theme.backgroundColor
@@ -129,3 +130,4 @@ class SpartaNavigationBar: UINavigationBar {
         return newSize;
     }
 }
+
