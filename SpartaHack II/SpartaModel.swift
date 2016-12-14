@@ -223,13 +223,13 @@ class SpartaModel: NSObject {
     
     /// Prizes
     func getPrizes( completionHandler: @escaping(Bool) -> () ) {
-        Alamofire.request("\(baseURL)announcements").responseJSON { response in
+        Alamofire.request("\(baseURL)prizes").responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
                 return
             }
-            // get our announcement data
+            // get our prize data
             
             if let result = response.result.value {
                 if let json = result as? NSDictionary {
@@ -245,6 +245,8 @@ class SpartaModel: NSObject {
                             }
                             prize.id = id
                             
+                            // ToDo: Chris, can you get the Sponsors hooked up with the Prizes?                            
+                            
                             guard let name = obj["name"] as? String else {
                                 fatalError("ToDo: gracefully handle error")
                             }
@@ -255,11 +257,6 @@ class SpartaModel: NSObject {
                             }
                             prize.detail = detail
                             
-                            guard let updatedStr = obj["createdAt"] as? String,
-                                let updatedAt = self.formatter.date(from: updatedStr) as NSDate? else {
-                                    fatalError("ToDo: gracefully handle error")
-                            }
-                            prize.updatedTime = updatedAt
                             Prizes.sharedInstance.addPrize(prize: prize)
                         }
                         completionHandler(true)

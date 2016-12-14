@@ -10,14 +10,26 @@ import UIKit
 
 class PrizesViewController: SpartaTableViewController  {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.global(qos: .background).async {
+            // qos' default value is ´DispatchQoS.QoSClass.default`
+            SpartaModel().getPrizes(completionHandler: { (success: Bool) in
+                if success {
+                    DispatchQueue.main.async() {
+                        // we could do fancy animations here if we wanted
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
         
