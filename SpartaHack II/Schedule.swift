@@ -10,7 +10,8 @@ import Foundation
 
 class Schedule: NSObject {
     // holds collection of events 
-    private var spartaScheulde: [Event] = []
+    private var spartaSchedule: [Event] = []
+    var weekdayDictionary: [Int:Int] = [:] // 1:5 means Sunday 5 events. 3:3 meants Tuesday has 3 events.
     
     // singleton for schedule 
     static let sharedInstance = Schedule()
@@ -20,10 +21,10 @@ class Schedule: NSObject {
     }
     
     func addEvent(event:Event) {
-        // add event to schedule 
+        // add event to schedule
         var valid = true
         
-        for obj in spartaScheulde {
+        for obj in spartaSchedule {
             // check to see if the id exists in our array
             if event.id == obj.id {
                 // reject new entry
@@ -32,11 +33,55 @@ class Schedule: NSObject {
         }
         
         if valid {
-            spartaScheulde.append(event)
+            spartaSchedule.append(event)
+            if let eventDate = event.time {
+                let weekday = stringForWeekday(for: eventDate)
+                event.weekday = weekday
+                self.addWeekday(day: intForWeekday(for: eventDate))
+            }
         }
     }
     
     func listOfEvents () -> [Event] {
-        return spartaScheulde
+        return spartaSchedule
     }
+    
+    func addWeekday(day: Int) {
+        if let currentCount = weekdayDictionary[day] {
+            weekdayDictionary[day] = currentCount + 1
+        } else {
+            weekdayDictionary[day] = 1
+        }
+    }
+    
+    func numberOfWeekdays(for index: Int) -> Int {
+        // Pretty gross, but this is how I handle conversions between the weekday dictionary and the table view section array
+        let dictionaryIndex = Array(weekdayDictionary.keys)[index]
+        var numberOfWeekdays = 0
+        if let count = weekdayDictionary[dictionaryIndex] {
+            numberOfWeekdays = count
+        }
+        return numberOfWeekdays
+    }
+    
+    func stringForWeekday(for date: NSDate) -> String {
+        let myCalendar = NSCalendar(calendarIdentifier: .gregorian)
+        let myComponents = myCalendar?.components(.weekday, from: date as Date)
+        let weekDay = myComponents?.weekday
+        
+        let dayString = DateFormatter().weekdaySymbols[weekDay!]
+
+        return dayString
+    }
+    
+    func intForWeekday(for date: NSDate) -> Int {
+        let myCalendar = NSCalendar(calendarIdentifier: .gregorian)
+        let myComponents = myCalendar?.components(.weekday, from: date as Date)
+        if let weekDay = myComponents?.weekday {
+            return weekDay
+        } else {
+            return 1
+        }
+    }
+     
 }

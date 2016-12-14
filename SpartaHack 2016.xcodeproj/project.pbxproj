@@ -19,6 +19,7 @@
 		C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BBE1DEFCCB700EF3013 /* Lato-Regular.ttf */; };
 		C2D33BC51DEFD0E600EF3013 /* Nemoy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */; };
 		C2D33BC71DEFDF0200EF3013 /* SpartaNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */; };
+		C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */; };
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F50EE5791DCEC64800A57BED /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE5781DCEC64800A57BED /* Map.swift */; };
@@ -167,6 +168,7 @@
 		C2D33BBF1DEFCCB700EF3013 /* Nemoy-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Light.ttf"; sourceTree = "<group>"; };
 		C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Medium.ttf"; sourceTree = "<group>"; };
 		C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaNavigationBar.swift; sourceTree = "<group>"; };
+		C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewController.swift; sourceTree = "<group>"; };
 		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
 		F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */,
 				C2D33BC01DEFCE4800EF3013 /* Announcements */,
 				C29D167D1DE8A6C200AA20A8 /* Schedule */,
 				F5C351A31C6DA48200B0D0FE /* Mentor */,
@@ -834,6 +837,7 @@
 				C29683041DA7004000FF9982 /* Theme.swift in Sources */,
 				C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */,
 				F50EE5791DCEC64800A57BED /* Map.swift in Sources */,
+				C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */,
 				F51968E51DD661490026BA06 /* Sponsor.swift in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
