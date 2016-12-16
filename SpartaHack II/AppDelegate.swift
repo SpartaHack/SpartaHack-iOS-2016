@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // The spartaNavigationBarDelegate is used to tell the tab bar to update its theme when the navbar's theme button is pressed.
+        if let tabBar = self.window?.rootViewController?.childViewControllers.last as? SpartaTabBarViewController {
+            let navigationController = application.windows[0].rootViewController as! UINavigationController
+            if let navBar = navigationController.navigationBar as? SpartaNavigationBar {
+                navBar.spartaNavigationBarDelegate = tabBar
+            }
+        }
+        
         // Override point for customization after application launch.
         Theme.loadTheme()
                 

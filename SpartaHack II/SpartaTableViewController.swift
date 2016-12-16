@@ -63,7 +63,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableView.backgroundColor = Theme.backgroundColor
         self.lastKnownTheme = Theme.currentTheme()
         if animated {
-            UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: self.tableView, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.tableView.reloadData()
             }, completion: nil)
         }

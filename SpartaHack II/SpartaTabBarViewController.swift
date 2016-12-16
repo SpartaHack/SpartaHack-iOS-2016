@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate {
+class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate, SpartaNavigationBarDelegate {
     private var lastKnownTheme = Theme.currentTheme()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +66,8 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
         
         self.tabBar.barTintColor = Theme.backgroundColor
         self.tabBar.tintColor = Theme.darkGold
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
+//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
+//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
         
         let borderSize: CGFloat = 1.5
         let tabBarBorder = UIView(frame: CGRect(x: 0,
@@ -85,11 +85,14 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
                 spartaTableViewController.updateTheme()
             }
         }
-        // ToDo: Get a notification working so the tab bar updates on theme change
+        return true
+    }
+    
+    func onThemeChange() {
         self.tabBar.barTintColor = Theme.backgroundColor
         self.tabBar.tintColor = Theme.darkGold
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
-        return true
+        
+//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
+//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
     }
 }

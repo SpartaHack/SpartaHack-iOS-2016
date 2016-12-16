@@ -13,6 +13,10 @@ import UIKit
  All credit goes to this thorough StackOverflow post: http://stackoverflow.com/questions/28705442/ios-8-swift-xcode-6-set-top-nav-bar-bg-color-and-height
  */
 
+protocol SpartaNavigationBarDelegate: class {
+    func onThemeChange()
+}
+
 class SpartaNavigationBar: UINavigationBar {
     private var themeSelection = UserDefaults.standard.integer(forKey: "themeKey")
     private var animating: Bool = false
@@ -24,6 +28,8 @@ class SpartaNavigationBar: UINavigationBar {
     
     private let borderSize: CGFloat = 1.5
     private var bottomBorder: UIView = UIView()
+    
+    weak var spartaNavigationBarDelegate: SpartaNavigationBarDelegate!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +67,9 @@ class SpartaNavigationBar: UINavigationBar {
         if let topController = topController as? SpartaTableViewController {
             topController.updateTheme(animated: true)
         }
-                
+        
+        // tabBar.tintColor = .
+        spartaNavigationBarDelegate.onThemeChange()
     }
     
     private func initialize() {
@@ -98,9 +106,8 @@ class SpartaNavigationBar: UINavigationBar {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        self.barTintColor = Theme.backgroundColor
         self.barStyle = .default
+        self.barTintColor = Theme.backgroundColor
         self.tintColor = Theme.tintColor
         
         let shift = SpartaNavigationBar.heightIncrease/2
