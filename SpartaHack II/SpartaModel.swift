@@ -218,7 +218,6 @@ class SpartaModel: NSObject {
                 }
             }
         }
-
     }
     
     /// Prizes
@@ -267,6 +266,38 @@ class SpartaModel: NSObject {
                 }
             }
         }
+    }
+    
+    /// log user in and grab token
+    func getUserSession (email:String, password:String) {
+        var keyDict: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+    
 
+        let parameters: [String: String] = [
+            "email" : email,
+            "password" : password,
+        ]
+        
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)sessions")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("vnd.example.v2", forHTTPHeaderField: "Accept")
+        
+        do {
+            try urlRequest.httpBody = JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch {
+            print(error)
+        }
+        
+        Alamofire.request(urlRequest).responseJSON { response in
+            debugPrint(response)
+        }
     }
 }
