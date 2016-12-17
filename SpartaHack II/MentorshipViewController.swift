@@ -1,33 +1,23 @@
 //
-//  ScheduleViewController.swift
-//  SpartaHack II
+//  MentorshipViewController.swift
+//  SpartaHack 2016
 //
-//  Created by Chris McGrath on 12/25/15.
-//  Copyright © 2015 Chris McGrath. All rights reserved.
+//  Created by Noah Hines on 12/16/16.
+//  Copyright © 2016 Chris McGrath. All rights reserved.
 //
 
 import UIKit
 
-class ScheduleViewController: SpartaTableViewController {
+class MentorshipViewController: SpartaTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        DispatchQueue.global(qos: .background).async {
-            // qos' default value is ´DispatchQoS.QoSClass.default`
-            SpartaModel().getSchedule(completionHandler: { (success: Bool) in
-                if success {
-                    DispatchQueue.main.async() {
-                        // we could do fancy animations here if we wanted
-                        self.tableView.reloadData()
-                    }
-                }
-            })
-        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.alwaysBounceVertical = false
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,16 +30,12 @@ class ScheduleViewController: SpartaTableViewController {
         super.viewDidAppear(animated)
     }
     
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
-        let event: Event
-        
-        // ToDo: use different sections for different days
-        event =  Schedule.sharedInstance.listOfEvents()[indexPath.item]
-//        Theme.setHorizontalGradient(of: .lightGradient, on: cell.contentView)
-        cell.titleLabel.text = event.title
-        cell.detailLabel.text = event.detail
+
+        cell.titleLabel.text = "Sign In"
+        cell.detailLabel.text = "Blah blah"
         cell.separatorInset = .zero
         
         return cell
@@ -58,18 +44,16 @@ class ScheduleViewController: SpartaTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
         headerCell.separatorInset = .zero
-        let weekdayInt: Int = Array(Schedule.sharedInstance.weekdayDictionary.keys)[section]
-        let sectionTitle = DateFormatter().weekdaySymbols[weekdayInt]
-        headerCell.titleLabel.text = sectionTitle
+        headerCell.titleLabel.text = "Mentorship"
         return headerCell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Schedule.sharedInstance.numberOfWeekdays(for: section)
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Schedule.sharedInstance.weekdayDictionary.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
