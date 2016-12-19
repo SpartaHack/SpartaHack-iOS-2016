@@ -146,16 +146,158 @@ class SpartaModel: NSObject {
     
     /// Map
     func getMap( completionHandler: @escaping(Bool) -> () ) {
-        
+//        let destination = DownloadRequest.suggestedDownloadDestination(for: .cachesDirectory, in: .userDomainMask)
+//        
+//        Alamofire.download("\(baseURL)map.pdf")
+//            .downloadProgress { progress in
+//                print("Download Progress: \(progress.fractionCompleted)")
+//            }
+//            .responseData { response in
+//                print(response)
+//                if let data = response.result.value {
+//                    let image = UIImage(data: data)
+//                    print(image as Any);
+//                }
+//            }
     }
     
     /// getSponsors
     func getSponsors( completionHandler: @escaping(Bool) -> () ) {
-        
+        Alamofire.request("\(baseURL)companies").responseJSON { response in
+            guard response.result.isSuccess else {
+                // we failed for some reason
+                print("Error \(response.result.error)")
+                return
+            }
+            // get our schedule data
+            
+            if let result = response.result.value {
+                if let json = result as? NSDictionary {
+                    if let objArray = json["companies"] as? [NSDictionary] {
+                        // loop through our valid json dictionary and create event objects that will be added to the schedule
+                        for obj in objArray {
+                            // create event objects
+                            let sponsor = Sponsor()
+                            
+                            guard let id = obj["id"] as? Int else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            sponsor.id = id
+                            
+                            guard let name = obj["name"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            sponsor.name = name
+                            
+                            guard let level = obj["level"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            sponsor.level = level
+                            
+                            guard let logo = obj["logo_png"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            sponsor.logo = logo
+                            
+                            guard let url = obj["url"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            sponsor.url = url
+                            
+                            guard let updatedString = obj["updatedAt"] as? String,
+                                let updatedAt = self.formatter.date(from: updatedString) as NSDate? else {
+                                    fatalError("ToDo: gracefully handle error")
+                            }
+                            sponsor.updatedTime = updatedAt
+                            
+                            // okay, we haven't crashed by now so we guchi
+                            Sponsors.sharedInstance.addSponsor(sponsor: sponsor)
+                        }
+                    }
+                    completionHandler(true)
+                }
+            }
+        }
     }
     
     /// Prizes
     func getPrizes( completionHandler: @escaping(Bool) -> () ) {
+        Alamofire.request("\(baseURL)announcements").responseJSON { response in
+            guard response.result.isSuccess else {
+                // we failed for some reason
+                print("Error \(response.result.error)")
+                return
+            }
+            // get our announcement data
+            
+            if let result = response.result.value {
+                if let json = result as? NSDictionary {
+                    if let objArray = json["prizes"] as? [NSDictionary] {
+                        // loop through our valid json dictionary and create announcement objects that will be added to announcements
+                        for obj in objArray {
+                            
+                            // create announcement objects
+                            let prize = Prize()
+                            
+                            guard let id = obj["id"] as? Int else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            prize.id = id
+                            
+                            guard let name = obj["name"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            prize.name = name
+                            
+                            guard let detail = obj["description"] as? String else {
+                                fatalError("ToDo: gracefully handle error")
+                            }
+                            prize.detail = detail
+                            
+                            guard let updatedStr = obj["createdAt"] as? String,
+                                let updatedAt = self.formatter.date(from: updatedStr) as NSDate? else {
+                                    fatalError("ToDo: gracefully handle error")
+                            }
+                            prize.updatedTime = updatedAt
+                            Prizes.sharedInstance.addPrize(prize: prize)
+                        }
+                        completionHandler(true)
+                    }
+                }
+            }
+        }
+    }
+    
+    /// log user in and grab token
+    func getUserSession (email:String, password:String) {
+        var keyDict: NSDictionary?
         
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+    
+
+        let parameters: [String: String] = [
+            "email" : email,
+            "password" : password,
+        ]
+        
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)sessions")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("vnd.example.v2", forHTTPHeaderField: "Accept")
+        
+        do {
+            try urlRequest.httpBody = JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch {
+            print(error)
+        }
+        
+        Alamofire.request(urlRequest).responseJSON { response in
+            debugPrint(response)
+        }
     }
 }

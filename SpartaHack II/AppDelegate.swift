@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        SpartaModel().getUserSession(email: "chrisnmcgrath@gmail.com", password: "testPwd")
+        
         UINavigationBar.appearance().barTintColor = Theme.darkBrown
         UINavigationBar.appearance().tintColor = Theme.white
         UINavigationBar.appearance().barStyle = .black

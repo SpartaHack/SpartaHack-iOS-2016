@@ -13,7 +13,6 @@
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F50EE5791DCEC64800A57BED /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE5781DCEC64800A57BED /* Map.swift */; };
-		F50EE5A51DCFCBF800A57BED /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; };
 		F51382B11DA6C154008F1FCE /* AnnouncementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B01DA6C154008F1FCE /* AnnouncementsTableViewCell.xib */; };
 		F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */; };
 		F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */; };
@@ -29,6 +28,13 @@
 		F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */; };
 		F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */; };
 		F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */; };
+		F51968DB1DD64A0B0026BA06 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; };
+		F51968DC1DD64A0B0026BA06 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F51968E01DD652810026BA06 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968DF1DD652810026BA06 /* MapView.swift */; };
+		F51968E21DD660EC0026BA06 /* Sponsors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968E11DD660EC0026BA06 /* Sponsors.swift */; };
+		F51968E51DD661490026BA06 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968E41DD661490026BA06 /* Sponsor.swift */; };
+		F51968E71DD66CF70026BA06 /* Prizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968E61DD66CF70026BA06 /* Prizes.swift */; };
+		F51968EA1DD66EB00026BA06 /* Prize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968E91DD66EB00026BA06 /* Prize.swift */; };
 		F5373B881B327566007F508C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B871B327566007F508C /* AppDelegate.swift */; };
 		F5373B8A1B327566007F508C /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373B891B327566007F508C /* AnnouncementsTableViewController.swift */; };
 		F5373B8F1B327566007F508C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5373B8D1B327566007F508C /* Main.storyboard */; };
@@ -42,11 +48,13 @@
 		F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBF1B3275E9007F508C /* QuartzCore.framework */; };
 		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
+		F5467B811E05BFFE00BE66DA /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5467B801E05BFFE00BE66DA /* keys.plist */; };
 		F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */; };
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
 		F559F6D01C82516B00C1D4A1 /* SpartaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */; };
 		F559F6D21C826C2800C1D4A1 /* SpartaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */; };
 		F55FE0E81C61B235009D7830 /* TicketCategoryViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */; };
+		F5602C1A1DE8D89500227700 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5602C191DE8D89500227700 /* User.swift */; };
 		F574CE531C7380A30032203C /* map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F574CE521C7380A30032203C /* map.pdf */; };
 		F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BE2901C5C16DD0000696B /* UIColor+SpartaColor.m */; };
 		F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591B2341C2DE25F00F1512D /* MapViewController.swift */; };
@@ -119,6 +127,13 @@
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
 		};
+		F51968DD1DD64A0B0026BA06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F50EE5821DCFC75B00A57BED /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 		F5373B9A1B327566007F508C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5373B7A1B327566007F508C /* Project object */;
@@ -135,6 +150,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F51968DC1DD64A0B0026BA06 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +181,11 @@
 		F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
 		F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePictureCell.xib; sourceTree = "<group>"; };
 		F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileInfoCell.xib; sourceTree = "<group>"; };
+		F51968DF1DD652810026BA06 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F51968E11DD660EC0026BA06 /* Sponsors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsors.swift; sourceTree = "<group>"; };
+		F51968E41DD661490026BA06 /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
+		F51968E61DD66CF70026BA06 /* Prizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prizes.swift; sourceTree = "<group>"; };
+		F51968E91DD66EB00026BA06 /* Prize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prize.swift; sourceTree = "<group>"; };
 		F5373B821B327566007F508C /* SpartaHack 2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpartaHack 2016.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5373B861B327566007F508C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5373B871B327566007F508C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,11 +206,13 @@
 		F5373BC51B327604007F508C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F5467B801E05BFFE00BE66DA /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		F54F438D1BB630F20037EA44 /* HelpDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDeskViewController.swift; sourceTree = "<group>"; };
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
 		F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaLabel.swift; sourceTree = "<group>"; };
 		F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTextField.swift; sourceTree = "<group>"; };
 		F55FE0E71C61B235009D7830 /* TicketCategoryViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCategoryViewTableViewController.swift; sourceTree = "<group>"; };
+		F5602C191DE8D89500227700 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F574CE521C7380A30032203C /* map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = map.pdf; sourceTree = "<group>"; };
 		F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F57BA33F1C288BCC000E0381 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -221,13 +244,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F50EE5A51DCFCBF800A57BED /* Alamofire.framework in Frameworks */,
 				F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */,
 				F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */,
 				F5373BBC1B3275DA007F508C /* CoreLocation.framework in Frameworks */,
 				F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */,
 				F5373BB81B3275C9007F508C /* CFNetwork.framework in Frameworks */,
 				F5373BB61B3275C0007F508C /* AudioToolbox.framework in Frameworks */,
+				F51968DB1DD64A0B0026BA06 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +338,7 @@
 		F51382B81DA6C3D3008F1FCE /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				F51968DF1DD652810026BA06 /* MapView.swift */,
 				F51382B91DA6C405008F1FCE /* MapWebView.xib */,
 			);
 			name = Map;
@@ -359,6 +383,24 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		F51968E31DD660F00026BA06 /* Sponsors */ = {
+			isa = PBXGroup;
+			children = (
+				F51968E11DD660EC0026BA06 /* Sponsors.swift */,
+				F51968E41DD661490026BA06 /* Sponsor.swift */,
+			);
+			name = Sponsors;
+			sourceTree = "<group>";
+		};
+		F51968E81DD66CFB0026BA06 /* Prizes */ = {
+			isa = PBXGroup;
+			children = (
+				F51968E61DD66CF70026BA06 /* Prizes.swift */,
+				F51968E91DD66EB00026BA06 /* Prize.swift */,
+			);
+			name = Prizes;
+			sourceTree = "<group>";
+		};
 		F5373B791B327566007F508C = {
 			isa = PBXGroup;
 			children = (
@@ -382,11 +424,11 @@
 		F5373B841B327566007F508C /* SpartaHack II */ = {
 			isa = PBXGroup;
 			children = (
+				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F596937D1DB41DBA00B830DD /* Model */,
 				F559F6CF1C82516B00C1D4A1 /* SpartaLabel.swift */,
 				C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */,
 				F559F6D11C826C2800C1D4A1 /* SpartaTextField.swift */,
-				F5373B871B327566007F508C /* AppDelegate.swift */,
 				F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */,
 				F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */,
 				C29683031DA7004000FF9982 /* Theme.swift */,
@@ -406,6 +448,7 @@
 		F5373B851B327566007F508C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5467B801E05BFFE00BE66DA /* keys.plist */,
 				F574CE521C7380A30032203C /* map.pdf */,
 				F5CA4C9E1C684BBE00CDC37B /* Moondance.ttf */,
 				F57BA33F1C288BCC000E0381 /* libz.tbd */,
@@ -456,6 +499,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F5602C221DE8D89D00227700 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				F5602C191DE8D89500227700 /* User.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		F591B2381C2DE27600F1512D /* Guide View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +523,9 @@
 				F596937E1DB41DC200B830DD /* Announcements */,
 				F5C73CD41DBD37F10055C921 /* Schedule */,
 				F50EE5811DCEC65200A57BED /* Map */,
+				F51968E31DD660F00026BA06 /* Sponsors */,
+				F51968E81DD66CFB0026BA06 /* Prizes */,
+				F5602C221DE8D89D00227700 /* User */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -540,6 +594,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F51968DE1DD64A0B0026BA06 /* PBXTargetDependency */,
 			);
 			name = "SpartaHack 2016";
 			productName = "SpartaHack II";
@@ -695,6 +750,7 @@
 				F574CE531C7380A30032203C /* map.pdf in Resources */,
 				F51382CB1DA6C634008F1FCE /* CheckinView.xib in Resources */,
 				F51382CE1DA6C688008F1FCE /* ProfileTableView.xib in Resources */,
+				F5467B811E05BFFE00BE66DA /* keys.plist in Resources */,
 				F5CA4C9F1C684BBE00CDC37B /* Moondance.ttf in Resources */,
 				F51382BD1DA6C48E008F1FCE /* SponsorsCollectionView.xib in Resources */,
 				F51382B11DA6C154008F1FCE /* AnnouncementsTableViewCell.xib in Resources */,
@@ -715,9 +771,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51968EA1DD66EB00026BA06 /* Prize.swift in Sources */,
 				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
+				F51968E01DD652810026BA06 /* MapView.swift in Sources */,
 				F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */,
 				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
+				F51968E71DD66CF70026BA06 /* Prizes.swift in Sources */,
 				F5CD8FB41C430D500077E1F9 /* CreateTicketViewController.swift in Sources */,
 				F596937B1DB41DB600B830DD /* Announcement.swift in Sources */,
 				F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */,
@@ -735,11 +794,14 @@
 				F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */,
 				F5C73CD11DBD37E50055C921 /* Schedule.swift in Sources */,
 				F596937A1DB41DB600B830DD /* Announcements.swift in Sources */,
+				F5602C1A1DE8D89500227700 /* User.swift in Sources */,
 				C29683041DA7004000FF9982 /* Theme.swift in Sources */,
 				C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */,
 				F50EE5791DCEC64800A57BED /* Map.swift in Sources */,
+				F51968E51DD661490026BA06 /* Sponsor.swift in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
+				F51968E21DD660EC0026BA06 /* Sponsors.swift in Sources */,
 				F5373B881B327566007F508C /* AppDelegate.swift in Sources */,
 				F559F6D21C826C2800C1D4A1 /* SpartaTextField.swift in Sources */,
 				F54F438E1BB630F20037EA44 /* HelpDeskViewController.swift in Sources */,
@@ -760,6 +822,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F51968DE1DD64A0B0026BA06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = F51968DD1DD64A0B0026BA06 /* PBXContainerItemProxy */;
+		};
 		F5373B9B1B327566007F508C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F5373B811B327566007F508C /* SpartaHack 2016 */;
@@ -916,8 +983,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = V6R9L68573;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
