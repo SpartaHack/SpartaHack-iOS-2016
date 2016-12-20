@@ -13,6 +13,7 @@ class Event: NSObject {
     var title: String! = nil
     var detail: String! = nil
     var time: NSDate? = nil
+    var weekday: String! = nil
     var location: String! = nil
     var updatedTime: NSDate? = nil
     

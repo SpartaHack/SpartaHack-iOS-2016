@@ -12,20 +12,20 @@ import Foundation
 class Prize: NSObject {
     var id: Int! = nil
     var name: String! = nil
+    var sponsor: String! = nil
     var detail: String! = nil
-    var updatedTime: NSDate? = nil
     
     override init() {
         super.init()
     }
     
     override var debugDescription : String {
-        let sponsor =
+        let prize =
             "id: \(id!)" +
                 "\n name:\(name!)" +
-                "\n detail:\(detail!)" +
-        "\n updated:\(updatedTime)"
+                "\n sponsor:\(sponsor!)" +
+                "\n detail:\(detail!)"
         
-        return sponsor
+        return prize
     }
 }
