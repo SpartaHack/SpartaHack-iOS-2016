@@ -8,10 +8,9 @@
 
 import UIKit
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -23,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 navBar.spartaNavigationBarDelegate = tabBar
             }
         }
+        SpartaModel().getUserSession(email: "chrisnmcgrath@gmail.com", password: "testPwd")
+        
         
         // Override point for customization after application launch.
         Theme.loadTheme()
