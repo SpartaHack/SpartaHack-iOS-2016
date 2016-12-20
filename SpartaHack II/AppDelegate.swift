@@ -14,14 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        // The spartaNavigationBarDelegate is used to tell the tab bar to update its theme when the navbar's theme button is pressed.
+        if let tabBar = self.window?.rootViewController?.childViewControllers.last as? SpartaTabBarViewController {
+            let navigationController = application.windows[0].rootViewController as! UINavigationController
+            if let navBar = navigationController.navigationBar as? SpartaNavigationBar {
+                navBar.spartaNavigationBarDelegate = tabBar
+            }
+        }
         SpartaModel().getUserSession(email: "chrisnmcgrath@gmail.com", password: "testPwd")
         
-        UINavigationBar.appearance().barTintColor = Theme.darkBrown
-        UINavigationBar.appearance().tintColor = Theme.white
-        UINavigationBar.appearance().barStyle = .black
         
+        // Override point for customization after application launch.
+        Theme.loadTheme()
+                
         // Set up push notification buttons
         
         // Actions
@@ -72,7 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("failed to register for remote notifications:  \(error)")
     }
     
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -95,4 +100,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Required Core Data method
     }
 
+}
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}
+
+extension UIImage {
+    class func colorForNavBar(color: UIColor) -> UIImage {
+        let rect = CGRect(origin: .zero, size: CGSize(width: 1.0, height: 1.0))
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+        
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return image
+        }
+        return UIImage()
+    }
 }

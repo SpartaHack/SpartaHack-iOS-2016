@@ -40,4 +40,14 @@ class Announcements: NSObject {
     func listOfAnnouncements () -> [Announcement] {
         return spartaAnnouncements
     }
+    
+    func listOfPinnedAnnouncements () -> [Announcement] {
+        return spartaAnnouncements.filter { $0.pinned == true }
+    }
+    
+    func listOfUnpinnedAnnouncements () -> [Announcement] {
+        return spartaAnnouncements.filter { $0.pinned == false }
+    }
+    
+    
 }
