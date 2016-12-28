@@ -1,13 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SwN-Wr-NPN">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SwN-Wr-NPN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+        <array key="Nemoy-Medium.ttf">
+            <string>Nemoy-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="glY-6v-X1i">
@@ -29,6 +38,110 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOb-nZ-NEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1455" y="-552"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="eG4-aA-SzI">
+            <objects>
+                <viewController storyboardIdentifier="login" modalPresentationStyle="overCurrentContext" id="iJc-8I-9e4" customClass="LoginViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dTa-hY-4g5"/>
+                        <viewControllerLayoutGuide type="bottom" id="O5W-mc-p1u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yr7-LW-GEf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4I-CM-VvM">
+                                <rect key="frame" x="16" y="85" width="343" height="300"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Nm-sr-gtj">
+                                        <rect key="frame" x="0.0" y="111" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2td-nO-neE"/>
+                                        </constraints>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-YH-HEs">
+                                        <rect key="frame" x="0.0" y="176" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="zQm-AA-tkl"/>
+                                        </constraints>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="15" width="343" height="30"/>
+                                        <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRU-kc-U8j">
+                                        <rect key="frame" x="50" y="241" width="243" height="44"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Login">
+                                                    <attributes>
+                                                        <font key="NSFont" size="17" name="Lato-Regular"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="iJc-8I-9e4" eventType="touchUpInside" id="7Ds-W8-vKM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qwW-am-Y1h" secondAttribute="trailing" id="9ws-gc-Mvm"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Nm-sr-gtj" secondAttribute="trailing" id="Ezw-h5-eMd"/>
+                                    <constraint firstAttribute="bottom" secondItem="CRU-kc-U8j" secondAttribute="bottom" constant="15" id="F2d-tA-OHl"/>
+                                    <constraint firstItem="CRU-kc-U8j" firstAttribute="top" secondItem="SVE-YH-HEs" secondAttribute="bottom" constant="15" id="MT9-ck-RTN"/>
+                                    <constraint firstAttribute="trailing" secondItem="CRU-kc-U8j" secondAttribute="trailing" constant="50" id="PSe-1l-GBD"/>
+                                    <constraint firstAttribute="trailing" secondItem="SVE-YH-HEs" secondAttribute="trailing" id="XzB-fh-3MD"/>
+                                    <constraint firstItem="qwW-am-Y1h" firstAttribute="leading" secondItem="P4I-CM-VvM" secondAttribute="leading" id="Zuz-vO-yeH"/>
+                                    <constraint firstItem="qwW-am-Y1h" firstAttribute="top" secondItem="dY6-uE-63B" secondAttribute="bottom" constant="15" id="bl4-ni-0q2"/>
+                                    <constraint firstItem="CRU-kc-U8j" firstAttribute="leading" secondItem="P4I-CM-VvM" secondAttribute="leading" constant="50" id="egl-57-xPi"/>
+                                    <constraint firstItem="2Nm-sr-gtj" firstAttribute="leading" secondItem="P4I-CM-VvM" secondAttribute="leading" id="esK-IN-u9T"/>
+                                    <constraint firstItem="dY6-uE-63B" firstAttribute="leading" secondItem="P4I-CM-VvM" secondAttribute="leading" id="kgF-JW-3RU"/>
+                                    <constraint firstItem="qwW-am-Y1h" firstAttribute="top" secondItem="dY6-uE-63B" secondAttribute="bottom" constant="15" id="mWe-gU-00h"/>
+                                    <constraint firstItem="dY6-uE-63B" firstAttribute="top" secondItem="P4I-CM-VvM" secondAttribute="top" constant="15" id="puf-Ui-gcU"/>
+                                    <constraint firstAttribute="height" constant="300" id="qFU-Mn-cHp"/>
+                                    <constraint firstAttribute="trailing" secondItem="dY6-uE-63B" secondAttribute="trailing" id="t28-3E-tSH"/>
+                                    <constraint firstItem="SVE-YH-HEs" firstAttribute="leading" secondItem="P4I-CM-VvM" secondAttribute="leading" id="vJ5-x2-n5h"/>
+                                    <constraint firstItem="SVE-YH-HEs" firstAttribute="top" secondItem="2Nm-sr-gtj" secondAttribute="bottom" constant="15" id="vsg-sw-z8i"/>
+                                    <constraint firstItem="2Nm-sr-gtj" firstAttribute="top" secondItem="qwW-am-Y1h" secondAttribute="bottom" constant="30" id="w9G-EG-uuE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P4I-CM-VvM" firstAttribute="trailing" secondItem="yr7-LW-GEf" secondAttribute="trailingMargin" id="KEe-nS-pZN"/>
+                            <constraint firstItem="P4I-CM-VvM" firstAttribute="top" secondItem="dTa-hY-4g5" secondAttribute="bottom" constant="65" id="nGp-tI-lSj"/>
+                            <constraint firstItem="P4I-CM-VvM" firstAttribute="leading" secondItem="yr7-LW-GEf" secondAttribute="leadingMargin" id="wf6-wQ-4Hh"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="Hiq-ZV-xIE"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="2Nm-sr-gtj" id="IY5-rp-bEH"/>
+                        <outlet property="formView" destination="P4I-CM-VvM" id="ZK2-bo-RKn"/>
+                        <outlet property="loginButton" destination="CRU-kc-U8j" id="f3V-dY-YMb"/>
+                        <outlet property="passwordTextField" destination="SVE-YH-HEs" id="mcM-OZ-kqe"/>
+                        <outlet property="subtitleLabel" destination="qwW-am-Y1h" id="pDi-xP-aRq"/>
+                        <outlet property="titleLabel" destination="dY6-uE-63B" id="xqN-eV-bt6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="soQ-fF-SxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-599.20000000000005" y="258.62068965517244"/>
         </scene>
         <!--Sparta Tab Bar View Controller-->
         <scene sceneID="U4H-hF-LV1">

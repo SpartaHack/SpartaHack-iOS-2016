@@ -130,7 +130,11 @@ class SpartaNavigationBar: UINavigationBar {
                                          y: self.frame.size.height + shift,
                                          width: self.frame.size.width,
                                          height: self.borderSize)
+<<<<<<< HEAD
+//        self.bottomBorder.backgroundColor = Theme.tintColor
         Theme.setHorizontalGradient(on: self.bottomBorder)
+=======
+        Theme.setHorizontalGradient(of: .darkGradient, on: self.bottomBorder)
         
         // Set the user initials under the profile icon
         userInitials.frame = profileButton.frame
@@ -144,6 +148,7 @@ class SpartaNavigationBar: UINavigationBar {
         
         
         userInitials.textColor = Theme.primaryColor
+>>>>>>> User login checkpoint.
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
