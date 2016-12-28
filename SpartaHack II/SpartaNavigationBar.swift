@@ -28,6 +28,8 @@ class SpartaNavigationBar: UINavigationBar {
     
     private let borderSize: CGFloat = 1.5
     private var bottomBorder: UIView = UIView()
+    private var profileButton: UIButton = UIButton.init(type: .custom)
+    private var userInitials: UILabel = UILabel()
     
     weak var spartaNavigationBarDelegate: SpartaNavigationBarDelegate!
     
@@ -84,7 +86,6 @@ class SpartaNavigationBar: UINavigationBar {
         
         self.topItem?.titleView = diamondImage
         
-        let profileButton = UIButton.init(type: .custom)
         profileButton.setImage(UIImage.init(named: "profile"), for: UIControlState.normal)
         // ToDo: Hook this up to the Profile page
 //        button.addTarget(self, action:#selector(ProfileViewController), for: UIControlEvents.touchUpInside)
@@ -92,6 +93,8 @@ class SpartaNavigationBar: UINavigationBar {
         let profileButtonItem = UIBarButtonItem.init(customView: profileButton)
         
         self.topItem?.setRightBarButtonItems([profileButtonItem], animated: true)
+        
+        self.addSubview(userInitials)
         
         // Cool border
         self.bottomBorder.backgroundColor = Theme.darkGold
@@ -129,6 +132,19 @@ class SpartaNavigationBar: UINavigationBar {
                                          width: self.frame.size.width,
                                          height: self.borderSize)
         Theme.setHorizontalGradient(of: .darkGradient, on: self.bottomBorder)
+        
+        // Set the user initials under the profile icon
+        userInitials.frame = profileButton.frame
+        userInitials.bounds = profileButton.bounds
+        if let profileImageFrame = profileButton.imageView?.frame {
+            userInitials.frame.origin.y += profileImageFrame.size.height - 7.0
+        }
+        userInitials.frame.origin.x = profileButton.frame.origin.x
+        userInitials.text = "Christopher"
+        userInitials.adjustsFontSizeToFitWidth = true
+        
+        
+        userInitials.textColor = Theme.primaryColor
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
