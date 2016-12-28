@@ -153,19 +153,23 @@ class SpartaModel: NSObject {
     
     /// Map
     func getMap( completionHandler: @escaping(Bool) -> () ) {
-//        let destination = DownloadRequest.suggestedDownloadDestination(for: .cachesDirectory, in: .userDomainMask)
-//        
-//        Alamofire.download("\(baseURL)map.pdf")
-//            .downloadProgress { progress in
-//                print("Download Progress: \(progress.fractionCompleted)")
-//            }
-//            .responseData { response in
-//                print(response)
-//                if let data = response.result.value {
-//                    let image = UIImage(data: data)
-//                    print(image as Any);
-//                }
-//            }
+
+    
+        let utilityQueue = DispatchQueue.global(qos: .utility)
+        
+        Alamofire.download("\(baseURL)map.pdf")
+            .downloadProgress(queue: utilityQueue) { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
+            }
+            .responseData { response in
+                if let data = response.result.value {
+                    print("\(data)")
+                    //let image = UIImage(data: data)
+                } else {
+                    // failure 
+                    print("Error \(response.result.error)")
+                }
+        }
     }
     
     /// getSponsors
@@ -305,5 +309,11 @@ class SpartaModel: NSObject {
             debugPrint(response)
         }
         return true
+        
+        /// testing the map function WIP
+        getMap { (Bool) in
+            print("\(Bool)")
+        }
+
     }
 }
