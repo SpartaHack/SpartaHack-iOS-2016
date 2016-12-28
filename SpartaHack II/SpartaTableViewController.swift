@@ -13,6 +13,10 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     var tableView: UITableView = UITableView()
     var separatorOverride: UIView = UIView()
+    var refreshControl: UIRefreshControl!
+    var customRefreshView: UIView!
+    var labelsArray: Array<UILabel> = []
+    
     private var lastKnownTheme: Int = -1 // set to -1 so the view loads the theme the first time
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +55,12 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
         // ToDo: Subclass and make a SpartaViewController that sets this.
         self.automaticallyAdjustsScrollViewInsets = false
         self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.size.height, 0.0)
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = .clear
+        refreshControl.tintColor = .clear
+        self.tableView.addSubview(refreshControl)
+        loadCustomRefreshContents()
     }
     
     func needsThemeUpdate() -> Bool {
@@ -120,6 +130,21 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func loadCustomRefreshContents() {
+//        if let refreshContents = Bundle.main.loadNibNamed("RefreshView.xib", owner: self, options: nil) {
+//        
+//            self.customRefreshView = refreshContents[0] as! UIView
+//            self.customRefreshView.frame = refreshControl.bounds
+//            
+//            for i in 0 ..< self.customRefreshView.subviews.count {
+//                labelsArray.append(self.customRefreshView.viewWithTag(i + 1) as! UILabel)
+//            }
+//            
+//            refreshControl.addSubview(self.customRefreshView)
+//        }
+        
     }
     
     override func didReceiveMemoryWarning() {
