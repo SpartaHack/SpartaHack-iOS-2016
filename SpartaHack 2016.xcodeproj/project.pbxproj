@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331AB8D1C79040C00424B12 /* NSDateExtension.swift */; };
+		C23B6D5B1E12CFD900B419CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B6D5A1E12CFD900B419CA /* LoginViewController.swift */; };
 		C2417EB21E08CA8E0012BC9F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EB11E08CA8E0012BC9F /* User.swift */; };
 		C2417EBC1E08CADF0012BC9F /* MentorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EBB1E08CADF0012BC9F /* MentorshipViewController.swift */; };
 		C2417EBE1E08CB100012BC9F /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2417EBD1E08CB100012BC9F /* keys.plist */; };
@@ -33,10 +34,6 @@
 		F51382BA1DA6C405008F1FCE /* MapWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B91DA6C405008F1FCE /* MapWebView.xib */; };
 		F51382BD1DA6C48E008F1FCE /* SponsorsCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382BC1DA6C48E008F1FCE /* SponsorsCollectionView.xib */; };
 		F51382BF1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382BE1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib */; };
-		F51382C21DA6C596008F1FCE /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C11DA6C596008F1FCE /* LoginView.xib */; };
-		F51382C41DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C31DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib */; };
-		F51382C61DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C51DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib */; };
-		F51382C81DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382C71DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib */; };
 		F51382CB1DA6C634008F1FCE /* CheckinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CA1DA6C634008F1FCE /* CheckinView.xib */; };
 		F51382CE1DA6C688008F1FCE /* ProfileTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CD1DA6C688008F1FCE /* ProfileTableView.xib */; };
 		F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */; };
@@ -58,7 +55,7 @@
 		F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BB91B3275D1007F508C /* CoreGraphics.framework */; };
 		F5373BBC1B3275DA007F508C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBB1B3275DA007F508C /* CoreLocation.framework */; };
 		F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBF1B3275E9007F508C /* QuartzCore.framework */; };
-		F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* LoginViewController.swift */; };
+		F5373BCD1B327BB0007F508C /* oldLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* oldLoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
 		F5467B811E05BFFE00BE66DA /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5467B801E05BFFE00BE66DA /* keys.plist */; };
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
@@ -158,6 +155,7 @@
 
 /* Begin PBXFileReference section */
 		4331AB8D1C79040C00424B12 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		C23B6D5A1E12CFD900B419CA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C2417EB11E08CA8E0012BC9F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C2417EBB1E08CADF0012BC9F /* MentorshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorshipViewController.swift; sourceTree = "<group>"; };
 		C2417EBD1E08CB100012BC9F /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
@@ -183,10 +181,6 @@
 		F51382B91DA6C405008F1FCE /* MapWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapWebView.xib; sourceTree = "<group>"; };
 		F51382BC1DA6C48E008F1FCE /* SponsorsCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsCollectionView.xib; sourceTree = "<group>"; };
 		F51382BE1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsCollectionViewCell.xib; sourceTree = "<group>"; };
-		F51382C11DA6C596008F1FCE /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
-		F51382C31DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginTitleTableViewCell.xib; sourceTree = "<group>"; };
-		F51382C51DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginTextFieldTableViewCell.xib; sourceTree = "<group>"; };
-		F51382C71DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginButtonTableViewCell.xib; sourceTree = "<group>"; };
 		F51382CA1DA6C634008F1FCE /* CheckinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinView.xib; sourceTree = "<group>"; };
 		F51382CD1DA6C688008F1FCE /* ProfileTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableView.xib; sourceTree = "<group>"; };
 		F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
@@ -215,7 +209,7 @@
 		F5373BBF1B3275E9007F508C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F5373BC11B3275F1007F508C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F5373BC51B327604007F508C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F5373BCC1B327BB0007F508C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F5373BCC1B327BB0007F508C /* oldLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oldLoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F5467B801E05BFFE00BE66DA /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +262,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C23B6D511E12CEF600B419CA /* User */ = {
+			isa = PBXGroup;
+			children = (
+				C23B6D5A1E12CFD900B419CA /* LoginViewController.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		C287A8D41DF4C7CC003964A0 /* SpartaTableViewHeaderCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,7 +346,6 @@
 				F51382B51DA6C33D008F1FCE /* Prizes */,
 				F51382B81DA6C3D3008F1FCE /* Map */,
 				F51382BB1DA6C457008F1FCE /* Sponsors */,
-				F51382C01DA6C4D3008F1FCE /* Login */,
 				F51382CC1DA6C65B008F1FCE /* Profile */,
 				F51382C91DA6C617008F1FCE /* Checkin */,
 			);
@@ -390,17 +391,6 @@
 				F51382BE1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib */,
 			);
 			name = Sponsors;
-			sourceTree = "<group>";
-		};
-		F51382C01DA6C4D3008F1FCE /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				F51382C11DA6C596008F1FCE /* LoginView.xib */,
-				F51382C31DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib */,
-				F51382C51DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib */,
-				F51382C71DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib */,
-			);
-			name = Login;
 			sourceTree = "<group>";
 		};
 		F51382C91DA6C617008F1FCE /* Checkin */ = {
@@ -530,6 +520,7 @@
 		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C23B6D511E12CEF600B419CA /* User */,
 				C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */,
 				C2D33BC01DEFCE4800EF3013 /* Announcements */,
 				C29D167D1DE8A6C200AA20A8 /* Schedule */,
@@ -537,7 +528,7 @@
 				F591B2381C2DE27600F1512D /* Guide View Controllers */,
 				F5AE53801C30928F0030BCCA /* Prizes */,
 				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
-				F5373BCC1B327BB0007F508C /* LoginViewController.swift */,
+				F5373BCC1B327BB0007F508C /* oldLoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
 				F5C351A41C6DA48F00B0D0FE /* Volunteer */,
 			);
@@ -666,6 +657,10 @@
 		F5373B7A1B327566007F508C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+					2,
+				);
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Chris McGrath";
@@ -779,16 +774,12 @@
 				C2D33BC11DEFD01000EF3013 /* Nemoy-Light.ttf in Resources */,
 				F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */,
 				F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */,
-				F51382C41DA6C5C9008F1FCE /* LoginTitleTableViewCell.xib in Resources */,
-				F51382C21DA6C596008F1FCE /* LoginView.xib in Resources */,
 				F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
-				F51382C81DA6C5DE008F1FCE /* LoginButtonTableViewCell.xib in Resources */,
 				C29D167F1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
 				F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */,
 				F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */,
-				F51382C61DA6C5D5008F1FCE /* LoginTextFieldTableViewCell.xib in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
 				F51382BF1DA6C49A008F1FCE /* SponsorsCollectionViewCell.xib in Resources */,
 				F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */,
@@ -821,12 +812,13 @@
 				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
 				F51968E01DD652810026BA06 /* MapView.swift in Sources */,
 				F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */,
-				F5373BCD1B327BB0007F508C /* LoginViewController.swift in Sources */,
+				F5373BCD1B327BB0007F508C /* oldLoginViewController.swift in Sources */,
 				F51968E71DD66CF70026BA06 /* Prizes.swift in Sources */,
 				C287A8D31DF4C2BE003964A0 /* SpartaTableViewCell.swift in Sources */,
 				C2417EBC1E08CADF0012BC9F /* MentorshipViewController.swift in Sources */,
 				C2D33BC71DEFDF0200EF3013 /* SpartaNavigationBar.swift in Sources */,
 				F596937B1DB41DB600B830DD /* Announcement.swift in Sources */,
+				C23B6D5B1E12CFD900B419CA /* LoginViewController.swift in Sources */,
 				F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */,
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */,
