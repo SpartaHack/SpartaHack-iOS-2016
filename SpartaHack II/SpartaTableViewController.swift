@@ -64,12 +64,14 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         // ToDo: Subclass and make a SpartaViewController that sets this.
         self.automaticallyAdjustsScrollViewInsets = false
-        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.size.height, 0.0)
         
         self.tableView.addSubview(refreshControl)
         loadCustomRefreshContents()
         self.refreshControl.backgroundColor = .clear
         self.refreshControl.tintColor = .clear
+        if let tabBar = self.tabBarController {
+            self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, tabBar.tabBar.frame.size.height, 0.0)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -274,7 +274,7 @@ class SpartaModel: NSObject {
     }
     
     /// log user in and grab token
-    func getUserSession (email:String, password:String) {
+    func getUserSession (email:String, password:String) -> Bool {
         var keyDict: NSDictionary?
         
         if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
@@ -304,5 +304,6 @@ class SpartaModel: NSObject {
         sessionManager.request(urlRequest).responseJSON { response in
             debugPrint(response)
         }
+        return true
     }
 }

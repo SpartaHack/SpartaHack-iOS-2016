@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 navBar.spartaNavigationBarDelegate = tabBar
             }
         }
-        SpartaModel().getUserSession(email: "chrisnmcgrath@gmail.com", password: "testPwd")
+//        SpartaModel().getUserSession(email: "chrisnmcgrath@gmail.com", password: "testPwd")
         
         
         // Override point for customization after application launch.
