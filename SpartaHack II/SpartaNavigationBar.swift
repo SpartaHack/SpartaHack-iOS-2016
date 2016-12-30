@@ -94,7 +94,6 @@ class SpartaNavigationBar: UINavigationBar {
         self.topItem?.setRightBarButtonItems([profileButtonItem], animated: true)
         
         // Cool border
-        self.bottomBorder.backgroundColor = Theme.darkGold
         self.addSubview(self.bottomBorder)
         
         let shift = SpartaNavigationBar.heightIncrease/2
@@ -128,7 +127,8 @@ class SpartaNavigationBar: UINavigationBar {
                                          y: self.frame.size.height + shift,
                                          width: self.frame.size.width,
                                          height: self.borderSize)
-        Theme.setHorizontalGradient(of: .darkGradient, on: self.bottomBorder)
+//        self.bottomBorder.backgroundColor = Theme.tintColor
+        Theme.setHorizontalGradient(on: self.bottomBorder)
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {

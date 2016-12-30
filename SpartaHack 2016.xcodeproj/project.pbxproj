@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331AB8D1C79040C00424B12 /* NSDateExtension.swift */; };
-		C237F33D1E144369005C011D /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C237F33C1E144369005C011D /* RefreshView.xib */; settings = {ASSET_TAGS = (1, ); }; };
+		C237F33D1E144369005C011D /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C237F33C1E144369005C011D /* RefreshView.xib */; };
+		C237F3461E146F4B005C011D /* RefreshView.xib in Sources */ = {isa = PBXBuildFile; fileRef = C237F33C1E144369005C011D /* RefreshView.xib */; };
 		C2417EB21E08CA8E0012BC9F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EB11E08CA8E0012BC9F /* User.swift */; };
 		C2417EBC1E08CADF0012BC9F /* MentorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EBB1E08CADF0012BC9F /* MentorshipViewController.swift */; };
 		C2417EBE1E08CB100012BC9F /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2417EBD1E08CB100012BC9F /* keys.plist */; };
@@ -824,6 +825,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C237F3461E146F4B005C011D /* RefreshView.xib in Sources */,
 				F51968EA1DD66EB00026BA06 /* Prize.swift in Sources */,
 				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
 				F51968E01DD652810026BA06 /* MapView.swift in Sources */,

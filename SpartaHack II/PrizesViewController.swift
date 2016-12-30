@@ -17,12 +17,31 @@ class PrizesViewController: SpartaTableViewController  {
             // qos' default value is ´DispatchQoS.QoSClass.default`
             SpartaModel().getPrizes(completionHandler: { (success: Bool) in
                 if success {
-                    DispatchQueue.main.async() {
-                        // we could do fancy animations here if we wanted
-                        self.tableView.reloadData()
-                    }
+                    self.tableView.reloadData()
                 }
             })
+        }
+    }
+    
+    override func getDataAndReload() {
+        super.isUpdatingData = true
+        
+        SpartaModel().getPrizes(completionHandler: { (success: Bool) in
+            if success {
+                DispatchQueue.main.async() {
+                    // we could do fancy animations here if we wanted
+                    super.isUpdatingData = false
+                }
+            }
+        })
+    }
+    
+    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        super.scrollViewWillBeginDecelerating(scrollView)
+        if refreshControl.isRefreshing {
+            if !super.isAnimating {
+                getDataAndReload()
+            }
         }
     }
     
