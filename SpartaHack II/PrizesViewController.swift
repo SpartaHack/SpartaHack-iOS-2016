@@ -33,8 +33,7 @@ class PrizesViewController: SpartaTableViewController  {
                     super.isUpdatingData = false
                     self.tableView.reloadData()
                 }
-            }
-            else {
+            } else {
                 print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
                 super.isUpdatingData = false
             }

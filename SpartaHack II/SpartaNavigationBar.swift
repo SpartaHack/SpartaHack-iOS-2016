@@ -50,8 +50,7 @@ class SpartaNavigationBar: UINavigationBar {
         if themeSelection == 0 {
             themeSelection = 1
             Theme.darkTheme()
-        }
-        else {
+        } else {
             themeSelection = 0
             Theme.lightTheme()
         }
