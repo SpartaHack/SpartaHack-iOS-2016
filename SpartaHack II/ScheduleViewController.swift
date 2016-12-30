@@ -54,6 +54,11 @@ class ScheduleViewController: SpartaTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let bundle = Bundle(for: type(of: self))
+        
+        let cellNib = UINib(nibName: "ScheduleTableViewCell", bundle: bundle)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "scheduleCell")
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,14 +73,17 @@ class ScheduleViewController: SpartaTableViewController {
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
         let event: Event
         
-        // ToDo: use different sections for different days
         event =  Schedule.sharedInstance.listOfEvents()[indexPath.item]
-//        Theme.setHorizontalGradient(of: .lightGradient, on: cell.contentView)
         cell.titleLabel.text = event.title
         cell.detailLabel.text = event.detail
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        let eventTimeString = formatter.string(from: event.time as! Date)
+        cell.timeLabel.text = eventTimeString
+        cell.locationLabel.text = event.location
         cell.separatorInset = .zero
         
         return cell

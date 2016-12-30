@@ -13,6 +13,7 @@
 		C2417EB21E08CA8E0012BC9F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EB11E08CA8E0012BC9F /* User.swift */; };
 		C2417EBC1E08CADF0012BC9F /* MentorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EBB1E08CADF0012BC9F /* MentorshipViewController.swift */; };
 		C2417EBE1E08CB100012BC9F /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2417EBD1E08CB100012BC9F /* keys.plist */; };
+		C279F4571E17082700E54E93 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279F4561E17082700E54E93 /* ScheduleTableViewCell.swift */; };
 		C287A8D31DF4C2BE003964A0 /* SpartaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C287A8D21DF4C2BE003964A0 /* SpartaTableViewCell.swift */; };
 		C287A8D61DF4C7F5003964A0 /* SpartaTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C287A8D51DF4C7F5003964A0 /* SpartaTableViewHeaderCell.swift */; };
 		C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */; };
@@ -159,6 +160,7 @@
 		C2417EB11E08CA8E0012BC9F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C2417EBB1E08CADF0012BC9F /* MentorshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorshipViewController.swift; sourceTree = "<group>"; };
 		C2417EBD1E08CB100012BC9F /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		C279F4561E17082700E54E93 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		C287A8D21DF4C2BE003964A0 /* SpartaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewCell.swift; sourceTree = "<group>"; };
 		C287A8D51DF4C7F5003964A0 /* SpartaTableViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewHeaderCell.swift; sourceTree = "<group>"; };
 		C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTabBarViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */,
+				C279F4561E17082700E54E93 /* ScheduleTableViewCell.swift */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */,
 				F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */,
 				F5A60A981B40FD5600709528 /* ProfileViewController.swift in Sources */,
+				C279F4571E17082700E54E93 /* ScheduleTableViewCell.swift in Sources */,
 				4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */,
 				F559F6D01C82516B00C1D4A1 /* SpartaLabel.swift in Sources */,
 				F5C73CD31DBD37EC0055C921 /* Event.swift in Sources */,
