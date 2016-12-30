@@ -36,6 +36,9 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
                     // we could do fancy animations here if we wanted
                     super.isUpdatingData = false
                 }
+            } else {
+                print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                super.isUpdatingData = false
             }
         })
     }
