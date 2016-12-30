@@ -35,8 +35,10 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
                 DispatchQueue.main.async() {
                     // we could do fancy animations here if we wanted
                     super.isUpdatingData = false
+                    self.tableView.reloadData()
                 }
-            } else {
+            }
+            else {
                 print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
                 super.isUpdatingData = false
             }
