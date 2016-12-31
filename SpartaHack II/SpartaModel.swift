@@ -289,7 +289,7 @@ class SpartaModel: NSObject {
     
 
         let parameters: [String: String] = [
-            "email" : email,
+            "email" : email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
             "password" : password,
         ]
         
@@ -307,13 +307,15 @@ class SpartaModel: NSObject {
         
         sessionManager.request(urlRequest).responseJSON { response in
             debugPrint(response)
+            if let value = response.result.value as? [String:AnyObject] {
+                if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
+                    print("Error signing in: \(error)")
+                } else {
+                    User.sharedInstance.createUser(userDict: value)
+                }
+            }
         }
-        return true
         
-        /// testing the map function WIP
-//        getMap { (Bool) in
-//            print("\(Bool)")
-//        }
-
+        return true
     }
 }
