@@ -97,7 +97,6 @@ class SpartaNavigationBar: UINavigationBar {
         self.addSubview(userInitials)
         
         // Cool border
-        self.bottomBorder.backgroundColor = Theme.darkGold
         self.addSubview(self.bottomBorder)
         
         let shift = SpartaNavigationBar.heightIncrease/2
@@ -131,7 +130,7 @@ class SpartaNavigationBar: UINavigationBar {
                                          y: self.frame.size.height + shift,
                                          width: self.frame.size.width,
                                          height: self.borderSize)
-        Theme.setHorizontalGradient(of: .darkGradient, on: self.bottomBorder)
+        Theme.setHorizontalGradient(on: self.bottomBorder, of: .darkGradient)
         
         // Set the user initials under the profile icon
         userInitials.frame = profileButton.frame

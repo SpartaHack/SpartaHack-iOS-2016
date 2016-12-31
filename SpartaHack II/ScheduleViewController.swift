@@ -26,6 +26,33 @@ class ScheduleViewController: SpartaTableViewController {
         }
     }
     
+    override func getDataAndReload() {
+        super.isUpdatingData = true
+
+        SpartaModel().getSchedule(completionHandler: { (success: Bool) in
+            if success {
+                DispatchQueue.main.async() {
+                    // we could do fancy animations here if we wanted
+                    super.isUpdatingData = false
+                    self.tableView.reloadData()
+                }
+            }
+            else {
+                print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                super.isUpdatingData = false
+            }
+        })
+    }
+    
+    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        super.scrollViewWillBeginDecelerating(scrollView)
+        if refreshControl.isRefreshing {
+            if !super.isAnimating {
+                getDataAndReload()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
