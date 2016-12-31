@@ -113,8 +113,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
                 let baseView = self.customRefreshView.subviews[0]
                 baseView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
-        }
-        else {
+        } else {
             self.customRefreshView.alpha = max( (scrollView.contentOffset.y + 90.0) / (-210 + 90.0) - 0.1, 0.0)
         }
     }
@@ -170,8 +169,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
                 
                 if self.currentLabelIndex < self.labelsArray.count {
                     self.animateRefreshStep1()
-                }
-                else {
+                } else {
                     self.animateRefreshStep2()
                 }
             })
@@ -191,8 +189,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
         if self.refreshControl.isRefreshing {
             self.currentLabelIndex = 0
             Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(SpartaTableViewController.animateRefreshStep1), userInfo: nil, repeats: false)
-        }
-        else {
+        } else {
             self.isAnimating = false
             self.currentLabelIndex = 0
             for i in 0 ..< self.labelsArray.count {
@@ -239,8 +236,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
             UIView.transition(with: self.tableView, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.tableView.reloadData()
             }, completion: nil)
-        }
-        else {
+        } else {
             self.tableView.reloadData()
         }
     }
