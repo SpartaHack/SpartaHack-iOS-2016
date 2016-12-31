@@ -74,7 +74,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
                                                 y: -borderSize,
                                                 width: self.tabBar.frame.size.width,
                                                 height: borderSize))
-        Theme.setHorizontalGradient(of: .darkGradient, on: tabBarBorder)
+        Theme.setHorizontalGradient(on: tabBarBorder)
         self.tabBar.addSubview(tabBarBorder)
     }
     

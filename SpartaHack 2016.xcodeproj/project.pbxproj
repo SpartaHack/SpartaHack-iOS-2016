@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331AB8D1C79040C00424B12 /* NSDateExtension.swift */; };
+		C237F33D1E144369005C011D /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C237F33C1E144369005C011D /* RefreshView.xib */; };
+		C237F3461E146F4B005C011D /* RefreshView.xib in Sources */ = {isa = PBXBuildFile; fileRef = C237F33C1E144369005C011D /* RefreshView.xib */; };
 		C23B6D5B1E12CFD900B419CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B6D5A1E12CFD900B419CA /* LoginViewController.swift */; };
 		C2417EB21E08CA8E0012BC9F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EB11E08CA8E0012BC9F /* User.swift */; };
 		C2417EBC1E08CADF0012BC9F /* MentorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EBB1E08CADF0012BC9F /* MentorshipViewController.swift */; };
@@ -56,7 +58,6 @@
 		F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BB91B3275D1007F508C /* CoreGraphics.framework */; };
 		F5373BBC1B3275DA007F508C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBB1B3275DA007F508C /* CoreLocation.framework */; };
 		F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5373BBF1B3275E9007F508C /* QuartzCore.framework */; };
-		F5373BCD1B327BB0007F508C /* oldLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCC1B327BB0007F508C /* oldLoginViewController.swift */; };
 		F5373BD01B366AC6007F508C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5373BCF1B366AC6007F508C /* SignupViewController.swift */; };
 		F5467B811E05BFFE00BE66DA /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5467B801E05BFFE00BE66DA /* keys.plist */; };
 		F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */; };
@@ -156,6 +157,7 @@
 
 /* Begin PBXFileReference section */
 		4331AB8D1C79040C00424B12 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		C237F33C1E144369005C011D /* RefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshView.xib; sourceTree = "<group>"; };
 		C23B6D5A1E12CFD900B419CA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C2417EB11E08CA8E0012BC9F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C2417EBB1E08CADF0012BC9F /* MentorshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorshipViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +213,6 @@
 		F5373BBF1B3275E9007F508C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F5373BC11B3275F1007F508C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F5373BC51B327604007F508C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F5373BCC1B327BB0007F508C /* oldLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oldLoginViewController.swift; sourceTree = "<group>"; };
 		F5373BCF1B366AC6007F508C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F5467B801E05BFFE00BE66DA /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +351,7 @@
 				F51382BB1DA6C457008F1FCE /* Sponsors */,
 				F51382CC1DA6C65B008F1FCE /* Profile */,
 				F51382C91DA6C617008F1FCE /* Checkin */,
+				C237F33C1E144369005C011D /* RefreshView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -531,7 +533,6 @@
 				F591B2381C2DE27600F1512D /* Guide View Controllers */,
 				F5AE53801C30928F0030BCCA /* Prizes */,
 				F5A60A971B40FD5600709528 /* ProfileViewController.swift */,
-				F5373BCC1B327BB0007F508C /* oldLoginViewController.swift */,
 				F5373BCF1B366AC6007F508C /* SignupViewController.swift */,
 				F5C351A41C6DA48F00B0D0FE /* Volunteer */,
 			);
@@ -779,6 +780,7 @@
 				F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */,
 				F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
+				C237F33D1E144369005C011D /* RefreshView.xib in Resources */,
 				C29D167F1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
 				F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */,
@@ -811,11 +813,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C237F3461E146F4B005C011D /* RefreshView.xib in Sources */,
 				F51968EA1DD66EB00026BA06 /* Prize.swift in Sources */,
 				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
 				F51968E01DD652810026BA06 /* MapView.swift in Sources */,
 				F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */,
-				F5373BCD1B327BB0007F508C /* oldLoginViewController.swift in Sources */,
 				F51968E71DD66CF70026BA06 /* Prizes.swift in Sources */,
 				C287A8D31DF4C2BE003964A0 /* SpartaTableViewCell.swift in Sources */,
 				C2417EBC1E08CADF0012BC9F /* MentorshipViewController.swift in Sources */,

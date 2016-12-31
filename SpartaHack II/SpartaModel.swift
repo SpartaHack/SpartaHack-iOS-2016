@@ -16,6 +16,8 @@ let baseURL = "https://d.api.spartahack.com/"
 class SpartaModel: NSObject {
     
     let formatter = DateFormatter()
+    var sessionManager = Alamofire.SessionManager.default
+    
     override init () {
         // initalize our data manager and get the current announcements
         super.init()
@@ -23,14 +25,19 @@ class SpartaModel: NSObject {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         // make requests to get our stuff
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 15.0 /// 15 second timeout. 
+        sessionManager = Alamofire.SessionManager(configuration: configuration)
     }
+    
     
     /// Announcements
     func getAnnouncements( completionHandler: @escaping(Bool) -> () ) {
-        Alamofire.request("\(baseURL)announcements").responseJSON { response in
+        sessionManager.request("\(baseURL)announcements").responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
+                completionHandler(false)
                 return
             }
             // get our announcement data 
@@ -86,7 +93,7 @@ class SpartaModel: NSObject {
     
     /// Schedule
     func getSchedule( completionHandler: @escaping(Bool) -> () ) {
-        Alamofire.request("\(baseURL)schedule").responseJSON { response in
+        sessionManager.request("\(baseURL)schedule").responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
@@ -167,10 +174,11 @@ class SpartaModel: NSObject {
     
     /// getSponsors
     func getSponsors( completionHandler: @escaping(Bool) -> () ) {
-        Alamofire.request("\(baseURL)companies").responseJSON { response in
+        sessionManager.request("\(baseURL)companies").responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
+                completionHandler(false)
                 return
             }
             // get our schedule data
@@ -226,7 +234,7 @@ class SpartaModel: NSObject {
     
     /// Prizes
     func getPrizes( completionHandler: @escaping(Bool) -> () ) {
-        Alamofire.request("\(baseURL)prizes").responseJSON { response in
+        sessionManager.request("\(baseURL)prizes").responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
@@ -297,15 +305,15 @@ class SpartaModel: NSObject {
             print(error)
         }
         
-        Alamofire.request(urlRequest).responseJSON { response in
+        sessionManager.request(urlRequest).responseJSON { response in
             debugPrint(response)
         }
         return true
         
         /// testing the map function WIP
-        getMap { (Bool) in
-            print("\(Bool)")
-        }
+//        getMap { (Bool) in
+//            print("\(Bool)")
+//        }
 
     }
 }

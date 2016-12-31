@@ -20,10 +20,35 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
                 if success {
                     DispatchQueue.main.async() {
                         // we could do fancy animations here if we wanted
-                        super.tableView.reloadData()
+                        self.tableView.reloadData()
                     }
                 }
             })
+        }
+    }
+
+    override func getDataAndReload() {
+        super.isUpdatingData = true
+        
+        SpartaModel().getAnnouncements(completionHandler: { (success: Bool) in
+            if success {
+                DispatchQueue.main.async() {
+                    // we could do fancy animations here if we wanted
+                    super.isUpdatingData = false
+                    self.tableView.reloadData()
+                }
+            }
+            else {
+                print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                super.isUpdatingData = false
+            }
+        })
+    }
+    
+    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        super.scrollViewWillBeginDecelerating(scrollView)
+        if refreshControl.isRefreshing {
+            getDataAndReload()
         }
     }
     
@@ -46,7 +71,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
         // Pinned Style
         case 0:
             announcement =  Announcements.sharedInstance.listOfPinnedAnnouncements()[indexPath.item]
-            Theme.setHorizontalGradient(of: .lightGradient, on: cell.contentView)
+//            Theme.setHorizontalGradient(on: cell.contentView)
         // Normal Announcement
         default:
             announcement =  Announcements.sharedInstance.listOfUnpinnedAnnouncements()[indexPath.item]
@@ -65,7 +90,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
         switch section {
         case 0:
             sectionTitle = "Pinned"
-            Theme.setHorizontalGradient(of: .lightGradient, on: headerCell.contentView)
+//            Theme.setHorizontalGradient(on: headerCell.contentView)
         default:
             sectionTitle = "Announcements"
         }

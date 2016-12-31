@@ -90,7 +90,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return false
     }
 

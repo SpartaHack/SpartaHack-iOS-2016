@@ -21,6 +21,12 @@ struct Theme {
     static var primaryColor = UIColor.black
     static var backgroundColor = UIColor.black
     static var tintColor = UIColor.black
+    static var refreshViewBackgroundColor = UIColor.black
+    static var refreshTextInactive = UIColor.black
+    static var refreshTextActive = UIColor.black
+    
+    static var gradientStart = UIColor.black
+    static var gradientEnd = UIColor.black
     
     static func loadTheme() {
         switch currentTheme() {
@@ -41,9 +47,15 @@ struct Theme {
     // MARK: Light
     static func lightTheme() {
         primaryColor = darkGold
-        tintColor = darkGold
+        tintColor = mediumGold
         backgroundColor = white
+        refreshViewBackgroundColor = extraLightGold.withAlphaComponent(0.5)
+        refreshTextInactive = mediumGold
+        refreshTextActive = lightGold
         
+        gradientStart = darkGold
+        gradientEnd = extraLightGold
+
         let defaults = UserDefaults.standard
         defaults.set(0, forKey: "themeKey")
     }
@@ -51,8 +63,14 @@ struct Theme {
     // MARK: Dark
     static func darkTheme() {
         primaryColor = lightGold
-        tintColor = lightGold
+        tintColor = mediumGold
         backgroundColor = darkBrown
+        refreshViewBackgroundColor = mediumGold.withAlphaComponent(0.3)
+        refreshTextInactive = mediumGold
+        refreshTextActive = lightGold
+        
+        gradientStart = darkGold
+        gradientEnd = mediumGold
                 
         let defaults = UserDefaults.standard
         defaults.set(1, forKey: "themeKey")
@@ -60,7 +78,7 @@ struct Theme {
     
     // Mark: Gradients
     enum Gradient : Int {
-        case lightGradient, darkGradient
+        case lightGradient, darkGradient, currentTheme
         
         func getColors() -> Array<CGColor> {
             switch self {
@@ -68,22 +86,23 @@ struct Theme {
                 return [darkGold.cgColor, extraLightGold.cgColor]
             case .lightGradient:
                 return [extraLightGold.withAlphaComponent(0.75).cgColor, white.cgColor]
+            case .currentTheme:
+                return [gradientStart.cgColor, gradientEnd.cgColor]
+                
             }
         }
     }
     
     // ToDo: make sure it removes the old gradient if this is being called a second time!
-    static func setHorizontalGradient(of type: Gradient, on view: UIView) {
+    static func setHorizontalGradient(on view: UIView, of gradientType: Gradient = .currentTheme) {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = type.getColors()
+        gradientLayer.colors = gradientType.getColors()
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         gradientLayer.frame = view.bounds
-//        let bottomLayer = view.laye
-//        view.layer.insertSublayer(gradientLayer, at: 0)
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
-        
 }
 
 extension UITabBar {
