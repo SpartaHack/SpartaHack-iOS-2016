@@ -236,6 +236,7 @@ class SpartaModel: NSObject {
     /// Prizes
     func getPrizes( completionHandler: @escaping(Bool) -> () ) {
         sessionManager.request("\(baseURL)prizes").responseJSON { response in
+            self.sessionManager.session.invalidateAndCancel()
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
