@@ -97,6 +97,7 @@ class SpartaModel: NSObject {
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
+                completionHandler(false)
                 return
             }
             // get our schedule data
@@ -238,6 +239,7 @@ class SpartaModel: NSObject {
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
+                completionHandler(false)
                 return
             }
             // get our prize data
