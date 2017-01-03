@@ -36,8 +36,7 @@ class ScheduleViewController: SpartaTableViewController {
                     super.isUpdatingData = false
                     self.tableView.reloadData()
                 }
-            }
-            else {
+            } else {
                 print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
                 super.isUpdatingData = false
             }
@@ -47,9 +46,7 @@ class ScheduleViewController: SpartaTableViewController {
     override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         super.scrollViewWillBeginDecelerating(scrollView)
         if refreshControl.isRefreshing {
-            if !super.isAnimating {
-                getDataAndReload()
-            }
+            getDataAndReload()
         }
     }
     

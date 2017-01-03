@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,61 +23,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 navBar.spartaNavigationBarDelegate = tabBar
             }
         }
-//        SpartaModel().getUserSession(email: "chrisnmcgrath@gmail.com", password: "testPwd")
-        
         
         // Override point for customization after application launch.
         Theme.loadTheme()
                 
-        // Set up push notification buttons
-        
-        // Actions
-        let firstAction:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        firstAction.identifier = "EXTEND"
-        firstAction.title = "Extend"
-        
-        firstAction.activationMode = UIUserNotificationActivationMode.background
-        firstAction.isDestructive = false
-        firstAction.isAuthenticationRequired = false
-        
-        let secondAction:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        secondAction.identifier = "CANCEL"
-        secondAction.title = "Cancel ticket"
-        
-        secondAction.activationMode = UIUserNotificationActivationMode.foreground
-        secondAction.isDestructive = false
-        secondAction.isAuthenticationRequired = false
-        
-        // category
-        
-        let firstCategory = UIMutableUserNotificationCategory()
-        firstCategory.identifier = "USER_ACTIONABLE"
-        
-        let defaultActions = [firstAction, secondAction]
-        let minimalActions = [firstAction, secondAction]
-        
-        firstCategory.setActions(defaultActions, for: UIUserNotificationActionContext.default)
-        firstCategory.setActions(minimalActions, for: UIUserNotificationActionContext.minimal)
-        
-        // NSSet of all our categories
-        
-        let categories = NSSet(objects: firstCategory)
-        
         // Enable push notifications
-        let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories:categories as? Set<UIUserNotificationCategory>)
-        UIApplication.shared.registerUserNotificationSettings(settings)
-        UIApplication.shared.registerForRemoteNotifications()
-
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+            }
+            application.registerForRemoteNotifications()
+        } else {
+            // Fallback on earlier versions
+            print("iPhone 4s")
+        }
         return true
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceTokenString)
         print("Registering for push notifications")
+        
+
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("failed to register for remote notifications:  \(error)")
     }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

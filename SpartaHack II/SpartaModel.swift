@@ -97,6 +97,7 @@ class SpartaModel: NSObject {
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
+                completionHandler(false)
                 return
             }
             // get our schedule data
@@ -235,9 +236,11 @@ class SpartaModel: NSObject {
     /// Prizes
     func getPrizes( completionHandler: @escaping(Bool) -> () ) {
         sessionManager.request("\(baseURL)prizes").responseJSON { response in
+            self.sessionManager.session.invalidateAndCancel()
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
+                completionHandler(false)
                 return
             }
             // get our prize data
@@ -289,7 +292,7 @@ class SpartaModel: NSObject {
     
 
         let parameters: [String: String] = [
-            "email" : email,
+            "email" : email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
             "password" : password,
         ]
         
@@ -307,13 +310,15 @@ class SpartaModel: NSObject {
         
         sessionManager.request(urlRequest).responseJSON { response in
             debugPrint(response)
+            if let value = response.result.value as? [String:AnyObject] {
+                if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
+                    print("Error signing in: \(error)")
+                } else {
+                    User.sharedInstance.createUser(userDict: value)
+                }
+            }
         }
-        return true
         
-        /// testing the map function WIP
-//        getMap { (Bool) in
-//            print("\(Bool)")
-//        }
-
+        return true
     }
 }
