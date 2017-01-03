@@ -54,7 +54,7 @@ struct Theme {
         refreshTextActive = lightGold
         
         gradientStart = darkGold
-        gradientEnd = extraLightGold
+        gradientEnd = mediumGold
 
         let defaults = UserDefaults.standard
         defaults.set(0, forKey: "themeKey")
@@ -102,6 +102,14 @@ struct Theme {
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    static func getDiamondImage() -> UIImage {
+        if currentTheme() == 0 {
+            return UIImage(named: "diamond")!
+        } else {
+            return UIImage(named: "diamond-dark")!
+        }
     }
 }
 

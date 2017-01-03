@@ -43,33 +43,16 @@ class SpartaNavigationBar: UINavigationBar {
         initialize()
     }
     
-    func imageTapped(img: UITapGestureRecognizer) {
+    func imageTapped(img: AnyObject) {
         if self.animating {
             return
         }
         if themeSelection == 0 {
             themeSelection = 1
             Theme.darkTheme()
-            let diamondImageView = img.view as! UIImageView
-            UIView.transition(with: diamondImageView,
-                              duration: 0.3,
-                              options: .transitionCrossDissolve,
-                              animations: {
-                                diamondImageView.image = Theme.getDiamondImage()
-            },
-                              completion: nil)
-        }
-        else {
+        } else {
             themeSelection = 0
             Theme.lightTheme()
-            let diamondImageView = img.view as! UIImageView
-            UIView.transition(with: diamondImageView,
-                              duration: 0.3,
-                              options: .transitionCrossDissolve,
-                              animations: {
-                                diamondImageView.image = Theme.getDiamondImage()
-            },
-                              completion: nil)
         }
         
         self.animating = true
@@ -146,7 +129,11 @@ class SpartaNavigationBar: UINavigationBar {
                                          y: self.frame.size.height + shift,
                                          width: self.frame.size.width,
                                          height: self.borderSize)
-        Theme.setHorizontalGradient(on: self.bottomBorder, of: .darkGradient)
+<<<<<<< HEAD
+        Theme.setHorizontalGradient(on: self.bottomBorder)
+=======
+        Theme.setHorizontalGradient(of: .darkGradient, on: self.bottomBorder)
+>>>>>>> User login checkpoint.
         
         // Set the user initials under the profile icon
         userInitials.frame = profileButton.frame
