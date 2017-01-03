@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,10 +26,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-N4-zAj">
-                        <rect key="frame" x="8" y="8" width="120" height="93"/>
+                        <rect key="frame" x="8" y="8" width="101.5" height="93"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmW-su-IKr" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="10" width="120" height="27"/>
+                                <rect key="frame" x="0.0" y="13" width="101.5" height="27"/>
                                 <attributedString key="attributedText">
                                     <fragment content="5:00 PM">
                                         <attributes>
@@ -40,10 +41,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FyB-8t-Skf">
-                                <rect key="frame" x="0.0" y="37" width="120" height="56"/>
+                                <rect key="frame" x="0.0" y="40" width="101.5" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ao-fx-et3" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="15" width="120" height="27"/>
+                                        <rect key="frame" x="0.0" y="13.5" width="101.5" height="27"/>
                                         <attributedString key="attributedText">
                                             <fragment content="East Atrium">
                                                 <attributes>
@@ -65,10 +66,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZmW-su-IKr" firstAttribute="top" secondItem="5b3-N4-zAj" secondAttribute="top" constant="10" id="7Mh-aM-dxh"/>
+                            <constraint firstItem="ZmW-su-IKr" firstAttribute="top" secondItem="5b3-N4-zAj" secondAttribute="top" constant="13" id="7Mh-aM-dxh"/>
                             <constraint firstItem="FyB-8t-Skf" firstAttribute="top" secondItem="ZmW-su-IKr" secondAttribute="bottom" id="ACf-xs-us1"/>
                             <constraint firstAttribute="trailing" secondItem="ZmW-su-IKr" secondAttribute="trailing" id="D7h-pq-cWy"/>
-                            <constraint firstAttribute="width" constant="120" id="N1c-nP-Ghp"/>
                             <constraint firstAttribute="bottom" secondItem="FyB-8t-Skf" secondAttribute="bottom" id="NeU-Q9-2hs"/>
                             <constraint firstItem="ZmW-su-IKr" firstAttribute="leading" secondItem="5b3-N4-zAj" secondAttribute="leading" id="Yw3-Jz-JTu"/>
                             <constraint firstItem="FyB-8t-Skf" firstAttribute="leading" secondItem="5b3-N4-zAj" secondAttribute="leading" id="o3L-jr-gC0"/>
@@ -76,23 +76,23 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcO-9u-qML">
-                        <rect key="frame" x="136" y="14" width="1" height="83"/>
+                        <rect key="frame" x="117.5" y="14" width="1" height="83"/>
                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="dtI-JR-J3y"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keA-v6-WjF">
-                        <rect key="frame" x="145" y="8" width="252" height="93"/>
+                        <rect key="frame" x="126.5" y="8" width="270.5" height="93"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6E-KK-gUh" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="8" width="252" height="20"/>
+                                <rect key="frame" x="0.0" y="8" width="270.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlS-Uo-2lv" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="36" width="252" height="49"/>
+                                <rect key="frame" x="0.0" y="36" width="270.5" height="49"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Detail">
                                         <attributes>
@@ -115,18 +115,29 @@
                             <constraint firstAttribute="trailing" secondItem="KlS-Uo-2lv" secondAttribute="trailing" id="faU-Fh-1q3"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiU-7R-Wo7">
+                        <rect key="frame" x="0.0" y="0.0" width="405" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hXN-0B-mgC"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="keA-v6-WjF" firstAttribute="leading" secondItem="xcO-9u-qML" secondAttribute="trailing" constant="8" id="4f9-1Y-YLw"/>
+                    <constraint firstItem="yiU-7R-Wo7" firstAttribute="leading" secondItem="cgk-Wl-AS2" secondAttribute="leading" id="79X-Wi-umg"/>
                     <constraint firstItem="xcO-9u-qML" firstAttribute="leading" secondItem="5b3-N4-zAj" secondAttribute="trailing" constant="8" id="Bs1-N0-SGZ"/>
                     <constraint firstItem="keA-v6-WjF" firstAttribute="top" secondItem="cgk-Wl-AS2" secondAttribute="topMargin" id="HYe-8D-yVt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="keA-v6-WjF" secondAttribute="bottom" id="Lhj-9d-EZr"/>
+                    <constraint firstAttribute="trailing" secondItem="yiU-7R-Wo7" secondAttribute="trailing" id="NSn-gl-wrd"/>
                     <constraint firstItem="5b3-N4-zAj" firstAttribute="top" secondItem="cgk-Wl-AS2" secondAttribute="topMargin" id="OEr-dX-kMb"/>
                     <constraint firstItem="keA-v6-WjF" firstAttribute="trailing" secondItem="cgk-Wl-AS2" secondAttribute="trailingMargin" id="PCb-F5-JDW"/>
+                    <constraint firstItem="5b3-N4-zAj" firstAttribute="width" secondItem="yiU-7R-Wo7" secondAttribute="width" multiplier="0.25" id="SAf-TR-qy0"/>
                     <constraint firstItem="xcO-9u-qML" firstAttribute="top" secondItem="cgk-Wl-AS2" secondAttribute="topMargin" constant="6" id="SnE-AS-sV8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xcO-9u-qML" secondAttribute="bottom" constant="4" id="luj-qX-05B"/>
                     <constraint firstItem="5b3-N4-zAj" firstAttribute="leading" secondItem="cgk-Wl-AS2" secondAttribute="leadingMargin" id="n4T-BG-cB6"/>
                     <constraint firstAttribute="bottomMargin" secondItem="5b3-N4-zAj" secondAttribute="bottom" id="pXp-WH-hqk"/>
+                    <constraint firstItem="yiU-7R-Wo7" firstAttribute="top" secondItem="cgk-Wl-AS2" secondAttribute="top" id="r6l-5x-vos"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

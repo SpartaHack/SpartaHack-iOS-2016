@@ -21,9 +21,9 @@ class ScheduleTableViewCell: UITableViewCell {
             self.contentView.backgroundColor = Theme.backgroundColor
             self.barView.backgroundColor = Theme.primaryColor
             self.titleLabel.textColor = Theme.primaryColor
-            self.detailLabel.textColor = Theme.tintColor
-            self.timeLabel.textColor = Theme.tintColor
-            self.locationLabel.textColor = Theme.tintColor
+            self.detailLabel.textColor = Theme.primaryColor
+            self.timeLabel.textColor = Theme.primaryColor
+            self.locationLabel.textColor = Theme.primaryColor
         })
     }
 }

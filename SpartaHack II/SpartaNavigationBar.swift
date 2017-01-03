@@ -43,17 +43,33 @@ class SpartaNavigationBar: UINavigationBar {
         initialize()
     }
     
-    func imageTapped(img: AnyObject) {
+    func imageTapped(img: UITapGestureRecognizer) {
         if self.animating {
             return
         }
         if themeSelection == 0 {
             themeSelection = 1
             Theme.darkTheme()
+            let diamondImageView = img.view as! UIImageView
+            UIView.transition(with: diamondImageView,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                diamondImageView.image = Theme.getDiamondImage()
+            },
+                              completion: nil)
         }
         else {
             themeSelection = 0
             Theme.lightTheme()
+            let diamondImageView = img.view as! UIImageView
+            UIView.transition(with: diamondImageView,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                diamondImageView.image = Theme.getDiamondImage()
+            },
+                              completion: nil)
         }
         
         self.animating = true
