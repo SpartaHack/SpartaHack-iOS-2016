@@ -115,7 +115,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
