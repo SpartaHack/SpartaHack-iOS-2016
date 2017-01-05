@@ -176,6 +176,7 @@ class SpartaModel: NSObject {
     /// getSponsors
     func getSponsors( completionHandler: @escaping(Bool) -> () ) {
         sessionManager.request("\(baseURL)companies").responseJSON { response in
+            self.sessionManager.session.invalidateAndCancel()
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
@@ -216,12 +217,6 @@ class SpartaModel: NSObject {
                                 fatalError("ToDo: gracefully handle error")
                             }
                             sponsor.url = url
-                            
-                            guard let updatedString = obj["updatedAt"] as? String,
-                                let updatedAt = self.formatter.date(from: updatedString) as NSDate? else {
-                                    fatalError("ToDo: gracefully handle error")
-                            }
-                            sponsor.updatedTime = updatedAt
                             
                             // okay, we haven't crashed by now so we guchi
                             Sponsors.sharedInstance.addSponsor(sponsor: sponsor)
@@ -310,11 +305,24 @@ class SpartaModel: NSObject {
         
         sessionManager.request(urlRequest).responseJSON { response in
             debugPrint(response)
+            self.sessionManager.session.invalidateAndCancel()
             if let value = response.result.value as? [String:AnyObject] {
                 if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
                     print("Error signing in: \(error)")
                 } else {
-                    User.sharedInstance.createUser(userDict: value)
+                    //User().createUser(userDict: value)
+                    guard let id = value["id"] as? Int32,
+                        let token = value["auth_token"] as? String,
+                        let email = value["email"] as? String,
+                        let fName = value["first_name"] as? String,
+                        let lName = value["last_name"] as? String,
+                        let roles = value["roles"] as? [String]
+                        else {
+                            print("Error Creating User \(value)")
+                            return
+                        }
+                        let user = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles)
+                        print("User Obj: \(user)")
                 }
             }
         }
