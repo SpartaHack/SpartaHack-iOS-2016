@@ -112,12 +112,7 @@ class AwardsViewController: SpartaTableViewController  {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "sponsorCell") as! SponsorsTableViewCell
             
             let sponsor = Sponsors.sharedInstance.listOfSponsors()[indexPath.row]
-            cell.sponsorTitle.text = sponsor.name
-//            if let url = NSURL(string: "https://s-media-cache-ak0.pinimg.com/originals/06/18/b4/0618b424fa1a6984899fcfd6bcb5e630.png"),
-//                let data = NSData(contentsOf: url as URL)
-//            {
-//                cell.imageView?.image = UIImage(data: data as Data)
-//            }
+            cell.sponsorImageView.image = sponsor.logo
             
             return cell
         default:
