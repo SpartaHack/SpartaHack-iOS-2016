@@ -1,62 +1,67 @@
 //
 //  ProfileViewController.swift
-//  SpartaHack II
+//  SpartaHack 2016
 //
-//  Created by Chris McGrath on 6/28/15.
-//  Copyright (c) 2015 Chris McGrath. All rights reserved.
+//  Created by Noah Hines on 1/6/17.
+//  Copyright © 2017 Chris McGrath. All rights reserved.
 //
-//
-//import UIKit
-//
-//class ProfileViewController: UIViewController, LoginViewControllerDelegate {
-//
-//    @IBOutlet weak var userNameLabel: UILabel!
-//    @IBOutlet weak var userBarCodeImageView: UIImageView!
-//    @IBOutlet weak var volunteerButton: UIButton!
-//    @IBOutlet var profileView: UIView!
-//    
-//    @IBOutlet weak var scanButton: UIButton!
-//    @IBOutlet weak var logoutButton: UIButton!
-//    
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view.
-//        
-//        // fix overrides 
-//        logoutButton.layer.borderWidth = 1
-//        logoutButton.layer.borderColor = UIColor.spartaMutedGrey().cgColor
-//        logoutButton.layer.cornerRadius = 1
-//        logoutButton.tintColor = UIColor.spartaGreen()
-//        logoutButton.backgroundColor = UIColor.spartaBlack()
-//        profileView.backgroundColor = UIColor.spartaBlack()
-//        
-//        self.scanButton.isHidden = true
-//    }
-//    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        }
-//    
-//    func userSuccessfullyLoggedIn(_ result: Bool) {
-//        if !result {
-//        }
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-//   
-//    /*
-//    // MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//    }
-//    */
-//
-//}
+
+import Foundation
+
+class ProfileViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var roleLabel: UILabel!
+    
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var scanningButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    @IBOutlet weak var qrImageView: UIImageView!
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.view.backgroundColor = Theme.backgroundColor
+        
+        self.nameLabel.textColor = Theme.primaryColor
+        
+        let scanningButtonAttributedTitle = NSAttributedString(string: "Volunteer Scanning",
+                                                            attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
+        self.scanningButton.setAttributedTitle(scanningButtonAttributedTitle, for: .normal)
+        self.scanningButton.layer.cornerRadius = 0.0;
+        self.scanningButton.layer.borderColor = Theme.tintColor.cgColor
+        self.scanningButton.layer.borderWidth = 1.5
+        
+        let logOutButtonAttributedTitle = NSAttributedString(string: "Log Out",
+                                                    attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
+        self.logOutButton.setAttributedTitle(logOutButtonAttributedTitle, for: .normal)
+        self.logOutButton.layer.cornerRadius = 0.0;
+        self.logOutButton.layer.borderColor = Theme.tintColor.cgColor
+        self.logOutButton.layer.borderWidth = 1.5
+
+        let font = UIFont.systemFont(ofSize: 40)
+        let closeButtonAttributedTitle = NSAttributedString(string: "x",
+                                                            attributes: [NSForegroundColorAttributeName : Theme.primaryColor,
+                                                                         NSFontAttributeName: font])
+        self.closeButton.setAttributedTitle(closeButtonAttributedTitle, for: .normal)
+
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+}

@@ -27,10 +27,6 @@ class MentorshipViewController: SpartaTableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // ToDo: Store user session
-        let loginView: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
-        self.navigationController?.present(loginView, animated: true, completion: nil)
     }
     
     
@@ -61,6 +57,10 @@ class MentorshipViewController: SpartaTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func requiresLogin() -> Bool {
+        return true
     }
     
     override func didReceiveMemoryWarning() {

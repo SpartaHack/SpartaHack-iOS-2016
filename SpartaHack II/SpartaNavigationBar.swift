@@ -104,7 +104,8 @@ class SpartaNavigationBar: UINavigationBar {
         
         profileButton.setImage(UIImage.init(named: "profile"), for: UIControlState.normal)
         // ToDo: Hook this up to the Profile page
-//        button.addTarget(self, action:#selector(ProfileViewController), for: UIControlEvents.touchUpInside)
+        profileButton.addTarget(self, action:#selector(presentProfileView), for: .touchUpInside)
+        
         profileButton.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
         let profileButtonItem = UIBarButtonItem.init(customView: profileButton)
         
@@ -160,6 +161,16 @@ class SpartaNavigationBar: UINavigationBar {
         
         
         userInitials.textColor = Theme.primaryColor
+    }
+    
+    func presentProfileView() {
+//        if !User.loggedIn {
+            let loginView: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
+            UIApplication.shared.keyWindow?.rootViewController?.present(loginView, animated: true, completion: nil)
+            return
+//        }
+        let profileView: ProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profile") as! ProfileViewController
+        UIApplication.shared.keyWindow?.rootViewController?.present(profileView, animated: true, completion: nil)
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {

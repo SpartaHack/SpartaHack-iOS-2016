@@ -20,7 +20,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subtitleLabel: UILabel!
 
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var nahButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var formView: UIView!
 
     var delegate: LoginViewControllerDelegate!
@@ -59,7 +59,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let loginButtonAttributedTitle = NSAttributedString(string: "Log in",
                                                          attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
         loginButton.setAttributedTitle(loginButtonAttributedTitle, for: .normal)
+        loginButton.layer.cornerRadius = 0.0;
+        loginButton.layer.borderColor = Theme.tintColor.cgColor
+        loginButton.layer.borderWidth = 1.5
+        
+        let font = UIFont.systemFont(ofSize: 40)
 
+        let closeButtonAttributedTitle = NSAttributedString(string: "x",
+                                                            attributes: [NSForegroundColorAttributeName : Theme.primaryColor,
+                                                                         NSFontAttributeName: font])
+        closeButton.setAttributedTitle(closeButtonAttributedTitle, for: .normal)
+        
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -88,6 +98,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let emailString = emailTextField.text, let passwordString = passwordTextField.text {
             userDidLogin(SpartaModel().getUserSession(email: emailString, password: passwordString), error: nil)
         }
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
