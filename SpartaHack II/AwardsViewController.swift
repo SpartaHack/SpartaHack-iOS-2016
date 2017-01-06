@@ -112,6 +112,7 @@ class AwardsViewController: SpartaTableViewController  {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "sponsorCell") as! SponsorsTableViewCell
             
             let sponsor = Sponsors.sharedInstance.listOfSponsors()[indexPath.row]
+            print("Image to display: \(sponsor.logo)")
             cell.sponsorImageView.image = sponsor.logo
             
             return cell
@@ -175,8 +176,14 @@ class AwardsViewController: SpartaTableViewController  {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return Prizes.sharedInstance.listOfPrizes().count
+        switch (currentView) {
+        case "prizes":
+            return Prizes.sharedInstance.listOfPrizes().count
+        case "sponsors":
+            return Sponsors.sharedInstance.listOfSponsors().count
+        default:
+            return 0
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

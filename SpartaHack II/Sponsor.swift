@@ -24,6 +24,7 @@ class Sponsor: NSObject {
             "id: \(id!)" +
                 "\n name:\(name!)" +
                 "\n level:\(level!)" +
+                "\n logo:\(logo)" +
                 "\n url:\(url!)"
         
         return sponsor
