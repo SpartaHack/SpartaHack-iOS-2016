@@ -217,12 +217,6 @@ class SpartaModel: NSObject {
                             }
                             sponsor.url = url
                             
-                            guard let updatedString = obj["updatedAt"] as? String,
-                                let updatedAt = self.formatter.date(from: updatedString) as NSDate? else {
-                                    fatalError("ToDo: gracefully handle error")
-                            }
-                            sponsor.updatedTime = updatedAt
-                            
                             // okay, we haven't crashed by now so we guchi
                             Sponsors.sharedInstance.addSponsor(sponsor: sponsor)
                         }
