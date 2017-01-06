@@ -60,7 +60,7 @@ class AwardsViewController: SpartaTableViewController  {
         
         switch (currentView) {
             case "prizes":
-                SpartaModel().getPrizes(completionHandler: { (success: Bool) in
+                SpartaModel.sharedInstance.getPrizes(completionHandler: { (success: Bool) in
                     if success {
                         DispatchQueue.main.async() {
                             // we could do fancy animations here if we wanted
@@ -73,7 +73,7 @@ class AwardsViewController: SpartaTableViewController  {
                     }
                 })
             case "sponsors":
-                SpartaModel().getSponsors(completionHandler: { (success: Bool) in
+                SpartaModel.sharedInstance.getSponsors(completionHandler: { (success: Bool) in
                     if success {
                         DispatchQueue.main.async() {
                             // we could do fancy animations here if we wanted

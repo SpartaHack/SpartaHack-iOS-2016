@@ -16,7 +16,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
         
         DispatchQueue.global(qos: .background).async {
             // qos' default value is ´DispatchQoS.QoSClass.default`
-            SpartaModel().getAnnouncements(completionHandler: { (success: Bool) in
+            SpartaModel.sharedInstance.getAnnouncements(completionHandler: { (success: Bool) in
                 if success {
                     DispatchQueue.main.async() {
                         // we could do fancy animations here if we wanted
@@ -30,7 +30,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
     override func getDataAndReload() {
         super.isUpdatingData = true
         
-        SpartaModel().getAnnouncements(completionHandler: { (success: Bool) in
+        SpartaModel.sharedInstance.getAnnouncements(completionHandler: { (success: Bool) in
             if success {
                 DispatchQueue.main.async() {
                     // we could do fancy animations here if we wanted
