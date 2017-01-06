@@ -12,7 +12,7 @@ class Sponsor: NSObject {
     var id: Int! = nil
     var name: String! = nil
     var level: String! = nil
-    var logo: String! = nil
+    var logo: UIImage! = nil
     var url: String! = nil
     
     override init() {

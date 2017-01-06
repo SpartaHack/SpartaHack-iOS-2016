@@ -18,6 +18,8 @@ class SpartaModel: NSObject {
     let formatter = DateFormatter()
     var sessionManager = Alamofire.SessionManager.default
     
+    static let sharedInstance = SpartaModel()
+    
     override init () {
         // initalize our data manager and get the current announcements
         super.init()
@@ -207,11 +209,12 @@ class SpartaModel: NSObject {
                             }
                             sponsor.level = level
                             
-                            guard let logo = obj["logo_png"] as? String else {
+                            guard let logoString = obj["logo_png"] as? String else {
                                 fatalError("ToDo: gracefully handle error")
                             }
-                            sponsor.logo = logo
-                            
+                            let logoData = NSData(base64Encoded: logoString.substring(from: logoString.index(logoString.startIndex, offsetBy: 22)), options: NSData.Base64DecodingOptions(rawValue: 0))
+                            sponsor.logo = UIImage(data: logoData as! Data)
+
                             guard let url = obj["url"] as? String else {
                                 fatalError("ToDo: gracefully handle error")
                             }
@@ -230,7 +233,6 @@ class SpartaModel: NSObject {
     /// Prizes
     func getPrizes( completionHandler: @escaping(Bool) -> () ) {
         sessionManager.request("\(baseURL)prizes").responseJSON { response in
-            self.sessionManager.session.invalidateAndCancel()
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")

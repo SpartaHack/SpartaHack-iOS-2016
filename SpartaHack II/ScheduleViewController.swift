@@ -15,7 +15,7 @@ class ScheduleViewController: SpartaTableViewController {
         
         DispatchQueue.global(qos: .background).async {
             // qos' default value is ´DispatchQoS.QoSClass.default`
-            SpartaModel().getSchedule(completionHandler: { (success: Bool) in
+            SpartaModel.sharedInstance.getSchedule(completionHandler: { (success: Bool) in
                 if success {
                     DispatchQueue.main.async() {
                         // we could do fancy animations here if we wanted
@@ -29,7 +29,7 @@ class ScheduleViewController: SpartaTableViewController {
     override func getDataAndReload() {
         super.isUpdatingData = true
 
-        SpartaModel().getSchedule(completionHandler: { (success: Bool) in
+        SpartaModel.sharedInstance.getSchedule(completionHandler: { (success: Bool) in
             if success {
                 DispatchQueue.main.async() {
                     // we could do fancy animations here if we wanted
