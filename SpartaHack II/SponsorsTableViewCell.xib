@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponsorCell" rowHeight="140" id="V80-SA-hNG" customClass="SponsorsTableViewCell" customModule="SpartaHack_2016" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V80-SA-hNG" id="bfk-uy-HwS">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TiA-9A-qcZ">
+                        <rect key="frame" x="8" y="8" width="284" height="124"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="124" id="VDa-ju-ojo"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-u8-uGu">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="139.5"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <font key="NSFont" size="24" name="Lato-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="TiA-9A-qcZ" secondAttribute="trailing" constant="8" id="JoF-Q5-lD5"/>
+                    <constraint firstItem="nIJ-u8-uGu" firstAttribute="leading" secondItem="bfk-uy-HwS" secondAttribute="leading" id="L3X-Y7-rbO"/>
+                    <constraint firstItem="TiA-9A-qcZ" firstAttribute="top" secondItem="bfk-uy-HwS" secondAttribute="top" constant="8" id="P3g-rw-5AE"/>
+                    <constraint firstAttribute="trailing" secondItem="nIJ-u8-uGu" secondAttribute="trailing" id="QDB-ej-9ac"/>
+                    <constraint firstAttribute="bottom" secondItem="TiA-9A-qcZ" secondAttribute="bottom" constant="8" id="iQc-rK-HOd"/>
+                    <constraint firstAttribute="bottom" secondItem="nIJ-u8-uGu" secondAttribute="bottom" id="kuD-I1-iiN"/>
+                    <constraint firstItem="nIJ-u8-uGu" firstAttribute="top" secondItem="bfk-uy-HwS" secondAttribute="top" id="rTY-gz-SJJ"/>
+                    <constraint firstItem="TiA-9A-qcZ" firstAttribute="leading" secondItem="bfk-uy-HwS" secondAttribute="leading" constant="8" id="wL4-8A-1Lo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="sponsorImageView" destination="TiA-9A-qcZ" id="DbO-hm-6ms"/>
+                <outlet property="sponsorTitle" destination="nIJ-u8-uGu" id="jRE-MF-vLy"/>
+            </connections>
+            <point key="canvasLocation" x="-2" y="102"/>
+        </tableViewCell>
+    </objects>
+</document>
