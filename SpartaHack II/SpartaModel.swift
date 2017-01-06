@@ -177,7 +177,21 @@ class SpartaModel: NSObject {
     
     /// getSponsors
     func getSponsors( completionHandler: @escaping(Bool) -> () ) {
-        sessionManager.request("\(baseURL)companies").responseJSON { response in
+    
+        var keyDict: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+    
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)sponsors")!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+    
+        sessionManager.request(urlRequest).responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
@@ -187,42 +201,41 @@ class SpartaModel: NSObject {
             // get our schedule data
             
             if let result = response.result.value {
-                if let json = result as? NSDictionary {
-                    if let objArray = json["companies"] as? [NSDictionary] {
-                        // loop through our valid json dictionary and create event objects that will be added to the schedule
-                        for obj in objArray {
-                            // create event objects
-                            let sponsor = Sponsor()
-                            
-                            guard let id = obj["id"] as? Int else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            sponsor.id = id
-                            
-                            guard let name = obj["name"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            sponsor.name = name
-                            
-                            guard let level = obj["level"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            sponsor.level = level
-                            
-                            guard let logoString = obj["logo_png"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            let logoData = NSData(base64Encoded: logoString.substring(from: logoString.index(logoString.startIndex, offsetBy: 22)), options: NSData.Base64DecodingOptions(rawValue: 0))
-                            sponsor.logo = UIImage(data: logoData as! Data)
-
-                            guard let url = obj["url"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            sponsor.url = url
-                            
-                            // okay, we haven't crashed by now so we guchi
-                            Sponsors.sharedInstance.addSponsor(sponsor: sponsor)
+                if let json = result as? [NSDictionary] {
+                    for obj in json {
+                        // create event objects
+                        let sponsor = Sponsor()
+                        
+                        guard let id = obj["id"] as? Int else {
+                            fatalError("ToDo: gracefully handle error")
                         }
+                        sponsor.id = id
+                        
+                        guard let name = obj["name"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        sponsor.name = name
+                        
+                        guard let level = obj["level"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        sponsor.level = level
+                        
+                        guard let logoString = obj["logo_png_light"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        let logoData = NSData(base64Encoded: logoString.substring(from: logoString.index(logoString.startIndex, offsetBy: 22)), options: NSData.Base64DecodingOptions(rawValue: 0))
+                        sponsor.logo = UIImage(data: logoData as! Data)
+                        
+                        print("Name: \(sponsor.name)  image: \(sponsor.logo)")
+                        
+                        guard let url = obj["url"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        sponsor.url = url
+                        
+                        // okay, we haven't crashed by now so we guchi
+                        Sponsors.sharedInstance.addSponsor(sponsor: sponsor)
                     }
                     completionHandler(true)
                 }
