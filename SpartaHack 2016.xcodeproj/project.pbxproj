@@ -74,8 +74,6 @@
 		F596937B1DB41DB600B830DD /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59693781DB41DB600B830DD /* Announcement.swift */; };
 		F596937C1DB41DB600B830DD /* SpartaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59693791DB41DB600B830DD /* SpartaModel.swift */; };
 		F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599B44F1C66BF84008E1E6D /* ScanViewController.swift */; };
-		F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537B1C3092740030BCCA /* PrizesViewController.swift */; };
-		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
 		F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53831C3234A30030BCCA /* ios-map.pdf */; };
 		F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */; };
 		F5C73CD11DBD37E50055C921 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C73CD01DBD37E50055C921 /* Schedule.swift */; };
@@ -232,8 +230,6 @@
 		F59693781DB41DB600B830DD /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		F59693791DB41DB600B830DD /* SpartaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaModel.swift; sourceTree = "<group>"; };
 		F599B44F1C66BF84008E1E6D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		F5AE537B1C3092740030BCCA /* PrizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
-		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		F5AE53831C3234A30030BCCA /* ios-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ios-map.pdf"; sourceTree = "<group>"; };
 		F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInUserViewController.swift; sourceTree = "<group>"; };
 		F5C73CD01DBD37E50055C921 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -583,8 +579,6 @@
 			isa = PBXGroup;
 			children = (
 				F54F438F1BB63CBE0037EA44 /* AwardsViewController.swift */,
-				F5AE537B1C3092740030BCCA /* PrizesViewController.swift */,
-				F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */,
 			);
 			name = Prizes;
 			sourceTree = "<group>";
@@ -814,9 +808,7 @@
 			files = (
 				C237F3461E146F4B005C011D /* RefreshView.xib in Sources */,
 				F51968EA1DD66EB00026BA06 /* Prize.swift in Sources */,
-				F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */,
 				F51968E01DD652810026BA06 /* MapView.swift in Sources */,
-				F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */,
 				F51968E71DD66CF70026BA06 /* Prizes.swift in Sources */,
 				C287A8D31DF4C2BE003964A0 /* SpartaTableViewCell.swift in Sources */,
 				C2D33BC71DEFDF0200EF3013 /* SpartaNavigationBar.swift in Sources */,

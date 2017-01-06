@@ -10,13 +10,11 @@ import Foundation
 
 class SponsorsTableViewCell: UITableViewCell {
     @IBOutlet weak var sponsorImageView: UIImageView!
-    @IBOutlet weak var sponsorTitle: UILabel!
     
     override func layoutSubviews() {
         UIView.animate(withDuration: 1.0, animations: {
             self.backgroundColor = .clear
             self.contentView.backgroundColor = Theme.backgroundColor
-            self.sponsorTitle.textColor = Theme.primaryColor
         })
     }
 }
