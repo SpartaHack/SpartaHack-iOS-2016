@@ -53,9 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.borderColor = Theme.tintColor.cgColor
         passwordTextField.textColor = Theme.primaryColor
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSForegroundColorAttributeName: Theme.primaryColor])
-        loginButton.layer.borderColor = Theme.tintColor.cgColor
-        loginButton.backgroundColor = Theme.backgroundColor
-        
+
         let loginButtonAttributedTitle = NSAttributedString(string: "Log in",
                                                          attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
         loginButton.setAttributedTitle(loginButtonAttributedTitle, for: .normal)

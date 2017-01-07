@@ -59,7 +59,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableView.register(headerNib, forCellReuseIdentifier: "headerCell")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 140
+        self.tableView.estimatedRowHeight = 340
         
         self.tableView.allowsSelection = false
         

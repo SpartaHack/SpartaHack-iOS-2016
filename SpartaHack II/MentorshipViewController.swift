@@ -16,9 +16,16 @@ class MentorshipViewController: SpartaTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.alwaysBounceVertical = false
+        self.tableView.estimatedRowHeight = 350
+        self.tableView.alwaysBounceVertical = false // disable scrolling
+        let mentorFormNib = UINib(nibName: "MentorFormCell", bundle: Bundle(for: type(of: self)))
+        self.tableView.register(mentorFormNib, forCellReuseIdentifier: "mentorFormCell")
     }
-    
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
     override func viewDidLayoutSubviews() {
         self.tableView.tableHeaderView?.backgroundColor = Theme.backgroundColor
         self.tableView.tableFooterView?.backgroundColor = Theme.backgroundColor
@@ -31,10 +38,8 @@ class MentorshipViewController: SpartaTableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "mentorFormCell") as! MentorFormCell
 
-        cell.titleLabel.text = "Sign In"
-        cell.detailLabel.text = "Blah blah"
         cell.separatorInset = .zero
         
         return cell
@@ -43,7 +48,7 @@ class MentorshipViewController: SpartaTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
         headerCell.separatorInset = .zero
-        headerCell.titleLabel.text = "Mentorship"
+        headerCell.titleLabel.text = "Create A Ticket"
         return headerCell
     }
     
