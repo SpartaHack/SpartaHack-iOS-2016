@@ -26,13 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Load the user if we have one
         
-        let defaults = UserDefaults.standard
-        
-        if let savedUser = defaults.object(forKey: "user") as? Data {
-            let unarchivedUser = NSKeyedUnarchiver.unarchiveObject(with: savedUser) as! [User]
-            print("\(unarchivedUser)")
-        }
-        
+        UserManager.sharedInstance.loadUser()
         
         // Override point for customization after application launch.
         Theme.loadTheme()
