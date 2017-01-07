@@ -42,7 +42,7 @@ class User: NSObject, NSCoding {
         self.fName = decoder.decodeObject(forKey: "firstName") as? String ?? ""
         self.lName = decoder.decodeObject(forKey: "lastName") as? String ?? ""
         self.roles = decoder.decodeObject(forKey: "roles") as? [String] ?? [""]
-        self.rsvp = (decoder.decodeObject(forKey: "rsvp") as? NSDictionary)!
+        self.rsvp = decoder.decodeObject(forKey: "rsvp") as? NSDictionary
         self.adult = decoder.decodeObject(forKey: "adult") as? Bool ?? nil
     }
 
