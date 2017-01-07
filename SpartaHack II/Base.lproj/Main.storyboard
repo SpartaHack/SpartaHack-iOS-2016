@@ -24,7 +24,7 @@
             <objects>
                 <navigationController id="SwN-Wr-NPN" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2016" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2016" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

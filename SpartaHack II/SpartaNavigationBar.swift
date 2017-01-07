@@ -113,6 +113,10 @@ class SpartaNavigationBar: UINavigationBar {
         
         self.addSubview(firstName)
         
+        if let firstName = UserManager.sharedInstance.getFirstName() {
+            self.setName(to: firstName)
+        }
+        
         // Cool border
         self.addSubview(self.bottomBorder)
         

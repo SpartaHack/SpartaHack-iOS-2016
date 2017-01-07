@@ -61,7 +61,7 @@ class MentorFormCell: UITableViewCell, UITextViewDelegate {
             self.descriptionTextView.layer.borderColor = Theme.tintColor.cgColor
             self.descriptionTextView.layer.borderWidth = 1.5
             
-            let loginButtonAttributedTitle = NSAttributedString(string: "Log in",
+            let loginButtonAttributedTitle = NSAttributedString(string: "Submit Ticket",
                                                                 attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
             self.submitTicketButton.setAttributedTitle(loginButtonAttributedTitle, for: .normal)
             self.submitTicketButton.layer.cornerRadius = 0.0;

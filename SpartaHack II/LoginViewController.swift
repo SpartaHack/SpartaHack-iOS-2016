@@ -90,7 +90,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.delegate?.userSuccessfullyLoggedIn(true)
                     if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
-                        navBar.setName(to: "Blah")
+                        if let firstName = UserManager.sharedInstance.getFirstName() {
+                            navBar.setName(to: firstName)
+                        }
                     }
                 })
             })

@@ -53,7 +53,7 @@ class UserManager: NSObject {
     
     func getFirstName() -> String? {
         if (isUserLoggedIn()) {
-            guard spartaUser?.fName != nil else {
+            guard spartaUser?.fName == nil else {
                 return spartaUser?.fName
             }
         }
