@@ -256,7 +256,11 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
     func requiresLogin() -> Bool {
         return false
     }
-
+    
+    func scrollToFirstRow() {
+        let indexPath = NSIndexPath(row: 0, section: 0) as IndexPath
+        self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -16,13 +16,14 @@ class AwardsViewController: SpartaTableViewController  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getDataAndReload()
         self.segmentedControl.backgroundColor = Theme.backgroundColor
         self.segmentedControl.tintColor = Theme.primaryColor
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getDataAndReload()
         
         self.segmentedControl.selectedSegmentIndex = 0
         
@@ -56,6 +57,8 @@ class AwardsViewController: SpartaTableViewController  {
     }
     
     override func getDataAndReload() {
+        self.tableView.reloadData()
+        
         super.isUpdatingData = true
         
         switch (currentView) {
@@ -66,6 +69,7 @@ class AwardsViewController: SpartaTableViewController  {
                             // we could do fancy animations here if we wanted
                             super.isUpdatingData = false
                             self.tableView.reloadData()
+                            self.scrollToFirstRow()
                         }
                     } else {
                         print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
@@ -79,6 +83,7 @@ class AwardsViewController: SpartaTableViewController  {
                             // we could do fancy animations here if we wanted
                             super.isUpdatingData = false
                             self.tableView.reloadData()
+                            self.scrollToFirstRow()
                         }
                     } else {
                         print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
