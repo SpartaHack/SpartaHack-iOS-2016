@@ -352,14 +352,14 @@ class SpartaModel: NSObject {
                         let email = value["email"] as? String,
                         let fName = value["first_name"] as? String,
                         let lName = value["last_name"] as? String,
-                        let roles = value["roles"] as? [String],
-                        let rsvp = value["rsvp"] as? NSDictionary
+                        let roles = value["roles"] as? [String]
                         else {
                             print("Error Creating User \(value)")
                             return
                         }
 //                    let user = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp:rsvp, adult: over18)
-                        UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: over18)
+                        let rsvp = value["rsvp"] as? NSDictionary
+                        UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: (rsvp ?? nil)!, adult: over18)
                         print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
                 }
             }
