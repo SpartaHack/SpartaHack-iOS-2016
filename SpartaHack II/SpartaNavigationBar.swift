@@ -117,6 +117,8 @@ class SpartaNavigationBar: UINavigationBar {
             self.setName(to: firstName)
         }
         
+        firstName.textAlignment = .center
+        
         // Cool border
         self.addSubview(self.bottomBorder)
         
@@ -177,8 +179,8 @@ class SpartaNavigationBar: UINavigationBar {
         UIApplication.shared.keyWindow?.rootViewController?.present(profileView, animated: true, completion: nil)
     }
     
-    func setName(to firstName: String) {
-        self.firstName.text = firstName
+    func setName(to newName: String) {
+        self.firstName.text = newName
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
