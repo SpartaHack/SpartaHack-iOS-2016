@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // Load the user if we have one
+        
+        UserManager.sharedInstance.loadUser()
+        
         // Override point for customization after application launch.
         Theme.loadTheme()
                 

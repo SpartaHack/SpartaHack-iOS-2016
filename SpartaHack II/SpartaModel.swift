@@ -232,6 +232,7 @@ class SpartaModel: NSObject {
                         guard let url = obj["url"] as? String else {
                             fatalError("ToDo: gracefully handle error")
                         }
+
                         sponsor.url = url
                         
                         // okay, we haven't crashed by now so we guchi
@@ -323,7 +324,43 @@ class SpartaModel: NSObject {
                 if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
                     print("Error signing in: \(error)")
                 } else {
-                    User.sharedInstance.createUser(userDict: value)
+                    
+                    let userYear = String(value["application"]?["birth_year"] as! Int)
+                    let userMonth = String(value["application"]?["birth_month"] as! Int)
+                    let userDay = String(value["application"]?["birth_day"] as! Int)
+                    
+                    let birthday = "\(userDay) \(userMonth) \(userYear)"
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd MM yyyy"
+                    
+                    let date = Date()
+                    let calendar = Calendar.current
+                    
+                    let day = calendar.component(.day, from: date)
+                    let month = calendar.component(.month, from: date)
+                    var year = calendar.component(.year, from: date)
+                    year = year - 18
+                    
+                    print("18 \(dateFormatter.date(from: "\(day) \(month) \(year)")!)")
+                    
+                    print("Bday: \(dateFormatter.date(from: birthday)!)")
+                    
+                    let over18 = dateFormatter.date(from: birthday)! < dateFormatter.date(from: "\(day) \(month) \(year)")!
+                    
+                    guard let id = value["id"] as? Int32,
+                        let token = value["auth_token"] as? String,
+                        let email = value["email"] as? String,
+                        let fName = value["first_name"] as? String,
+                        let lName = value["last_name"] as? String,
+                        let roles = value["roles"] as? [String]
+                        else {
+                            print("Error Creating User \(value)")
+                            return
+                        }
+                        let rsvp = value["rsvp"] as? NSDictionary
+                        UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: over18)
+                        print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
                 }
             }
         }

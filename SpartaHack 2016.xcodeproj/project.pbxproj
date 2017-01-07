@@ -24,6 +24,7 @@
 		C2B450A01E1DA4B200665BB1 /* MentorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B4509F1E1DA4B200665BB1 /* MentorshipViewController.swift */; };
 		C2B450A21E1EC28D00665BB1 /* SponsorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B450A11E1EC28D00665BB1 /* SponsorsTableViewCell.xib */; };
 		C2B450A41E1EC43600665BB1 /* SponsorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B450A31E1EC43500665BB1 /* SponsorsTableViewCell.swift */; };
+		C2B709171E20A5DE0058BD77 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B709161E20A5DE0058BD77 /* UserManager.swift */; };
 		C2D33BC11DEFD01000EF3013 /* Nemoy-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BBF1DEFCCB700EF3013 /* Nemoy-Light.ttf */; };
 		C2D33BC21DEFD01600EF3013 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BBD1DEFCCB700EF3013 /* Lato-Light.ttf */; };
 		C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BBE1DEFCCB700EF3013 /* Lato-Regular.ttf */; };
@@ -169,6 +170,7 @@
 		C2B4509F1E1DA4B200665BB1 /* MentorshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorshipViewController.swift; sourceTree = "<group>"; };
 		C2B450A11E1EC28D00665BB1 /* SponsorsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsTableViewCell.xib; sourceTree = "<group>"; };
 		C2B450A31E1EC43500665BB1 /* SponsorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsTableViewCell.swift; sourceTree = "<group>"; };
+		C2B709161E20A5DE0058BD77 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C2D33BBD1DEFCCB700EF3013 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		C2D33BBE1DEFCCB700EF3013 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		C2D33BBF1DEFCCB700EF3013 /* Nemoy-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Light.ttf"; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 		F5602C221DE8D89D00227700 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				C2B709161E20A5DE0058BD77 /* UserManager.swift */,
 				C2417EB11E08CA8E0012BC9F /* User.swift */,
 			);
 			name = User;
@@ -844,6 +847,7 @@
 				C287A8D61DF4C7F5003964A0 /* SpartaTableViewHeaderCell.swift in Sources */,
 				F54F43901BB63CBE0037EA44 /* AwardsViewController.swift in Sources */,
 				F5373B8A1B327566007F508C /* AnnouncementsTableViewController.swift in Sources */,
+				C2B709171E20A5DE0058BD77 /* UserManager.swift in Sources */,
 				F596937C1DB41DB600B830DD /* SpartaModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,70 +9,64 @@
 import Foundation
 import Alamofire
 
-class User : NSObject {
-    var id: Int! = nil
-    var token: String! = nil
-    var email: String! = nil
-    var fName: String! = nil
-    var lName: String! = nil
-    var roles: [String]! = nil
+class User: NSObject, NSCoding {
+    var id: Int32
+    var token: String
+    var email: String
+    var fName: String
+    var lName: String
+    var roles: [String]
+    var rsvp: AnyObject?
+    var adult: Bool?
+
     
-    static let sharedInstance = User()
-    
-    override init() {
+    init (id:Int32, token:String, email:String, fName:String, lName:String, roles:[String], rsvp:AnyObject?, adult:Bool?) {
+        self.id = id
+        self.token = token
+        self.email = email
+        self.fName = fName
+        self.lName = lName
+        self.roles = roles
+        self.rsvp = rsvp
+        self.adult = adult
+        
         super.init()
+        saveUser()
+    }
+    
+    
+    required init(coder decoder: NSCoder) {
+        self.id = decoder.decodeInt32(forKey: "id")
+        self.token = decoder.decodeObject(forKey: "token") as? String ?? ""
+        self.email = decoder.decodeObject(forKey: "email") as? String ?? ""
+        self.fName = decoder.decodeObject(forKey: "firstName") as? String ?? ""
+        self.lName = decoder.decodeObject(forKey: "lastName") as? String ?? ""
+        self.roles = decoder.decodeObject(forKey: "roles") as? [String] ?? [""]
+        self.rsvp = decoder.decodeObject(forKey: "rsvp") as? NSDictionary
+        self.adult = decoder.decodeObject(forKey: "adult") as? Bool ?? nil
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(token, forKey: "token")
+        aCoder.encode(email, forKey: "email")
+        aCoder.encode(fName, forKey: "firstName")
+        aCoder.encode(lName, forKey: "lastName")
+        aCoder.encode(roles, forKey: "roles")
+        aCoder.encode(rsvp, forKey: "rsvp")
+        aCoder.encode(adult, forKey: "adult")
     }
     
     override var debugDescription : String {
         let user =
-            "id: \(id!)" +
-            "\n First Name:\(fName!)" +
-            "\n Last Name:\(lName!)" +
-            "\n email:\(email!)" +
-            "\n roles:\(roles!)" +
-            "\n token: \(token!)"
+            "id: \(id)" +
+            "\n First Name:\(fName)" +
+            "\n Last Name:\(lName)" +
+            "\n email:\(email)" +
+            "\n roles:\(roles)" +
+            "\n adult:\(adult)" +
+            "\n token: \(token)"
         return user
-    }
-    
-    func createUser (userDict: [String:AnyObject]) {
-        guard let userId = userDict["id"] as? Int else {
-            print("Error unable to create user, userId error")
-            return
-        }
-        id = userId
-
-        guard let authToken = userDict["auth_token"] as? String else {
-            print("Error unable to create user, token error")
-            return
-        }
-        token = authToken
-        
-        guard let userEmail = userDict["email"] as? String else {
-            print("Error unable to create user, token error")
-            return
-        }
-        email = userEmail
-        
-        guard let firstName = userDict["first_name"] as? String else {
-            print("Error unable to create user, token error")
-            return
-        }
-        fName = firstName
-        
-        guard let lastName = userDict["last_name"] as? String else {
-            print("Error unable to create user, token error")
-            return
-        }
-        lName = lastName
-        
-        guard let userRoles = userDict["roles"] as? [String] else {
-            print("Error unable to create user, token error")
-            return
-        }
-        roles = userRoles
-        
-        
-        print("User \(self.debugDescription)")
     }
     
     func getFirstName () -> String {
@@ -80,5 +74,15 @@ class User : NSObject {
             return "N/A"
         }
         return fName
+    }
+    
+    func saveUser () {
+        var userToSave = [User]()
+        userToSave.append(self)
+        let savedData: Data = NSKeyedArchiver.archivedData(withRootObject: userToSave)
+        let defaults = UserDefaults.standard
+        defaults.set(savedData, forKey: "user")
+        defaults.synchronize()
+        print("Saved successfully")
     }
 }
