@@ -47,7 +47,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
         
         item4.tabBarItem = icon4
         
-        let item5 = PrizesViewController()
+        let item5 = AwardsViewController()
         let icon5 = UITabBarItem(title: "Prizes! :D", image: UIImage(named: "prizes"), selectedImage: UIImage(named: "prizes-selected"))
         icon5.image = icon5.image?.withRenderingMode(.alwaysOriginal)
         icon5.selectedImage = icon5.selectedImage?.withRenderingMode(.alwaysOriginal)

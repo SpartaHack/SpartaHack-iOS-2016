@@ -12,9 +12,8 @@ class Sponsor: NSObject {
     var id: Int! = nil
     var name: String! = nil
     var level: String! = nil
-    var logo: String! = nil
+    var logo: UIImage! = nil
     var url: String! = nil
-    var updatedTime: NSDate? = nil
     
     override init() {
         super.init()
@@ -25,8 +24,8 @@ class Sponsor: NSObject {
             "id: \(id!)" +
                 "\n name:\(name!)" +
                 "\n level:\(level!)" +
-                "\n url:\(url!)" +
-        "\n updated:\(updatedTime)"
+                "\n logo:\(logo)" +
+                "\n url:\(url!)"
         
         return sponsor
     }
