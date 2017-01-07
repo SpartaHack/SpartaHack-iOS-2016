@@ -89,11 +89,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: { () -> Void in
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.delegate?.userSuccessfullyLoggedIn(true)
-                    if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
-                        if let firstName = UserManager.sharedInstance.getFirstName() {
-                            navBar.setName(to: firstName)
-                        }
-                    }
                 })
             })
         }
@@ -101,7 +96,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         if let emailString = emailTextField.text, let passwordString = passwordTextField.text {
-            userDidLogin(SpartaModel.sharedInstance.getUserSession(email: emailString, password: passwordString), error: nil)
+            SpartaModel.sharedInstance.getUserSession(email: emailString, password: passwordString, completionHandler: {_ in
+                if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
+                    if let firstName = UserManager.sharedInstance.getFirstName() {
+                        navBar.setName(to: firstName)
+                    }
+                }
+                self.userDidLogin(true, error: nil)
+            })
         }
     }
     

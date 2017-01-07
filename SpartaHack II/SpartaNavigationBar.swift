@@ -113,11 +113,13 @@ class SpartaNavigationBar: UINavigationBar {
         
         self.addSubview(firstName)
         
-        if let firstName = UserManager.sharedInstance.getFirstName() {
-            self.setName(to: firstName)
+        if let firstNameString = UserManager.sharedInstance.getFirstName() {
+            self.setName(to: firstNameString)
         }
         
         firstName.textAlignment = .center
+        firstName.font = UIFont(name: "Lato", size: 12.0)
+
         
         // Cool border
         self.addSubview(self.bottomBorder)
@@ -162,7 +164,6 @@ class SpartaNavigationBar: UINavigationBar {
             firstName.frame.origin.y += profileImageFrame.size.height - 7.0
         }
         firstName.frame.origin.x = profileButton.frame.origin.x
-        firstName.text = ""
         firstName.adjustsFontSizeToFitWidth = true
         
         
