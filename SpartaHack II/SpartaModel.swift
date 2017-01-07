@@ -232,6 +232,7 @@ class SpartaModel: NSObject {
                         guard let url = obj["url"] as? String else {
                             fatalError("ToDo: gracefully handle error")
                         }
+
                         sponsor.url = url
                         
                         // okay, we haven't crashed by now so we guchi
