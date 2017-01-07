@@ -59,6 +59,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func logOutButtonTapped(_ sender: AnyObject) {
+        UserManager.sharedInstance.logOutUser(completionHandler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false

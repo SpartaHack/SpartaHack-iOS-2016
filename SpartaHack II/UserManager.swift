@@ -56,6 +56,7 @@ class UserManager: NSObject {
             let defaults = UserDefaults.standard
             defaults.removeObject(forKey: "user")
             defaults.synchronize()
+            spartaUser = nil
             completionHandler(true)
         }
         completionHandler(false)

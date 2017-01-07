@@ -164,11 +164,11 @@ class SpartaNavigationBar: UINavigationBar {
     }
     
     func presentProfileView() {
-//        if !User.loggedIn {
+        if !UserManager.sharedInstance.isUserLoggedIn() {
             let loginView: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
             UIApplication.shared.keyWindow?.rootViewController?.present(loginView, animated: true, completion: nil)
             return
-//        }
+        }
         let profileView: ProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profile") as! ProfileViewController
         UIApplication.shared.keyWindow?.rootViewController?.present(profileView, animated: true, completion: nil)
     }
