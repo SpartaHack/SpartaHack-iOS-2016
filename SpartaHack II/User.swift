@@ -69,13 +69,6 @@ class User: NSObject, NSCoding {
         return user
     }
     
-    func getFirstName () -> String {
-        guard fName != "" else {
-            return "N/A"
-        }
-        return fName
-    }
-    
     func saveUser () {
         var userToSave = [User]()
         userToSave.append(self)
