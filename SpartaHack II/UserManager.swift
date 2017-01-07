@@ -61,7 +61,7 @@ class UserManager: NSObject {
         completionHandler(false)
     }
     
-    func loginUser (id: Int32, token: String, email: String, fName: String, lName: String, roles: [String], rsvp:NSDictionary, adult: Bool) {
+    func loginUser (id: Int32, token: String, email: String, fName: String, lName: String, roles: [String], rsvp:AnyObject?, adult: Bool) {
     
         spartaUser = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: adult)
         

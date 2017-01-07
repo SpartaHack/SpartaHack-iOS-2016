@@ -16,11 +16,11 @@ class User: NSObject, NSCoding {
     var fName: String
     var lName: String
     var roles: [String]
-    var rsvp: NSDictionary?
+    var rsvp: AnyObject?
     var adult: Bool?
 
     
-    init (id:Int32, token:String, email:String, fName:String, lName:String, roles:[String], rsvp:NSDictionary?, adult:Bool?) {
+    init (id:Int32, token:String, email:String, fName:String, lName:String, roles:[String], rsvp:AnyObject?, adult:Bool?) {
         self.id = id
         self.token = token
         self.email = email
@@ -42,7 +42,7 @@ class User: NSObject, NSCoding {
         self.fName = decoder.decodeObject(forKey: "firstName") as? String ?? ""
         self.lName = decoder.decodeObject(forKey: "lastName") as? String ?? ""
         self.roles = decoder.decodeObject(forKey: "roles") as? [String] ?? [""]
-        self.rsvp = decoder.decodeObject(forKey: "rsvp") as? NSDictionary ?? nil
+        self.rsvp = (decoder.decodeObject(forKey: "rsvp") as? NSDictionary)!
         self.adult = decoder.decodeObject(forKey: "adult") as? Bool ?? nil
     }
 
