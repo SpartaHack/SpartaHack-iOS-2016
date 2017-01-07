@@ -31,6 +31,10 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // We need to set the header and footer right away because when dismissing presented views,
+        // the header and footer is reset to white
+        self.tableView.tableFooterView?.backgroundColor = Theme.backgroundColor
+        self.tableView.backgroundColor = Theme.backgroundColor
     }
     
     override func viewDidLoad() {
@@ -55,7 +59,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableView.register(headerNib, forCellReuseIdentifier: "headerCell")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 140
+        self.tableView.estimatedRowHeight = 340
         
         self.tableView.allowsSelection = false
         
@@ -248,6 +252,11 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
     func getDataAndReload() {
         // Override this for each SpartaTableViewController subclass
     }
+    
+    func requiresLogin() -> Bool {
+        return false
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
