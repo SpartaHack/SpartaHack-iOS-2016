@@ -63,7 +63,7 @@ class UserManager: NSObject {
     func getFullName() -> String? {
         if (isUserLoggedIn()) {
             guard ((spartaUser?.fName) == nil), spartaUser?.lName == nil else {
-                return "\(spartaUser?.fName) \(spartaUser?.lName)'"
+                return (spartaUser?.fName)! + " " + (spartaUser?.lName)!
             }
         }
         return nil

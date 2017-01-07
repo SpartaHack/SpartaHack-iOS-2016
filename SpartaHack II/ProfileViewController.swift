@@ -32,6 +32,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = Theme.backgroundColor
         
         self.nameLabel.textColor = Theme.primaryColor
+        if let fullNameString = UserManager.sharedInstance.getFullName() {
+            self.nameLabel.text = fullNameString
+        }
         
         let scanningButtonAttributedTitle = NSAttributedString(string: "Volunteer Scanning",
                                                             attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
