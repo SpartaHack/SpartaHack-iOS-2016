@@ -29,7 +29,7 @@ class SpartaNavigationBar: UINavigationBar {
     private let borderSize: CGFloat = 1.5
     private var bottomBorder: UIView = UIView()
     private var profileButton: UIButton = UIButton.init(type: .custom)
-    private var userInitials: UILabel = UILabel()
+    private var firstName: UILabel = UILabel()
     
     weak var spartaNavigationBarDelegate: SpartaNavigationBarDelegate!
     
@@ -111,7 +111,7 @@ class SpartaNavigationBar: UINavigationBar {
         
         self.topItem?.setRightBarButtonItems([profileButtonItem], animated: true)
         
-        self.addSubview(userInitials)
+        self.addSubview(firstName)
         
         // Cool border
         self.addSubview(self.bottomBorder)
@@ -150,17 +150,17 @@ class SpartaNavigationBar: UINavigationBar {
         Theme.setHorizontalGradient(on: self.bottomBorder, of: .darkGradient)
         
         // Set the user initials under the profile icon
-        userInitials.frame = profileButton.frame
-        userInitials.bounds = profileButton.bounds
+        firstName.frame = profileButton.frame
+        firstName.bounds = profileButton.bounds
         if let profileImageFrame = profileButton.imageView?.frame {
-            userInitials.frame.origin.y += profileImageFrame.size.height - 7.0
+            firstName.frame.origin.y += profileImageFrame.size.height - 7.0
         }
-        userInitials.frame.origin.x = profileButton.frame.origin.x
-        userInitials.text = "Christopher"
-        userInitials.adjustsFontSizeToFitWidth = true
+        firstName.frame.origin.x = profileButton.frame.origin.x
+        firstName.text = ""
+        firstName.adjustsFontSizeToFitWidth = true
         
         
-        userInitials.textColor = Theme.primaryColor
+        firstName.textColor = Theme.primaryColor
     }
     
     func presentProfileView() {
@@ -171,6 +171,10 @@ class SpartaNavigationBar: UINavigationBar {
         }
         let profileView: ProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profile") as! ProfileViewController
         UIApplication.shared.keyWindow?.rootViewController?.present(profileView, animated: true, completion: nil)
+    }
+    
+    func setName(to firstName: String) {
+        self.firstName.text = firstName
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {

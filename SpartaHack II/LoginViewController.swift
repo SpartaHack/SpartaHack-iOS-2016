@@ -89,6 +89,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: { () -> Void in
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.delegate?.userSuccessfullyLoggedIn(true)
+                    if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
+                        navBar.setName(to: "Blah")
+                    }
                 })
             })
         }
