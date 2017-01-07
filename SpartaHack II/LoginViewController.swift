@@ -86,7 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         if let emailString = emailTextField.text, let passwordString = passwordTextField.text {
-            userDidLogin(SpartaModel().getUserSession(email: emailString, password: passwordString), error: nil)
+            userDidLogin(SpartaModel.sharedInstance.getUserSession(email: emailString, password: passwordString), error: nil)
         }
     }
     
