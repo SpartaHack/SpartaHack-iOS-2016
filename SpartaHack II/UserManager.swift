@@ -42,13 +42,13 @@ class UserManager: NSObject {
         return false
     }
     
-    func UserQRString() -> String {
+    func UserQRCode() -> String? {
         if (isUserScannable()) {
             if let qrCode = spartaUser?.id {
                 return String(qrCode)
             }
         }
-        return ""
+        return nil
     }
     
     func logOutUser (completionHandler: @escaping(Bool) -> ()) {
@@ -59,6 +59,12 @@ class UserManager: NSObject {
             completionHandler(true)
         }
         completionHandler(false)
+    }
+    
+    func loginUser (id: Int32, token: String, email: String, fName: String, lName: String, roles: [String], rsvp:NSDictionary, adult: Bool) {
+    
+        spartaUser = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: adult)
+        
     }
     
     func loadUser () {

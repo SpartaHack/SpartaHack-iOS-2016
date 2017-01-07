@@ -358,8 +358,9 @@ class SpartaModel: NSObject {
                             print("Error Creating User \(value)")
                             return
                         }
-                    let user = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp:rsvp, adult: over18)
-                        print("User Obj: \(user)")
+//                    let user = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp:rsvp, adult: over18)
+                        UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: over18)
+                        print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
                 }
             }
         }
