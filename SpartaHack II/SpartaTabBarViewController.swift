@@ -81,6 +81,12 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
     //Delegate methods
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if let spartaTableViewController = viewController as? SpartaTableViewController {
+            // ToDo: add check to see if user is not logged in
+            if spartaTableViewController.requiresLogin() && !UserManager.sharedInstance.isUserLoggedIn() {
+                let loginView: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
+                self.navigationController?.present(loginView, animated: true, completion: nil)
+                return false
+            }
             if spartaTableViewController.needsThemeUpdate() {
                 spartaTableViewController.updateTheme()
             }

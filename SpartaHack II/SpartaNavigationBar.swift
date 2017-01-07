@@ -29,7 +29,7 @@ class SpartaNavigationBar: UINavigationBar {
     private let borderSize: CGFloat = 1.5
     private var bottomBorder: UIView = UIView()
     private var profileButton: UIButton = UIButton.init(type: .custom)
-    private var userInitials: UILabel = UILabel()
+    private var firstName: UILabel = UILabel()
     
     weak var spartaNavigationBarDelegate: SpartaNavigationBarDelegate!
     
@@ -104,13 +104,22 @@ class SpartaNavigationBar: UINavigationBar {
         
         profileButton.setImage(UIImage.init(named: "profile"), for: UIControlState.normal)
         // ToDo: Hook this up to the Profile page
-//        button.addTarget(self, action:#selector(ProfileViewController), for: UIControlEvents.touchUpInside)
+        profileButton.addTarget(self, action:#selector(presentProfileView), for: .touchUpInside)
+        
         profileButton.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
         let profileButtonItem = UIBarButtonItem.init(customView: profileButton)
         
         self.topItem?.setRightBarButtonItems([profileButtonItem], animated: true)
         
-        self.addSubview(userInitials)
+        self.addSubview(firstName)
+        
+        if let firstNameString = UserManager.sharedInstance.getFirstName() {
+            self.setName(to: firstNameString)
+        }
+        
+        firstName.textAlignment = .center
+        firstName.font = UIFont(name: "Lato", size: 12.0)
+
         
         // Cool border
         self.addSubview(self.bottomBorder)
@@ -149,17 +158,30 @@ class SpartaNavigationBar: UINavigationBar {
         Theme.setHorizontalGradient(on: self.bottomBorder, of: .darkGradient)
         
         // Set the user initials under the profile icon
-        userInitials.frame = profileButton.frame
-        userInitials.bounds = profileButton.bounds
+        firstName.frame = profileButton.frame
+        firstName.bounds = profileButton.bounds
         if let profileImageFrame = profileButton.imageView?.frame {
-            userInitials.frame.origin.y += profileImageFrame.size.height - 7.0
+            firstName.frame.origin.y += profileImageFrame.size.height - 7.0
         }
-        userInitials.frame.origin.x = profileButton.frame.origin.x
-        userInitials.text = "Christopher"
-        userInitials.adjustsFontSizeToFitWidth = true
+        firstName.frame.origin.x = profileButton.frame.origin.x
+        firstName.adjustsFontSizeToFitWidth = true
         
         
-        userInitials.textColor = Theme.primaryColor
+        firstName.textColor = Theme.primaryColor
+    }
+    
+    func presentProfileView() {
+        if !UserManager.sharedInstance.isUserLoggedIn() {
+            let loginView: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
+            UIApplication.shared.keyWindow?.rootViewController?.present(loginView, animated: true, completion: nil)
+            return
+        }
+        let profileView: ProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profile") as! ProfileViewController
+        UIApplication.shared.keyWindow?.rootViewController?.present(profileView, animated: true, completion: nil)
+    }
+    
+    func setName(to newName: String) {
+        self.firstName.text = newName
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {

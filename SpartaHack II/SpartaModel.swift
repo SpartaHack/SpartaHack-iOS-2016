@@ -291,7 +291,7 @@ class SpartaModel: NSObject {
     }
     
     /// log user in and grab token
-    func getUserSession (email:String, password:String) -> Bool {
+    func getUserSession ( email:String, password:String, completionHandler: @escaping(Bool) -> () ) {
         var keyDict: NSDictionary?
         
         if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
@@ -360,11 +360,11 @@ class SpartaModel: NSObject {
                         }
                         let rsvp = value["rsvp"] as? NSDictionary
                         UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: over18)
+                        completionHandler(true)
                         print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
                 }
             }
         }
-        
-        return true
+        completionHandler(false)
     }
 }

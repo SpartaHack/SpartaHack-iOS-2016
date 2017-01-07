@@ -20,7 +20,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subtitleLabel: UILabel!
 
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var nahButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var formView: UIView!
 
     var delegate: LoginViewControllerDelegate!
@@ -38,6 +38,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        self.hideKeyboard()
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,13 +55,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.borderColor = Theme.tintColor.cgColor
         passwordTextField.textColor = Theme.primaryColor
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSForegroundColorAttributeName: Theme.primaryColor])
-        loginButton.layer.borderColor = Theme.tintColor.cgColor
-        loginButton.backgroundColor = Theme.backgroundColor
-        
+
         let loginButtonAttributedTitle = NSAttributedString(string: "Log in",
                                                          attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
         loginButton.setAttributedTitle(loginButtonAttributedTitle, for: .normal)
+        loginButton.layer.cornerRadius = 0.0;
+        loginButton.layer.borderColor = Theme.tintColor.cgColor
+        loginButton.layer.borderWidth = 1.5
+        
+        let font = UIFont.systemFont(ofSize: 40)
 
+        let closeButtonAttributedTitle = NSAttributedString(string: "x",
+                                                            attributes: [NSForegroundColorAttributeName : Theme.primaryColor,
+                                                                         NSFontAttributeName: font])
+        closeButton.setAttributedTitle(closeButtonAttributedTitle, for: .normal)
+        
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -86,8 +96,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         if let emailString = emailTextField.text, let passwordString = passwordTextField.text {
-            userDidLogin(SpartaModel.sharedInstance.getUserSession(email: emailString, password: passwordString), error: nil)
+            SpartaModel.sharedInstance.getUserSession(email: emailString, password: passwordString, completionHandler: {_ in
+                if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
+                    if let firstName = UserManager.sharedInstance.getFirstName() {
+                        navBar.setName(to: firstName)
+                    }
+                }
+                self.userDidLogin(true, error: nil)
+            })
         }
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {

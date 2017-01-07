@@ -51,11 +51,30 @@ class UserManager: NSObject {
         return nil
     }
     
+    func getFirstName() -> String? {
+        if (isUserLoggedIn()) {
+            guard spartaUser?.fName == nil else {
+                return spartaUser?.fName
+            }
+        }
+        return nil
+    }
+ 
+    func getFullName() -> String? {
+        if (isUserLoggedIn()) {
+            guard ((spartaUser?.fName) == nil), spartaUser?.lName == nil else {
+                return (spartaUser?.fName)! + " " + (spartaUser?.lName)!
+            }
+        }
+        return nil
+    }
+    
     func logOutUser (completionHandler: @escaping(Bool) -> ()) {
         if (isUserLoggedIn()) {
             let defaults = UserDefaults.standard
             defaults.removeObject(forKey: "user")
             defaults.synchronize()
+            spartaUser = nil
             completionHandler(true)
         }
         completionHandler(false)
