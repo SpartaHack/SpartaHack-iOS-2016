@@ -20,6 +20,7 @@ class MentorshipViewController: SpartaTableViewController {
         self.tableView.alwaysBounceVertical = false // disable scrolling
         let mentorFormNib = UINib(nibName: "MentorFormCell", bundle: Bundle(for: type(of: self)))
         self.tableView.register(mentorFormNib, forCellReuseIdentifier: "mentorFormCell")
+        self.hideKeyboard()
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

@@ -38,6 +38,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        self.hideKeyboard()
     }
     
     override func viewDidLayoutSubviews() {

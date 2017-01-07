@@ -37,7 +37,7 @@ class MentorFormCell: UITableViewCell, UITextViewDelegate {
         }
     }
     
-    override func layoutSubviews() {
+    override func layoutSubviews() {        
         UIView.animate(withDuration: 1.0, animations: {
             self.backgroundColor = .clear
             self.contentView.backgroundColor = Theme.backgroundColor
