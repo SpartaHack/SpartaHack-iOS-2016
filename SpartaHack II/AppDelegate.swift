@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Load the user if we have one
-        
         UserManager.sharedInstance.loadUser()
         
         // Override point for customization after application launch.
@@ -47,10 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        print(deviceTokenString)
-        print("Registering for push notifications")
         
-
+        SpartaModel.sharedInstance.sendDeviceToken(token: deviceTokenString) { (success:Bool) in
+            if (!success) {
+                print("*** ERROR REGISTERING TOKEN ***")
+            } else {
+                print(deviceTokenString)
+                print("Registering for push notifications")
+            }
+        }
+        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
