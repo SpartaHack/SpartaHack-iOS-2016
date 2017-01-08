@@ -95,13 +95,6 @@ class AwardsViewController: SpartaTableViewController  {
         }
     }
     
-    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        super.scrollViewWillBeginDecelerating(scrollView)
-        if refreshControl.isRefreshing {
-            getDataAndReload()
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (currentView) {
         case "prizes":
