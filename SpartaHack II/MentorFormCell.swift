@@ -44,6 +44,7 @@ class MentorFormCell: UITableViewCell, UITextViewDelegate {
             
             self.categoryTextField.attributedPlaceholder = NSAttributedString(string: "Category",
                                                                                attributes: [NSForegroundColorAttributeName: Theme.tintColor])
+            self.categoryTextField.backgroundColor = Theme.backgroundColor
             self.categoryTextField.textColor = Theme.primaryColor
             self.categoryTextField.layer.cornerRadius = 0.0;
             self.categoryTextField.layer.borderColor = Theme.tintColor.cgColor
@@ -51,11 +52,13 @@ class MentorFormCell: UITableViewCell, UITextViewDelegate {
             
             self.locationTextField.attributedPlaceholder = NSAttributedString(string: "Location",
                                                                               attributes: [NSForegroundColorAttributeName: Theme.tintColor])
+            self.locationTextField.backgroundColor = Theme.backgroundColor
             self.locationTextField.textColor = Theme.primaryColor
             self.locationTextField.layer.cornerRadius = 0.0;
             self.locationTextField.layer.borderColor = Theme.tintColor.cgColor
             self.locationTextField.layer.borderWidth = 1.5
             
+            self.descriptionTextView.backgroundColor = Theme.backgroundColor
             self.descriptionTextView.textColor = Theme.primaryColor
             self.descriptionTextView.layer.cornerRadius = 0.0;
             self.descriptionTextView.layer.borderColor = Theme.tintColor.cgColor
