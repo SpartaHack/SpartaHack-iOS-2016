@@ -28,14 +28,66 @@ class SpartaModel: NSObject {
         
         // make requests to get our stuff
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15.0 /// 15 second timeout. 
+        configuration.timeoutIntervalForRequest = 15.0 /// 15 second timeout.
         sessionManager = Alamofire.SessionManager(configuration: configuration)
+    }
+    /// Push the user tokens
+    func sendDeviceToken( token:String, completionHandler: @escaping(Bool) -> () ) {
+        
+        var keyDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+    
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)installations")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+        
+        let parameters: [String: String] = [
+            "device_type" : "iOS",
+            "token" : token
+            ]
+        
+        do {
+            try urlRequest.httpBody = JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch {
+            print(error)
+        }
+        
+        sessionManager.request(urlRequest).responseJSON { response in
+            debugPrint(response)
+            if let value = response.result.value as? [String:AnyObject] {
+                if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
+                    print("OMG get bogdan and/or chris: \(error)")
+                    completionHandler(false)
+                } else {
+                    print(value)
+                    completionHandler(true)
+                }
+            }
+        }
     }
     
     
     /// Announcements
     func getAnnouncements( completionHandler: @escaping(Bool) -> () ) {
-        sessionManager.request("\(baseURL)announcements").responseJSON { response in
+    
+        var keyDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+        
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)announcements")!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+    
+        sessionManager.request(urlRequest).responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
@@ -95,7 +147,20 @@ class SpartaModel: NSObject {
     
     /// Schedule
     func getSchedule( completionHandler: @escaping(Bool) -> () ) {
-        sessionManager.request("\(baseURL)schedule").responseJSON { response in
+    
+        var keyDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+    
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)schedule")!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+    
+        sessionManager.request(urlRequest).responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
@@ -179,7 +244,6 @@ class SpartaModel: NSObject {
     func getSponsors( completionHandler: @escaping(Bool) -> () ) {
     
         var keyDict: NSDictionary?
-        
         if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
             keyDict = NSDictionary(contentsOfFile: path)
         } else {
@@ -246,7 +310,20 @@ class SpartaModel: NSObject {
     
     /// Prizes
     func getPrizes( completionHandler: @escaping(Bool) -> () ) {
-        sessionManager.request("\(baseURL)prizes").responseJSON { response in
+    
+        var keyDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+    
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)prizes")!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+        
+        sessionManager.request(urlRequest).responseJSON { response in
             guard response.result.isSuccess else {
                 // we failed for some reason
                 print("Error \(response.result.error)")
@@ -292,14 +369,13 @@ class SpartaModel: NSObject {
     
     /// log user in and grab token
     func getUserSession ( email:String, password:String, completionHandler: @escaping(Bool) -> () ) {
+    
         var keyDict: NSDictionary?
-        
         if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
             keyDict = NSDictionary(contentsOfFile: path)
         } else {
             fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
         }
-    
 
         let parameters: [String: String] = [
             "email" : email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
