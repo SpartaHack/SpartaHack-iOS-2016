@@ -74,7 +74,7 @@ class ScheduleViewController: SpartaTableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
         let event: Event
         
-        event =  Schedule.sharedInstance.listOfEvents()[indexPath.item]
+        event =  Schedule.sharedInstance.listOfEventsForSection(indexPath.section)[indexPath.item]
         cell.titleLabel.text = event.title
         cell.detailLabel.text = event.detail
         let formatter = DateFormatter()
@@ -90,18 +90,17 @@ class ScheduleViewController: SpartaTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
         headerCell.separatorInset = .zero
-        let weekdayInt: Int = Array(Schedule.sharedInstance.weekdayDictionary.keys)[section]
-        let sectionTitle = DateFormatter().weekdaySymbols[weekdayInt-1]
+        let sectionTitle = Schedule.sharedInstance.stringForSection(section)
         headerCell.titleLabel.text = sectionTitle
         return headerCell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Schedule.sharedInstance.numberOfWeekdays(for: section)
+        return Schedule.sharedInstance.listOfEventsForSection(section).count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Schedule.sharedInstance.weekdayDictionary.count
+        return Schedule.sharedInstance.weekdayToEventsDictionary.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
