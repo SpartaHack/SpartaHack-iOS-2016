@@ -11,7 +11,7 @@ import Foundation
 class Schedule: NSObject {
     // holds collection of events 
     private var spartaSchedule: [Event] = []
-    var weekdayDictionary: [Int:Int] = [:] // 1:5 means Sunday 5 events. 3:3 meants Tuesday has 3 events.
+    var weekdayToEventsDictionary: [Int:[Event]] = [:] // 1:[Event1, Event2, ...] means Sunday holds the events Event1, Event2, ...
     
     // singleton for schedule 
     static let sharedInstance = Schedule()
@@ -35,42 +35,39 @@ class Schedule: NSObject {
         if valid {
             spartaSchedule.append(event)
             if let eventDate = event.time {
-                let weekday = stringForWeekday(for: eventDate)
-                event.weekday = weekday
-                self.addWeekday(day: intForWeekday(for: eventDate))
+                let weekdayInt = intForWeekday(for: eventDate)
+                if (weekdayToEventsDictionary[weekdayInt] != nil) {
+                    weekdayToEventsDictionary[weekdayInt]?.insert(event, at: 0)
+                } else {
+                    weekdayToEventsDictionary[weekdayInt] = [event]
+                }
             }
         }
     }
     
-    func listOfEvents () -> [Event] {
-        return spartaSchedule
+    func listOfEventsForWeekday(_ weekday: Int) -> [Event] {
+        var eventsArray = Array(weekdayToEventsDictionary)[weekday].value
+        eventsArray.sort(by: { $0.time?.compare($1.time as! Date) == ComparisonResult.orderedAscending })
+        return eventsArray
     }
     
-    func addWeekday(day: Int) {
-        if let currentCount = weekdayDictionary[day] {
-            weekdayDictionary[day] = currentCount + 1
-        } else {
-            weekdayDictionary[day] = 1
-        }
+    func listOfEventsForSection(_ section: Int) -> [Event] {
+        var weekdayToEventsArray = Array(weekdayToEventsDictionary)
+        weekdayToEventsArray.sort { $0.key < $1.key }
+        var events = weekdayToEventsArray[section].value
+        events.sort(by: { $0.time?.compare($1.time as! Date) == ComparisonResult.orderedAscending })
+        return events
     }
     
-    func numberOfWeekdays(for index: Int) -> Int {
-        // Pretty gross, but this is how I handle conversions between the weekday dictionary and the table view section array
-        let dictionaryIndex = Array(weekdayDictionary.keys)[index]
-        var numberOfWeekdays = 0
-        if let count = weekdayDictionary[dictionaryIndex] {
-            numberOfWeekdays = count
-        }
-        return numberOfWeekdays
-    }
-    
-    func stringForWeekday(for date: NSDate) -> String {
-        let myCalendar = NSCalendar(calendarIdentifier: .gregorian)
-        let myComponents = myCalendar?.components(.weekday, from: date as Date)
-        let weekDay = myComponents?.weekday
+    func stringForSection(_ section: Int) -> String {
+        var weekdayToEventsArray = Array(weekdayToEventsDictionary.keys)
+        weekdayToEventsArray.sort { $0.hashValue < $1.hashValue }
         
-        let dayString = DateFormatter().weekdaySymbols[weekDay! - 1]
-
+        if weekdayToEventsArray[section] == 8 {
+            return "Sunday"
+        }
+        
+        let dayString = DateFormatter().weekdaySymbols[weekdayToEventsArray[section] - 1]
         return dayString
     }
     
@@ -78,6 +75,10 @@ class Schedule: NSObject {
         let myCalendar = NSCalendar(calendarIdentifier: .gregorian)
         let myComponents = myCalendar?.components(.weekday, from: date as Date)
         if let weekDay = myComponents?.weekday {
+            if weekDay == 1 {
+                // Let's make Sunday 8 instead of 1. Seems hacky, but this way our sorting starts with Monday instead of Sunday.
+                return 8
+            }
             return weekDay
         } else {
             return 1
