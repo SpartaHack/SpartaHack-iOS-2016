@@ -28,7 +28,7 @@ class ScheduleViewController: SpartaTableViewController {
     
     override func getDataAndReload() {
         super.isUpdatingData = true
-
+        
         SpartaModel.sharedInstance.getSchedule(completionHandler: { (success: Bool) in
             if success {
                 DispatchQueue.main.async() {
@@ -69,7 +69,7 @@ class ScheduleViewController: SpartaTableViewController {
         super.viewDidAppear(animated)
     }
     
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
         let event: Event
@@ -91,7 +91,7 @@ class ScheduleViewController: SpartaTableViewController {
         let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
         headerCell.separatorInset = .zero
         let weekdayInt: Int = Array(Schedule.sharedInstance.weekdayDictionary.keys)[section]
-        let sectionTitle = DateFormatter().weekdaySymbols[weekdayInt]
+        let sectionTitle = DateFormatter().weekdaySymbols[weekdayInt-1]
         headerCell.titleLabel.text = sectionTitle
         return headerCell
     }

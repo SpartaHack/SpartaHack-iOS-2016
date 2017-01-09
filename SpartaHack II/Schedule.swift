@@ -69,7 +69,7 @@ class Schedule: NSObject {
         let myComponents = myCalendar?.components(.weekday, from: date as Date)
         let weekDay = myComponents?.weekday
         
-        let dayString = DateFormatter().weekdaySymbols[weekDay!]
+        let dayString = DateFormatter().weekdaySymbols[weekDay! - 1]
 
         return dayString
     }
