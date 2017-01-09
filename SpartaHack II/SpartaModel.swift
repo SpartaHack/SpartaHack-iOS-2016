@@ -24,7 +24,7 @@ class SpartaModel: NSObject {
         // initalize our data manager and get the current announcements
         super.init()
         
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZ"
         
         // make requests to get our stuff
         let configuration = URLSessionConfiguration.default
@@ -97,49 +97,49 @@ class SpartaModel: NSObject {
             // get our announcement data 
             
             if let result = response.result.value {
-                if let json = result as? NSDictionary {
-                    if let objArray = json["announcements"] as? [NSDictionary] {
-                        // loop through our valid json dictionary and create announcement objects that will be added to announcements
-                        for obj in objArray {
-
-                            // create announcement objects 
-                            let announcement = Announcement()
-                            
-                            guard let id = obj["id"] as? Int else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.id = id
-                            
-                            guard let title = obj["title"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.title = title
-                            
-                            guard let detail = obj["description"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.detail = detail
-                            
-                            guard let pinned = obj["pinned"] as? Bool else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.pinned = pinned
-                            
-                            guard let createdStr = obj["createdAt"] as? String,
-                                let createdAt = self.formatter.date(from: createdStr) as NSDate? else {
-                                    fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.createdTime = createdAt
-                            
-                            guard let updatedStr = obj["createdAt"] as? String,
-                                let updatedAt = self.formatter.date(from: updatedStr) as NSDate? else {
-                                    fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.updatedTime = updatedAt
-                            Announcements.sharedInstance.addAnnouncement(announcement: announcement)
+                if let json = result as? [NSDictionary] {
+                    for obj in json {
+                        
+                        // create announcement objects
+                        let announcement = Announcement()
+                        
+                        guard let id = obj["id"] as? Int else {
+                            fatalError("ToDo: gracefully handle error")
                         }
-                        completionHandler(true)
+                        announcement.id = id
+                        
+                        guard let title = obj["title"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.title = title
+                        
+                        guard let detail = obj["description"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.detail = detail
+                        
+                        guard let pinned = obj["pinned"] as? Bool else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.pinned = pinned
+                        
+                        guard let createdStr = obj["created_at"] as? String,
+                            let createdAt = self.formatter.date(from: createdStr) as NSDate? else {
+                                fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.createdTime = createdAt
+                        
+                        guard let updatedStr = obj["updated_at"] as? String,
+                            let updatedAt = self.formatter.date(from: updatedStr) as Date? else {
+                                fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.updatedTime = updatedAt as NSDate?
+                        Announcements.sharedInstance.addAnnouncement(announcement: announcement)
                     }
+                    completionHandler(true)
+
+                } else {
+                    completionHandler(false)
                 }
             }
         }
