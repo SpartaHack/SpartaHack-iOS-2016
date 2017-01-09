@@ -61,21 +61,15 @@ class Schedule: NSObject {
         return events
     }
     
-    func stringForWeekday(for date: NSDate) -> String {
-        let myCalendar = NSCalendar(calendarIdentifier: .gregorian)
-        let myComponents = myCalendar?.components(.weekday, from: date as Date)
-        let weekDay = myComponents?.weekday
-        
-        let dayString = DateFormatter().weekdaySymbols[weekDay! - 1]
-
-        return dayString
-    }
-    
     func stringForSection(_ section: Int) -> String {
         var weekdayToEventsArray = Array(weekdayToEventsDictionary.keys)
         weekdayToEventsArray.sort { $0.hashValue < $1.hashValue }
         
-        let dayString = DateFormatter().weekdaySymbols[weekdayToEventsArray[section]]
+        if weekdayToEventsArray[section] == 8 {
+            return "Sunday"
+        }
+        
+        let dayString = DateFormatter().weekdaySymbols[weekdayToEventsArray[section] - 1]
         return dayString
     }
     
