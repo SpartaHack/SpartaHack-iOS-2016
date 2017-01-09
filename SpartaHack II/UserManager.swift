@@ -93,7 +93,6 @@ class UserManager: NSObject {
         
         if let savedUser = defaults.object(forKey: "user") as? Data {
             let unarchivedUser = NSKeyedUnarchiver.unarchiveObject(with: savedUser) as! [User]
-            print("\(unarchivedUser)")
             spartaUser = unarchivedUser[0]
         }
     }
