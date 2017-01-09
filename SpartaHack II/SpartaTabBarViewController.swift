@@ -10,11 +10,12 @@ import Foundation
 
 class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate, SpartaNavigationBarDelegate {
     private var lastKnownTheme = Theme.currentTheme()
+    private var freshLaunch = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
         self.tabBar.isTranslucent = false
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,11 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
                                                 height: borderSize))
         Theme.setHorizontalGradient(on: tabBarBorder)
         self.tabBar.addSubview(tabBarBorder)
+
+        if freshLaunch == true {
+            freshLaunch = false
+            self.selectedIndex = 2
+        }
     }
     
     //Delegate methods
