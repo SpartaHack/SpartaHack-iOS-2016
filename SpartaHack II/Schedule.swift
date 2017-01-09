@@ -35,9 +35,7 @@ class Schedule: NSObject {
         if valid {
             spartaSchedule.append(event)
             if let eventDate = event.time {
-                let weekday = stringForWeekday(for: eventDate)
                 let weekdayInt = intForWeekday(for: eventDate)
-                event.weekday = weekday
                 if (weekdayToEventsDictionary[weekdayInt] != nil) {
                     weekdayToEventsDictionary[weekdayInt]?.insert(event, at: 0)
                 } else {
