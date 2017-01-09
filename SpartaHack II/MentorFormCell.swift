@@ -16,9 +16,6 @@ class MentorFormCell: UITableViewCell, UITextViewDelegate {
     
     var placeHolderText = "Describe your problem. An example would be: \"Help! I can't figure out which awesome animation library to use for my web app!\""
     
-// ToDo: eeeek
-//    descriptionTextView.delegate = self
-
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         
         self.descriptionTextView.textColor = Theme.primaryColor
@@ -37,7 +34,9 @@ class MentorFormCell: UITableViewCell, UITextViewDelegate {
         }
     }
     
-    override func layoutSubviews() {        
+    override func layoutSubviews() {
+        // ToDo: Get the form to submit to the API
+        descriptionTextView.delegate = self
         UIView.animate(withDuration: 1.0, animations: {
             self.backgroundColor = .clear
             self.contentView.backgroundColor = Theme.backgroundColor
@@ -59,7 +58,7 @@ class MentorFormCell: UITableViewCell, UITextViewDelegate {
             self.locationTextField.layer.borderWidth = 1.5
             
             self.descriptionTextView.backgroundColor = Theme.backgroundColor
-            self.descriptionTextView.textColor = Theme.primaryColor
+            self.descriptionTextView.textColor = Theme.tintColor // Manually set the textColor to placeholder
             self.descriptionTextView.layer.cornerRadius = 0.0;
             self.descriptionTextView.layer.borderColor = Theme.tintColor.cgColor
             self.descriptionTextView.layer.borderWidth = 1.5
