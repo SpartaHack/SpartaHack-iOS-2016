@@ -60,7 +60,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func logOutButtonTapped(_ sender: AnyObject) {
         UserManager.sharedInstance.logOutUser(completionHandler: { _ in
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: {
+                SpartaToast.displayToast("You have logged out")
+            })
         })
     }
     

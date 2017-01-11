@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CRToast
 
 protocol LoginViewControllerDelegate {
     func userSuccessfullyLoggedIn (_ result: Bool)
@@ -100,6 +101,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
                     if let firstName = UserManager.sharedInstance.getFirstName() {
                         navBar.setName(to: firstName)
+                        SpartaToast.displayToast("Welcome, " + firstName + "!")
                     }
                 }
                 self.userDidLogin(true, error: nil)
