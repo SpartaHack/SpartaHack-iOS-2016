@@ -76,11 +76,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
-
     func userDidLogin(_ login: Bool, error: NSError?) {
         if !login {
             // there was a problem with logging the user in
@@ -117,6 +112,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
         return false
     }
     

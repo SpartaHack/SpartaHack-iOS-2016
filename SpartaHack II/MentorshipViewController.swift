@@ -32,6 +32,8 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryTextField.delegate = self
+        locationTextField.delegate = self
         descriptionTextView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -103,8 +105,8 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+        self.view.endEditing(true)
+        return false
     }
     
     func keyboardWillShow(notification:NSNotification) {

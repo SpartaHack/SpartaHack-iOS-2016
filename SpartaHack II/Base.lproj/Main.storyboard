@@ -24,7 +24,7 @@
             <objects>
                 <navigationController id="SwN-Wr-NPN" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2016" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2016" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,7 +64,7 @@
                                                     <constraint firstAttribute="height" constant="35" id="ZU1-Jb-HHo"/>
                                                 </constraints>
                                                 <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-YH-HEs">
                                                 <rect key="frame" x="16" y="208" width="343" height="35"/>
@@ -72,7 +72,7 @@
                                                     <constraint firstAttribute="height" constant="35" id="Av2-tD-QH8"/>
                                                 </constraints>
                                                 <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="77" width="343" height="30"/>
