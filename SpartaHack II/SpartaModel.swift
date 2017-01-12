@@ -222,7 +222,6 @@ class SpartaModel: NSObject {
     /// Map
     func getMap( completionHandler: @escaping(Bool) -> () ) {
 
-    
         let utilityQueue = DispatchQueue.global(qos: .utility)
         
         Alamofire.download("\(baseURL)map.pdf")
@@ -237,7 +236,43 @@ class SpartaModel: NSObject {
                     // failure 
                     print("Error \(response.result.error)")
                 }
+            }
+    }
+    
+    /// post for Mentorship
+    func postMentorship (category:String, location:String, description:String, completionHandler: @escaping(Bool) -> () ) {
+    
+        var urlRequest = URLRequest(url: URL(string: "https://hooks.slack.com/services/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")!)
+        urlRequest.httpMethod = "POST"
+        
+        let channelStr = "#\(category)"
+        
+        let payload: [String: String] = [
+            "channel" : channelStr,
+            "username" : UserManager.sharedInstance.getFullName()!,
+            "location" : location,
+            "text" : description,
+            ]
+        
+        do {
+            try urlRequest.httpBody = JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
+        } catch {
+            print(error)
         }
+        
+        sessionManager.request(urlRequest).responseJSON { response in
+            debugPrint(response)
+            if let value = response.result.value as? [String:AnyObject] {
+                if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
+                    print("Error signing in: \(error)")
+                } else {
+                    completionHandler(true)
+                    print("Response: \(value)")
+                }
+            }
+        }
+    
+        completionHandler(false)
     }
     
     /// getSponsors
