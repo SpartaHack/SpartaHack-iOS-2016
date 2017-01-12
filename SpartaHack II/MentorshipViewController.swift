@@ -9,6 +9,7 @@
 import Foundation
 
 class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -18,80 +19,87 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     var scrollViewContentInset: UIEdgeInsets = .zero
     
+    private var lastKnownTheme: Int = -1 // set to -1 so the view loads the theme the first time
+    
     var placeHolderText = "Describe your problem. An example would be: \"Help! I can't figure out which awesome animation library to use for my web app!\""
-    
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        
-        self.descriptionTextView.textColor = Theme.primaryColor
-        
-        if(self.descriptionTextView.text == placeHolderText) {
-            self.descriptionTextView.text = ""
-        }
-        
-        return true
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if(textView.text == "") {
-            self.descriptionTextView.text = placeHolderText
-            self.descriptionTextView.textColor = Theme.tintColor
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if needsThemeUpdate() {
+            self.updateTheme(animated: false)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        descriptionTextView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-
-        
         self.hideKeyboard()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        descriptionTextView.delegate = self
-        UIView.animate(withDuration: 1.0, animations: {
-            self.view.backgroundColor = Theme.backgroundColor
-            self.contentView.backgroundColor = Theme.backgroundColor
-            self.scrollView.backgroundColor = Theme.backgroundColor
-            
-            self.categoryTextField.attributedPlaceholder = NSAttributedString(string: "Category",
-                                                                              attributes: [NSForegroundColorAttributeName: Theme.tintColor])
-            self.categoryTextField.backgroundColor = Theme.backgroundColor
-            self.categoryTextField.textColor = Theme.primaryColor
-            self.categoryTextField.layer.cornerRadius = 0.0;
-            self.categoryTextField.layer.borderColor = Theme.tintColor.cgColor
-            self.categoryTextField.layer.borderWidth = 1.5
-            
-            self.locationTextField.attributedPlaceholder = NSAttributedString(string: "Location",
-                                                                              attributes: [NSForegroundColorAttributeName: Theme.tintColor])
-            self.locationTextField.backgroundColor = Theme.backgroundColor
-            self.locationTextField.textColor = Theme.primaryColor
-            self.locationTextField.layer.cornerRadius = 0.0;
-            self.locationTextField.layer.borderColor = Theme.tintColor.cgColor
-            self.locationTextField.layer.borderWidth = 1.5
-            
-            self.descriptionTextView.backgroundColor = Theme.backgroundColor
-            self.descriptionTextView.textColor = Theme.tintColor // Manually set the textColor to placeholder
-            self.descriptionTextView.layer.cornerRadius = 0.0;
-            self.descriptionTextView.layer.borderColor = Theme.tintColor.cgColor
-            self.descriptionTextView.layer.borderWidth = 1.5
-            
-            let loginButtonAttributedTitle = NSAttributedString(string: "Submit Ticket",
-                                                                attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
-            self.submitTicketButton.setAttributedTitle(loginButtonAttributedTitle, for: .normal)
-            self.submitTicketButton.layer.cornerRadius = 0.0;
-            self.submitTicketButton.layer.borderColor = Theme.tintColor.cgColor
-            self.submitTicketButton.layer.borderWidth = 1.5
-        })
-
+        self.updateTheme(animated: false)
         
+    }
+    
+    func requiresLogin() -> Bool {
+        return true
+    }
+    
+    func needsThemeUpdate() -> Bool {
+        return self.lastKnownTheme != Theme.currentTheme()
+    }
+    
+    func updateTheme(animated: Bool = false) {
+        self.lastKnownTheme = Theme.currentTheme()
+        if animated {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.setTheme()
+            })
+        }
+        else {
+            self.setTheme()
+        }
+    }
+    
+    func setTheme() {
+        self.view.backgroundColor = Theme.backgroundColor
+        self.contentView.backgroundColor = Theme.backgroundColor
+        self.scrollView.backgroundColor = Theme.backgroundColor
+        
+        self.titleLabel.textColor = Theme.primaryColor
+        
+        self.categoryTextField.attributedPlaceholder = NSAttributedString(string: "Category",
+                                                                          attributes: [NSForegroundColorAttributeName: Theme.tintColor])
+        self.categoryTextField.backgroundColor = Theme.backgroundColor
+        self.categoryTextField.textColor = Theme.primaryColor
+        self.categoryTextField.layer.cornerRadius = 0.0;
+        self.categoryTextField.layer.borderColor = Theme.tintColor.cgColor
+        self.categoryTextField.layer.borderWidth = 1.5
+        
+        self.locationTextField.attributedPlaceholder = NSAttributedString(string: "Location",
+                                                                          attributes: [NSForegroundColorAttributeName: Theme.tintColor])
+        self.locationTextField.backgroundColor = Theme.backgroundColor
+        self.locationTextField.textColor = Theme.primaryColor
+        self.locationTextField.layer.cornerRadius = 0.0;
+        self.locationTextField.layer.borderColor = Theme.tintColor.cgColor
+        self.locationTextField.layer.borderWidth = 1.5
+        
+        self.descriptionTextView.backgroundColor = Theme.backgroundColor
+        self.descriptionTextView.textColor = Theme.tintColor // Manually set the textColor to placeholder
+        self.descriptionTextView.layer.cornerRadius = 0.0;
+        self.descriptionTextView.layer.borderColor = Theme.tintColor.cgColor
+        self.descriptionTextView.layer.borderWidth = 1.5
+        
+        let loginButtonAttributedTitle = NSAttributedString(string: "Submit Ticket",
+                                                            attributes: [NSForegroundColorAttributeName : Theme.primaryColor])
+        self.submitTicketButton.setAttributedTitle(loginButtonAttributedTitle, for: .normal)
+        self.submitTicketButton.layer.cornerRadius = 0.0;
+        self.submitTicketButton.layer.borderColor = Theme.tintColor.cgColor
+        self.submitTicketButton.layer.borderWidth = 1.5
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -115,8 +123,22 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
         self.scrollView.contentInset = scrollViewContentInset
     }
     
-    func requiresLogin() -> Bool {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        
+        self.descriptionTextView.textColor = Theme.primaryColor
+        
+        if(self.descriptionTextView.text == placeHolderText) {
+            self.descriptionTextView.text = ""
+        }
+        
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if(textView.text == "") {
+            self.descriptionTextView.text = placeHolderText
+            self.descriptionTextView.textColor = Theme.tintColor
+        }
     }
     
     override func didReceiveMemoryWarning() {
