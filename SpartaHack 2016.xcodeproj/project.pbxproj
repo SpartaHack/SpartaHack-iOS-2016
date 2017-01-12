@@ -24,8 +24,6 @@
 		C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */; };
 		C29683041DA7004000FF9982 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683031DA7004000FF9982 /* Theme.swift */; };
 		C29C3BAB1E2040AB00284A4D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29C3BAA1E2040AB00284A4D /* ProfileViewController.swift */; };
-		C29C3BD01E207F8400284A4D /* MentorFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29C3BCF1E207F8400284A4D /* MentorFormCell.xib */; };
-		C29C3BD21E2084BC00284A4D /* MentorFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29C3BD11E2084BC00284A4D /* MentorFormCell.swift */; };
 		C29D167F1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29D167E1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib */; };
 		C2B450A01E1DA4B200665BB1 /* MentorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B4509F1E1DA4B200665BB1 /* MentorshipViewController.swift */; };
 		C2B450A21E1EC28D00665BB1 /* SponsorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B450A11E1EC28D00665BB1 /* SponsorsTableViewCell.xib */; };
@@ -208,8 +206,6 @@
 		C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTabBarViewController.swift; sourceTree = "<group>"; };
 		C29683031DA7004000FF9982 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C29C3BAA1E2040AB00284A4D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C29C3BCF1E207F8400284A4D /* MentorFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MentorFormCell.xib; sourceTree = "<group>"; };
-		C29C3BD11E2084BC00284A4D /* MentorFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorFormCell.swift; sourceTree = "<group>"; };
 		C29D167E1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpartaTableViewHeaderCell.xib; sourceTree = "<group>"; };
 		C2B4509F1E1DA4B200665BB1 /* MentorshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorshipViewController.swift; sourceTree = "<group>"; };
 		C2B450A11E1EC28D00665BB1 /* SponsorsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsTableViewCell.xib; sourceTree = "<group>"; };
@@ -338,8 +334,6 @@
 		C29C3BC61E207F4500284A4D /* Mentor */ = {
 			isa = PBXGroup;
 			children = (
-				C29C3BCF1E207F8400284A4D /* MentorFormCell.xib */,
-				C29C3BD11E2084BC00284A4D /* MentorFormCell.swift */,
 			);
 			name = Mentor;
 			sourceTree = "<group>";
@@ -531,6 +525,7 @@
 				F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */,
 				C29683031DA7004000FF9982 /* Theme.swift */,
 				C28685871E24201D00FA972A /* SpartaToast.swift */,
+				C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F51382AE1DA6C019008F1FCE /* Views */,
 				F5373B901B327566007F508C /* Images.xcassets */,
@@ -540,7 +535,6 @@
 				F5373B851B327566007F508C /* Supporting Files */,
 				F58BE28E1C5C16DC0000696B /* SpartaHack 2016-Bridging-Header.h */,
 				4331AB8D1C79040C00424B12 /* NSDateExtension.swift */,
-				C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */,
 				C2417EBD1E08CB100012BC9F /* keys.plist */,
 			);
 			path = "SpartaHack II";
@@ -862,7 +856,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D33BC51DEFD0E600EF3013 /* Nemoy-Medium.ttf in Resources */,
-				C29C3BD01E207F8400284A4D /* MentorFormCell.xib in Resources */,
 				C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */,
 				C2D33BC21DEFD01600EF3013 /* Lato-Light.ttf in Resources */,
 				C2D33BC11DEFD01000EF3013 /* Nemoy-Light.ttf in Resources */,
@@ -931,7 +924,6 @@
 				F50EE5791DCEC64800A57BED /* Map.swift in Sources */,
 				C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */,
 				F51968E51DD661490026BA06 /* Sponsor.swift in Sources */,
-				C29C3BD21E2084BC00284A4D /* MentorFormCell.swift in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
 				F51968E21DD660EC0026BA06 /* Sponsors.swift in Sources */,

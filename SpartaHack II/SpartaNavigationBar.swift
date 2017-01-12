@@ -80,9 +80,13 @@ class SpartaNavigationBar: UINavigationBar {
             self.animating = false
         })
         
-        // This must be a SpartaTableViewController!
         let topController = UIApplication.topViewController()
+        // Update the theme as SpartaTableViewController
         if let topController = topController as? SpartaTableViewController {
+            topController.updateTheme(animated: true)
+        }
+        // Update the theme for MentorshipViewController
+        if let topController = topController as? MentorshipViewController {
             topController.updateTheme(animated: true)
         }
         
