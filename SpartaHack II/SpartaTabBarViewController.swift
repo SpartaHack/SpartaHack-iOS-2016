@@ -91,14 +91,20 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
                 spartaTableViewController.updateTheme()
             }
         }
+        else if let mentorshipViewController = viewController as? MentorshipViewController {
+            // ToDo: add check to see if user is not logged in
+            if mentorshipViewController.requiresLogin() && !UserManager.sharedInstance.isUserLoggedIn() {
+                let loginView: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
+                self.navigationController?.present(loginView, animated: true, completion: nil)
+                return false
+            }
+        }
+
         return true
     }
     
     func onThemeChange() {
         self.tabBar.barTintColor = Theme.backgroundColor
         self.tabBar.tintColor = Theme.darkGold
-        
-//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
-//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
     }
 }
