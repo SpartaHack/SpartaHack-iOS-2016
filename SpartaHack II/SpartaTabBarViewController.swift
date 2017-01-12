@@ -40,7 +40,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
         
         item3.tabBarItem = icon3
         
-        let item4 = MentorshipViewController()
+        let item4: MentorshipViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mentorship") as! MentorshipViewController
         let icon4 = UITabBarItem(title: "Mentorship", image: UIImage(named: "mentorship"), selectedImage: UIImage(named: "mentorship-selected"))
         icon4.image = icon4.image?.withRenderingMode(.alwaysOriginal)
         icon4.selectedImage = icon4.selectedImage?.withRenderingMode(.alwaysOriginal)
