@@ -34,6 +34,10 @@ class MapViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        self.pdfView.contentMode = .scaleAspectFit
+        self.pdfView.webView.scrollView.scrollsToTop = true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
