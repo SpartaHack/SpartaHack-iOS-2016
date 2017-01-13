@@ -220,23 +220,30 @@ class SpartaModel: NSObject {
     }
     
     /// Map
-    func getMap( completionHandler: @escaping(Bool) -> () ) {
-
-        let utilityQueue = DispatchQueue.global(qos: .utility)
+    func getMap( completionHandler: @escaping(URL?) -> () ) {
         
-        Alamofire.download("\(baseURL)map.pdf")
-            .downloadProgress(queue: utilityQueue) { progress in
-                print("Download Progress: \(progress.fractionCompleted)")
+        var filePath: URL?
+
+        let destination: (URL, HTTPURLResponse) -> (URL, DownloadRequest.DownloadOptions) = {
+            (temporaryURL, response) in
+            
+            if let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first, let suggestedFilename = response.suggestedFilename {
+                filePath = directoryURL.appendingPathComponent("\(suggestedFilename)")
+                return (filePath!, [.removePreviousFile, .createIntermediateDirectories])
             }
-            .responseData { response in
-                if let data = response.result.value {
-                    print("\(data)")
-                    //let image = UIImage(data: data)
-                } else {
-                    // failure 
-                    print("Error \(response.result.error)")
-                }
+            return (temporaryURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        sessionManager.download("\(baseURL)map.pdf", to: destination).response { response in
+            print(response)
+            
+            if response.error == nil, let imagePath = response.destinationURL?.path {
+                let URLRequest = URL(fileURLWithPath: imagePath)
+                print("\(URLRequest)")
+                completionHandler(URLRequest)
             }
+        }
+        completionHandler(nil)
     }
     
     /// post for Mentorship
