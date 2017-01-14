@@ -279,7 +279,7 @@ class SpartaModel: NSObject {
             }
         }
     
-        completionHandler(false)
+        completionHandler(true)
     }
     
     /// getSponsors
