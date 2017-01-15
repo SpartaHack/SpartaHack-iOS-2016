@@ -95,7 +95,7 @@ class SpartaNavigationBar: UINavigationBar {
     }
     
     private func initialize() {
-        let diamondImage = UIImageView(image: UIImage(named: "diamond"))
+        let diamondImage = UIImageView(image: Theme.getDiamondImage())
         diamondImage.frame = CGRect(x: 0, y: 0, width: 50, height: 51)
         
         diamondImage.isUserInteractionEnabled = true
