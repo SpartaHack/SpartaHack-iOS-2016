@@ -24,6 +24,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // ToDo: Chris, you need a getter to check if the current user can scan people in
+        //        if UserManager.sharedInstance.isAllowedToScanAttendees {
+        //            self.scanningButton.removeFromSuperview()
+        //        }
+    }
+    
     override func viewDidLayoutSubviews() {
         self.view.backgroundColor = Theme.backgroundColor
         
@@ -62,8 +70,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         UserManager.sharedInstance.logOutUser(completionHandler: { _ in
             self.dismiss(animated: true, completion: {
                 SpartaToast.displayToast("You have logged out")
+                if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
+                    navBar.setName(to: "")
+                }
             })
         })
+    }
+    
+    @IBAction func volunteerScanningButtonTapped(_ sender: AnyObject) {
+        let checkInViewController: CheckInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "checkin") as! CheckInViewController
+        self.present(checkInViewController, animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
