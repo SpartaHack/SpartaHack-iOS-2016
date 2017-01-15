@@ -70,20 +70,16 @@ class UserManager: NSObject {
     }
     
     func logOutUser (completionHandler: @escaping(Bool) -> ()) {
-        if (isUserLoggedIn()) {
-            let defaults = UserDefaults.standard
-            defaults.removeObject(forKey: "user")
-            defaults.synchronize()
-            spartaUser = nil
-            completionHandler(true)
-        }
-        completionHandler(false)
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "user")
+        defaults.synchronize()
+        spartaUser = nil
+        completionHandler(true)
     }
     
-    func loginUser (id: Int32, token: String, email: String, fName: String, lName: String, roles: [String], rsvp:AnyObject?, adult: Bool) {
-    
+    func loginUser (id: Int32, token: String, email: String, fName: String, lName: String, roles: [String], rsvp:AnyObject?, adult: Bool, completionHandler: @escaping(Bool) -> ()) {
         spartaUser = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: adult)
-        
+        completionHandler(isUserLoggedIn())
     }
     
     func loadUser () {
