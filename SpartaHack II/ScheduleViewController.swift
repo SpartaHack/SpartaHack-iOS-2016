@@ -57,6 +57,9 @@ class ScheduleViewController: SpartaTableViewController {
         
         let cellNib = UINib(nibName: "ScheduleTableViewCell", bundle: bundle)
         self.tableView.register(cellNib, forCellReuseIdentifier: "scheduleCell")
+        
+        let countdownNib = UINib(nibName: "CountdownCell", bundle: bundle)
+        self.tableView.register(countdownNib, forCellReuseIdentifier: "countdownCell")
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,7 +77,7 @@ class ScheduleViewController: SpartaTableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
         let event: Event
         
-        event =  Schedule.sharedInstance.listOfEventsForSection(indexPath.section)[indexPath.item]
+        event =  Schedule.sharedInstance.listOfEventsForSection(indexPath.section-1)[indexPath.item] // -1 because of countdown
         cell.titleLabel.text = event.title
         cell.detailLabel.text = event.detail
         let formatter = DateFormatter()
@@ -88,23 +91,43 @@ class ScheduleViewController: SpartaTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
-        headerCell.separatorInset = .zero
-        let sectionTitle = Schedule.sharedInstance.stringForSection(section)
-        headerCell.titleLabel.text = sectionTitle
-        return headerCell
+        switch (section) {
+        case 0:
+            let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "countdownCell") as! CountdownCell
+            headerCell.separatorInset = .zero
+//            headerCell.startCountdown()
+            return headerCell
+        default:
+            let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
+            headerCell.separatorInset = .zero
+            let sectionTitle = Schedule.sharedInstance.stringForSection(section-1) // -1 because we're putting the countdown at the top
+            headerCell.titleLabel.text = sectionTitle
+            return headerCell
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Schedule.sharedInstance.listOfEventsForSection(section).count
+        if section == 0 {
+            return 0
+        }
+        return Schedule.sharedInstance.listOfEventsForSection(section-1).count // Because of countdown
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Schedule.sharedInstance.weekdayToEventsDictionary.count
+        return Schedule.sharedInstance.weekdayToEventsDictionary.count + 1 // Because of countdown
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch (section) {
+        case 0:
+            return 75
+        default:
+            return super.tableView(tableView, heightForHeaderInSection: section)
+        }
     }
     
     override func didReceiveMemoryWarning() {
