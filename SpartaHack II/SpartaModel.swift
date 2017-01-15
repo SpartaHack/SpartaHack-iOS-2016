@@ -408,6 +408,37 @@ class SpartaModel: NSObject {
             }
         }
     }
+    /// check in the user 
+    func validateCheckin (idString:String, completionHandler: @escaping(Bool) -> () ) {
+        
+        let parameters: [String: String] = [
+            "id" : idString,
+            ]
+        
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)sessions")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("\(UserManager.sharedInstance.getUserToken()! as String)", forHTTPHeaderField: "X-WWW-USER-TOKEN")
+        urlRequest.setValue("vnd.example.v2", forHTTPHeaderField: "Accept")
+        
+        do {
+            try urlRequest.httpBody = JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch {
+            print(error)
+        }
+        
+        sessionManager.request(urlRequest).responseJSON { response in
+            debugPrint(response)
+            if let value = response.result.value as? [String:AnyObject] {
+                if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
+                    print("Error signing in: \(error)")
+                } else {
+                    completionHandler(true)
+                    }
+                }
+            }
+    }
+    
     
     /// log user in and grab token
     func getUserSession ( email:String, password:String, completionHandler: @escaping(Bool) -> () ) {
