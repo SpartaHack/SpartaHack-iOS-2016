@@ -143,6 +143,18 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
     }
     
+    @IBAction func submitButtonTapped(_ sender: AnyObject) {
+        if let descriptionString = descriptionTextView.text, let locationString = locationTextField.text, let categoryString = categoryTextField.text {
+            SpartaModel.sharedInstance.postMentorship(category: categoryString,
+                                                      location: locationString,
+                                                      description: descriptionString, completionHandler: { (success:Bool) in
+                if (success) {
+                        SpartaToast.displayToast("Ticket Submitted!")
+                }
+            })
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

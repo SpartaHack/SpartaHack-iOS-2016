@@ -18,10 +18,12 @@ class MapViewController: UIViewController, UIWebViewDelegate {
         self.view = pdfView
         pdfView.webView.delegate = self
         
-		if let pdf = URL(string: "https://d.api.spartahack.com/map")  {
-			let req = URLRequest(url: pdf)
-			pdfView.webView.loadRequest(req)
-		}
+        SpartaModel.sharedInstance.getMap { (url:URL?) in
+            if url != nil {
+                let req = URLRequest(url: url!)
+                self.pdfView.webView.loadRequest(req)
+            }
+        }
     }
     
     
@@ -32,6 +34,10 @@ class MapViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        self.pdfView.contentMode = .scaleAspectFit
+        self.pdfView.webView.scrollView.scrollsToTop = true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

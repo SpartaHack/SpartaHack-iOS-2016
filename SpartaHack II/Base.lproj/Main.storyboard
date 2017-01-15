@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SwN-Wr-NPN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SwN-Wr-NPN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
             <objects>
                 <navigationController id="SwN-Wr-NPN" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2016" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2017" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
         <!--Login View Controller-->
         <scene sceneID="eG4-aA-SzI">
             <objects>
-                <viewController storyboardIdentifier="login" modalPresentationStyle="overCurrentContext" id="iJc-8I-9e4" customClass="LoginViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" modalPresentationStyle="overCurrentContext" id="iJc-8I-9e4" customClass="LoginViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dTa-hY-4g5"/>
                         <viewControllerLayoutGuide type="bottom" id="O5W-mc-p1u"/>
@@ -56,10 +56,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4I-CM-VvM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="298.5"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Nm-sr-gtj">
-                                                <rect key="frame" x="16" y="158" width="343" height="35"/>
+                                                <rect key="frame" x="16" y="151.5" width="343" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="ZU1-Jb-HHo"/>
                                                 </constraints>
@@ -67,27 +67,27 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-YH-HEs">
-                                                <rect key="frame" x="16" y="208" width="343" height="35"/>
+                                                <rect key="frame" x="16" y="201.5" width="343" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Av2-tD-QH8"/>
                                                 </constraints>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="77" width="343" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="77" width="343" height="24.5"/>
                                                 <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="122" width="343" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="116.5" width="343" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRU-kc-U8j">
-                                                <rect key="frame" x="16" y="258" width="343" height="35"/>
+                                                <rect key="frame" x="16" y="251.5" width="343" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="hyA-dC-lss"/>
                                                 </constraints>
@@ -95,7 +95,7 @@
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Login">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="Lato-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -173,7 +173,7 @@
         <!--Profile View Controller-->
         <scene sceneID="Ren-zI-t8B">
             <objects>
-                <viewController storyboardIdentifier="profile" id="7pg-jf-aQr" customClass="ProfileViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="7pg-jf-aQr" customClass="ProfileViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qfa-9e-00p"/>
                         <viewControllerLayoutGuide type="bottom" id="LZd-Ng-QYU"/>
@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-7W-YZV">
-                                <rect key="frame" x="30" y="114" width="315" height="315"/>
+                                <rect key="frame" x="30" y="113" width="315" height="315"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="85F-cZ-Slb">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="315"/>
@@ -199,11 +199,11 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JW-4j-lLS">
-                                <rect key="frame" x="16" y="70" width="343" height="29"/>
+                                <rect key="frame" x="16" y="70" width="343" height="28"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Noah Hines">
                                         <attributes>
-                                            <font key="NSFont" size="24" name="Lato-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="24"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -211,7 +211,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hC6-8p-80x">
-                                <rect key="frame" x="30" y="444" width="315" height="35"/>
+                                <rect key="frame" x="30" y="443" width="315" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="vOD-V4-tPm"/>
                                 </constraints>
@@ -227,13 +227,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hic-0h-Dc0">
-                                <rect key="frame" x="30" y="537" width="315" height="80"/>
+                                <rect key="frame" x="30" y="536" width="315" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="vOQ-dC-98k"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYK-eC-Mm7">
-                                <rect key="frame" x="30" y="494" width="315" height="35"/>
+                                <rect key="frame" x="30" y="493" width="315" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Bs0-3N-fKf"/>
                                 </constraints>
@@ -278,7 +278,7 @@
         <!--Mentorship View Controller-->
         <scene sceneID="mYK-c7-gp8">
             <objects>
-                <viewController storyboardIdentifier="mentorship" id="Rrb-v6-31T" customClass="MentorshipViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mentorship" id="Rrb-v6-31T" customClass="MentorshipViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EX3-Op-biS"/>
                         <viewControllerLayoutGuide type="bottom" id="Mj6-VB-B3U"/>
@@ -291,16 +291,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHh-bh-bea">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="248"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="242.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentorship" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-20-qMf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="18" width="359" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentorship" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-20-qMf" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="18" width="359" height="24.5"/>
                                                 <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your problem. An example would be: &quot;Help! I can't figure out which awesome animation library to use for my web app!&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QuK-YB-J1e">
-                                                <rect key="frame" x="10" y="132" width="357" height="70"/>
+                                                <rect key="frame" x="10" y="126.5" width="357" height="70"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="Ljb-Hm-nca"/>
@@ -309,7 +309,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Category" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5E3-gF-gc3">
-                                                <rect key="frame" x="10" y="56" width="355" height="30"/>
+                                                <rect key="frame" x="10" y="50.5" width="355" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Gdf-Lm-jSM"/>
                                                 </constraints>
@@ -317,7 +317,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eaP-3z-K4x">
-                                                <rect key="frame" x="10" y="94" width="355" height="30"/>
+                                                <rect key="frame" x="10" y="88.5" width="355" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="iTK-4H-FcX"/>
                                                 </constraints>
@@ -325,8 +325,11 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hym-pG-fHN">
-                                                <rect key="frame" x="10" y="210" width="357" height="30"/>
+                                                <rect key="frame" x="10" y="204.5" width="357" height="30"/>
                                                 <state key="normal" title="Submit Ticket"/>
+                                                <connections>
+                                                    <action selector="submitButtonTapped:" destination="Rrb-v6-31T" eventType="touchUpInside" id="zWr-n1-na9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -387,7 +390,7 @@
         <!--Sparta Tab Bar View Controller-->
         <scene sceneID="U4H-hF-LV1">
             <objects>
-                <viewController id="W2i-0X-hsH" customClass="SpartaTabBarViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="W2i-0X-hsH" customClass="SpartaTabBarViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qA8-B5-FM1"/>
                         <viewControllerLayoutGuide type="bottom" id="k3z-fE-7SD"/>
