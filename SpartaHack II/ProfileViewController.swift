@@ -62,6 +62,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         UserManager.sharedInstance.logOutUser(completionHandler: { _ in
             self.dismiss(animated: true, completion: {
                 SpartaToast.displayToast("You have logged out")
+                if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
+                    navBar.setName(to: "")
+                }
             })
         })
     }
