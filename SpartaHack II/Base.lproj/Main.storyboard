@@ -412,9 +412,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1u-3m-EhM">
-                                <rect key="frame" x="16" y="612" width="343" height="35"/>
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="cfM-NF-SVQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="zCN-4T-tEi"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
