@@ -482,7 +482,7 @@ class SpartaModel: NSObject {
                                 completionHandler(true)
                                 print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
                             } else {
-                                completionHandler(false);
+                                completionHandler(false)
                             }
                         })
                 }
