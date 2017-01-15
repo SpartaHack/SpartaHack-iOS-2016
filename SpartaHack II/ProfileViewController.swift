@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logOutButton: UIButton!
     
     @IBOutlet weak var qrImageView: UIImageView!
+    var qrcodeImage: CIImage!
     
 
     override func viewDidLoad() {
@@ -59,7 +60,31 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                                                             attributes: [NSForegroundColorAttributeName : Theme.primaryColor,
                                                                          NSFontAttributeName: font])
         self.closeButton.setAttributedTitle(closeButtonAttributedTitle, for: .normal)
+        
+        
+        self.displayQRCode()
 
+    }
+    
+    func displayQRCode() {
+        if qrcodeImage == nil {
+            
+            if UserManager.sharedInstance.UserQRCode() != nil{
+                let filter = CIFilter(name: "CIQRCodeGenerator")
+                
+                filter!.setValue(UserManager.sharedInstance.UserQRCode()!.data(using: String.Encoding.utf8), forKey: "inputMessage")
+                filter!.setValue("Q", forKey: "inputCorrectionLevel")
+                
+                qrcodeImage = filter!.outputImage
+                
+                let scaleX = self.qrImageView.frame.size.width / qrcodeImage.extent.size.width
+                let scaleY = self.qrImageView.frame.size.height / qrcodeImage.extent.size.height
+                
+                let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+                
+                self.qrImageView.image = UIImage(ciImage: transformedImage)
+            }
+        }
     }
     
     @IBAction func closeButtonTapped(_ sender: AnyObject) {
