@@ -27,6 +27,15 @@ class UserManager: NSObject {
         return true
     }
     
+    func getUserToken() -> String? {
+        if (isUserScannable()) {
+            if let token = spartaUser?.token {
+                return String(token)
+            }
+        }
+        return nil
+    }
+    
     func isUserScannable() -> Bool {
         // checks to make sure that the logged in user has an rsvp form
         if (isUserLoggedIn()) {
