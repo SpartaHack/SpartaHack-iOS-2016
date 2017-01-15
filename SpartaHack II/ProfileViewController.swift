@@ -69,6 +69,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    @IBAction func volunteerScanningButtonTapped(_ sender: AnyObject) {
+        let checkInViewController: CheckInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "checkin") as! CheckInViewController
+        self.present(checkInViewController, animated: true, completion: nil)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
