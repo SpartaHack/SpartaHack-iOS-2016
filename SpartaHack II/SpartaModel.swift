@@ -477,9 +477,14 @@ class SpartaModel: NSObject {
                             return
                         }
                         let rsvp = value["rsvp"] as? NSDictionary
-                        UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: over18)
-                        completionHandler(true)
-                        print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
+                    UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: over18, completionHandler: { (success:Bool) in
+                            if success{
+                                completionHandler(true)
+                                print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
+                            } else {
+                                completionHandler(false)
+                            }
+                        })
                 }
             }
         }
