@@ -24,6 +24,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // ToDo: Chris, you need a getter to check if the current user can scan people in
+        //        if UserManager.sharedInstance.isAllowedToScanAttendees {
+        //            self.scanningButton.removeFromSuperview()
+        //        }
+    }
+    
     override func viewDidLayoutSubviews() {
         self.view.backgroundColor = Theme.backgroundColor
         
