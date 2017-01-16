@@ -56,10 +56,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4I-CM-VvM">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Nm-sr-gtj">
+                                                <rect key="frame" x="16" y="158" width="343" height="35"/>
+=======
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="304"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Nm-sr-gtj">
                                                 <rect key="frame" x="16" y="157" width="343" height="35"/>
+>>>>>>> Added checkin view for scanning attendees.
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="ZU1-Jb-HHo"/>
                                                 </constraints>
@@ -67,7 +74,11 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Your Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-YH-HEs">
+<<<<<<< HEAD
+                                                <rect key="frame" x="16" y="208" width="343" height="35"/>
+=======
                                                 <rect key="frame" x="16" y="207" width="343" height="35"/>
+>>>>>>> Added checkin view for scanning attendees.
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Av2-tD-QH8"/>
                                                 </constraints>
@@ -81,13 +92,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+<<<<<<< HEAD
+                                                <rect key="frame" x="16" y="122" width="343" height="21"/>
+=======
                                                 <rect key="frame" x="16" y="122" width="343" height="20"/>
+>>>>>>> Added checkin view for scanning attendees.
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRU-kc-U8j">
+<<<<<<< HEAD
+                                                <rect key="frame" x="16" y="258" width="343" height="35"/>
+=======
                                                 <rect key="frame" x="16" y="257" width="343" height="35"/>
+>>>>>>> Added checkin view for scanning attendees.
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="hyA-dC-lss"/>
                                                 </constraints>
@@ -271,7 +290,6 @@
                         <outlet property="closeButton" destination="21p-KN-t3l" id="GMb-WS-7Zn"/>
                         <outlet property="logOutButton" destination="eYK-eC-Mm7" id="jyk-Gb-JHZ"/>
                         <outlet property="nameLabel" destination="3JW-4j-lLS" id="wTe-JJ-H01"/>
-                        <outlet property="qrImageView" destination="85F-cZ-Slb" id="OM9-P5-lqa"/>
                         <outlet property="scanningButton" destination="hC6-8p-80x" id="ueX-aq-9tV"/>
                     </connections>
                 </viewController>
@@ -413,9 +431,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1u-3m-EhM">
-                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <rect key="frame" x="16" y="612" width="343" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="zCN-4T-tEi"/>
+                                    <constraint firstAttribute="height" constant="35" id="cfM-NF-SVQ"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -432,33 +450,24 @@
                                     <action selector="scanButtonTapped:" destination="3d4-uZ-DsY" eventType="touchUpInside" id="57t-Sd-SyG"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lj-Mh-Y95">
-                                <rect key="frame" x="16" y="69" width="343" height="520"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g1u-3m-EhM" firstAttribute="trailing" secondItem="tjq-Sa-CtO" secondAttribute="trailingMargin" id="DnN-tw-RfJ"/>
-                            <constraint firstItem="g1u-3m-EhM" firstAttribute="top" secondItem="1lj-Mh-Y95" secondAttribute="bottom" constant="8" id="Eoy-vy-qHe"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="1lj-Mh-Y95" secondAttribute="leading" id="N1H-g8-JZC"/>
                             <constraint firstItem="Aa7-VX-vc2" firstAttribute="top" secondItem="b2e-rI-41v" secondAttribute="bottom" id="ShJ-lD-YMJ"/>
-                            <constraint firstItem="1lj-Mh-Y95" firstAttribute="top" secondItem="Aa7-VX-vc2" secondAttribute="bottom" constant="8" id="aXH-N7-04T"/>
                             <constraint firstItem="Aa7-VX-vc2" firstAttribute="leading" secondItem="tjq-Sa-CtO" secondAttribute="leadingMargin" id="jJ6-ir-jgP"/>
                             <constraint firstItem="zWn-GH-LgP" firstAttribute="top" secondItem="g1u-3m-EhM" secondAttribute="bottom" constant="20" id="mi2-kJ-fh4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1lj-Mh-Y95" secondAttribute="trailing" id="p6k-CY-P2u"/>
                             <constraint firstItem="g1u-3m-EhM" firstAttribute="leading" secondItem="tjq-Sa-CtO" secondAttribute="leadingMargin" id="z85-H2-sLY"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraView" destination="1lj-Mh-Y95" id="Nbs-y5-bnv"/>
                         <outlet property="closeButton" destination="Aa7-VX-vc2" id="cra-gx-SMh"/>
                         <outlet property="scanButton" destination="g1u-3m-EhM" id="Q1J-4R-Hop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnd-mV-MwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717.5999999999999" y="249.62518740629687"/>
+            <point key="canvasLocation" x="1719" y="250"/>
         </scene>
         <!--Sparta Tab Bar View Controller-->
         <scene sceneID="U4H-hF-LV1">
