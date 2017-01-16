@@ -39,6 +39,7 @@
 		C2DE3F7E1E2C2D5100E1D73D /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */; };
 		C2DE3F8C1E2C7EFA00E1D73D /* winXP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */; };
 		C2DE3F971E2C7F1500E1D73D /* portal2buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */; };
+		C2DE3FB81E2D8DB900E1D73D /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3FB71E2D8DB900E1D73D /* Channels.swift */; };
 		C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */; };
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
@@ -223,6 +224,7 @@
 		C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
 		C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winXP.mp3; sourceTree = "<group>"; };
 		C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = portal2buzzer.mp3; sourceTree = "<group>"; };
+		C2DE3FB71E2D8DB900E1D73D /* Channels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
 		C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewController.swift; sourceTree = "<group>"; };
 		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 		F596937D1DB41DBA00B830DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2DE3FB71E2D8DB900E1D73D /* Channels.swift */,
 				F59693791DB41DB600B830DD /* SpartaModel.swift */,
 				F596937E1DB41DC200B830DD /* Announcements */,
 				F5C73CD41DBD37F10055C921 /* Schedule */,
@@ -937,6 +940,7 @@
 				C2417EB21E08CA8E0012BC9F /* User.swift in Sources */,
 				C2B450A01E1DA4B200665BB1 /* MentorshipViewController.swift in Sources */,
 				C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */,
+				C2DE3FB81E2D8DB900E1D73D /* Channels.swift in Sources */,
 				F50EE5791DCEC64800A57BED /* Map.swift in Sources */,
 				C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */,
 				F51968E51DD661490026BA06 /* Sponsor.swift in Sources */,
