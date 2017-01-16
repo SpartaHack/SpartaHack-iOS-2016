@@ -11,7 +11,7 @@ import Foundation
 class Sponsor: NSObject {
     var id: Int! = nil
     var name: String! = nil
-    var level: String! = nil
+    var level: NSNumber! = nil
     var logo: UIImage! = nil
     var url: String! = nil
     
@@ -22,10 +22,10 @@ class Sponsor: NSObject {
     override var debugDescription : String {
         let sponsor =
             "id: \(id!)" +
-                "\n name:\(name!)" +
-                "\n level:\(level!)" +
-                "\n logo:\(logo)" +
-                "\n url:\(url!)"
+            "\n name:\(name!)" +
+            "\n level:\(level!)" +
+            "\n logo:\(logo)" +
+            "\n url:\(url!)"
         
         return sponsor
     }

@@ -1,5 +1,5 @@
 //
-//  FakeModel.swift
+//  SpartaModel.swift
 //  SpartaHack 2016
 //
 //  Created by Chris McGrath on 9/9/16.
@@ -24,7 +24,7 @@ class SpartaModel: NSObject {
         // initalize our data manager and get the current announcements
         super.init()
         
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZ"
         
         // make requests to get our stuff
         let configuration = URLSessionConfiguration.default
@@ -97,49 +97,49 @@ class SpartaModel: NSObject {
             // get our announcement data 
             
             if let result = response.result.value {
-                if let json = result as? NSDictionary {
-                    if let objArray = json["announcements"] as? [NSDictionary] {
-                        // loop through our valid json dictionary and create announcement objects that will be added to announcements
-                        for obj in objArray {
-
-                            // create announcement objects 
-                            let announcement = Announcement()
-                            
-                            guard let id = obj["id"] as? Int else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.id = id
-                            
-                            guard let title = obj["title"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.title = title
-                            
-                            guard let detail = obj["description"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.detail = detail
-                            
-                            guard let pinned = obj["pinned"] as? Bool else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.pinned = pinned
-                            
-                            guard let createdStr = obj["createdAt"] as? String,
-                                let createdAt = self.formatter.date(from: createdStr) as NSDate? else {
-                                    fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.createdTime = createdAt
-                            
-                            guard let updatedStr = obj["createdAt"] as? String,
-                                let updatedAt = self.formatter.date(from: updatedStr) as NSDate? else {
-                                    fatalError("ToDo: gracefully handle error")
-                            }
-                            announcement.updatedTime = updatedAt
-                            Announcements.sharedInstance.addAnnouncement(announcement: announcement)
+                if let json = result as? [NSDictionary] {
+                    for obj in json {
+                        
+                        // create announcement objects
+                        let announcement = Announcement()
+                        
+                        guard let id = obj["id"] as? Int else {
+                            fatalError("ToDo: gracefully handle error")
                         }
-                        completionHandler(true)
+                        announcement.id = id
+                        
+                        guard let title = obj["title"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.title = title
+                        
+                        guard let detail = obj["description"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.detail = detail
+                        
+                        guard let pinned = obj["pinned"] as? Bool else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.pinned = pinned
+                        
+                        guard let createdStr = obj["created_at"] as? String,
+                            let createdAt = self.formatter.date(from: createdStr) as NSDate? else {
+                                fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.createdTime = createdAt
+                        
+                        guard let updatedStr = obj["updated_at"] as? String,
+                            let updatedAt = self.formatter.date(from: updatedStr) as Date? else {
+                                fatalError("ToDo: gracefully handle error")
+                        }
+                        announcement.updatedTime = updatedAt as NSDate?
+                        Announcements.sharedInstance.addAnnouncement(announcement: announcement)
                     }
+                    completionHandler(true)
+
+                } else {
+                    completionHandler(false)
                 }
             }
         }
@@ -220,24 +220,74 @@ class SpartaModel: NSObject {
     }
     
     /// Map
-    func getMap( completionHandler: @escaping(Bool) -> () ) {
-
-    
-        let utilityQueue = DispatchQueue.global(qos: .utility)
+    func getMap( completionHandler: @escaping(URL?) -> () ) {
         
-        Alamofire.download("\(baseURL)map.pdf")
-            .downloadProgress(queue: utilityQueue) { progress in
-                print("Download Progress: \(progress.fractionCompleted)")
+        var filePath: URL?
+
+        let destination: (URL, HTTPURLResponse) -> (URL, DownloadRequest.DownloadOptions) = {
+            (temporaryURL, response) in
+            
+            if let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first, let suggestedFilename = response.suggestedFilename {
+                filePath = directoryURL.appendingPathComponent("\(suggestedFilename)")
+                return (filePath!, [.removePreviousFile, .createIntermediateDirectories])
             }
-            .responseData { response in
-                if let data = response.result.value {
-                    print("\(data)")
-                    //let image = UIImage(data: data)
-                } else {
-                    // failure 
-                    print("Error \(response.result.error)")
-                }
+            return (temporaryURL, [.removePreviousFile, .createIntermediateDirectories])
         }
+        
+        sessionManager.download("\(baseURL)map.pdf", to: destination).response { response in
+            print(response)
+            
+            if response.error == nil, let imagePath = response.destinationURL?.path {
+                let URLRequest = URL(fileURLWithPath: imagePath)
+                print("\(URLRequest)")
+                completionHandler(URLRequest)
+            }
+        }
+        completionHandler(nil)
+    }
+    
+    /// post for Mentorship
+    func postMentorship (category:String, location:String, description:String, completionHandler: @escaping(String?) -> () ) {
+        
+        if category == "" {
+            completionHandler("Invalid Category")
+            return
+        }
+        
+        if location == "" {
+            completionHandler("Location Required")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: URL(string: "https://hooks.slack.com/services/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")!)
+        urlRequest.httpMethod = "POST"
+        
+        let lowerCategory = category.lowercased()
+        let channelStr = "#\(lowerCategory.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).replacingOccurrences(of: ".", with: ""))"
+        
+        let payload: [String: String] = [
+            "channel" : channelStr,
+            "username" : "(\(location)) \(UserManager.sharedInstance.getFullName()!)",
+            "text" : description,
+            ]
+        
+        do {
+            try urlRequest.httpBody = JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
+        } catch {
+            print(error)
+        }
+        
+        sessionManager.request(urlRequest).responseString { response in
+            debugPrint(response)
+            let value = response.result.value! as String
+                if value != "ok" {
+                    print("Error signing in: \(value)")
+                    completionHandler(value)
+                } else {
+                    completionHandler(nil)
+                    print("Response: \(value)")
+                }
+            }
     }
     
     /// getSponsors
@@ -283,7 +333,28 @@ class SpartaModel: NSObject {
                         guard let level = obj["level"] as? String else {
                             fatalError("ToDo: gracefully handle error")
                         }
-                        sponsor.level = level
+                        
+                        var numLevel = 0
+                        
+                        switch level {
+                            case "legend" :
+                                numLevel = 1
+                                break
+                            case "commander" :
+                                numLevel = 2
+                                break
+                            case "warrior" :
+                                numLevel = 3
+                                break
+                            case "trainee" :
+                                numLevel = 4
+                                break
+                            default:
+                                numLevel = 5
+                                break
+                        }
+                        
+                        sponsor.level = numLevel as NSNumber
                         
                         guard let logoString = obj["logo_png_light"] as? String else {
                             fatalError("ToDo: gracefully handle error")
@@ -366,6 +437,69 @@ class SpartaModel: NSObject {
             }
         }
     }
+    /// check in the user 
+    func validateCheckin (idString:String, completionHandler: @escaping(Bool, String?) -> () ) {
+        
+        let parameters: [String: String] = [
+            "id" : idString,
+            ]
+        
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)checkin")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("\(UserManager.sharedInstance.getUserToken()!)", forHTTPHeaderField: "X-WWW-USER-TOKEN")
+        
+        do {
+            try urlRequest.httpBody = JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch {
+            print(error)
+        }
+        
+        sessionManager.request(urlRequest).responseJSON { response in
+            debugPrint(response)
+            if let value = response.result.value as? [String:AnyObject] {
+                if let error = (value["errors"] as? [String:AnyObject])?["user"]?.objectAt(0) as? String {
+                    print("Error signing in: \(error)")
+                    completionHandler(false, "Reason: \(error)")
+                } else if let error = value["api"] as? [String] {
+                    completionHandler(false, "Reason: \(error)")
+                } else {
+                    completionHandler(true, "Successful checkin!")
+                }
+            }
+        }
+    }
+    
+    /// Get slack channels 
+    func getChannels (completionHandler: @escaping([NSDictionary]?) -> () ) {
+        var keyDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+        
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)categories")!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+        
+        sessionManager.request(urlRequest).responseJSON { response in
+            guard response.result.isSuccess else {
+                // we failed for some reason
+                print("Error \(response.result.error)")
+                completionHandler(nil)
+                return
+            }
+            // get our prize data
+            
+            if let result = response.result.value {
+                if let json = result as? [NSDictionary] {
+                    completionHandler(json)
+                }
+            }
+        }
+    }
     
     /// log user in and grab token
     func getUserSession ( email:String, password:String, completionHandler: @escaping(Bool) -> () ) {
@@ -401,9 +535,11 @@ class SpartaModel: NSObject {
                     print("Error signing in: \(error)")
                 } else {
                     
-                    let userYear = String(value["application"]?["birth_year"] as! Int)
-                    let userMonth = String(value["application"]?["birth_month"] as! Int)
-                    let userDay = String(value["application"]?["birth_day"] as! Int)
+                    guard let userYear = value["application"]?["birth_year"] as? Int,
+                    let userMonth = value["application"]?["birth_month"] as? Int,
+                    let userDay = value["application"]?["birth_day"] as? Int else {
+                        return
+                    }
                     
                     let birthday = "\(userDay) \(userMonth) \(userYear)"
                     
@@ -435,12 +571,26 @@ class SpartaModel: NSObject {
                             return
                         }
                         let rsvp = value["rsvp"] as? NSDictionary
-                        UserManager.sharedInstance.loginUser(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: over18)
-                        completionHandler(true)
-                        print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
+                    UserManager.sharedInstance.loginUser(id: id,
+                                                    token: token,
+                                                    email: email,
+                                                    fName: fName,
+                                                    lName: lName,
+                                                    roles: roles,
+                                                    rsvp: rsvp,
+                                                    adult: over18,
+                    completionHandler: { (success:Bool) in
+                            if success{
+                                completionHandler(true)
+                                print("User Obj: \(UserManager.sharedInstance.isUserLoggedIn())")
+                                print("\n\n\n *** 1:\(UserManager.sharedInstance.getFirstName()) *** \n\n\n")
+
+                            } else {
+                                completionHandler(false)
+                            }
+                        })
                 }
             }
         }
-        completionHandler(false)
     }
 }

@@ -16,14 +16,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
         
         DispatchQueue.global(qos: .background).async {
             // qos' default value is ´DispatchQoS.QoSClass.default`
-            SpartaModel.sharedInstance.getAnnouncements(completionHandler: { (success: Bool) in
-                if success {
-                    DispatchQueue.main.async() {
-                        // we could do fancy animations here if we wanted
-                        self.tableView.reloadData()
-                    }
-                }
-            })
+            self.getDataAndReload()
         }
     }
 
@@ -39,6 +32,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
                 }
             } else {
                 print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                SpartaToast.displayError("Failed to load Announcements")
                 super.isUpdatingData = false
             }
         })

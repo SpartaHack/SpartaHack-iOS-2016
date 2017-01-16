@@ -15,20 +15,13 @@ class ScheduleViewController: SpartaTableViewController {
         
         DispatchQueue.global(qos: .background).async {
             // qos' default value is ´DispatchQoS.QoSClass.default`
-            SpartaModel.sharedInstance.getSchedule(completionHandler: { (success: Bool) in
-                if success {
-                    DispatchQueue.main.async() {
-                        // we could do fancy animations here if we wanted
-                        self.tableView.reloadData()
-                    }
-                }
-            })
+            self.getDataAndReload()
         }
     }
     
     override func getDataAndReload() {
         super.isUpdatingData = true
-
+        
         SpartaModel.sharedInstance.getSchedule(completionHandler: { (success: Bool) in
             if success {
                 DispatchQueue.main.async() {
@@ -38,6 +31,7 @@ class ScheduleViewController: SpartaTableViewController {
                 }
             } else {
                 print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                SpartaToast.displayError("Failed to load Schedule")
                 super.isUpdatingData = false
             }
         })
@@ -57,6 +51,9 @@ class ScheduleViewController: SpartaTableViewController {
         
         let cellNib = UINib(nibName: "ScheduleTableViewCell", bundle: bundle)
         self.tableView.register(cellNib, forCellReuseIdentifier: "scheduleCell")
+        
+        let countdownNib = UINib(nibName: "CountdownCell", bundle: bundle)
+        self.tableView.register(countdownNib, forCellReuseIdentifier: "countdownCell")
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,12 +66,12 @@ class ScheduleViewController: SpartaTableViewController {
         super.viewDidAppear(animated)
     }
     
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
         let event: Event
         
-        event =  Schedule.sharedInstance.listOfEvents()[indexPath.item]
+        event =  Schedule.sharedInstance.listOfEventsForSection(indexPath.section-1)[indexPath.item] // -1 because of countdown
         cell.titleLabel.text = event.title
         cell.detailLabel.text = event.detail
         let formatter = DateFormatter()
@@ -88,24 +85,43 @@ class ScheduleViewController: SpartaTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
-        headerCell.separatorInset = .zero
-        let weekdayInt: Int = Array(Schedule.sharedInstance.weekdayDictionary.keys)[section]
-        let sectionTitle = DateFormatter().weekdaySymbols[weekdayInt]
-        headerCell.titleLabel.text = sectionTitle
-        return headerCell
+        switch (section) {
+        case 0:
+            let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "countdownCell") as! CountdownCell
+            headerCell.separatorInset = .zero
+            headerCell.startCountdown()
+            return headerCell
+        default:
+            let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
+            headerCell.separatorInset = .zero
+            let sectionTitle = Schedule.sharedInstance.stringForSection(section-1) // -1 because we're putting the countdown at the top
+            headerCell.titleLabel.text = sectionTitle
+            return headerCell
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Schedule.sharedInstance.numberOfWeekdays(for: section)
+        if section == 0 {
+            return 0
+        }
+        return Schedule.sharedInstance.listOfEventsForSection(section-1).count // Because of countdown
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Schedule.sharedInstance.weekdayDictionary.count
+        return Schedule.sharedInstance.weekdayToEventsDictionary.count + 1 // Because of countdown
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch (section) {
+        case 0:
+            return 75
+        default:
+            return super.tableView(tableView, heightForHeaderInSection: section)
+        }
     }
     
     override func didReceiveMemoryWarning() {

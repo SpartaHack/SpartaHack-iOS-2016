@@ -41,6 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Fallback on earlier versions
             print("iPhone 4s")
         }
+        
+        /// Refresh the channels if there are more
+        SpartaModel.sharedInstance.getChannels { (stuff:[NSDictionary]?) in
+            if stuff != nil {
+                // save the objects in our channel method
+                let savedChannels = Channels(channels: stuff!)
+                savedChannels.saveChannels() // syncs to NSUserDefaults
+            } else {
+                // there was some kind of error, do nothing
+            }
+        }
+        
         return true
     }
     
@@ -56,6 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("\(userInfo)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -79,6 +95,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
+        /// Refresh the channels if there are more
+        SpartaModel.sharedInstance.getChannels { (stuff:[NSDictionary]?) in
+            if stuff != nil {
+                // save the objects in our channel method
+                let savedChannels = Channels(channels: stuff!)
+                savedChannels.saveChannels() // syncs to NSUserDefaults
+            } else {
+                // there was some kind of error, do nothing
+            }
+        }
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

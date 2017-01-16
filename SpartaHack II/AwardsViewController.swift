@@ -73,6 +73,7 @@ class AwardsViewController: SpartaTableViewController  {
                         }
                     } else {
                         print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                        SpartaToast.displayError("Failed to load Prizes")
                         super.isUpdatingData = false
                     }
                 })
@@ -87,6 +88,7 @@ class AwardsViewController: SpartaTableViewController  {
                         }
                     } else {
                         print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                        SpartaToast.displayError("Failed to load Sponsors")
                         super.isUpdatingData = false
                     }
                 })

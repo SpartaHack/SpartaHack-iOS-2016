@@ -18,10 +18,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logOutButton: UIButton!
     
     @IBOutlet weak var qrImageView: UIImageView!
+    var qrcodeImage: CIImage!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,7 +56,35 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                                                             attributes: [NSForegroundColorAttributeName : Theme.primaryColor,
                                                                          NSFontAttributeName: font])
         self.closeButton.setAttributedTitle(closeButtonAttributedTitle, for: .normal)
+        
+        
+        self.displayQRCode()
+        
+        if !UserManager.sharedInstance.canUserScan() {
+            self.scanningButton.isHidden = true
+        }
 
+    }
+    
+    func displayQRCode() {
+        if qrcodeImage == nil {
+            
+            if UserManager.sharedInstance.UserQRCode() != nil{
+                let filter = CIFilter(name: "CIQRCodeGenerator")
+                
+                filter!.setValue(UserManager.sharedInstance.UserQRCode()!.data(using: String.Encoding.utf8), forKey: "inputMessage")
+                filter!.setValue("Q", forKey: "inputCorrectionLevel")
+                
+                qrcodeImage = filter!.outputImage
+                
+                let scaleX = self.qrImageView.frame.size.width / qrcodeImage.extent.size.width
+                let scaleY = self.qrImageView.frame.size.height / qrcodeImage.extent.size.height
+                
+                let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+                
+                self.qrImageView.image = UIImage(ciImage: transformedImage)
+            }
+        }
     }
     
     @IBAction func closeButtonTapped(_ sender: AnyObject) {
@@ -60,8 +93,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func logOutButtonTapped(_ sender: AnyObject) {
         UserManager.sharedInstance.logOutUser(completionHandler: { _ in
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: {
+                SpartaToast.displayToast("You have logged out")
+                if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
+                    navBar.setName(to: "")
+                }
+            })
         })
+    }
+    
+    @IBAction func volunteerScanningButtonTapped(_ sender: AnyObject) {
+        let checkInViewController: CheckInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "checkin") as! CheckInViewController
+        self.present(checkInViewController, animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

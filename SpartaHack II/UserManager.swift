@@ -27,6 +27,15 @@ class UserManager: NSObject {
         return true
     }
     
+    func getUserToken() -> String? {
+        if (isUserScannable()) {
+            if let token = spartaUser?.token {
+                return String(token)
+            }
+        }
+        return nil
+    }
+    
     func isUserScannable() -> Bool {
         // checks to make sure that the logged in user has an rsvp form
         if (isUserLoggedIn()) {
@@ -39,6 +48,17 @@ class UserManager: NSObject {
     }
     
     func isUserCheckedIn() -> Bool {
+        return false
+    }
+    
+    func canUserScan() -> Bool {
+        if (isUserLoggedIn()) {
+            if let roles = spartaUser?.roles {
+                if roles.contains("organizer") || roles.contains("volunteer") || roles.contains("director") {
+                    return true
+                }
+            }
+        }
         return false
     }
     
@@ -70,20 +90,16 @@ class UserManager: NSObject {
     }
     
     func logOutUser (completionHandler: @escaping(Bool) -> ()) {
-        if (isUserLoggedIn()) {
-            let defaults = UserDefaults.standard
-            defaults.removeObject(forKey: "user")
-            defaults.synchronize()
-            spartaUser = nil
-            completionHandler(true)
-        }
-        completionHandler(false)
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "user")
+        defaults.synchronize()
+        spartaUser = nil
+        completionHandler(true)
     }
     
-    func loginUser (id: Int32, token: String, email: String, fName: String, lName: String, roles: [String], rsvp:AnyObject?, adult: Bool) {
-    
+    func loginUser (id: Int32, token: String, email: String, fName: String, lName: String, roles: [String], rsvp:AnyObject?, adult: Bool, completionHandler: @escaping(Bool) -> ()) {
         spartaUser = User(id: id, token: token, email: email, fName: fName, lName: lName, roles: roles, rsvp: rsvp, adult: adult)
-        
+        completionHandler(isUserLoggedIn())
     }
     
     func loadUser () {
@@ -93,7 +109,6 @@ class UserManager: NSObject {
         
         if let savedUser = defaults.object(forKey: "user") as? Data {
             let unarchivedUser = NSKeyedUnarchiver.unarchiveObject(with: savedUser) as! [User]
-            print("\(unarchivedUser)")
             spartaUser = unarchivedUser[0]
         }
     }

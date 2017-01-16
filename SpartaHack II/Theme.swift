@@ -17,6 +17,8 @@ struct Theme {
     static let lightGold = UIColor(red:0.98, green:0.89, blue:0.64, alpha:1.0)
     static let extraLightGold = UIColor(red:1.00, green:0.95, blue:0.85, alpha:1.0)
     static let white = UIColor(white: 1.0, alpha: 1.0)
+    static let lightError = UIColor(red:0.93, green:0.67, blue:0.67, alpha:1.0)
+    static let darkError = UIColor(red:0.58, green:0.27, blue:0.27, alpha:1.0)
     
     static var primaryColor = UIColor.black
     static var backgroundColor = UIColor.black
@@ -24,6 +26,7 @@ struct Theme {
     static var refreshViewBackgroundColor = UIColor.black
     static var refreshTextInactive = UIColor.black
     static var refreshTextActive = UIColor.black
+    static var error = UIColor.red
     
     static var gradientStart = UIColor.black
     static var gradientEnd = UIColor.black
@@ -55,6 +58,8 @@ struct Theme {
         
         gradientStart = darkGold
         gradientEnd = mediumGold
+        
+        error = lightError
 
         let defaults = UserDefaults.standard
         defaults.set(0, forKey: "themeKey")
@@ -71,7 +76,9 @@ struct Theme {
         
         gradientStart = darkGold
         gradientEnd = mediumGold
-                
+        
+        error = darkError
+        
         let defaults = UserDefaults.standard
         defaults.set(1, forKey: "themeKey")
     }

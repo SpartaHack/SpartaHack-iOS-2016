@@ -10,11 +10,12 @@ import Foundation
 
 class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate, SpartaNavigationBarDelegate {
     private var lastKnownTheme = Theme.currentTheme()
+    private var freshLaunch = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
         self.tabBar.isTranslucent = false
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +41,7 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
         
         item3.tabBarItem = icon3
         
-        let item4 = MentorshipViewController()
+        let item4: MentorshipViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mentorship") as! MentorshipViewController
         let icon4 = UITabBarItem(title: "Mentorship", image: UIImage(named: "mentorship"), selectedImage: UIImage(named: "mentorship-selected"))
         icon4.image = icon4.image?.withRenderingMode(.alwaysOriginal)
         icon4.selectedImage = icon4.selectedImage?.withRenderingMode(.alwaysOriginal)
@@ -76,6 +77,11 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
                                                 height: borderSize))
         Theme.setHorizontalGradient(on: tabBarBorder)
         self.tabBar.addSubview(tabBarBorder)
+
+        if freshLaunch == true {
+            freshLaunch = false
+            self.selectedIndex = 2
+        }
     }
     
     //Delegate methods
@@ -91,14 +97,20 @@ class SpartaTabBarViewController: UITabBarController, UITabBarControllerDelegate
                 spartaTableViewController.updateTheme()
             }
         }
+        else if let mentorshipViewController = viewController as? MentorshipViewController {
+            // ToDo: add check to see if user is not logged in
+            if mentorshipViewController.requiresLogin() && !UserManager.sharedInstance.isUserLoggedIn() {
+                let loginView: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
+                self.navigationController?.present(loginView, animated: true, completion: nil)
+                return false
+            }
+        }
+
         return true
     }
     
     func onThemeChange() {
         self.tabBar.barTintColor = Theme.backgroundColor
         self.tabBar.tintColor = Theme.darkGold
-        
-//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .selected)
-//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Theme.tintColor], for: .normal)
     }
 }

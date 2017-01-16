@@ -14,16 +14,17 @@
 		C2417EB21E08CA8E0012BC9F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2417EB11E08CA8E0012BC9F /* User.swift */; };
 		C2417EBE1E08CB100012BC9F /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2417EBD1E08CB100012BC9F /* keys.plist */; };
 		C279F4571E17082700E54E93 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279F4561E17082700E54E93 /* ScheduleTableViewCell.swift */; };
+		C286857F1E241D6D00FA972A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; };
+		C28685801E241D6D00FA972A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C28685831E241D8500FA972A /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28685741E241BDC00FA972A /* CRToast.framework */; };
+		C28685841E241D8500FA972A /* CRToast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C28685741E241BDC00FA972A /* CRToast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C28685881E24201D00FA972A /* SpartaToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28685871E24201D00FA972A /* SpartaToast.swift */; };
 		C287A8D31DF4C2BE003964A0 /* SpartaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C287A8D21DF4C2BE003964A0 /* SpartaTableViewCell.swift */; };
 		C287A8D61DF4C7F5003964A0 /* SpartaTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C287A8D51DF4C7F5003964A0 /* SpartaTableViewHeaderCell.swift */; };
 		C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */; };
 		C29683041DA7004000FF9982 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29683031DA7004000FF9982 /* Theme.swift */; };
 		C29C3BAB1E2040AB00284A4D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29C3BAA1E2040AB00284A4D /* ProfileViewController.swift */; };
-		C29C3BD01E207F8400284A4D /* MentorFormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29C3BCF1E207F8400284A4D /* MentorFormCell.xib */; };
-		C29C3BD21E2084BC00284A4D /* MentorFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29C3BD11E2084BC00284A4D /* MentorFormCell.swift */; };
-		C29D16761DE7CAED00AA20A8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C29D167F1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29D167E1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib */; };
-		C2B450961E1DA45600665BB1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B450951E1DA45600665BB1 /* ProfileViewController.swift */; };
 		C2B450A01E1DA4B200665BB1 /* MentorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B4509F1E1DA4B200665BB1 /* MentorshipViewController.swift */; };
 		C2B450A21E1EC28D00665BB1 /* SponsorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B450A11E1EC28D00665BB1 /* SponsorsTableViewCell.xib */; };
 		C2B450A41E1EC43600665BB1 /* SponsorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B450A31E1EC43500665BB1 /* SponsorsTableViewCell.swift */; };
@@ -33,21 +34,24 @@
 		C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BBE1DEFCCB700EF3013 /* Lato-Regular.ttf */; };
 		C2D33BC51DEFD0E600EF3013 /* Nemoy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */; };
 		C2D33BC71DEFDF0200EF3013 /* SpartaNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */; };
+		C2DE3F6E1E2C244800E1D73D /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3F6D1E2C244800E1D73D /* CheckInViewController.swift */; };
+		C2DE3F721E2C2D3400E1D73D /* CountdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F711E2C2D3400E1D73D /* CountdownCell.xib */; };
+		C2DE3F7E1E2C2D5100E1D73D /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */; };
+		C2DE3F8C1E2C7EFA00E1D73D /* winXP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */; };
+		C2DE3F971E2C7F1500E1D73D /* portal2buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */; };
+		C2DE3FB81E2D8DB900E1D73D /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3FB71E2D8DB900E1D73D /* Channels.swift */; };
 		C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */; };
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
 		F50EE5791DCEC64800A57BED /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE5781DCEC64800A57BED /* Map.swift */; };
-		F50EE5A51DCFCBF800A57BED /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50EE58E1DCFC75B00A57BED /* Alamofire.framework */; };
 		F51382B11DA6C154008F1FCE /* SpartaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B01DA6C154008F1FCE /* SpartaTableViewCell.xib */; };
 		F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */; };
 		F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */; };
-		F51382BA1DA6C405008F1FCE /* MapWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382B91DA6C405008F1FCE /* MapWebView.xib */; };
 		F51382CB1DA6C634008F1FCE /* CheckinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CA1DA6C634008F1FCE /* CheckinView.xib */; };
 		F51382CE1DA6C688008F1FCE /* ProfileTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CD1DA6C688008F1FCE /* ProfileTableView.xib */; };
 		F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */; };
 		F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */; };
 		F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */; };
-		F51968E01DD652810026BA06 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968DF1DD652810026BA06 /* MapView.swift */; };
 		F51968E21DD660EC0026BA06 /* Sponsors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968E11DD660EC0026BA06 /* Sponsors.swift */; };
 		F51968E51DD661490026BA06 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968E41DD661490026BA06 /* Sponsor.swift */; };
 		F51968E71DD66CF70026BA06 /* Prizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51968E61DD66CF70026BA06 /* Prizes.swift */; };
@@ -77,15 +81,47 @@
 		F596937B1DB41DB600B830DD /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59693781DB41DB600B830DD /* Announcement.swift */; };
 		F596937C1DB41DB600B830DD /* SpartaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59693791DB41DB600B830DD /* SpartaModel.swift */; };
 		F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599B44F1C66BF84008E1E6D /* ScanViewController.swift */; };
-		F5AE537C1C3092740030BCCA /* PrizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537B1C3092740030BCCA /* PrizesViewController.swift */; };
-		F5AE537E1C3092800030BCCA /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */; };
-		F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F5AE53831C3234A30030BCCA /* ios-map.pdf */; };
 		F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */; };
 		F5C73CD11DBD37E50055C921 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C73CD01DBD37E50055C921 /* Schedule.swift */; };
 		F5C73CD31DBD37EC0055C921 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C73CD21DBD37EC0055C921 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C28685731E241BDC00FA972A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C286856D1E241BDC00FA972A /* CRToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65986EC11B9E21DC00BCA1C3;
+			remoteInfo = CRToast;
+		};
+		C28685751E241BDC00FA972A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C286856D1E241BDC00FA972A /* CRToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 464D04B61BD21BE600E0E90A;
+			remoteInfo = "CRToast-static";
+		};
+		C28685771E241BDC00FA972A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C286856D1E241BDC00FA972A /* CRToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 464D04C81BD2218900E0E90A;
+			remoteInfo = Tests;
+		};
+		C28685811E241D6D00FA972A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F50EE5821DCFC75B00A57BED /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		C28685851E241D8500FA972A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C286856D1E241BDC00FA972A /* CRToast.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 65986EC01B9E21DC00BCA1C3;
+			remoteInfo = CRToast;
+		};
 		F50EE58D1DCFC75B00A57BED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F50EE5821DCFC75B00A57BED /* Alamofire.xcodeproj */;
@@ -151,7 +187,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C29D16761DE7CAED00AA20A8 /* Alamofire.framework in Embed Frameworks */,
+				C28685801E241D6D00FA972A /* Alamofire.framework in Embed Frameworks */,
+				C28685841E241D8500FA972A /* CRToast.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,15 +202,14 @@
 		C2417EB11E08CA8E0012BC9F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C2417EBD1E08CB100012BC9F /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		C279F4561E17082700E54E93 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		C286856D1E241BDC00FA972A /* CRToast.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRToast.xcodeproj; path = CRToast/CRToast.xcodeproj; sourceTree = "<group>"; };
+		C28685871E24201D00FA972A /* SpartaToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaToast.swift; sourceTree = "<group>"; };
 		C287A8D21DF4C2BE003964A0 /* SpartaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewCell.swift; sourceTree = "<group>"; };
 		C287A8D51DF4C7F5003964A0 /* SpartaTableViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewHeaderCell.swift; sourceTree = "<group>"; };
 		C29683011DA6FC4D00FF9982 /* SpartaTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTabBarViewController.swift; sourceTree = "<group>"; };
 		C29683031DA7004000FF9982 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C29C3BAA1E2040AB00284A4D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C29C3BCF1E207F8400284A4D /* MentorFormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MentorFormCell.xib; sourceTree = "<group>"; };
-		C29C3BD11E2084BC00284A4D /* MentorFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorFormCell.swift; sourceTree = "<group>"; };
 		C29D167E1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpartaTableViewHeaderCell.xib; sourceTree = "<group>"; };
-		C2B450951E1DA45600665BB1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C2B4509F1E1DA4B200665BB1 /* MentorshipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentorshipViewController.swift; sourceTree = "<group>"; };
 		C2B450A11E1EC28D00665BB1 /* SponsorsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsTableViewCell.xib; sourceTree = "<group>"; };
 		C2B450A31E1EC43500665BB1 /* SponsorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +219,12 @@
 		C2D33BBF1DEFCCB700EF3013 /* Nemoy-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Light.ttf"; sourceTree = "<group>"; };
 		C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Medium.ttf"; sourceTree = "<group>"; };
 		C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaNavigationBar.swift; sourceTree = "<group>"; };
+		C2DE3F6D1E2C244800E1D73D /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		C2DE3F711E2C2D3400E1D73D /* CountdownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountdownCell.xib; sourceTree = "<group>"; };
+		C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
+		C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winXP.mp3; sourceTree = "<group>"; };
+		C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = portal2buzzer.mp3; sourceTree = "<group>"; };
+		C2DE3FB71E2D8DB900E1D73D /* Channels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
 		C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewController.swift; sourceTree = "<group>"; };
 		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
@@ -192,13 +234,11 @@
 		F51382B01DA6C154008F1FCE /* SpartaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpartaTableViewCell.xib; sourceTree = "<group>"; };
 		F51382B31DA6C321008F1FCE /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrizesTableViewCell.xib; sourceTree = "<group>"; };
-		F51382B91DA6C405008F1FCE /* MapWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapWebView.xib; sourceTree = "<group>"; };
 		F51382CA1DA6C634008F1FCE /* CheckinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinView.xib; sourceTree = "<group>"; };
 		F51382CD1DA6C688008F1FCE /* ProfileTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableView.xib; sourceTree = "<group>"; };
 		F51382CF1DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
 		F51382D11DA6C702008F1FCE /* ProfilePictureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePictureCell.xib; sourceTree = "<group>"; };
 		F51382D31DA6C71D008F1FCE /* ProfileInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileInfoCell.xib; sourceTree = "<group>"; };
-		F51968DF1DD652810026BA06 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F51968E11DD660EC0026BA06 /* Sponsors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsors.swift; sourceTree = "<group>"; };
 		F51968E41DD661490026BA06 /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
 		F51968E61DD66CF70026BA06 /* Prizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prizes.swift; sourceTree = "<group>"; };
@@ -238,9 +278,6 @@
 		F59693781DB41DB600B830DD /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		F59693791DB41DB600B830DD /* SpartaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaModel.swift; sourceTree = "<group>"; };
 		F599B44F1C66BF84008E1E6D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		F5AE537B1C3092740030BCCA /* PrizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrizesViewController.swift; sourceTree = "<group>"; };
-		F5AE537D1C3092800030BCCA /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
-		F5AE53831C3234A30030BCCA /* ios-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ios-map.pdf"; sourceTree = "<group>"; };
 		F5BD16B71C66E35700BB7201 /* CheckInUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInUserViewController.swift; sourceTree = "<group>"; };
 		F5C73CD01DBD37E50055C921 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		F5C73CD21DBD37EC0055C921 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -251,11 +288,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F50EE5A51DCFCBF800A57BED /* Alamofire.framework in Frameworks */,
 				F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */,
 				F5373BC01B3275E9007F508C /* QuartzCore.framework in Frameworks */,
 				F5373BBC1B3275DA007F508C /* CoreLocation.framework in Frameworks */,
 				F5373BBA1B3275D1007F508C /* CoreGraphics.framework in Frameworks */,
+				C286857F1E241D6D00FA972A /* Alamofire.framework in Frameworks */,
+				C28685831E241D8500FA972A /* CRToast.framework in Frameworks */,
 				F5373BB81B3275C9007F508C /* CFNetwork.framework in Frameworks */,
 				F5373BB61B3275C0007F508C /* AudioToolbox.framework in Frameworks */,
 			);
@@ -280,6 +318,16 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		C286856E1E241BDC00FA972A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C28685741E241BDC00FA972A /* CRToast.framework */,
+				C28685761E241BDC00FA972A /* libCRToast.a */,
+				C28685781E241BDC00FA972A /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C287A8D41DF4C7CC003964A0 /* SpartaTableViewHeaderCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,8 +340,6 @@
 		C29C3BC61E207F4500284A4D /* Mentor */ = {
 			isa = PBXGroup;
 			children = (
-				C29C3BCF1E207F8400284A4D /* MentorFormCell.xib */,
-				C29C3BD11E2084BC00284A4D /* MentorFormCell.swift */,
 			);
 			name = Mentor;
 			sourceTree = "<group>";
@@ -321,6 +367,23 @@
 				C287A8D21DF4C2BE003964A0 /* SpartaTableViewCell.swift */,
 			);
 			name = SpartaTableViewCell;
+			sourceTree = "<group>";
+		};
+		C2DE3F631E2C242600E1D73D /* Check In */ = {
+			isa = PBXGroup;
+			children = (
+				C2DE3F6D1E2C244800E1D73D /* CheckInViewController.swift */,
+			);
+			name = "Check In";
+			sourceTree = "<group>";
+		};
+		C2DE3F7C1E2C2D3B00E1D73D /* Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				C2DE3F711E2C2D3400E1D73D /* CountdownCell.xib */,
+				C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */,
+			);
+			name = Countdown;
 			sourceTree = "<group>";
 		};
 		F5046D0E1D6FCBD3004A9898 /* Frameworks */ = {
@@ -356,6 +419,7 @@
 		F51382AE1DA6C019008F1FCE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2DE3F7C1E2C2D3B00E1D73D /* Countdown */,
 				C287A8D41DF4C7CC003964A0 /* SpartaTableViewHeaderCell */,
 				C2D33BCA1DEFE79900EF3013 /* SpartaTableViewCell */,
 				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
@@ -364,7 +428,6 @@
 				F51382B21DA6C25A008F1FCE /* Schedule */,
 				C29C3BC61E207F4500284A4D /* Mentor */,
 				F51382B51DA6C33D008F1FCE /* Prizes */,
-				F51382B81DA6C3D3008F1FCE /* Map */,
 				F51382BB1DA6C457008F1FCE /* Sponsors */,
 				F51382CC1DA6C65B008F1FCE /* Profile */,
 				F51382C91DA6C617008F1FCE /* Checkin */,
@@ -395,15 +458,6 @@
 				F51382B61DA6C356008F1FCE /* PrizesTableViewCell.xib */,
 			);
 			name = Prizes;
-			sourceTree = "<group>";
-		};
-		F51382B81DA6C3D3008F1FCE /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				F51968DF1DD652810026BA06 /* MapView.swift */,
-				F51382B91DA6C405008F1FCE /* MapWebView.xib */,
-			);
-			name = Map;
 			sourceTree = "<group>";
 		};
 		F51382BB1DA6C457008F1FCE /* Sponsors */ = {
@@ -455,6 +509,7 @@
 		F5373B791B327566007F508C = {
 			isa = PBXGroup;
 			children = (
+				C286856D1E241BDC00FA972A /* CRToast.xcodeproj */,
 				F50EE5821DCFC75B00A57BED /* Alamofire.xcodeproj */,
 				F5373B841B327566007F508C /* SpartaHack II */,
 				F5373B9C1B327566007F508C /* SpartaHack IITests */,
@@ -483,16 +538,16 @@
 				F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */,
 				F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */,
 				C29683031DA7004000FF9982 /* Theme.swift */,
+				C28685871E24201D00FA972A /* SpartaToast.swift */,
+				C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */,
 				F5373BCE1B327BB6007F508C /* ViewControllers */,
 				F51382AE1DA6C019008F1FCE /* Views */,
 				F5373B901B327566007F508C /* Images.xcassets */,
 				F5373B8D1B327566007F508C /* Main.storyboard */,
 				F5373B921B327566007F508C /* LaunchScreen.xib */,
-				F5AE53831C3234A30030BCCA /* ios-map.pdf */,
 				F5373B851B327566007F508C /* Supporting Files */,
 				F58BE28E1C5C16DC0000696B /* SpartaHack 2016-Bridging-Header.h */,
 				4331AB8D1C79040C00424B12 /* NSDateExtension.swift */,
-				C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */,
 				C2417EBD1E08CB100012BC9F /* keys.plist */,
 			);
 			path = "SpartaHack II";
@@ -509,6 +564,8 @@
 				F574CE521C7380A30032203C /* map.pdf */,
 				F57BA33F1C288BCC000E0381 /* libz.tbd */,
 				F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */,
+				C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */,
+				C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */,
 				F5373BC51B327604007F508C /* SystemConfiguration.framework */,
 				F5373BC11B3275F1007F508C /* Security.framework */,
 				F5373BBF1B3275E9007F508C /* QuartzCore.framework */,
@@ -542,6 +599,7 @@
 		F5373BCE1B327BB6007F508C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2DE3F631E2C242600E1D73D /* Check In */,
 				C23B6D511E12CEF600B419CA /* User */,
 				C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */,
 				C2D33BC01DEFCE4800EF3013 /* Announcements */,
@@ -575,6 +633,7 @@
 		F596937D1DB41DBA00B830DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2DE3FB71E2D8DB900E1D73D /* Channels.swift */,
 				F59693791DB41DB600B830DD /* SpartaModel.swift */,
 				F596937E1DB41DC200B830DD /* Announcements */,
 				F5C73CD41DBD37F10055C921 /* Schedule */,
@@ -645,6 +704,8 @@
 			);
 			dependencies = (
 				F51968DE1DD64A0B0026BA06 /* PBXTargetDependency */,
+				C28685821E241D6D00FA972A /* PBXTargetDependency */,
+				C28685861E241D8500FA972A /* PBXTargetDependency */,
 			);
 			name = "SpartaHack 2016";
 			productName = "SpartaHack II";
@@ -720,6 +781,10 @@
 					ProductGroup = F50EE5831DCFC75B00A57BED /* Products */;
 					ProjectRef = F50EE5821DCFC75B00A57BED /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = C286856E1E241BDC00FA972A /* Products */;
+					ProjectRef = C286856D1E241BDC00FA972A /* CRToast.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -730,6 +795,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C28685741E241BDC00FA972A /* CRToast.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CRToast.framework;
+			remoteRef = C28685731E241BDC00FA972A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C28685761E241BDC00FA972A /* libCRToast.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCRToast.a;
+			remoteRef = C28685751E241BDC00FA972A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C28685781E241BDC00FA972A /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = C28685771E241BDC00FA972A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F50EE58E1DCFC75B00A57BED /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -787,12 +873,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D33BC51DEFD0E600EF3013 /* Nemoy-Medium.ttf in Resources */,
-				C29C3BD01E207F8400284A4D /* MentorFormCell.xib in Resources */,
 				C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */,
+				C2DE3F971E2C7F1500E1D73D /* portal2buzzer.mp3 in Resources */,
 				C2D33BC21DEFD01600EF3013 /* Lato-Light.ttf in Resources */,
+				C2DE3F721E2C2D3400E1D73D /* CountdownCell.xib in Resources */,
 				C2D33BC11DEFD01000EF3013 /* Nemoy-Light.ttf in Resources */,
 				F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */,
-				F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */,
 				F51382D01DA6C6CA008F1FCE /* ProfileNameTableViewCell.xib in Resources */,
 				F5373B8F1B327566007F508C /* Main.storyboard in Resources */,
 				C2B450A21E1EC28D00665BB1 /* SponsorsTableViewCell.xib in Resources */,
@@ -800,10 +886,10 @@
 				C29D167F1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
 				F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */,
+				C2DE3F8C1E2C7EFA00E1D73D /* winXP.mp3 in Resources */,
 				F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
 				F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */,
-				F51382BA1DA6C405008F1FCE /* MapWebView.xib in Resources */,
 				F574CE531C7380A30032203C /* map.pdf in Resources */,
 				F51382CB1DA6C634008F1FCE /* CheckinView.xib in Resources */,
 				F51382CE1DA6C688008F1FCE /* ProfileTableView.xib in Resources */,
@@ -829,7 +915,6 @@
 			files = (
 				C237F3461E146F4B005C011D /* RefreshView.xib in Sources */,
 				F51968EA1DD66EB00026BA06 /* Prize.swift in Sources */,
-				F51968E01DD652810026BA06 /* MapView.swift in Sources */,
 				F51968E71DD66CF70026BA06 /* Prizes.swift in Sources */,
 				C287A8D31DF4C2BE003964A0 /* SpartaTableViewCell.swift in Sources */,
 				C2D33BC71DEFDF0200EF3013 /* SpartaNavigationBar.swift in Sources */,
@@ -838,10 +923,13 @@
 				C23B6D5B1E12CFD900B419CA /* LoginViewController.swift in Sources */,
 				F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */,
 				F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */,
+				C2DE3F7E1E2C2D5100E1D73D /* CountdownCell.swift in Sources */,
 				C279F4571E17082700E54E93 /* ScheduleTableViewCell.swift in Sources */,
+				C28685881E24201D00FA972A /* SpartaToast.swift in Sources */,
 				4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */,
 				F559F6D01C82516B00C1D4A1 /* SpartaLabel.swift in Sources */,
 				F5C73CD31DBD37EC0055C921 /* Event.swift in Sources */,
+				C2DE3F6E1E2C244800E1D73D /* CheckInViewController.swift in Sources */,
 				F591B2351C2DE25F00F1512D /* MapViewController.swift in Sources */,
 				F591B2371C2DE27100F1512D /* ScheduleViewController.swift in Sources */,
 				F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */,
@@ -852,10 +940,10 @@
 				C2417EB21E08CA8E0012BC9F /* User.swift in Sources */,
 				C2B450A01E1DA4B200665BB1 /* MentorshipViewController.swift in Sources */,
 				C29683021DA6FC4D00FF9982 /* SpartaTabBarViewController.swift in Sources */,
+				C2DE3FB81E2D8DB900E1D73D /* Channels.swift in Sources */,
 				F50EE5791DCEC64800A57BED /* Map.swift in Sources */,
 				C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */,
 				F51968E51DD661490026BA06 /* Sponsor.swift in Sources */,
-				C29C3BD21E2084BC00284A4D /* MentorFormCell.swift in Sources */,
 				F58BE2911C5C16DD0000696B /* UIColor+SpartaColor.m in Sources */,
 				F591B23A1C2DE2B800F1512D /* GuideViewController.swift in Sources */,
 				F51968E21DD660EC0026BA06 /* Sponsors.swift in Sources */,
@@ -881,6 +969,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C28685821E241D6D00FA972A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = C28685811E241D6D00FA972A /* PBXContainerItemProxy */;
+		};
+		C28685861E241D8500FA972A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CRToast;
+			targetProxy = C28685851E241D8500FA972A /* PBXContainerItemProxy */;
+		};
 		F51968DE1DD64A0B0026BA06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";

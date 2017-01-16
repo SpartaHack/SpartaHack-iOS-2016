@@ -80,9 +80,13 @@ class SpartaNavigationBar: UINavigationBar {
             self.animating = false
         })
         
-        // This must be a SpartaTableViewController!
         let topController = UIApplication.topViewController()
+        // Update the theme as SpartaTableViewController
         if let topController = topController as? SpartaTableViewController {
+            topController.updateTheme(animated: true)
+        }
+        // Update the theme for MentorshipViewController
+        if let topController = topController as? MentorshipViewController {
             topController.updateTheme(animated: true)
         }
         
@@ -91,7 +95,7 @@ class SpartaNavigationBar: UINavigationBar {
     }
     
     private func initialize() {
-        let diamondImage = UIImageView(image: UIImage(named: "diamond"))
+        let diamondImage = UIImageView(image: Theme.getDiamondImage())
         diamondImage.frame = CGRect(x: 0, y: 0, width: 50, height: 51)
         
         diamondImage.isUserInteractionEnabled = true
@@ -155,7 +159,8 @@ class SpartaNavigationBar: UINavigationBar {
                                          y: self.frame.size.height + shift,
                                          width: self.frame.size.width,
                                          height: self.borderSize)
-        Theme.setHorizontalGradient(on: self.bottomBorder, of: .darkGradient)
+        Theme.setHorizontalGradient(on: self.bottomBorder)
+
         
         // Set the user initials under the profile icon
         firstName.frame = profileButton.frame

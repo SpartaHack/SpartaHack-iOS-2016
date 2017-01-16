@@ -14,7 +14,7 @@ class Announcement: NSObject {
     var detail: String! = nil
     var pinned: Bool! = false
     var createdTime: NSDate! = nil
-    var updatedTime: NSDate? = nil
+    var updatedTime: NSDate! = nil
     
     override init() {
         super.init()
