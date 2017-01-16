@@ -95,7 +95,7 @@ class ScheduleViewController: SpartaTableViewController {
         case 0:
             let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "countdownCell") as! CountdownCell
             headerCell.separatorInset = .zero
-//            headerCell.startCountdown()
+            headerCell.startCountdown()
             return headerCell
         default:
             let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell

@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Peg-F8-0yZ" id="3In-xl-Shk">
-                <rect key="frame" x="0.0" y="0.0" width="355" height="79.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="355" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phs-DX-AVb">
@@ -32,18 +32,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnX-pK-Omg">
                                 <rect key="frame" x="0.0" y="0.0" width="79" height="71.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-gl-rmf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-gl-rmf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
                                         <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXm-mI-Grf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49" width="79" height="22"/>
+                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="22" id="Ugg-fk-KDh"/>
-                                            <constraint firstAttribute="height" constant="22" id="jU2-yD-bya"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="u1s-pv-PIo"/>
+                                            <constraint firstAttribute="height" constant="24" id="jU2-yD-bya"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -64,17 +62,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1SC-tG-7Cc">
                                 <rect key="frame" x="87" y="0.0" width="79" height="71.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-Zy-MDe" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-Zy-MDe" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
                                         <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPR-c1-dOW" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49" width="79" height="22"/>
+                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Rig-AU-VkW"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="22" id="dkz-an-Oxg"/>
+                                            <constraint firstAttribute="height" constant="24" id="tlG-lf-lb2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -95,17 +92,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9F2-8N-AAj">
                                 <rect key="frame" x="174" y="0.0" width="79" height="71.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCs-hU-R61" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCs-hU-R61" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
                                         <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ae-wN-0op" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49" width="79" height="22"/>
+                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="he7-ru-O4G"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="n6c-0n-aQg"/>
+                                            <constraint firstAttribute="height" constant="24" id="he7-ru-O4G"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -126,17 +122,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AW9-SW-qv7">
                                 <rect key="frame" x="261" y="0.0" width="79" height="71.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-Os-AWs" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-Os-AWs" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
                                         <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7J-TA-qnm" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49" width="79" height="22"/>
+                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="2CW-lE-tgZ"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="zko-hi-dJY"/>
+                                            <constraint firstAttribute="height" constant="24" id="2CW-lE-tgZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                                         <nil key="textColor"/>
