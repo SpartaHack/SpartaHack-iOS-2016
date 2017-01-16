@@ -22,15 +22,18 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     private var lastKnownTheme: Int = -1 // set to -1 so the view loads the theme the first time
     
-    var hardcodedCategories = ["iOS", "Swift", "Objective-C", "Not C#", "Not Java"] // bad practice
+    var categories = ["iOS", "Swift", "Objective-C", "Not C#", "Not Java"]
     
     var placeHolderText = "Describe your problem. An example would be: \"Help! I can't figure out which awesome animation library to use for my web app!\""
+    
+    let pickerView = UIPickerView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if needsThemeUpdate() {
             self.updateTheme(animated: false)
         }
+        self.loadChannels()
     }
     
     override func viewDidLoad() {
@@ -42,11 +45,10 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.hideKeyboard()
         
-        var pickerView = UIPickerView()
         
-        pickerView.delegate = self
+        self.pickerView.delegate = self
         
-        categoryTextField.inputView = pickerView
+        categoryTextField.inputView = self.pickerView
     }
 
     override func viewDidLayoutSubviews() {
@@ -54,6 +56,22 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
         
         self.updateTheme(animated: false)
         
+    }
+    
+    func loadChannels () {
+        let defaults = UserDefaults.standard
+        
+        if let savedChannels = defaults.object(forKey: "dictChannels") as? Data {
+            let unarchivedUser = NSKeyedUnarchiver.unarchiveObject(with: savedChannels) as! [Channels]
+                // first clear array
+                categories.removeAll()
+            let listOfChannels = unarchivedUser[0].channels
+            for newChannel in listOfChannels {
+                categories.append(newChannel.object(forKey: "category") as! String)
+            }
+        }
+        
+        self.pickerView.reloadAllComponents()
     }
     
     func requiresLogin() -> Bool {
@@ -154,14 +172,34 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     @IBAction func submitButtonTapped(_ sender: AnyObject) {
         if let descriptionString = descriptionTextView.text, let locationString = locationTextField.text, let categoryString = categoryTextField.text {
+            if descriptionString == placeHolderText || locationString == "" || categoryString == "" {
+                SpartaToast.displayError("Invalid form")
+                return
+            }
             SpartaModel.sharedInstance.postMentorship(category: categoryString,
                                                       location: locationString,
-                                                      description: descriptionString, completionHandler: { (success:Bool) in
-                if (success) {
-                        SpartaToast.displayToast("Ticket Submitted!")
+                                                      description: descriptionString, completionHandler: { (string:String?) in
+                if (string == nil) {
+                    SpartaToast.displayToast("Ticket Submitted!")
+                    self.clearFields()
+                } else {
+                    SpartaToast.displayToast(string!)
                 }
             })
         }
+    }
+    
+    func clearFields () {
+        self.categoryTextField.text = ""
+        self.locationTextField.text = ""
+        self.descriptionTextView.text = placeHolderText
+        
+        self.categoryTextField.attributedPlaceholder = NSAttributedString(string: "Category",
+                                                                          attributes: [NSForegroundColorAttributeName: Theme.tintColor])
+        
+        self.locationTextField.attributedPlaceholder = NSAttributedString(string: "Location",
+                                                                          attributes: [NSForegroundColorAttributeName: Theme.tintColor])
+        
     }
     
     // MARK PickerView
@@ -171,15 +209,15 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return hardcodedCategories.count
+        return categories.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return hardcodedCategories[row]
+        return categories[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryTextField.text = hardcodedCategories[row]
+        categoryTextField.text = categories[row]
     }
     
     @available(iOS 2.0, *)

@@ -22,6 +22,8 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
                         // we could do fancy animations here if we wanted
                         self.tableView.reloadData()
                     }
+                } else {
+                    SpartaToast.displayError("Failed to load Announcements")
                 }
             })
         }
