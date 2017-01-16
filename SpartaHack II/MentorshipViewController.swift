@@ -154,11 +154,20 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     @IBAction func submitButtonTapped(_ sender: AnyObject) {
         if let descriptionString = descriptionTextView.text, let locationString = locationTextField.text, let categoryString = categoryTextField.text {
+            if descriptionString == "" || locationString == "" || categoryString == "" {
+                SpartaToast.displayError("Invalid form")
+                return
+            }
             SpartaModel.sharedInstance.postMentorship(category: categoryString,
                                                       location: locationString,
                                                       description: descriptionString, completionHandler: { (success:Bool) in
                 if (success) {
-                        SpartaToast.displayToast("Ticket Submitted!")
+                    SpartaToast.displayToast("Ticket Submitted!")
+                    self.descriptionTextView.text = self.placeHolderText
+                    self.locationTextField.text = ""
+                    self.categoryTextField.text = ""
+                } else {
+                    SpartaToast.displayError("Failed to Submit Ticket")
                 }
             })
         }
