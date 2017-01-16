@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SwN-Wr-NPN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SwN-Wr-NPN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
             <objects>
                 <navigationController id="SwN-Wr-NPN" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2016" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2017" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
         <!--Login View Controller-->
         <scene sceneID="eG4-aA-SzI">
             <objects>
-                <viewController storyboardIdentifier="login" modalPresentationStyle="overCurrentContext" id="iJc-8I-9e4" customClass="LoginViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" modalPresentationStyle="overCurrentContext" id="iJc-8I-9e4" customClass="LoginViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dTa-hY-4g5"/>
                         <viewControllerLayoutGuide type="bottom" id="O5W-mc-p1u"/>
@@ -74,13 +74,13 @@
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="77" width="343" height="30"/>
                                                 <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="122" width="343" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -173,7 +173,7 @@
         <!--Profile View Controller-->
         <scene sceneID="Ren-zI-t8B">
             <objects>
-                <viewController storyboardIdentifier="profile" id="7pg-jf-aQr" customClass="ProfileViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="7pg-jf-aQr" customClass="ProfileViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qfa-9e-00p"/>
                         <viewControllerLayoutGuide type="bottom" id="LZd-Ng-QYU"/>
@@ -271,6 +271,7 @@
                         <outlet property="closeButton" destination="21p-KN-t3l" id="GMb-WS-7Zn"/>
                         <outlet property="logOutButton" destination="eYK-eC-Mm7" id="jyk-Gb-JHZ"/>
                         <outlet property="nameLabel" destination="3JW-4j-lLS" id="wTe-JJ-H01"/>
+                        <outlet property="qrImageView" destination="85F-cZ-Slb" id="OM9-P5-lqa"/>
                         <outlet property="scanningButton" destination="hC6-8p-80x" id="ueX-aq-9tV"/>
                     </connections>
                 </viewController>
@@ -281,7 +282,7 @@
         <!--Mentorship View Controller-->
         <scene sceneID="mYK-c7-gp8">
             <objects>
-                <viewController storyboardIdentifier="mentorship" id="Rrb-v6-31T" customClass="MentorshipViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mentorship" id="Rrb-v6-31T" customClass="MentorshipViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EX3-Op-biS"/>
                         <viewControllerLayoutGuide type="bottom" id="Mj6-VB-B3U"/>
@@ -296,7 +297,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHh-bh-bea">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="248"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentorship" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-20-qMf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentorship" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-20-qMf" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="18" width="359" height="30"/>
                                                 <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                                                 <nil key="textColor"/>
@@ -393,7 +394,7 @@
         <!--Check In View Controller-->
         <scene sceneID="lHG-AK-g8D">
             <objects>
-                <viewController storyboardIdentifier="checkin" id="3d4-uZ-DsY" customClass="CheckInViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkin" id="3d4-uZ-DsY" customClass="CheckInViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b2e-rI-41v"/>
                         <viewControllerLayoutGuide type="bottom" id="zWn-GH-LgP"/>
@@ -431,29 +432,38 @@
                                     <action selector="scanButtonTapped:" destination="3d4-uZ-DsY" eventType="touchUpInside" id="57t-Sd-SyG"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lj-Mh-Y95">
+                                <rect key="frame" x="16" y="69" width="343" height="520"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g1u-3m-EhM" firstAttribute="trailing" secondItem="tjq-Sa-CtO" secondAttribute="trailingMargin" id="DnN-tw-RfJ"/>
+                            <constraint firstItem="g1u-3m-EhM" firstAttribute="top" secondItem="1lj-Mh-Y95" secondAttribute="bottom" constant="8" id="Eoy-vy-qHe"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="1lj-Mh-Y95" secondAttribute="leading" id="N1H-g8-JZC"/>
                             <constraint firstItem="Aa7-VX-vc2" firstAttribute="top" secondItem="b2e-rI-41v" secondAttribute="bottom" id="ShJ-lD-YMJ"/>
+                            <constraint firstItem="1lj-Mh-Y95" firstAttribute="top" secondItem="Aa7-VX-vc2" secondAttribute="bottom" constant="8" id="aXH-N7-04T"/>
                             <constraint firstItem="Aa7-VX-vc2" firstAttribute="leading" secondItem="tjq-Sa-CtO" secondAttribute="leadingMargin" id="jJ6-ir-jgP"/>
                             <constraint firstItem="zWn-GH-LgP" firstAttribute="top" secondItem="g1u-3m-EhM" secondAttribute="bottom" constant="20" id="mi2-kJ-fh4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1lj-Mh-Y95" secondAttribute="trailing" id="p6k-CY-P2u"/>
                             <constraint firstItem="g1u-3m-EhM" firstAttribute="leading" secondItem="tjq-Sa-CtO" secondAttribute="leadingMargin" id="z85-H2-sLY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraView" destination="1lj-Mh-Y95" id="Nbs-y5-bnv"/>
                         <outlet property="closeButton" destination="Aa7-VX-vc2" id="cra-gx-SMh"/>
                         <outlet property="scanButton" destination="g1u-3m-EhM" id="Q1J-4R-Hop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnd-mV-MwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="250"/>
+            <point key="canvasLocation" x="1717.5999999999999" y="249.62518740629687"/>
         </scene>
         <!--Sparta Tab Bar View Controller-->
         <scene sceneID="U4H-hF-LV1">
             <objects>
-                <viewController id="W2i-0X-hsH" customClass="SpartaTabBarViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="W2i-0X-hsH" customClass="SpartaTabBarViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qA8-B5-FM1"/>
                         <viewControllerLayoutGuide type="bottom" id="k3z-fE-7SD"/>

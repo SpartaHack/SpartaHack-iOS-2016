@@ -51,6 +51,17 @@ class UserManager: NSObject {
         return false
     }
     
+    func canUserScan() -> Bool {
+        if (isUserLoggedIn()) {
+            if let roles = spartaUser?.roles {
+                if roles.contains("organizer") || roles.contains("volunteer") || roles.contains("director") {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     func UserQRCode() -> String? {
         if (isUserScannable()) {
             if let qrCode = spartaUser?.id {
