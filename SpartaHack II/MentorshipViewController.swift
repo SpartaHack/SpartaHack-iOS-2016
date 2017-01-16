@@ -8,7 +8,8 @@
 
 import Foundation
 
-class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -20,6 +21,8 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
     var scrollViewContentInset: UIEdgeInsets = .zero
     
     private var lastKnownTheme: Int = -1 // set to -1 so the view loads the theme the first time
+    
+    var hardcodedCategories = ["iOS", "Swift", "Objective-C", "Not C#", "Not Java"] // bad practice
     
     var placeHolderText = "Describe your problem. An example would be: \"Help! I can't figure out which awesome animation library to use for my web app!\""
     
@@ -38,6 +41,12 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.hideKeyboard()
+        
+        var pickerView = UIPickerView()
+        
+        pickerView.delegate = self
+        
+        categoryTextField.inputView = pickerView
     }
 
     override func viewDidLayoutSubviews() {
@@ -155,6 +164,29 @@ class MentorshipViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
     }
     
+    // MARK PickerView
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return hardcodedCategories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return hardcodedCategories[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryTextField.text = hardcodedCategories[row]
+    }
+    
+    @available(iOS 2.0, *)
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
