@@ -35,6 +35,8 @@
 		C2D33BC51DEFD0E600EF3013 /* Nemoy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */; };
 		C2D33BC71DEFDF0200EF3013 /* SpartaNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */; };
 		C2DE3F6E1E2C244800E1D73D /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3F6D1E2C244800E1D73D /* CheckInViewController.swift */; };
+		C2DE3F8C1E2C7EFA00E1D73D /* winXP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */; };
+		C2DE3F971E2C7F1500E1D73D /* portal2buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */; };
 		C2EFC02D1E00D2FF0013E22D /* SpartaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */; };
 		F5046D101D6FCBD3004A9898 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */; };
 		F50B84261C728C5E00CCBEBC /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B84251C728C5E00CCBEBC /* UITextFieldLimit.m */; };
@@ -218,6 +220,8 @@
 		C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Medium.ttf"; sourceTree = "<group>"; };
 		C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaNavigationBar.swift; sourceTree = "<group>"; };
 		C2DE3F6D1E2C244800E1D73D /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winXP.mp3; sourceTree = "<group>"; };
+		C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = portal2buzzer.mp3; sourceTree = "<group>"; };
 		C2EFC02C1E00D2FE0013E22D /* SpartaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaTableViewController.swift; sourceTree = "<group>"; };
 		F5046D0F1D6FCBD3004A9898 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F50B84241C728C5500CCBEBC /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
@@ -561,6 +565,8 @@
 				F574CE521C7380A30032203C /* map.pdf */,
 				F57BA33F1C288BCC000E0381 /* libz.tbd */,
 				F57BA33D1C288BB6000E0381 /* libsqlite3.tbd */,
+				C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */,
+				C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */,
 				F5373BC51B327604007F508C /* SystemConfiguration.framework */,
 				F5373BC11B3275F1007F508C /* Security.framework */,
 				F5373BBF1B3275E9007F508C /* QuartzCore.framework */,
@@ -868,6 +874,7 @@
 			files = (
 				C2D33BC51DEFD0E600EF3013 /* Nemoy-Medium.ttf in Resources */,
 				C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */,
+				C2DE3F971E2C7F1500E1D73D /* portal2buzzer.mp3 in Resources */,
 				C2D33BC21DEFD01600EF3013 /* Lato-Light.ttf in Resources */,
 				C2D33BC11DEFD01000EF3013 /* Nemoy-Light.ttf in Resources */,
 				F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */,
@@ -879,6 +886,7 @@
 				C29D167F1DE8A7D100AA20A8 /* SpartaTableViewHeaderCell.xib in Resources */,
 				F5373B941B327566007F508C /* LaunchScreen.xib in Resources */,
 				F51382D41DA6C71D008F1FCE /* ProfileInfoCell.xib in Resources */,
+				C2DE3F8C1E2C7EFA00E1D73D /* winXP.mp3 in Resources */,
 				F51382D21DA6C702008F1FCE /* ProfilePictureCell.xib in Resources */,
 				F5373B911B327566007F508C /* Images.xcassets in Resources */,
 				F51382B41DA6C321008F1FCE /* ScheduleTableViewCell.xib in Resources */,
