@@ -34,6 +34,8 @@
 		C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BBE1DEFCCB700EF3013 /* Lato-Regular.ttf */; };
 		C2D33BC51DEFD0E600EF3013 /* Nemoy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */; };
 		C2D33BC71DEFDF0200EF3013 /* SpartaNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */; };
+		C2DE3F721E2C2D3400E1D73D /* CountdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F711E2C2D3400E1D73D /* CountdownCell.xib */; };
+		C2DE3F7E1E2C2D5100E1D73D /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */; };
 		C2DE3F6E1E2C244800E1D73D /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE3F6D1E2C244800E1D73D /* CheckInViewController.swift */; };
 		C2DE3F8C1E2C7EFA00E1D73D /* winXP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */; };
 		C2DE3F971E2C7F1500E1D73D /* portal2buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */; };
@@ -219,6 +221,8 @@
 		C2D33BBF1DEFCCB700EF3013 /* Nemoy-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Light.ttf"; sourceTree = "<group>"; };
 		C2D33BC41DEFD0B900EF3013 /* Nemoy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nemoy-Medium.ttf"; sourceTree = "<group>"; };
 		C2D33BC61DEFDF0200EF3013 /* SpartaNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpartaNavigationBar.swift; sourceTree = "<group>"; };
+		C2DE3F711E2C2D3400E1D73D /* CountdownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountdownCell.xib; sourceTree = "<group>"; };
+		C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
 		C2DE3F6D1E2C244800E1D73D /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		C2DE3F8B1E2C7EFA00E1D73D /* winXP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winXP.mp3; sourceTree = "<group>"; };
 		C2DE3F961E2C7F1500E1D73D /* portal2buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = portal2buzzer.mp3; sourceTree = "<group>"; };
@@ -369,6 +373,15 @@
 			name = SpartaTableViewCell;
 			sourceTree = "<group>";
 		};
+		C2DE3F7C1E2C2D3B00E1D73D /* Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				C2DE3F711E2C2D3400E1D73D /* CountdownCell.xib */,
+				C2DE3F7D1E2C2D5100E1D73D /* CountdownCell.swift */,
+			);
+			name = Countdown;
+			sourceTree = "<group>";
+		};
 		C2DE3F631E2C242600E1D73D /* Check In */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +423,7 @@
 		F51382AE1DA6C019008F1FCE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2DE3F7C1E2C2D3B00E1D73D /* Countdown */,
 				C287A8D41DF4C7CC003964A0 /* SpartaTableViewHeaderCell */,
 				C2D33BCA1DEFE79900EF3013 /* SpartaTableViewCell */,
 				F58BE28F1C5C16DD0000696B /* UIColor+SpartaColor.h */,
@@ -876,6 +890,7 @@
 				C2D33BC31DEFD01900EF3013 /* Lato-Regular.ttf in Resources */,
 				C2DE3F971E2C7F1500E1D73D /* portal2buzzer.mp3 in Resources */,
 				C2D33BC21DEFD01600EF3013 /* Lato-Light.ttf in Resources */,
+				C2DE3F721E2C2D3400E1D73D /* CountdownCell.xib in Resources */,
 				C2D33BC11DEFD01000EF3013 /* Nemoy-Light.ttf in Resources */,
 				F51382B71DA6C356008F1FCE /* PrizesTableViewCell.xib in Resources */,
 				F5AE53841C3234A30030BCCA /* ios-map.pdf in Resources */,
@@ -925,6 +940,7 @@
 				C23B6D5B1E12CFD900B419CA /* LoginViewController.swift in Sources */,
 				F5BD16B81C66E35700BB7201 /* CheckInUserViewController.swift in Sources */,
 				F599B4501C66BF84008E1E6D /* ScanViewController.swift in Sources */,
+				C2DE3F7E1E2C2D5100E1D73D /* CountdownCell.swift in Sources */,
 				C279F4571E17082700E54E93 /* ScheduleTableViewCell.swift in Sources */,
 				C28685881E24201D00FA972A /* SpartaToast.swift in Sources */,
 				4331AB8E1C79040C00424B12 /* NSDateExtension.swift in Sources */,
