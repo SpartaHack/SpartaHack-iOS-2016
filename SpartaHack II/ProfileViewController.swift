@@ -27,10 +27,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // ToDo: Chris, you need a getter to check if the current user can scan people in
-        //        if UserManager.sharedInstance.isAllowedToScanAttendees {
-        //            self.scanningButton.removeFromSuperview()
-        //        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,6 +59,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         
         self.displayQRCode()
+        
+        if !UserManager.sharedInstance.canUserScan() {
+            self.scanningButton.isHidden = true
+        }
 
     }
     
