@@ -325,7 +325,28 @@ class SpartaModel: NSObject {
                         guard let level = obj["level"] as? String else {
                             fatalError("ToDo: gracefully handle error")
                         }
-                        sponsor.level = level
+                        
+                        var numLevel = 0
+                        
+                        switch level {
+                            case "legend" :
+                                numLevel = 1
+                                break
+                            case "commander" :
+                                numLevel = 2
+                                break
+                            case "warrior" :
+                                numLevel = 3
+                                break
+                            case "trainee" :
+                                numLevel = 4
+                                break
+                            default:
+                                numLevel = 5
+                                break
+                        }
+                        
+                        sponsor.level = numLevel as NSNumber
                         
                         guard let logoString = obj["logo_png_light"] as? String else {
                             fatalError("ToDo: gracefully handle error")

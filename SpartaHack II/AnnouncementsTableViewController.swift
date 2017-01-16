@@ -77,7 +77,6 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
         }
         cell.titleLabel.text = announcement.title
         cell.detailLabel.text = announcement.detail
-        print("Sorted Properly? :\(announcement.createdTime)")
         cell.separatorInset = .zero
 
         return cell
