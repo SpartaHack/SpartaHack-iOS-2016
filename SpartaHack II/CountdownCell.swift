@@ -65,6 +65,8 @@ class CountdownCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        self.contentView.frame = self.frame
+        self.contentView.bounds = self.bounds
         UIView.animate(withDuration: 1.0, animations: {
             self.backgroundColor = .clear
             self.contentView.backgroundColor = Theme.backgroundColor
