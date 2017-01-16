@@ -1,5 +1,5 @@
 //
-//  FakeModel.swift
+//  SpartaModel.swift
 //  SpartaHack 2016
 //
 //  Created by Chris McGrath on 9/9/16.
@@ -247,17 +247,27 @@ class SpartaModel: NSObject {
     }
     
     /// post for Mentorship
-    func postMentorship (category:String, location:String, description:String, completionHandler: @escaping(Bool) -> () ) {
-    
+    func postMentorship (category:String, location:String, description:String, completionHandler: @escaping(String?) -> () ) {
+        
+        if category == "" {
+            completionHandler("Invalid Category")
+            return
+        }
+        
+        if location == "" {
+            completionHandler("Location Required")
+            return
+        }
+        
         var urlRequest = URLRequest(url: URL(string: "https://hooks.slack.com/services/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")!)
         urlRequest.httpMethod = "POST"
         
-        let channelStr = "#\(category)"
+        let lowerCategory = category.lowercased()
+        let channelStr = "#\(lowerCategory.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).replacingOccurrences(of: ".", with: ""))"
         
         let payload: [String: String] = [
             "channel" : channelStr,
-            "username" : UserManager.sharedInstance.getFullName()!,
-            "location" : location,
+            "username" : "(\(location)) \(UserManager.sharedInstance.getFullName()!)",
             "text" : description,
             ]
         
@@ -267,19 +277,17 @@ class SpartaModel: NSObject {
             print(error)
         }
         
-        sessionManager.request(urlRequest).responseJSON { response in
+        sessionManager.request(urlRequest).responseString { response in
             debugPrint(response)
-            if let value = response.result.value as? [String:AnyObject] {
-                if let error = (value["errors"] as? [String:AnyObject])?["invalid"]?.objectAt(0) as? String {
-                    print("Error signing in: \(error)")
+            let value = response.result.value! as String
+                if value != "ok" {
+                    print("Error signing in: \(value)")
+                    completionHandler(value)
                 } else {
-                    completionHandler(true)
+                    completionHandler(nil)
                     print("Response: \(value)")
                 }
             }
-        }
-    
-        completionHandler(true)
     }
     
     /// getSponsors
@@ -453,13 +461,45 @@ class SpartaModel: NSObject {
                 if let error = (value["errors"] as? [String:AnyObject])?["user"]?.objectAt(0) as? String {
                     print("Error signing in: \(error)")
                     completionHandler(false, "Reason: \(error)")
+                } else if let error = value["api"] as? [String] {
+                    completionHandler(false, "Reason: \(error)")
                 } else {
                     completionHandler(true, "Successful checkin!")
-                    }
                 }
             }
+        }
     }
     
+    /// Get slack channels 
+    func getChannels (completionHandler: @escaping([NSDictionary]?) -> () ) {
+        var keyDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+            keyDict = NSDictionary(contentsOfFile: path)
+        } else {
+            fatalError("You need to configure the keys.plist file. Don't commit API keys to a remote repository.... Please.")
+        }
+        
+        var urlRequest = URLRequest(url: URL(string: "\(baseURL)categories")!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Token token=\(keyDict!.object(forKey: "baseAPIKey") as! String)", forHTTPHeaderField: "Authorization")
+        
+        sessionManager.request(urlRequest).responseJSON { response in
+            guard response.result.isSuccess else {
+                // we failed for some reason
+                print("Error \(response.result.error)")
+                completionHandler(nil)
+                return
+            }
+            // get our prize data
+            
+            if let result = response.result.value {
+                if let json = result as? [NSDictionary] {
+                    completionHandler(json)
+                }
+            }
+        }
+    }
     
     /// log user in and grab token
     func getUserSession ( email:String, password:String, completionHandler: @escaping(Bool) -> () ) {
@@ -495,9 +535,11 @@ class SpartaModel: NSObject {
                     print("Error signing in: \(error)")
                 } else {
                     
-                    let userYear = String(value["application"]?["birth_year"] as! Int)
-                    let userMonth = String(value["application"]?["birth_month"] as! Int)
-                    let userDay = String(value["application"]?["birth_day"] as! Int)
+                    guard let userYear = value["application"]?["birth_year"] as? Int,
+                    let userMonth = value["application"]?["birth_month"] as? Int,
+                    let userDay = value["application"]?["birth_day"] as? Int else {
+                        return
+                    }
                     
                     let birthday = "\(userDay) \(userMonth) \(userYear)"
                     
