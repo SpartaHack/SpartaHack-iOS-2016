@@ -38,6 +38,11 @@ class Sponsors: NSObject {
     }
     
     func listOfSponsors () -> [Sponsor] {
+        let tierSortDescriptor = NSSortDescriptor(key: "level", ascending: true)
+        let nameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
+        spartaSponsors = (spartaSponsors as NSArray).sortedArray(using: [tierSortDescriptor, nameSortDescriptor]) as! Array
+
         return spartaSponsors
     }
 
