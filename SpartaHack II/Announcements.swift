@@ -38,16 +38,27 @@ class Announcements: NSObject {
     }
     
     func listOfAnnouncements () -> [Announcement] {
-        return spartaAnnouncements
+        let sortedArray = spartaAnnouncements.sorted { (announcement0:Announcement, announcement1:Announcement) -> Bool in
+            announcement0.createdTime > announcement1.createdTime
+        }
+        return sortedArray
     }
     
     func listOfPinnedAnnouncements () -> [Announcement] {
-        return spartaAnnouncements.filter { $0.pinned == true }
+        let sortedArray = spartaAnnouncements.sorted { (announcement0:Announcement, announcement1:Announcement) -> Bool in
+            announcement0.createdTime > announcement1.createdTime
+        }
+        return sortedArray.filter { $0.pinned == true }
     }
     
     func listOfUnpinnedAnnouncements () -> [Announcement] {
-        return spartaAnnouncements.filter { $0.pinned == false }
+        let sortedArray = spartaAnnouncements.sorted { (announcement0:Announcement, announcement1:Announcement) -> Bool in
+            announcement0.createdTime > announcement1.createdTime
+        }
+        return sortedArray.filter { $0.pinned == false }
     }
-    
-    
+}
+
+public func >(a: NSDate, b: NSDate) -> Bool {
+    return a.compare(b as Date) == ComparisonResult.orderedDescending
 }
