@@ -78,10 +78,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     func userDidLogin(_ login: Bool, error: NSError?) {
         if !login {
-            // there was a problem with logging the user in
-//            let alert = UIAlertController(title: "Error", message: "\(error!.localizedDescription)", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
             print("ERROR")
         } else {
             print("dismissing login view")
@@ -89,9 +85,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.delegate?.userSuccessfullyLoggedIn(true)
                     if let navBar = UIApplication.topViewController()?.navigationController?.navigationBar as? SpartaNavigationBar {
+                        print("\n\n\n *** \(UserManager.sharedInstance.getFirstName()) *** \n\n\n")
                         if let firstName = UserManager.sharedInstance.getFirstName() {
-                            navBar.setName(to: firstName)
                             SpartaToast.displayToast("Welcome, " + firstName + "!")
+                            navBar.setName(to: firstName)
                         }
                     }
                 })
