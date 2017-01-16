@@ -22,8 +22,6 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
                         // we could do fancy animations here if we wanted
                         self.tableView.reloadData()
                     }
-                } else {
-                    SpartaToast.displayError("Failed to load Announcements")
                 }
             })
         }
@@ -41,6 +39,7 @@ class AnnouncementsTableViewController: SpartaTableViewController  {
                 }
             } else {
                 print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                SpartaToast.displayError("Failed to load Announcements")
                 super.isUpdatingData = false
             }
         })

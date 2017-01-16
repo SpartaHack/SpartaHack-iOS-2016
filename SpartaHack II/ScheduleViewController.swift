@@ -38,6 +38,7 @@ class ScheduleViewController: SpartaTableViewController {
                 }
             } else {
                 print("\n\n\n\n **** NETWORK ERROR **** \n\n\n\n")
+                SpartaToast.displayError("Failed to load Schedule")
                 super.isUpdatingData = false
             }
         })
