@@ -9,29 +9,39 @@
 import UIKit
 
 class CountdownCell: UITableViewCell {
-    @IBOutlet weak var daysNumber: SpartaLabel!
     @IBOutlet weak var hoursNumber: SpartaLabel!
     @IBOutlet weak var minutesNumber: SpartaLabel!
     @IBOutlet weak var secondsNumber: SpartaLabel!
-    @IBOutlet weak var daysLabel: SpartaLabel!
     @IBOutlet weak var hoursLabel: SpartaLabel!
     @IBOutlet weak var minutesLabel: SpartaLabel!
     @IBOutlet weak var secondsLabel: SpartaLabel!
     
-    var startDate: NSDate = NSDate()
-    var endDate: NSDate = NSDate()
+    var countdownStartDate: NSDate = NSDate()
+    var countdownEndDate: NSDate = NSDate()
+    var hackathonEndDate: NSDate = NSDate()
     var timer: Timer = Timer()
     
     func startCountdown() {
         // Human time (GMT): Sat, 21 Jan 2017 00:00:00 GMT
-        let dateComponents = NSDateComponents()
-        dateComponents.year = 2017
-        dateComponents.month = 1
-        dateComponents.day = 21
-        dateComponents.hour = 0
-        dateComponents.minute = 0
-        dateComponents.second = 0
-        endDate = NSCalendar.current.date(from: dateComponents as DateComponents)! as NSDate
+        let hackathonStartDateComponents = NSDateComponents()
+        hackathonStartDateComponents.year = 2017
+        hackathonStartDateComponents.month = 1
+        hackathonStartDateComponents.day = 21
+        hackathonStartDateComponents.hour = 0
+        hackathonStartDateComponents.minute = 0
+        hackathonStartDateComponents.second = 0
+        // Default end date to hackathon start date
+        countdownEndDate = NSCalendar.current.date(from: hackathonStartDateComponents as DateComponents)! as NSDate
+        
+        // Human time (GMT): Sat, 22 Jan 2017 12:00:00 GMT
+        let hackathonEndDateComponents = NSDateComponents()
+        hackathonEndDateComponents.year = 2017
+        hackathonEndDateComponents.month = 1
+        hackathonEndDateComponents.day = 22
+        hackathonEndDateComponents.hour = 12
+        hackathonEndDateComponents.minute = 0
+        hackathonEndDateComponents.second = 0
+        hackathonEndDate = NSCalendar.current.date(from: hackathonEndDateComponents as DateComponents)! as NSDate
         
         updateCountdown() // Set the countdown
         
@@ -39,26 +49,28 @@ class CountdownCell: UITableViewCell {
     }
     
     func updateCountdown() {
-        startDate = NSDate() // Time now
+        countdownStartDate = NSDate() // Time now
 
-        let units = Set<Calendar.Component>([.day, .hour, .minute, .second])
-        let difference =  NSCalendar.current.dateComponents(units, from: startDate as Date, to: endDate as Date)
-        daysNumber.text = "\(difference.day!)"
-        hoursNumber.text = "\(difference.hour!)"
-        minutesNumber.text = "\(difference.minute!)"
-        secondsNumber.text = "\(difference.second!)"
+        let units = Set<Calendar.Component>([.hour, .minute, .second])
+        let difference =  NSCalendar.current.dateComponents(units, from: countdownStartDate as Date, to: countdownEndDate as Date)
+        
+        if difference.second! >= 0 {
+            hoursNumber.text = "\(difference.hour!)"
+            minutesNumber.text = "\(difference.minute!)"
+            secondsNumber.text = "\(difference.second!)"
+        } else {
+            // Countdown ended!
+            countdownEndDate = hackathonEndDate
+        }
     }
-    
     
     override func layoutSubviews() {
         UIView.animate(withDuration: 1.0, animations: {
             self.backgroundColor = .clear
             self.contentView.backgroundColor = Theme.backgroundColor
-            self.daysNumber.textColor = Theme.primaryColor
             self.hoursNumber.textColor = Theme.primaryColor
             self.minutesNumber.textColor = Theme.primaryColor
             self.secondsNumber.textColor = Theme.primaryColor
-            self.daysLabel.textColor = Theme.primaryColor
             self.hoursLabel.textColor = Theme.primaryColor
             self.minutesLabel.textColor = Theme.primaryColor
             self.secondsLabel.textColor = Theme.primaryColor

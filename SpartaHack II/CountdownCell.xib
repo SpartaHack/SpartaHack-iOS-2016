@@ -27,79 +27,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phs-DX-AVb">
-                        <rect key="frame" x="15" y="8" width="340" height="71.5"/>
+                        <rect key="frame" x="-5" y="8" width="355" height="68"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnX-pK-Omg">
-                                <rect key="frame" x="0.0" y="0.0" width="79" height="71.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-gl-rmf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
-                                        <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXm-mI-Grf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="jU2-yD-bya"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KXm-mI-Grf" secondAttribute="bottom" id="8ss-cD-ZJT"/>
-                                    <constraint firstItem="KXm-mI-Grf" firstAttribute="leading" secondItem="TnX-pK-Omg" secondAttribute="leading" id="LHP-P4-8mZ"/>
-                                    <constraint firstItem="GUy-gl-rmf" firstAttribute="top" secondItem="TnX-pK-Omg" secondAttribute="top" id="aiz-sr-ybk"/>
-                                    <constraint firstAttribute="trailing" secondItem="GUy-gl-rmf" secondAttribute="trailing" id="dH6-Fx-JW4"/>
-                                    <constraint firstAttribute="bottom" secondItem="GUy-gl-rmf" secondAttribute="bottom" constant="8" id="fnO-o3-RZY"/>
-                                    <constraint firstItem="GUy-gl-rmf" firstAttribute="leading" secondItem="TnX-pK-Omg" secondAttribute="leading" id="rAy-5L-4hZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="KXm-mI-Grf" secondAttribute="trailing" id="x94-Qj-ZBd"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1SC-tG-7Cc">
-                                <rect key="frame" x="87" y="0.0" width="79" height="71.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-Zy-MDe" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
-                                        <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPR-c1-dOW" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="tlG-lf-lb2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Ndk-Zy-MDe" firstAttribute="leading" secondItem="1SC-tG-7Cc" secondAttribute="leading" id="0fk-t2-rUa"/>
-                                    <constraint firstItem="oPR-c1-dOW" firstAttribute="leading" secondItem="1SC-tG-7Cc" secondAttribute="leading" id="Oc9-A0-KLf"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ndk-Zy-MDe" secondAttribute="trailing" id="T9A-5N-rkR"/>
-                                    <constraint firstAttribute="bottom" secondItem="oPR-c1-dOW" secondAttribute="bottom" id="Zii-ON-1lq"/>
-                                    <constraint firstAttribute="trailing" secondItem="oPR-c1-dOW" secondAttribute="trailing" id="vCs-wl-FKA"/>
-                                    <constraint firstItem="Ndk-Zy-MDe" firstAttribute="top" secondItem="1SC-tG-7Cc" secondAttribute="top" id="xct-FI-rjW"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ndk-Zy-MDe" secondAttribute="bottom" constant="8" id="yhW-Mb-spU"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9F2-8N-AAj">
-                                <rect key="frame" x="174" y="0.0" width="79" height="71.5"/>
+                                <rect key="frame" x="126.5" y="0.0" width="110" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCs-hU-R61" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="60"/>
                                         <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ae-wN-0op" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
+                                        <rect key="frame" x="0.0" y="44" width="110" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="he7-ru-O4G"/>
                                         </constraints>
@@ -120,16 +60,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AW9-SW-qv7">
-                                <rect key="frame" x="261" y="0.0" width="79" height="71.5"/>
+                                <rect key="frame" x="244.5" y="0.0" width="110.5" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-Os-AWs" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="63.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110.5" height="60"/>
                                         <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7J-TA-qnm" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="47" width="79" height="24"/>
+                                        <rect key="frame" x="0.0" y="44" width="110.5" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="2CW-lE-tgZ"/>
                                         </constraints>
@@ -149,39 +89,64 @@
                                     <constraint firstAttribute="trailing" secondItem="A7J-TA-qnm" secondAttribute="trailing" id="u6u-e6-rvb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1SC-tG-7Cc">
+                                <rect key="frame" x="8" y="0.0" width="110.5" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-Zy-MDe" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="110.5" height="60"/>
+                                        <fontDescription key="fontDescription" name="Nemoy-Light" family="Nemoy" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPR-c1-dOW" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44" width="110.5" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="tlG-lf-lb2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Ndk-Zy-MDe" firstAttribute="leading" secondItem="1SC-tG-7Cc" secondAttribute="leading" id="0fk-t2-rUa"/>
+                                    <constraint firstItem="oPR-c1-dOW" firstAttribute="leading" secondItem="1SC-tG-7Cc" secondAttribute="leading" id="Oc9-A0-KLf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ndk-Zy-MDe" secondAttribute="trailing" id="T9A-5N-rkR"/>
+                                    <constraint firstAttribute="bottom" secondItem="oPR-c1-dOW" secondAttribute="bottom" id="Zii-ON-1lq"/>
+                                    <constraint firstAttribute="trailing" secondItem="oPR-c1-dOW" secondAttribute="trailing" id="vCs-wl-FKA"/>
+                                    <constraint firstItem="Ndk-Zy-MDe" firstAttribute="top" secondItem="1SC-tG-7Cc" secondAttribute="top" id="xct-FI-rjW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ndk-Zy-MDe" secondAttribute="bottom" constant="8" id="yhW-Mb-spU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TnX-pK-Omg" firstAttribute="top" secondItem="phs-DX-AVb" secondAttribute="top" id="0rV-pA-T3f"/>
                             <constraint firstAttribute="trailing" secondItem="AW9-SW-qv7" secondAttribute="trailing" id="1bR-jC-kcX"/>
                             <constraint firstAttribute="bottom" secondItem="AW9-SW-qv7" secondAttribute="bottom" id="3Tc-Ld-R1L"/>
-                            <constraint firstItem="1SC-tG-7Cc" firstAttribute="leading" secondItem="TnX-pK-Omg" secondAttribute="trailing" constant="8" id="7Za-zF-2Fk"/>
-                            <constraint firstAttribute="bottom" secondItem="TnX-pK-Omg" secondAttribute="bottom" id="J0L-Hy-msV"/>
                             <constraint firstAttribute="bottom" secondItem="1SC-tG-7Cc" secondAttribute="bottom" id="U6t-DL-Cfi"/>
                             <constraint firstItem="9F2-8N-AAj" firstAttribute="leading" secondItem="1SC-tG-7Cc" secondAttribute="trailing" constant="8" id="Y9F-my-YWf"/>
                             <constraint firstItem="AW9-SW-qv7" firstAttribute="leading" secondItem="9F2-8N-AAj" secondAttribute="trailing" constant="8" id="bbT-vm-58k"/>
-                            <constraint firstItem="TnX-pK-Omg" firstAttribute="leading" secondItem="phs-DX-AVb" secondAttribute="leading" id="cbL-OA-VvP"/>
                             <constraint firstItem="9F2-8N-AAj" firstAttribute="top" secondItem="phs-DX-AVb" secondAttribute="top" id="dey-Bc-YBJ"/>
                             <constraint firstItem="AW9-SW-qv7" firstAttribute="top" secondItem="phs-DX-AVb" secondAttribute="top" id="h37-YJ-zD7"/>
-                            <constraint firstItem="1SC-tG-7Cc" firstAttribute="width" secondItem="TnX-pK-Omg" secondAttribute="width" id="i1T-dR-0ab"/>
                             <constraint firstItem="9F2-8N-AAj" firstAttribute="width" secondItem="1SC-tG-7Cc" secondAttribute="width" id="iad-EL-JCw"/>
+                            <constraint firstItem="1SC-tG-7Cc" firstAttribute="leading" secondItem="phs-DX-AVb" secondAttribute="leading" constant="8" id="kS3-oa-siZ"/>
                             <constraint firstItem="AW9-SW-qv7" firstAttribute="width" secondItem="9F2-8N-AAj" secondAttribute="width" id="lZF-xa-Al6"/>
                             <constraint firstAttribute="bottom" secondItem="9F2-8N-AAj" secondAttribute="bottom" id="non-QQ-l13"/>
                             <constraint firstItem="1SC-tG-7Cc" firstAttribute="top" secondItem="phs-DX-AVb" secondAttribute="top" id="wkD-I7-Mkx"/>
+                            <constraint firstAttribute="height" constant="68" id="x2j-ef-5L8"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="phs-DX-AVb" secondAttribute="trailing" id="H4o-WD-zEB"/>
-                    <constraint firstItem="phs-DX-AVb" firstAttribute="top" secondItem="3In-xl-Shk" secondAttribute="top" constant="8" id="fUB-dC-zKE"/>
-                    <constraint firstAttribute="bottom" secondItem="phs-DX-AVb" secondAttribute="bottom" id="hEj-ah-3ub"/>
-                    <constraint firstItem="phs-DX-AVb" firstAttribute="leading" secondItem="3In-xl-Shk" secondAttribute="leading" constant="15" id="tlQ-fw-uX7"/>
+                    <constraint firstItem="phs-DX-AVb" firstAttribute="leading" secondItem="3In-xl-Shk" secondAttribute="leading" constant="-5" id="7ZV-mj-b0G"/>
+                    <constraint firstItem="phs-DX-AVb" firstAttribute="top" secondItem="3In-xl-Shk" secondAttribute="top" constant="8" id="hx3-Vq-KOy"/>
                 </constraints>
             </tableViewCellContentView>
-            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <constraints>
+                <constraint firstItem="phs-DX-AVb" firstAttribute="width" secondItem="Peg-F8-0yZ" secondAttribute="width" id="kt4-wI-eIf"/>
+            </constraints>
             <connections>
-                <outlet property="daysLabel" destination="KXm-mI-Grf" id="vtc-yb-gfv"/>
-                <outlet property="daysNumber" destination="GUy-gl-rmf" id="ome-tH-TQa"/>
                 <outlet property="hoursLabel" destination="oPR-c1-dOW" id="ozK-Nb-pVg"/>
                 <outlet property="hoursNumber" destination="Ndk-Zy-MDe" id="QB6-KS-d4h"/>
                 <outlet property="minutesLabel" destination="9ae-wN-0op" id="VKT-vW-fSJ"/>
