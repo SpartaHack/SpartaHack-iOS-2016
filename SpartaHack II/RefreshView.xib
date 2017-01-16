@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRq-vx-ES9">
-                    <rect key="frame" x="52" y="13" width="271" height="34"/>
+                    <rect key="frame" x="52.5" y="13" width="270.5" height="34"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soz-kP-99e">
                             <rect key="frame" x="8" y="0.0" width="16" height="34"/>
@@ -127,7 +127,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epS-yA-4Wg">
-                            <rect key="frame" x="243" y="0.0" width="20" height="34"/>
+                            <rect key="frame" x="243" y="0.0" width="19.5" height="34"/>
                             <attributedString key="attributedText">
                                 <fragment content="K">
                                     <attributes>
@@ -188,6 +188,7 @@
                 <constraint firstAttribute="trailing" secondItem="Slo-6I-2fG" secondAttribute="trailing" id="ATe-dN-3GJ"/>
                 <constraint firstAttribute="bottom" secondItem="Slo-6I-2fG" secondAttribute="bottom" id="SiP-1J-lbq"/>
                 <constraint firstItem="SRq-vx-ES9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xav-sK-X13"/>
+                <constraint firstItem="Slo-6I-2fG" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="m63-tk-Kc0"/>
                 <constraint firstItem="Slo-6I-2fG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oEd-cc-EzD"/>
                 <constraint firstItem="SRq-vx-ES9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="pF8-b6-clj"/>
             </constraints>

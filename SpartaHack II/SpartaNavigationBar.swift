@@ -159,7 +159,8 @@ class SpartaNavigationBar: UINavigationBar {
                                          y: self.frame.size.height + shift,
                                          width: self.frame.size.width,
                                          height: self.borderSize)
-        Theme.setHorizontalGradient(on: self.bottomBorder, of: .darkGradient)
+        Theme.setHorizontalGradient(on: self.bottomBorder)
+
         
         // Set the user initials under the profile icon
         firstName.frame = profileButton.frame

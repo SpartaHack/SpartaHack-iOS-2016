@@ -152,6 +152,7 @@ class SpartaTableViewController: UIViewController, UITableViewDataSource, UITabl
             self.customRefreshView.backgroundColor = Theme.refreshViewBackgroundColor
             self.customRefreshView.subviews[0].backgroundColor = .clear
             self.customRefreshView.subviews[1].frame.size.height = 1.5 // Interface Builder does not allow decimal constants :O
+            self.customRefreshView.subviews[1].frame.size.width = refreshControl.bounds.size.width // On + size devices the border doesn't stretch the full way. idk
             Theme.setHorizontalGradient(on: self.customRefreshView.subviews[1])
             
             refreshControl.addSubview(self.customRefreshView)
