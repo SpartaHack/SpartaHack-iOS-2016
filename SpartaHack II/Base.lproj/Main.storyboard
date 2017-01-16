@@ -24,7 +24,7 @@
             <objects>
                 <navigationController id="SwN-Wr-NPN" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2016" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K4t-Hy-enW" customClass="SpartaNavigationBar" customModule="SpartaHack_2017" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,13 +74,13 @@
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-uE-63B" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="77" width="343" height="30"/>
                                                 <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to access SpartaHack features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-am-Y1h" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="122" width="343" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -297,7 +297,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHh-bh-bea">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="248"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentorship" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-20-qMf" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentorship" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-20-qMf" customClass="SpartaLabel" customModule="SpartaHack_2017" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="18" width="359" height="30"/>
                                                 <fontDescription key="fontDescription" name="Nemoy-Medium" family="Nemoy" pointSize="21"/>
                                                 <nil key="textColor"/>
@@ -394,7 +394,7 @@
         <!--Check In View Controller-->
         <scene sceneID="lHG-AK-g8D">
             <objects>
-                <viewController storyboardIdentifier="checkin" id="3d4-uZ-DsY" customClass="CheckInViewController" customModule="SpartaHack_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkin" id="3d4-uZ-DsY" customClass="CheckInViewController" customModule="SpartaHack_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b2e-rI-41v"/>
                         <viewControllerLayoutGuide type="bottom" id="zWn-GH-LgP"/>
