@@ -41,8 +41,11 @@ class AwardsViewController: SpartaTableViewController  {
         self.tableView.frame.size.height -= self.segmentedControl.frame.size.height
         self.segmentedControl.frame.origin.y += 90
         
-        let cellNib = UINib(nibName: "SponsorsTableViewCell", bundle: Bundle(for: type(of: self)))
-        self.tableView.register(cellNib, forCellReuseIdentifier: "sponsorCell")
+        let prizeCellNib = UINib(nibName: "PrizeTableViewCell", bundle: Bundle(for: type(of: self)))
+        self.tableView.register(prizeCellNib, forCellReuseIdentifier: "prizeCell")
+        
+        let sponsorCellNib = UINib(nibName: "SponsorsTableViewCell", bundle: Bundle(for: type(of: self)))
+        self.tableView.register(sponsorCellNib, forCellReuseIdentifier: "sponsorCell")
         
     }
     
@@ -100,12 +103,13 @@ class AwardsViewController: SpartaTableViewController  {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (currentView) {
         case "prizes":
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "prizeCell") as! PrizeTableViewCell
             
             let prize = Prizes.sharedInstance.listOfPrizes()[indexPath.row]
             
             cell.titleLabel.text = prize.name
             cell.detailLabel.text = prize.detail
+            cell.sponsorLabel.text = "Sponsored by " + prize.sponsor
             
             return cell
         case "sponsors":
