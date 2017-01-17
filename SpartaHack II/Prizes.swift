@@ -12,6 +12,8 @@ class Prizes: NSObject {
     // holds the collection of prizes
     private var spartaPrizes: [Prize] = []
     
+    private var sponsorPrizes: [Prize] = []
+    
     // Singleton for prizes collection
     static let sharedInstance = Prizes()
     
@@ -31,13 +33,28 @@ class Prizes: NSObject {
             }
         }
         
+        for obj in sponsorPrizes {
+            if obj.id == prize.id {
+                valid = false
+            }
+        }
+        
         if valid {
-            spartaPrizes.append(prize)
+            // if able to get the sponsor name it's all good.
+            if prize.getPrizeSponsor() != nil {
+                sponsorPrizes.append(prize)
+            } else {
+                spartaPrizes.append(prize)
+            }
         }
         
     }
     
     func listOfPrizes () -> [Prize] {
         return spartaPrizes
+    }
+    
+    func listOfSponsorPrizes () -> [Prize] {
+        return sponsorPrizes
     }
 }

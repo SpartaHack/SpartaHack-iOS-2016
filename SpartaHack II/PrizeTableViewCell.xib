@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prizeCell" rowHeight="136" id="uWF-Ds-edp" customClass="PrizeTableViewCell" customModule="SpartaHack_2016" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="136"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uWF-Ds-edp" id="EWo-Yn-Kfv">
+                <rect key="frame" x="0.0" y="0.0" width="413" height="135"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vd4-Ka-Kwa" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                        <rect key="frame" x="31" y="18" width="372" height="20"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="752" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMB-KI-RCB" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                        <rect key="frame" x="31" y="46" width="372" height="27"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Detail">
+                                <attributes>
+                                    <font key="NSFont" size="15" name="Lato-Light"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdH-HW-MTX">
+                        <rect key="frame" x="15" y="18" width="1" height="110"/>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="1" id="To0-cz-Jkh"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="mPP-JA-vxU"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="753" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFX-Id-aLA" customClass="SpartaLabel" customModule="SpartaHack_2016" customModuleProvider="target">
+                        <rect key="frame" x="31" y="81" width="364" height="29"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Sponsored by ">
+                                <attributes>
+                                    <font key="NSFont" size="12" name="Lato-Light"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="vd4-Ka-Kwa" secondAttribute="trailing" constant="10" id="4wS-SM-qdA"/>
+                    <constraint firstItem="HMB-KI-RCB" firstAttribute="leading" secondItem="zdH-HW-MTX" secondAttribute="trailing" constant="15" id="73e-VR-Can"/>
+                    <constraint firstItem="vd4-Ka-Kwa" firstAttribute="leading" secondItem="zdH-HW-MTX" secondAttribute="trailing" constant="15" id="99d-KB-V4x"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="YFX-Id-aLA" secondAttribute="bottom" constant="18" id="DTw-8k-RcI"/>
+                    <constraint firstItem="YFX-Id-aLA" firstAttribute="leading" secondItem="zdH-HW-MTX" secondAttribute="trailing" constant="15" id="FbP-0x-kg7"/>
+                    <constraint firstItem="zdH-HW-MTX" firstAttribute="bottom" secondItem="EWo-Yn-Kfv" secondAttribute="bottomMargin" id="Pvk-hn-ECB"/>
+                    <constraint firstItem="HMB-KI-RCB" firstAttribute="top" secondItem="vd4-Ka-Kwa" secondAttribute="bottom" constant="8" id="TIf-sV-65R"/>
+                    <constraint firstItem="YFX-Id-aLA" firstAttribute="top" secondItem="HMB-KI-RCB" secondAttribute="bottom" constant="8" id="bhG-p5-wKm"/>
+                    <constraint firstItem="zdH-HW-MTX" firstAttribute="leading" secondItem="EWo-Yn-Kfv" secondAttribute="leading" constant="15" id="dmE-8J-U1s"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YFX-Id-aLA" secondAttribute="trailing" constant="10" id="hzq-lW-L4X"/>
+                    <constraint firstItem="zdH-HW-MTX" firstAttribute="top" secondItem="EWo-Yn-Kfv" secondAttribute="topMargin" constant="10" id="smc-UC-E0h"/>
+                    <constraint firstAttribute="trailing" secondItem="HMB-KI-RCB" secondAttribute="trailing" constant="10" id="tQv-gT-tbD"/>
+                    <constraint firstItem="vd4-Ka-Kwa" firstAttribute="top" secondItem="EWo-Yn-Kfv" secondAttribute="top" constant="18" id="yjv-Da-ZKj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="barView" destination="zdH-HW-MTX" id="0uq-sY-0q6"/>
+                <outlet property="detailLabel" destination="HMB-KI-RCB" id="w36-ld-ila"/>
+                <outlet property="sponsorLabel" destination="YFX-Id-aLA" id="vL3-9W-QXs"/>
+                <outlet property="titleLabel" destination="vd4-Ka-Kwa" id="UbA-iF-lks"/>
+            </connections>
+            <point key="canvasLocation" x="12.5" y="78"/>
+        </tableViewCell>
+    </objects>
+</document>
