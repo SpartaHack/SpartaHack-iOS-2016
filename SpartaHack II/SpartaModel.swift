@@ -426,6 +426,10 @@ class SpartaModel: NSObject {
                         }
                         prize.detail = detail
                         
+                        if let rank = obj["priority"] as? Int {
+                            prize.rank = rank
+                        }
+                        
                         if let sponsor = obj["sponsor"] as? NSDictionary {
                             prize.sponsor = sponsor
                         }

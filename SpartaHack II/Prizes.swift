@@ -51,10 +51,14 @@ class Prizes: NSObject {
     }
     
     func listOfPrizes () -> [Prize] {
+        let rankSortDescriptor = NSSortDescriptor(key: "rank", ascending: true)
+        spartaPrizes = (spartaPrizes as NSArray).sortedArray(using: [rankSortDescriptor]) as! Array
         return spartaPrizes
     }
     
     func listOfSponsorPrizes () -> [Prize] {
+        let rankSortDescriptor = NSSortDescriptor(key: "rank", ascending: true)
+        sponsorPrizes = (sponsorPrizes as NSArray).sortedArray(using: [rankSortDescriptor]) as! Array
         return sponsorPrizes
     }
 }
