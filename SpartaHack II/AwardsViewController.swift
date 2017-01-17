@@ -104,16 +104,16 @@ class AwardsViewController: SpartaTableViewController  {
         switch (currentView) {
         case "prizes":
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "prizeCell") as! PrizeTableViewCell
-            
-            let prize = Prizes.sharedInstance.listOfPrizes()[indexPath.row]
-            
-            cell.titleLabel.text = prize.name
-            cell.detailLabel.text = prize.detail
-            
             switch (indexPath.section) {
             case 0:
+                let prize = Prizes.sharedInstance.listOfPrizes()[indexPath.row]
+                cell.titleLabel.text = prize.name
+                cell.detailLabel.text = prize.detail
                 cell.sponsorLabel.text = ""
             default:
+                let prize = Prizes.sharedInstance.listOfSponsorPrizes()[indexPath.row]
+                cell.titleLabel.text = prize.name
+                cell.detailLabel.text = prize.detail
                 if let sponsorName =  prize.getPrizeSponsor() {
                     cell.sponsorLabel.text = "Sponsored by " + sponsorName
                 }
