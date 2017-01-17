@@ -103,22 +103,25 @@ class AwardsViewController: SpartaTableViewController  {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (currentView) {
         case "prizes":
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "prizeCell") as! PrizeTableViewCell
             switch (indexPath.section) {
+            // SpartaHack Prizes
             case 0:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "spartaCell") as! SpartaTableViewCell
                 let prize = Prizes.sharedInstance.listOfPrizes()[indexPath.row]
                 cell.titleLabel.text = prize.name
                 cell.detailLabel.text = prize.detail
-                cell.sponsorLabel.text = ""
+                return cell
+            // Sponsored Prizes
             default:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "prizeCell") as! PrizeTableViewCell
                 let prize = Prizes.sharedInstance.listOfSponsorPrizes()[indexPath.row]
                 cell.titleLabel.text = prize.name
                 cell.detailLabel.text = prize.detail
                 if let sponsorName =  prize.getPrizeSponsor() {
                     cell.sponsorLabel.text = "Sponsored by " + sponsorName
                 }
+                return cell
             }
-            return cell
         case "sponsors":
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "sponsorCell") as! SponsorsTableViewCell
             
