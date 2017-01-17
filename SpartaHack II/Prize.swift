@@ -12,7 +12,7 @@ import Foundation
 class Prize: NSObject {
     var id: Int! = nil
     var name: String! = nil
-    var sponsor: String! = nil
+    var sponsor: NSDictionary? = nil
     var detail: String! = nil
     
     override init() {
@@ -27,5 +27,12 @@ class Prize: NSObject {
                 "\n detail:\(detail!)"
         
         return prize
+    }
+    
+    func getPrizeSponsor () -> String? {
+        if (sponsor != nil) {
+            return sponsor?["name"] as? String
+        }
+        return nil
     }
 }

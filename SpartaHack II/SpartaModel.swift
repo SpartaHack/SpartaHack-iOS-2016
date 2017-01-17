@@ -404,35 +404,37 @@ class SpartaModel: NSObject {
             // get our prize data
             
             if let result = response.result.value {
-                if let json = result as? NSDictionary {
-                    if let objArray = json["prizes"] as? [NSDictionary] {
-                        // loop through our valid json dictionary and create announcement objects that will be added to announcements
-                        for obj in objArray {
-                            
-                            // create announcement objects
-                            let prize = Prize()
-                            
-                            guard let id = obj["id"] as? Int else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            prize.id = id
-                            
-                            // ToDo: Chris, can you get the Sponsors hooked up with the Prizes?                            
-                            
-                            guard let name = obj["name"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            prize.name = name
-                            
-                            guard let detail = obj["description"] as? String else {
-                                fatalError("ToDo: gracefully handle error")
-                            }
-                            prize.detail = detail
-                            
-                            Prizes.sharedInstance.addPrize(prize: prize)
+                if let json = result as? [NSDictionary] {
+                    // loop through our valid json dictionary and create announcement objects that will be added to announcements
+                    for obj in json {
+                        
+                        // create announcement objects
+                        let prize = Prize()
+                        
+                        guard let id = obj["id"] as? Int else {
+                            fatalError("ToDo: gracefully handle error")
                         }
-                        completionHandler(true)
+                        prize.id = id
+                        
+                        // ToDo: Chris, can you get the Sponsors hooked up with the Prizes?                            
+                        
+                        guard let name = obj["name"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        prize.name = name
+                        
+                        guard let detail = obj["description"] as? String else {
+                            fatalError("ToDo: gracefully handle error")
+                        }
+                        prize.detail = detail
+                        
+                        if let sponsor = obj["sponsor"] as? NSDictionary {
+                            prize.sponsor = sponsor
+                        }
+                        
+                        Prizes.sharedInstance.addPrize(prize: prize)
                     }
+                    completionHandler(true)
                 }
             }
         }
