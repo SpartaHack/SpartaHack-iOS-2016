@@ -14,7 +14,7 @@ class Prize: NSObject {
     var name: String! = nil
     var sponsor: NSDictionary? = nil
     var detail: String! = nil
-    var rank: Int! = nil
+    var rank: NSNumber! = nil
     
     override init() {
         super.init()

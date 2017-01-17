@@ -11,7 +11,7 @@ import Alamofire
 
 
 /// URL Constants
-let baseURL = "https://d.api.spartahack.com/"
+let baseURL = "https://api.spartahack.com/"
 
 class SpartaModel: NSObject {
     
@@ -426,7 +426,7 @@ class SpartaModel: NSObject {
                         }
                         prize.detail = detail
                         
-                        if let rank = obj["priority"] as? Int {
+                        if let rank = obj["priority"] as? NSNumber {
                             prize.rank = rank
                         }
                         
