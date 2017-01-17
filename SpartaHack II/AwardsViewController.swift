@@ -109,8 +109,15 @@ class AwardsViewController: SpartaTableViewController  {
             
             cell.titleLabel.text = prize.name
             cell.detailLabel.text = prize.detail
-            cell.sponsorLabel.text = "Sponsored by " + prize.sponsor
             
+            switch (indexPath.section) {
+            case 0:
+                cell.sponsorLabel.text = ""
+            default:
+                if let sponsorName =  prize.getPrizeSponsor() {
+                    cell.sponsorLabel.text = "Sponsored by " + sponsorName
+                }
+            }
             return cell
         case "sponsors":
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "sponsorCell") as! SponsorsTableViewCell
@@ -130,34 +137,18 @@ class AwardsViewController: SpartaTableViewController  {
         
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch (currentView) {
-        case "prizes":
-            switch section{
-            case 0:
-                return "SpartaHack Prizes"
-            default:
-                return "Sponsor Prizes"
-            }
-        case "sponsors":
-            switch section{
-            case 0:
-                return "SpartaHack Prizes"
-            default:
-                return "Sponsor Prizes"
-            }
-        default:
-            return "Not implemented"
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch (currentView) {
         case "prizes":
             let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SpartaTableViewHeaderCell
             headerCell.separatorInset = .zero
             let sectionTitle: String
-            sectionTitle = "Prizes"
+            switch (section) {
+            case 0:
+                sectionTitle = "SpartaHack Prizes"
+            default:
+                sectionTitle = "Sponsored Prizes"
+            }
             
             headerCell.titleLabel.text = sectionTitle
             return headerCell
@@ -182,7 +173,12 @@ class AwardsViewController: SpartaTableViewController  {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (currentView) {
         case "prizes":
-            return Prizes.sharedInstance.listOfPrizes().count
+            switch (section) {
+            case 0:
+                return Prizes.sharedInstance.listOfPrizes().count
+            default:
+                return Prizes.sharedInstance.listOfSponsorPrizes().count
+            }
         case "sponsors":
             return Sponsors.sharedInstance.listOfSponsors().count
         default:
@@ -191,8 +187,12 @@ class AwardsViewController: SpartaTableViewController  {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 1
+        switch (currentView) {
+        case "prizes":
+            return 2
+        default:
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
