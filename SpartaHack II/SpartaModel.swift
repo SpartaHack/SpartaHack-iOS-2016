@@ -203,7 +203,7 @@ class SpartaModel: NSObject {
                             }
                             event.location = location
                             
-                            guard let updatedString = obj["updatedAt"] as? String,
+                            guard let updatedString = obj["updated_at"] as? String,
                                 let updatedAt = self.formatter.date(from: updatedString) as NSDate? else {
                                     fatalError("ToDo: gracefully handle error")
                             }
